@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'userType',
     ];
 
     /**
@@ -50,9 +51,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // protected $with = [
-    //     'role'
-    // ];
+ 
 
     /**
      * The accessors to append to the model's array form.
