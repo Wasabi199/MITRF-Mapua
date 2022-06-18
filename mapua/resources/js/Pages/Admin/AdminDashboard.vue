@@ -13,7 +13,7 @@
                     </a>
                     <!-- navigation -->
                     <nav class="mt-16">
-                        <a class="flex py-2 items-center m-6 max-w-screen-xl hover:bg-amber-400 active:bg-amber-500 focus:outline-none focus:ring focus:ring-amber-200 rounded-md pl-7"
+                        <a class="flex py-2 items-center m-6 max-w-screen-xl hover:bg-amber-500 focus:bg-amber-600 focus:outline-none focus:ring focus:ring-amber-400 rounded-md pl-7"
                            href="#">
                             <svg class="h-6 w-7 items-baseline" fill="none" stroke="white" stroke-width="2"
                                  viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +24,7 @@
                             </svg>
                             <span class="text-white font-lato text-md font-semibold">Dashboard</span>
                         </a>
-                        <a class="flex py-2 items-center m-6 max-w-screen-xl hover:bg-amber-400 active:bg-amber-500 focus:outline-none focus:ring focus:ring-amber-200 rounded-md pl-7"
+                        <a class="flex py-2 items-center m-6 max-w-screen-xl hover:bg-amber-500 focus:bg-amber-600 focus:outline-none focus:ring focus:ring-amber-400 rounded-md pl-7"
                            href="#">
                             <svg class="h-6 w-7 items-baseline" fill="none" stroke="white" stroke-width="2"
                                  viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +35,7 @@
                             </svg>
                             <span class="text-white font-lato text-md font-semibold">Members</span>
                         </a>
-                        <a class="flex py-2 items-center m-6 max-w-screen-xl hover:bg-amber-400 active:bg-amber-500 focus:outline-none focus:ring focus:ring-amber-200 rounded-md pl-7"
+                        <a class="flex py-2 items-center m-6 max-w-screen-xl hover:bg-amber-500 focus:bg-amber-600 focus:outline-none focus:ring focus:ring-amber-400 rounded-md pl-7"
                            href="#">
                             <svg class="h-6 w-7 items-baseline" fill="none" stroke="white" stroke-width="2"
                                  viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +45,7 @@
                             </svg>
                             <span class="text-white font-lato text-md font-semibold">Applications</span>
                         </a>
-                        <a class="flex py-2 items-center m-6 max-w-screen-xl hover:bg-amber-400 active:bg-amber-500 focus:outline-none focus:ring focus:ring-amber-200 rounded-md pl-7"
+                        <a class="flex py-2 items-center m-6 max-w-screen-xl hover:bg-amber-500 focus:bg-amber-600 focus:outline-none focus:ring focus:ring-amber-400 rounded-md pl-7"
                            href="#">
                             <svg class="h-6 w-7 items-baseline" fill="none" stroke="white" stroke-width="2"
                                  viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
