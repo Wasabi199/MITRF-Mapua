@@ -52,10 +52,15 @@ const logout = () => {
                                 <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </JetNavLink>
+                                <JetNavLink :href="route('users')" :active="route().current('users')">
+                                    Users
+                                </JetNavLink>
                             </div>
+                         
+                           
                         </div>
 
-                        <div class="hidden sm:flex sm:items-center sm:ml-6">
+                        <div class="hidden sm:flex sm:items-center  sm:ml-6">
                             <div class="ml-3 relative">
                                 <!-- Teams Dropdown -->
                                 <JetDropdown v-if="$page.props.jetstream.hasTeamFeatures" align="right" width="60">

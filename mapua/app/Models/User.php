@@ -50,6 +50,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // protected $with = [
+    //     'role'
+    // ];
+
     /**
      * The accessors to append to the model's array form.
      *
@@ -58,4 +62,8 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function adminReg(){
+        return $this->hasOne(Admin::class);
+    }
 }
