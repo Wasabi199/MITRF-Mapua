@@ -6,21 +6,21 @@
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200">
                             <tbody class="bg-white divide-y divide-gray-200">
-                                <tr v-for="user in users.data" :key="user.id">
+                                <tr v-for="users in name" v-bind:key="users.id">
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div>
                                             <div class="text-sm font-medium text-gray-900">
-                                                {{ user.name }}
+                                                {{ users.name }}
                                             </div>
                                         </div>
                                     </div>
                                 </td>
 
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <Link :href="`/users/${user.id}/edit`" class="text-indigo-600 hover:text-indigo-900">
+                                    <!-- <Link :href="`/users/${user.id}/edit`" class="text-indigo-600 hover:text-indigo-900"> -->
                                         Edit
-                                    </Link>
+                                    <!-- </Link> -->
                                 </td>
                             </tr>
                             </tbody>
@@ -32,12 +32,14 @@
     </template>
 
 
-<script setup>
-defineProps({
-    users: Object,
-})
+<script>
+export default {
+    setup() {
+        
+    },
+    props:{
+        name:Object,
+
+    },
+}
 </script>
-
-<style scoped>
-
-</style>
