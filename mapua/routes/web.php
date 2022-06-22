@@ -31,6 +31,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
    Route::get('/users',[AdminController::class, 'users'])->name('users');
    Route::get('/user/register',[AdminController::class,'userRegister'])->name('registerUser');
    Route::get('/user/{id}',[AdminController::class,'userProfile'])->name('userProfile');
+   Route::delete('/user/delete',[AdminController::class,'userDelete'])->name('userDelete');
+ 
 });
 
 // Route::get('/', function () {

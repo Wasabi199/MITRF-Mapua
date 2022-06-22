@@ -6,17 +6,28 @@ use App\Models\{User, AddressInformation, PersonalInformation};
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Request as QueryRequest;
+use App\Http\Requests\UserDeleteRequest as deleteRequest;
 
 class AdminController extends Controller
 {
     //
-    public function users(QueryRequest $request){
+    public function users(QueryRequest $query){
         
-       
-        $user = User::with('adminReg')->orderBy('name')->get();
+        $user = User::
+        with('adminReg')->
+        orderBy('name')
+        // ->get()
+        ->filter($query::only('search'))
+        // ->limit(5)
+        // ->paginate(5)
+        // ->appends($query::only('search'))
+        ->get()
+        ;
+        $filters = $query::all('search');
         return Inertia::render('Admin/Users',[
-
-            'users' => $user
+            
+            'users' => $user,
+            'filters' =>$filters,
         ]);
     }
     public function userRegister(){
@@ -29,5 +40,12 @@ class AdminController extends Controller
         return Inertia::render('Admin/UserProfile',[
             'user' => $userProfile
         ]);
+    }
+    public function userDelete(deleteRequest $request){
+        $user_to_delete = User::findOrFail($request->validated()['id']);
+        $user_to_delete->adminReg()->delete();
+        $user_to_delete->delete();
+        return back()->with('Success', 'User Deleted!');
+     
     }
 }
