@@ -47,9 +47,10 @@
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200">
+                        
                             <tbody class="bg-white divide-y divide-gray-200">
 
-                                <tr v-for="user in users" v-bind:key="user.id">
+                                <tr v-for="user in users.data" v-bind:key="user.id">
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div>
@@ -121,8 +122,8 @@
                                     </td>
                                 </tr>
                                 </tbody>
-                                <pagination/>
                             </table>
+                            <pagination :links="users.links"/>
             <Modal :show="showDeleteModal" :closeable="true" @close="showDeleteModal = !showDeleteModal">
                 <div class="p-5">
                     <div class="flex justify-between text-xl font-bold text-gray-900 my-3">
@@ -170,10 +171,9 @@
 
 <script>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import pagination from '@/Components/Pagination.vue';
+import Pagination from '@/Components/Pagination.vue';
 import JetApplicationLogo from '@/Jetstream/ApplicationLogo.vue';
 import {Link} from '@inertiajs/inertia-vue3';
-// import Table from "@/Components/Table";
 import Modal from '@/Jetstream/Modal';
 import {pickBy, throttle} from 'lodash';
 
@@ -182,16 +182,16 @@ import {pickBy, throttle} from 'lodash';
 export default {
     components: {
         AppLayout,
-        pagination,
+        Pagination,
         JetApplicationLogo,
-        // Table,
         Link,
         Modal
 
     },
     props: {
-        users: Object,
         filters: Object,
+        users: Object,
+       
     },
 
 

@@ -13,20 +13,18 @@ class AdminController extends Controller
     //
     public function users(QueryRequest $query){
         
-        $user = User::
-        with('adminReg')->
-        orderBy('name')
-        // ->get()
+        $users = User::with('adminReg')
+        ->orderBy('name')
         ->filter($query::only('search'))
-        // ->limit(5)
-        // ->paginate(5)
-        // ->appends($query::only('search'))
-        ->get()
+        ->limit(5)
+        ->paginate(5)
+        ->appends($query::only('search'))
+        // ->get()
         ;
         $filters = $query::all('search');
         return Inertia::render('Admin/Users',[
             
-            'users' => $user,
+            'users' => $users,
             'filters' =>$filters,
         ]);
     }
