@@ -59,7 +59,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </td>
                                          <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
@@ -69,7 +69,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </td>
                                          <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
@@ -79,7 +79,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </td>
                                          <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
@@ -89,7 +89,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                         <!-- edit user info -->
@@ -107,7 +107,7 @@
                                             </Link>
                                             <!-- delete user -->
 
-                                           
+
                                                 <svg @click="deleteUser(user)" class="h-6 w-6" fill="none" stroke="currentColor"
                                                      stroke-width="2" viewBox="0 0 24 24"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -116,7 +116,7 @@
                                                         stroke-linecap="round"
                                                         stroke-linejoin="round"/>
                                                 </svg>
-                                      
+
                                         </div>
 
                                     </td>
@@ -164,6 +164,8 @@
                     </div>
                 </div>
             </div>
+
+
         </div>
 
     </AppLayout>
@@ -176,6 +178,9 @@ import JetApplicationLogo from '@/Jetstream/ApplicationLogo.vue';
 import {Link} from '@inertiajs/inertia-vue3';
 import Modal from '@/Jetstream/Modal';
 import {pickBy, throttle} from 'lodash';
+//pagination
+// import Pagination from "../../Shared/Pagination";
+
 
 
 
@@ -210,16 +215,16 @@ export default {
             deleteForm: this.$inertia.form({
                 id: Number,
             }),
-         
-            
+
+
         }
 
     },
      watch: {
         form: {
             deep: true,
-            handler: 
-                throttle( 
+            handler:
+                throttle(
                     function (){
                         this.$inertia.get(route('users'), pickBy(this.form), {preserveState: true, preserveScroll:true,})
                     },

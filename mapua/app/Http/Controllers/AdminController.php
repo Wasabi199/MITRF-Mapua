@@ -44,6 +44,6 @@ class AdminController extends Controller
         $user_to_delete->adminReg()->delete();
         $user_to_delete->delete();
         return back()->with('Success', 'User Deleted!');
-     
+
     }
 }

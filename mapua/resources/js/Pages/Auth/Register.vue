@@ -28,12 +28,15 @@ const submit = () => {
 
     <JetAuthenticationCard>
         <template #logo>
-            <JetAuthenticationCardLogo />
+            <img src="/images/mu_logo.png" alt="mu logo" class="h-40 w-45">
         </template>
 
         <JetValidationErrors class="mb-4" />
 
         <form @submit.prevent="submit">
+            <div class="mt-2 text-lg font-extrabold">
+                Personal Information
+            </div>
             <div>
                 <JetLabel for="name" value="Name" />
                 <JetInput
@@ -45,6 +48,100 @@ const submit = () => {
                     autofocus
                     autocomplete="name"
                 />
+            </div>
+            <div class="mt-4">
+                <JetLabel for="date of birth" value="Date of Birth" />
+                <JetInput
+                    id="date of birth"
+                    v-model="form.date"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                />
+            </div>
+
+            <div class="mt-4">
+                <JetLabel for="date of employment" value="Date of Employment" />
+                <JetInput
+                    id="date of employment"
+                    v-model="form.date"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                />
+            </div>
+
+
+            <div class="mt-4">
+                <JetLabel for="date of membership" value="Date of Membership" />
+                <JetInput
+                    id="date of membership"
+                    v-model="form.date"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                />
+            </div>
+            <div class="mt-4">
+                <JetLabel for="number" value="Mobile Number" />
+                <JetInput
+                    id="number"
+                    v-model="form.number"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                />
+            </div>
+            <div class="mt-2 text-lg font-extrabold">
+                Address Information
+            </div>
+
+            <div class="mt-4">
+                <JetLabel for="region" value="Region" />
+                <JetInput
+                    id="region"
+                    v-model="form.region"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                />
+            </div>
+
+            <div class="mt-4">
+                <JetLabel for="province" value="Province" />
+                <JetInput
+                    id="province"
+                    v-model="form.region"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                />
+            </div>
+
+            <div class="mt-4">
+                <JetLabel for="municipality" value="Municipality" />
+                <JetInput
+                    id="municipality"
+                    v-model="form.region"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                />
+            </div>
+
+            <div class="mt-4">
+                <JetLabel for="barangay" value="Barangay" />
+                <JetInput
+                    id="barangay"
+                    v-model="form.region"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                />
+            </div>
+
+            <div class="mt-2 text-lg font-extrabold">
+                Account Information
             </div>
 
             <div class="mt-4">
@@ -82,6 +179,17 @@ const submit = () => {
                 />
             </div>
 
+            <div class="mt-4">
+                <JetLabel for="role" value="Role" />
+                <JetInput
+                    id="role"
+                    v-model="form.role"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                />
+            </div>
+
             <div v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature" class="mt-4">
                 <JetLabel for="terms">
                     <div class="flex items-center">
@@ -95,10 +203,6 @@ const submit = () => {
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Already registered?
-                </Link>
-
                 <JetButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Register
                 </JetButton>
