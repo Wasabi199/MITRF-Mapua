@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -25,15 +26,26 @@ Route::get('/', function () {
    ]);
 });
 
-Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
-   Route::get('/dashboard', function () {return Inertia::render('Dashboard');})->name('dashboard');
-   
-   Route::get('/users',[AdminController::class, 'users'])->name('users');
-   Route::get('/user/register',[AdminController::class,'userRegister'])->name('registerUser');
-   Route::get('/user/{id}',[AdminController::class,'userProfile'])->name('userProfile');
-   Route::delete('/user/delete',[AdminController::class,'userDelete'])->name('userDelete');
- 
+Route::middleware(['auth:sanctum'])->get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+
+Route::prefix('Admin')->middleware(['auth:sanctum','Admin'])->group(function(){
+      Route::get('/users',[AdminController::class, 'users'])->name('users');
+      Route::get('/user/register',[AdminController::class,'userRegister'])->name('registerUser');
+      Route::get('/user/{id}',[AdminController::class,'userProfile'])->name('userProfile');
+      Route::delete('/user/delete',[AdminController::class,'userDelete'])->name('userDelete');
+      Route::post('/user/register',[AdminController::class, 'userRegisterSubmit'])->name('registerUserSubmit');
+
 });
+
+// Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
+//    Route::get('/dashboard', function () {return Inertia::render('Dashboard');})->name('dashboard');
+   
+//    Route::get('/users',[AdminController::class, 'users'])->name('users');
+//    Route::get('/user/register',[AdminController::class,'userRegister'])->name('registerUser');
+//    Route::get('/user/{id}',[AdminController::class,'userProfile'])->name('userProfile');
+//    Route::delete('/user/delete',[AdminController::class,'userDelete'])->name('userDelete');
+//    Route::post('/user/register',[AdminController::class, 'userRegisterSubmit'])->name('registerUserSubmit');
+// });
 
 // Route::get('/', function () {
 //    return Inertia::render('Admin/AdminDashboard');

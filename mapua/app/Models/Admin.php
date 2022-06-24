@@ -13,11 +13,18 @@ class Admin extends Model
         'middle_name',
         'last_name',
         'mobile_number',
-        'address',
+        'birth_date',
+
+        'region',
+        'province',
+        'municipality',
+        'barangay',
+        'current_address',
+
         'department',
         'salary',
         'membership',
-        'imployment',
+        'employment',
     ];
 
     public function user(){

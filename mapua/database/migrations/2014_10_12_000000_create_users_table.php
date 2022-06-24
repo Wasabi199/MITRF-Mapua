@@ -27,6 +27,7 @@ return new class extends Migration
             $table->integer('userType')->default(1);
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

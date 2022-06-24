@@ -19,7 +19,11 @@
         <template #logo>
             <img src="/images/mu_logo.png" alt="mu logo" class="h-40 w-45">
         </template>
-
+        <div class="text-rose-600">
+                    <ul>
+                        <li v-for="error in $page.props.errors" v-bind:key="error">{{error}}</li>
+                    </ul>
+                </div>
         <JetValidationErrors class="mb-4" />
 
         <form @submit.prevent="submit">
@@ -33,19 +37,20 @@
                         <JetLabel for="firstname" value="First Name" />
                         <JetInput
                             id="name"
-
+                            v-model="form.first_name"
                             type="text"
                             class="mt-1 block w-full"
                             required
                             autofocus
                             autocomplete="firstname"
+                            
                         />
                     </div>
                     <div >
                         <JetLabel for="middlename" value="Middle Name" />
                         <JetInput
                             id="middlename"
-
+                            v-model="form.middle_name"
                             type="text"
                             class="mt-1 block w-full"
                             required
@@ -53,7 +58,7 @@
                             autocomplete="middle"
                         />
                     </div>
-
+<!-- 
                 <div >
                     <JetLabel for="suffix" value="Suffix" />
                     <JetInput
@@ -65,14 +70,14 @@
                         autofocus
 
                     />
-                </div>
+                </div> -->
 
                 </div>
                 <div >
                     <JetLabel for="lastname" value="Last Name" />
                     <JetInput
                         id="lastname"
-
+                        v-model="form.last_name"
                         type="text"
                         class="mt-1 block w-full"
                         required
@@ -86,7 +91,7 @@
                         <JetLabel for="date of birth" value="Date of Birth" />
                         <JetInput
                             id="date of birth"
-
+                            v-model="form.birth_date"
                             type="date"
                             class="mt-1 block w-full"
                             required
@@ -97,7 +102,7 @@
                         <JetLabel for="employment" value="Date of Employment" />
                         <JetInput
                             id="employment"
-
+                            v-model="form.employment"
                             type="date"
                             class="mt-1 block w-full"
                             required
@@ -113,7 +118,7 @@
                         <JetLabel for="date of membership" value="Date of Membership" />
                         <JetInput
                             id="date of membership"
-
+                            v-model="form.membership"
                             type="date"
                             class="mt-1 block w-full"
                             required
@@ -121,10 +126,10 @@
                     </div>
 
                     <div class="mt-4">
-                        <JetLabel for="number" value="Contact Number" />
+                        <JetLabel for="number" value="Mobile Number" />
                         <JetInput
                             id="number"
-
+                            v-model="form.mobile_number"
                             type="text"
                             class="mt-1 block w-full"
                             required
@@ -133,29 +138,34 @@
 
                 </div>
 
-                <div class="flex justify-between">
+                <div class="flex ">
                     <div class="mt-4">
-                        <JetLabel for="department" value="Department" />
-                        <JetInput
-                            id="department"
-
-                            type="text"
-                            class="mt-1 block w-full"
-                            required
-                        />
+                <jet-label for="department" value="Department" />
+                            <select required v-model="form.department" class="mt-1 block w-full dark  text-gray-900 border-gray-300   focus:ring-opacity-50 rounded-md shadow-sm"  >
+                                <option value="placeholder" disabled >Select Department</option>
+                                <option v-for="department in departments" v-bind:key="department" :value="department">{{department}}</option>
+                            </select>
                     </div>
 
+                
+                </div>
                     <div class="mt-4">
                         <JetLabel for="salary" value="Salary" />
                         <JetInput
                             id="salary"
-
+                            v-model="form.salary"
                             type="text"
                             class="mt-1 block w-full"
                             required
                         />
                     </div>
-                </div>
+                     <div class="mt-4">
+                        <jet-label for="role" value="Role" />
+                            <select required v-model="form.account_information.role" class="mt-1 block w-full dark  text-gray-900 border-gray-300   focus:ring-opacity-50 rounded-md shadow-sm"  >
+                                <option value="placeholder" disabled >Select Role</option>
+                                <option v-for="role in roles" v-bind:key="role" :value="role">{{role}}</option>
+                            </select>
+                    </div>
 
 
                 <div class="mt-2 text-lg font-extrabold">
@@ -167,10 +177,11 @@
                         <JetLabel for="region" value="Region" />
                         <JetInput
                             id="region"
-
+                            v-model="form.address_information.region"
+                            required
                             type="text"
                             class="mt-1 block w-full"
-                            required
+                            
                         />
                     </div>
 
@@ -178,10 +189,11 @@
                         <JetLabel for="province" value="Province" />
                         <JetInput
                             id="province"
-
+                            v-model="form.address_information.province"
+                            required
                             type="text"
                             class="mt-1 block w-full"
-                            required
+                            
                         />
                     </div>
                 </div>
@@ -191,10 +203,11 @@
                         <JetLabel for="municipality" value="Municipality" />
                         <JetInput
                             id="municipality"
-
+                            v-model="form.address_information.municipality"
+                            required
                             type="text"
                             class="mt-1 block w-full"
-                            required
+                            
                         />
                     </div>
 
@@ -202,10 +215,11 @@
                         <JetLabel for="barangay" value="Barangay" />
                         <JetInput
                             id="barangay"
-
+                            v-model="form.address_information.barangay"
+                            required
                             type="text"
                             class="mt-1 block w-full"
-                            required
+                            
                         />
                     </div>
                 </div>
@@ -213,10 +227,11 @@
                     <JetLabel for="currentaddress" value="Current Address" />
                     <JetInput
                         id="currentaddress"
-
+                        v-model="form.address_information.current_address"
+                        required
                         type="text"
                         class="mt-1 block w-full"
-                        required
+                        
                     />
                 </div>
 
@@ -228,7 +243,7 @@
                     <JetLabel for="email" value="Email" />
                     <JetInput
                         id="email"
-
+                        v-model="form.account_information.email"
                         type="email"
                         class="mt-1 block w-full"
                         required
@@ -240,7 +255,7 @@
                         <JetLabel for="password" value="Password" />
                         <JetInput
                             id="password"
-
+                            v-model="form.account_information.password"
                             type="password"
                             class="mt-1 block w-full"
                             required
@@ -252,7 +267,7 @@
                         <JetLabel for="password_confirmation" value="Confirm Password" />
                         <JetInput
                             id="password_confirmation"
-
+                            v-model="form.account_information.password_confirmation"
                             type="password"
                             class="mt-1 block w-full"
                             required
@@ -275,7 +290,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-8">
-                <JetButton class="ml-4" >
+                <JetButton :disabled="isSubmitting" class="ml-4" >
                     Register
                 </JetButton>
             </div>
@@ -313,8 +328,81 @@ export default {
     },
     data(){
         return{
+           isSubmiting:false,
             form:this.$inertia.form({
+                first_name:'',
+                middle_name:'',
+                last_name:'',
+                birth_date:'',
+                employment:'',
+                membership:'',
+                mobile_number:'',
+                department:'',
+                salary:'',
+                
+            address_information:{
+                region:'',
+                province:'',
+                municipality:'',
+                barangay:'',
+                current_address:'',
+                },
+            account_information:{
+                email:'',
+                password:'',
+                password_confirmation:'',
+                role:'',
+            }
 
+            }),
+            departments:[
+                "School of Architecture, Industrial Design, and the Built Environment",
+
+                "School of Chemical, Biological, and Materials Engineering and Sciences",
+
+                "School of Civil, Environmental, and Geological Engineering",
+
+                "School of Electrical, Electronics, and Computer Engineering",
+
+                "School of Industrial Engineering and Engineering Management",
+
+                "School of Mechanical and Manufacturing Engineering",
+
+                "School of Media Studies",
+
+                "School of Social Sciences and Education",
+
+                "Department of Arts and Letters",
+
+                "Department of Mathematics",
+
+                "Department of Physics",
+
+                "School of Information Technology",
+
+                "E.T. Yuchengo School of Business in collaboration with Arizona State University",
+
+                "Admin office(Treasury, Registrar, Admission)",
+
+                "Maintenance",
+
+            ],
+            roles:[
+                "Admin",
+                "User",
+            ],
+        }
+
+    },
+    methods:{
+        submit(){
+            this.form.post(route('registerUserSubmit'),{
+                onStart:(visit)=>{
+                    this.isSubmiting == true
+                },
+                onFinish: visit =>{
+                    this.isSubmiting == false
+                }
             })
         }
     }

@@ -21,14 +21,20 @@ return new class extends Migration
             $table->string('middle_name');
             $table->string('last_name');
             $table->string('mobile_number');
+            $table->date('birth_date');
             
-            $table->string('address');
+            $table->string('region');
+            $table->string('province');
+            $table->string('municipality');
+            $table->string('barangay');
+            $table->string('current_address');
+           
             $table->string('department');
             $table->string('salary')->nullable();
-            $table->string('membership');
-            $table->string('imployment');
+            $table->date('membership');
+            $table->date('employment');
             $table->string('total_contribution')->nullable();
-            $table->string('current_loan');
+            $table->string('current_loan')->nullable();;
             
             $table->timestamps();
         });

@@ -56,11 +56,19 @@ class AdminFactory extends Factory
             'middle_name' => $this->faker->lastName(),
             'last_name' => $this->faker->lastName(),
             'mobile_number'=>$this->faker->phoneNumber(),
-            'address'=> $this->faker->address(),
+            'birth_date'=>$this->faker->date('Y-m-d', Carbon::now()->subYears(18)),
+
+            'region'=> $this->faker->state(),
+            'province'=> $this->faker->cityPrefix(),
+            'municipality'=> $this->faker->city(),
+            'barangay'=> $this->faker->streetName(),
+            'current_address'=> $this->faker->buildingNumber(),
+
+
             'department' => $this->faker->randomElement($department),
             'salary' => $this->faker->numberBetween($min=1000,$max=10000),
             'membership'=> $this->faker->date('Y-m-d', Carbon::now()->subYears(18)),
-            'imployment'=>$this->faker->date('Y-m-d', Carbon::now()->subYears(18)),
+            'employment'=>$this->faker->date('Y-m-d', Carbon::now()->subYears(18)),
             'current_loan'=>$this->faker->numberBetween($min=1000,$max=10000),
 
         ];

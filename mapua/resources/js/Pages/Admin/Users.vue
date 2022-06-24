@@ -75,7 +75,7 @@
                                         <div class="flex items-center">
                                             <div>
                                                 <div class="text-sm font-medium text-gray-900">
-                                                    {{ user.admin_reg.address }}
+                                                    {{ user.admin_reg.current_address }} {{user.admin_reg.barangay}} {{user.admin_reg.municipality}}
                                                 </div>
                                             </div>
                                         </div>
