@@ -53,11 +53,13 @@
                                 <tr v-for="user in users.data" v-bind:key="user.id">
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
+                                           <Link :href="route('userProfile',user.id)">
                                             <div>
                                                 <div class="text-sm font-medium text-gray-900">
                                                     {{ user.name }}
                                                 </div>
                                             </div>
+                                            </Link> 
                                         </div>
 
                                     </td>
@@ -122,6 +124,7 @@
                                     </td>
                                 </tr>
                                 </tbody>
+                                
                             </table>
                             <pagination :links="users.links"/>
             <Modal :show="showDeleteModal" :closeable="true" @close="showDeleteModal = !showDeleteModal">

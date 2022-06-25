@@ -1,9 +1,19 @@
 <template>
-    <AppLayout title="Dashboard">
+    <AppLayout title="profile">
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                User Profile
-            </h2>
+            
+             <div class="flex justify-between">
+                <div class="flex items-center ">
+                    <Link :href="route('users')">
+                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">Users</h1>
+                    </Link>
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">User's Profile</h1>
+                </div>
+
+            </div>
         </template>
 
         <div class="py-12">
@@ -19,32 +29,32 @@
 
                     <div class="flex text-lg">
                         <p class="font-semibold">Address:</p>
-                        <p class="ml-2 underline"></p>
+                        <p class="ml-2 underline">{{user.admin_reg.current_address}} {{user.admin_reg.barangay}} {{user.admin_reg.municipality}}</p>
                     </div>
                         <!-- contact number -->
                     <div class="flex text-lg">
                         <p class="font-semibold">Contact Number:</p>
-                        <p class="ml-2 underline"></p>
+                        <p class="ml-2 underline">{{user.admin_reg.mobile_number}}</p>
                     </div>
                         <!-- department -->
                     <div class="flex text-lg">
                         <p class="font-semibold">Department:</p>
-                        <p class="ml-2 underline"></p>
+                        <p class="ml-2 underline">{{user.admin_reg.department}}</p>
                     </div>
                         <!-- membership date -->
                     <div class="flex text-lg">
                         <p class="font-semibold">Member Since:</p>
-                        <p class="ml-2 underline"></p>
+                        <p class="ml-2 underline">{{user.admin_reg.membership}}</p>
                     </div>
                         <!-- Contribution -->
                     <div class="flex text-lg">
                         <p class="font-semibold">Current Contribution:</p>
-                        <p class="ml-2 underline"></p>
+                        <p class="ml-2 underline">{{user.admin_reg.contribution != null ? user.admin_reg.contribution : 'no contribution'}}</p>
                     </div>
                         <!-- current loan -->
                     <div class="flex text-lg">
                         <p class="font-semibold">Current loan:</p>
-                        <p class="ml-2 underline"></p>
+                        <p class="ml-2 underline">{{user.admin_reg.current_loan != null ? user.admin_reg.current_loan : 'no loan'}}</p>
                     </div>
                         <!-- past loans -->
                     <div class="flex flex-col">
@@ -79,11 +89,13 @@
 
 import JetApplicationLogo from '@/Jetstream/ApplicationLogo.vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
+import { Link } from '@inertiajs/inertia-vue3';
 
 export default {
     components:{
         JetApplicationLogo,
         AppLayout,
+        Link,
     },
     setup() {
 
