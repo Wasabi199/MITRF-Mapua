@@ -59,7 +59,7 @@
                                                     {{ user.name }}
                                                 </div>
                                             </div>
-                                            </Link> 
+                                            </Link>
                                         </div>
 
                                     </td>
@@ -124,7 +124,7 @@
                                     </td>
                                 </tr>
                                 </tbody>
-                                
+
                             </table>
                             <pagination :links="users.links"/>
             <Modal :show="showDeleteModal" :closeable="true" @close="showDeleteModal = !showDeleteModal">
