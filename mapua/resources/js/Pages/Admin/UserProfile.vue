@@ -29,7 +29,7 @@
 
                     <div class="flex text-lg">
                         <p class="font-semibold">Address:</p>
-                        <p class="ml-2 underline">{{user.admin_reg.current_address}} {{user.admin_reg.barangay}} {{user.admin_reg.municipality}}</p>
+                        <p class="ml-2 underline">{{user.admin_reg.current_address}} {{user.admin_reg.barangay}}, {{user.admin_reg.municipality}}</p>
                     </div>
                         <!-- contact number -->
                     <div class="flex text-lg">
@@ -49,12 +49,12 @@
                         <!-- Contribution -->
                     <div class="flex text-lg">
                         <p class="font-semibold">Current Contribution:</p>
-                        <p class="ml-2 underline">{{user.admin_reg.contribution != null ? user.admin_reg.contribution : 'no contribution'}}</p>
+                        <p class="ml-2 underline">{{user.admin_reg.contribution != null ? user.admin_reg.contribution : 'No Contribution'}}</p>
                     </div>
                         <!-- current loan -->
                     <div class="flex text-lg">
                         <p class="font-semibold">Current loan:</p>
-                        <p class="ml-2 underline">{{user.admin_reg.current_loan != null ? user.admin_reg.current_loan : 'no loan'}}</p>
+                        <p class="ml-2 underline">{{user.admin_reg.current_loan != null ? user.admin_reg.current_loan : 'No Loan'}}</p>
                     </div>
                         <!-- past loans -->
                     <div class="flex flex-col">
