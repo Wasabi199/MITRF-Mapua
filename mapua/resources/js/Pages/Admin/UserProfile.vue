@@ -28,8 +28,8 @@
                             <p class="ml-2 underline">{{ user.name }}</p>
                         </div>
 
-                        <a class="" href="#">
-                            <svg class="h-6 w-6" fill="none" stroke="blue" stroke-width="2"
+                        <a href="#">
+                            <svg class="h-6 w-6 hover:text-blue-500 text-blue-700 font-semibold" fill="none" stroke="currentColor" stroke-width="2"
                                  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
@@ -39,70 +39,32 @@
                         </a>
                     </div>
                     <!-- address -->
-                    <div class="justify-between flex">
+
                         <div class="flex text-lg">
                             <p class="font-semibold">Address:</p>
                             <p class="ml-2 underline">{{ user.admin_reg.current_address }} {{ user.admin_reg.barangay }}
                                 {{ user.admin_reg.municipality }}</p>
-                        </div>
-
-                        <a href="#">
-                            <svg class="h-6 w-6" fill="none" stroke="blue" stroke-width="2"
-                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"/>
-                            </svg>
-                        </a>
                     </div>
                     <!-- contact number -->
-                    <div class="justify-between flex">
+
                         <div class="flex text-lg">
                             <p class="font-semibold">Contact Number:</p>
                             <p class="ml-2 underline">{{ user.admin_reg.mobile_number }}</p>
-                        </div>
-                        <a href="#">
-                            <svg class="h-6 w-6" fill="none" stroke="blue" stroke-width="2"
-                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"/>
-                            </svg>
-                        </a>
+
                     </div>
                     <!-- department -->
-                    <div class="justify-between flex">
+
                         <div class="flex text-lg">
                             <p class="font-semibold">Department:</p>
                             <p class="ml-2 underline">{{ user.admin_reg.department }}</p>
-                        </div>
-                        <a href="#">
-                            <svg class="h-6 w-6" fill="none" stroke="blue" stroke-width="2"
-                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"/>
-                            </svg>
-                        </a>
+
                     </div>
                     <!-- membership date -->
-                    <div class="justify-between flex">
+
                         <div class="flex text-lg">
                             <p class="font-semibold">Member Since:</p>
                             <p class="ml-2 underline">{{ user.admin_reg.membership }}</p>
-                        </div>
-                        <a href="#">
-                            <svg class="h-6 w-6" fill="none" stroke="blue" stroke-width="2"
-                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"/>
-                            </svg>
-                        </a>
+
                     </div>
                     <!-- Contribution -->
                     <div class="flex text-lg">
@@ -125,7 +87,7 @@
                             </div>
                         </div>
                     </div>
-      
+
 
     </AppLayout>
 
