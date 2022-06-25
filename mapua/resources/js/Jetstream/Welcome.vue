@@ -6,7 +6,7 @@ import JetApplicationLogo from '@/Jetstream/ApplicationLogo.vue';
     <div>
         <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
             <div class="h-20 w-20">
-                <img alt="mu logo" src="/images/mu_logo.png">
+                <JetApplicationLogo/>
             </div>
 
             <div class="mt-8 text-2xl">
