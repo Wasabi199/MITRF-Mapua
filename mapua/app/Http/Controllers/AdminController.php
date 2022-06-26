@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Request as QueryRequest;
 use App\Http\Requests\UserDeleteRequest as deleteRequest;
+use App\Http\Requests\UserUpdateRequest as updateRequest;
 use App\Http\Requests\Admin as RegiterUserRequest;
 use Carbon\Carbon;
+use App\Models\Admin;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\{Hash, DB, Redirect };
 
@@ -49,6 +51,7 @@ class AdminController extends Controller
         return back()->with('Success', 'User Deleted!');
 
     }
+
     private function roleToInt(String $role) : int{
         switch($role){
             case 'Admin':
@@ -100,4 +103,16 @@ class AdminController extends Controller
         return Redirect::route('users');
 
     }
+    public function userUpdate(updateRequest $request){
+        // dd($request);
+        $admin = Admin::find($request->validated()['id']);
+        $user = $admin->user;
+        $data = $request->validated();
+        $user->update([
+            'name' =>$data['first_name'].' '.$data['middle_name'].''.$data['last_name']
+        ]);
+        $admin->update($data);
+        return back();
+    }
+    
 }

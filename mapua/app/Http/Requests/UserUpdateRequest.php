@@ -14,7 +14,7 @@ class UserUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->userType ==1;
+        return Auth::user()->userType == 1;
     }
 
     /**
@@ -30,6 +30,19 @@ class UserUpdateRequest extends FormRequest
             'first_name' => 'required',
             'middle_name' => 'required',
             'last_name' => 'required',
+            'mobile_number'=>'required',
+            'birth_date'=>'required',
+
+            'region'=>'required',
+            'province'=>'required',
+            'municipality'=>'required',
+            'barangay'=>'required',
+            'current_address'=>'required',
+
+            'department'=>'required',
+            'membership'=>'required',
+            'employment'=>'required',
+            'total_contribution'=>'required',
             
         ];
     }

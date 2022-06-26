@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UpdateUser;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -34,20 +35,6 @@ Route::prefix('Admin')->middleware(['auth:sanctum','Admin'])->group(function(){
       Route::get('/user/{id}',[AdminController::class,'userProfile'])->name('userProfile');
       Route::delete('/user/delete',[AdminController::class,'userDelete'])->name('userDelete');
       Route::post('/user/register',[AdminController::class, 'userRegisterSubmit'])->name('registerUserSubmit');
-
+      Route::post('user/update/submit',[AdminController::class,'userUpdate'])->name('userUpdate');
 });
-
-// Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
-//    Route::get('/dashboard', function () {return Inertia::render('Dashboard');})->name('dashboard');
-   
-//    Route::get('/users',[AdminController::class, 'users'])->name('users');
-//    Route::get('/user/register',[AdminController::class,'userRegister'])->name('registerUser');
-//    Route::get('/user/{id}',[AdminController::class,'userProfile'])->name('userProfile');
-//    Route::delete('/user/delete',[AdminController::class,'userDelete'])->name('userDelete');
-//    Route::post('/user/register',[AdminController::class, 'userRegisterSubmit'])->name('registerUserSubmit');
-// });
-
-// Route::get('/', function () {
-//    return Inertia::render('Admin/AdminDashboard');
-// });
 

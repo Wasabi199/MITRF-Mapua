@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('mobile_number');
             $table->date('birth_date');
+            $table->string('civil_status');
             
             $table->string('region');
             $table->string('province');

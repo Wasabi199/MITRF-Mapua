@@ -50,6 +50,12 @@ class AdminFactory extends Factory
             "Maintenance",
 
         ];
+        $civil_status = [
+            'Single',
+            'Maried',
+            'Widowed',
+            'Divorced',
+        ];
         return [
             //
             'first_name' => $this->faker->firstName(),
@@ -57,6 +63,7 @@ class AdminFactory extends Factory
             'last_name' => $this->faker->lastName(),
             'mobile_number'=>$this->faker->phoneNumber(),
             'birth_date'=>$this->faker->date('Y-m-d', Carbon::now()->subYears(18)),
+            'civil_status'=>$this->faker->randomElement($civil_status),
 
             'region'=> $this->faker->state(),
             'province'=> $this->faker->cityPrefix(),
