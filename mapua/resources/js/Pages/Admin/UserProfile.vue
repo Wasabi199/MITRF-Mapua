@@ -160,9 +160,19 @@
                     <jet-input v-model="form.mobile_number" :placeholder="user.admin_reg.mobile_number" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
                 </div>
                 <!-- Birth Date -->
-                 <div class="flex flex-col col-span-2">
+                 <div class="flex flex-col ">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Date of Birth</span>
                     <jet-input v-model="form.birth_date" :placeholder="user.admin_reg.birth_date" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" type="date" />
+                </div>
+                <!-- Civil Status -->
+                 <div class="flex flex-col ">
+                    <span class="text-sm leading-snug font-semibold text-gray-900 ">Civil Status</span>
+                    <select v-model="form.civil_status" :placeholder="user.admin_reg.civil_status"
+                                     class="mt-1 block w-full dark  text-gray-900 border-gray-300   focus:ring-opacity-50 rounded-md shadow-sm"
+                                     required>
+                                 <option disabled value="placeholder">Select Status</option>
+                                 <option v-for="status in civil_status" v-bind:key="status" :value="status">{{ status }}</option>
+                             </select>
                 </div>
                 <div class="flex flex-col col-span-2">
                     <span class="text-sm leading-snug font-bold  text-gray-900">Update Address Information</span>
@@ -203,7 +213,7 @@
                     <select v-model="form.department" :placeholder="user.admin_reg.department"
                                      class="mt-1 block w-full dark  text-gray-900 border-gray-300   focus:ring-opacity-50 rounded-md shadow-sm"
                                      required>
-                                 <option disabled value="placeholder">Select Role</option>
+                                 <option disabled value="placeholder">Select Department</option>
                                  <option v-for="department in departments" v-bind:key="department" :value="department">{{ department }}</option>
                              </select>
                 </div>
@@ -273,6 +283,7 @@ export default {
             last_name:'',
             mobile_number:'',
             birth_date:'',
+            civil_status:'',
 
             region:'',
             province:'',
@@ -317,6 +328,12 @@ export default {
                 "Maintenance",
 
             ],
+            civil_status:[
+                'Single',
+                'Maried',
+                'Widowed',
+                'Divorced',
+            ],
         }
     },
     props: {
@@ -334,6 +351,7 @@ export default {
             this.form.last_name == ''? this.form.last_name = this.user.admin_reg.last_name : this.form.last_name
             this.form.mobile_number == ''? this.form.mobile_number = this.user.admin_reg.mobile_number : this.form.mobile_number
             this.form.birth_date == ''? this.form.birth_date = this.user.admin_reg.birth_date : this.form.birth_date
+            this.form.civil_status == ''? this.form.civil_status = this.user.admin_reg.civil_status : this.form.civil_status
             // Address Information
             this.form.region == ''? this.form.region = this.user.admin_reg.region : this.form.region
             this.form.province == ''? this.form.province = this.user.admin_reg.province : this.form.province

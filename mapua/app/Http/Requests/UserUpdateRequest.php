@@ -32,6 +32,7 @@ class UserUpdateRequest extends FormRequest
             'last_name' => 'required',
             'mobile_number'=>'required',
             'birth_date'=>'required',
+            'civil_status'=>'required',
 
             'region'=>'required',
             'province'=>'required',
