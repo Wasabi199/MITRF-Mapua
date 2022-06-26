@@ -16,7 +16,7 @@
 
             </div>
         </template>
-        <div class="flex pl-64 mx-auto mt-10">
+        <div class="flex pl-44 sm:mx-auto mt-10">
             <div class="py-12">
                 <div class="max-w-7xl sm:px-6 lg:px-8">
                     <div class="bg-white p-4 overflow-hidden border-gray-300 shadow-xl sm:rounded-lg ">
@@ -59,7 +59,7 @@
                                 <p class="ml-2 underline">{{ user.name }}</p>
                             </div>
 
-                          
+
                             <svg @click="showModal = !showModal" class="h-6 w-6 text-red-900 hover:text-red-700" fill="none" stroke="currentColor" stroke-width="2"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                  <path
@@ -67,7 +67,7 @@
                                     stroke-linecap="round"
                                     troke-linejoin="round"/>
                             </svg>
-                           
+
                         </div>
 
                         <!-- Civil status -->
@@ -75,6 +75,13 @@
                         <div class="flex text-lg">
                             <p class="font-semibold">Civil Status:</p>
                             <p class="ml-2 underline">{{user.admin_reg.civil_status}}</p>
+                        </div>
+
+                        <!-- birth date -->
+
+                        <div class="flex text-lg">
+                            <p class="font-semibold">Birthdate:</p>
+                            <p class="ml-2 underline">{{user.admin_reg.birth_date}}</p>
                         </div>
 
                         <!-- address -->
@@ -137,7 +144,7 @@
             <div class="grid grid-cols-2 p-5 gap-5">
                             <div class="flex flex-col col-span-2">
                     <span class="text-sm leading-snug font-bold  text-gray-900">Update Personal Information</span>
-                    
+
                 </div>
                 <!-- First Name -->
                 <div class="flex flex-col">
@@ -176,7 +183,7 @@
                 </div>
                 <div class="flex flex-col col-span-2">
                     <span class="text-sm leading-snug font-bold  text-gray-900">Update Address Information</span>
-                    
+
                 </div>
                     <!-- Region -->
                 <div class="flex flex-col">
@@ -205,7 +212,7 @@
                 </div>
                   <div class="flex flex-col col-span-2">
                     <span class="text-sm leading-snug font-bold  text-gray-900">Update Loan Information</span>
-                    
+
                 </div>
                       <!-- Department -->
                 <div class="flex flex-col col-span-2">
@@ -232,7 +239,7 @@
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Total Contribution</span>
                     <jet-input v-model="form.total_contribution" :placeholder="user.admin_reg.total_contribution != null ? user.admin_reg.total_contribution:'No Contribution'" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
                 </div>
-            
+
             </div>
             <div class="flex justify-end text-xl font-bold dark:text-gray-200 my-3">
                 <div @click="submit" class="flex space-x-2 px-4 py-1 border text-sm leading-snug font-semibold text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:bg-green-500 cursor-pointer">
@@ -250,7 +257,7 @@
         </div>
 
     </AppLayout>
-   
+
 
 </template>
 <script>
@@ -338,7 +345,7 @@ export default {
     },
     props: {
         user: Object,
-        
+
     },
     methods: {
         submit(){
@@ -363,7 +370,7 @@ export default {
             this.form.employment == ''? this.form.employment = this.user.admin_reg.employment : this.form.employment
             this.form.membership == ''? this.form.membership = this.user.admin_reg.membership : this.form.membership
             this.form.total_contribution == ''? this.form.total_contribution = 'No Contribution' : this.form.total_contribution
-            
+
             this.form.post(route('userUpdate'),{
                 onSuccess:()=>{
                      console.log('success..')
