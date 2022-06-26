@@ -32,7 +32,7 @@
                     Personal Information
                 </div>
 
-                <div class="flex space-x-4">
+                <div class="flex justify-between">
                     <div>
                         <JetLabel for="firstname" value="First Name" />
                         <JetInput
@@ -43,7 +43,7 @@
                             required
                             autofocus
                             autocomplete="firstname"
-                            
+
                         />
                     </div>
                     <div >
@@ -58,7 +58,7 @@
                             autocomplete="middle"
                         />
                     </div>
-<!-- 
+<!--
                 <div >
                     <JetLabel for="suffix" value="Suffix" />
                     <JetInput
@@ -115,13 +115,13 @@
 
                 <div class="flex justify-between">
                     <div class="mt-4">
-                        <JetLabel for="date of membership" value="Date of Membership" />
+                        <JetLabel for="date of membership" value="Date of Membership"/>
                         <JetInput
                             id="date of membership"
                             v-model="form.membership"
-                            type="date"
                             class="mt-1 block w-full"
                             required
+                            type="date"
                         />
                     </div>
 
@@ -140,14 +140,18 @@
 
                 <div class="flex ">
                     <div class="mt-4">
-                <jet-label for="department" value="Department" />
-                            <select required v-model="form.department" class="mt-1 block w-full dark  text-gray-900 border-gray-300   focus:ring-opacity-50 rounded-md shadow-sm"  >
-                                <option value="placeholder" disabled >Select Department</option>
-                                <option v-for="department in departments" v-bind:key="department" :value="department">{{department}}</option>
-                            </select>
+                        <jet-label for="department" value="Department"/>
+                        <select v-model="form.department"
+                                class="mt-1 block w-full dark  text-gray-900 border-gray-300   focus:ring-opacity-50 rounded-md shadow-sm"
+                                required>
+                            <option disabled value="placeholder">Select Department</option>
+                            <option v-for="department in departments" v-bind:key="department" :value="department">
+                                {{ department }}
+                            </option>
+                        </select>
                     </div>
 
-                
+
                 </div>
                     <div class="mt-4">
                         <JetLabel for="salary" value="Salary" />
@@ -159,13 +163,32 @@
                             required
                         />
                     </div>
-                     <div class="mt-4">
-                        <jet-label for="role" value="Role" />
-                            <select required v-model="form.account_information.role" class="mt-1 block w-full dark  text-gray-900 border-gray-300   focus:ring-opacity-50 rounded-md shadow-sm"  >
-                                <option value="placeholder" disabled >Select Role</option>
-                                <option v-for="role in roles" v-bind:key="role" :value="role">{{role}}</option>
-                            </select>
-                    </div>
+
+                     <div class="flex justify-between">
+                         <div class="mt-4">
+                             <jet-label for="role" value="Role"/>
+                             <select v-model="form.account_information.role"
+                                     class="mt-1 block w-full dark  text-gray-900 border-gray-300   focus:ring-opacity-50 rounded-md shadow-sm"
+                                     required>
+                                 <option disabled value="placeholder">Select Role</option>
+                                 <option v-for="role in roles" v-bind:key="role" :value="role">{{ role }}</option>
+                             </select>
+                         </div>
+
+
+
+                         <div class="mt-4">
+                             <JetLabel for="civil status" value="Civil Status"/>
+                             <JetInput
+                                 id="civil status"
+
+                                 class="mt-1 block w-full"
+                                 required
+                                 type="text"
+                             />
+                         </div>
+
+                     </div>
 
 
                 <div class="mt-2 text-lg font-extrabold">
@@ -181,7 +204,7 @@
                             required
                             type="text"
                             class="mt-1 block w-full"
-                            
+
                         />
                     </div>
 
@@ -193,7 +216,7 @@
                             required
                             type="text"
                             class="mt-1 block w-full"
-                            
+
                         />
                     </div>
                 </div>
@@ -207,7 +230,7 @@
                             required
                             type="text"
                             class="mt-1 block w-full"
-                            
+
                         />
                     </div>
 
@@ -219,7 +242,7 @@
                             required
                             type="text"
                             class="mt-1 block w-full"
-                            
+
                         />
                     </div>
                 </div>
@@ -231,7 +254,7 @@
                         required
                         type="text"
                         class="mt-1 block w-full"
-                        
+
                     />
                 </div>
 
@@ -339,7 +362,7 @@ export default {
                 mobile_number:'',
                 department:'',
                 salary:'',
-                
+
             address_information:{
                 region:'',
                 province:'',
