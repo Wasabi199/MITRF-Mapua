@@ -11,7 +11,7 @@
                          xmlns="http://www.w3.org/2000/svg">
                         <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                     </svg>
-                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">User's Profile</h1>
+                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">{{user.name}} Profile</h1>
                 </div>
 
             </div>
@@ -280,6 +280,7 @@ export default {
     setup() {
 
     },
+    
     data(){
         return{
         showModal: false,
