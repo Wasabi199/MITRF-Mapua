@@ -67,6 +67,7 @@ class Kernel extends HttpKernel
         
         // Group Routing
         'Admin' =>\App\Http\Middleware\Admin::class,
+        'Users' =>\App\Http\Middleware\Users::class,
     ];
     
 }

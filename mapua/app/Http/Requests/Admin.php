@@ -36,7 +36,6 @@ class Admin extends FormRequest
             'membership' => 'required',
             'employment' => 'required',
             
-
             'address_information.region'=>'required',
             'address_information.province'=>'required',
             'address_information.municipality'=>'required',

@@ -37,4 +37,7 @@ Route::prefix('Admin')->middleware(['auth:sanctum','Admin'])->group(function(){
       Route::post('/user/register',[AdminController::class, 'userRegisterSubmit'])->name('registerUserSubmit');
       Route::post('user/update/submit',[AdminController::class,'userUpdate'])->name('userUpdate');
 });
+Route::prefix('Users')->middleware(['auth:sanctum','Users'])->group(function(){
+
+});
 

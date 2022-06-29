@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class Admin
+class Users
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,10 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->user()->userType != 1){
+        if($request->user()->userType != 2){
             return redirect('login');
         }
-        
+
         return $next($request);
     }
 }
