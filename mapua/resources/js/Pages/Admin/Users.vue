@@ -127,6 +127,7 @@
 
                             </table>
                             <pagination :links="users.links"/>
+
             <Modal :show="showDeleteModal" :closeable="true" @close="showDeleteModal = !showDeleteModal">
                 <div class="p-5">
                     <div class="flex justify-between text-xl font-bold text-gray-900 my-3">
@@ -170,6 +171,14 @@
 
 
         </div>
+        <button class="border border-green-500 hover:bg-green-400 rounded-md m-2 p-2 flex items-center ml-12">
+            <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" stroke-width="2"
+                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+            </svg>
+            Upload csv file
+        </button>
 
     </AppLayout>
 </template>
