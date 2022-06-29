@@ -4,7 +4,7 @@
 
             <div class="flex justify-between">
                 <div class="flex items-center ">
-                    <Link :href="route('users')">
+                    <Link :href="route('users')" class="hover:underline">
                         <h1 class="font-extrabold text-xl text-gray-800 leading-tight">Users</h1>
                     </Link>
                     <svg class="h-6 w-6" fill="none" stroke="blue" viewBox="0 0 24 24"
@@ -280,7 +280,7 @@ export default {
     setup() {
 
     },
-    
+
     data(){
         return{
         showModal: false,
