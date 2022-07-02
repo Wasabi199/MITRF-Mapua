@@ -9,10 +9,14 @@ use Illuminate\Support\Facades\Request as QueryRequest;
 use App\Http\Requests\UserDeleteRequest as deleteRequest;
 use App\Http\Requests\UserUpdateRequest as updateRequest;
 use App\Http\Requests\Admin as RegiterUserRequest;
+use App\Imports\UserAdmin;
 use Carbon\Carbon;
 use App\Models\Admin;
 use Illuminate\Routing\Route;
+use App\Imports\UsersImport;
 use Illuminate\Support\Facades\{Hash, DB, Redirect };
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class AdminController extends Controller
 {
@@ -113,6 +117,24 @@ class AdminController extends Controller
         ]);
         $admin->update($data);
         return back();
+    }
+
+    public function userUpload(Request $request){
+
+        // $path = $request->file('file')->getRealPath();
+        // $rows = Excel::import(new UsersImport, $path);
+
+        // dd($request->file('file'));
+        
+        
+        // $data = Excel::toArray(new UserAdmin,$request->file);
+   
+        // dd($data);
+        
+        Excel::import(new UsersImport, $request->file);
+        // Excel::import(new UserAdmin, $request->file);
+
+        return Route('dashboard');
     }
     
 }

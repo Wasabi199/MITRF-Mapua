@@ -31,14 +31,14 @@ class DatabaseSeeder extends Seeder
                 'email' => 'admin@admin.com',
                 'password' => Hash::make('password'),
             ]);
-            $user = User::create([
+            $user ->adminReg()->create(Admin::factory(['user_id' => $user->id])->make()->toArray());
+            $user2 = User::create([
                 'name' => "Normal User",
                 'usertype' => 2,
                 'email' => 'user@user.com',
                 'password' => Hash::make('password'),
             ]);
-            
-            $user ->adminReg()->create(Admin::factory(['user_id' => $user->id])->make()->toArray());
+            $user2 ->adminReg()->create(Admin::factory(['user_id' => $user->id])->make()->toArray());
             
 
     }

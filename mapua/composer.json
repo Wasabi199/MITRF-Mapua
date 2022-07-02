@@ -13,6 +13,9 @@
         "laravel/jetstream": "^2.8",
         "laravel/sanctum": "^2.15",
         "laravel/tinker": "^2.7",
+        "maatwebsite/excel": "^3.1",
+        "phpoffice/phpspreadsheet": "^1.9",
+        "psr/simple-cache": "^1.0",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
