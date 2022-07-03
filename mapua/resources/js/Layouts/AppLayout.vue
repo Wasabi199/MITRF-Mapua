@@ -48,7 +48,7 @@ const logout = () => {
                             </div>
 
                             <!-- Navigation Links -->
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <div v-if="$page.props.user.userType == 1" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <!-- Dashboard -->
                                 <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
@@ -57,6 +57,15 @@ const logout = () => {
                                 <JetNavLink :href="route('users')" :active="route().current('users')">
                                     Users
                                 </JetNavLink>
+                            </div>
+
+                            <div v-if="$page.props.user.userType == 2" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <!-- Dashboard -->
+                                <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                    Dashboard
+                                </JetNavLink>
+                                <!-- Users -->
+                               
                             </div>
                          
                            
