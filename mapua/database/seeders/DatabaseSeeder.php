@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\{User, Admin};
+use App\Models\{User, Admin, Contributions, Loans};
 use Illuminate\Support\Facades\Hash;
 
 
@@ -23,22 +23,22 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-            User::factory(50)->create();
+            User::factory(50)->has(Loans::factory(),'loans')->create();
         // User::factory(10)->has(Admin::factory(),'adminReg')->create();
-            $user = User::create([
+            $admin = User::create([
                 'name' => "Super Admin",
                 'usertype' => 1,
                 'email' => 'admin@admin.com',
                 'password' => Hash::make('password'),
             ]);
-            $user ->adminReg()->create(Admin::factory(['user_id' => $user->id])->make()->toArray());
-            $user2 = User::create([
+            $admin ->adminReg()->create(Admin::factory(['user_id' => $admin->id])->make()->toArray());
+            $user = User::create([
                 'name' => "Normal User",
                 'usertype' => 2,
                 'email' => 'user@user.com',
                 'password' => Hash::make('password'),
             ]);
-            $user2 ->adminReg()->create(Admin::factory(['user_id' => $user->id])->make()->toArray());
+            $user ->adminReg()->create(Admin::factory(['user_id' => $user->id])->make()->toArray());
             
 
     }

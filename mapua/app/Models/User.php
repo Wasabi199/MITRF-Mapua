@@ -74,10 +74,19 @@ class User extends Authenticatable
         });
     }
 
-
+// Relationships
     public function adminReg(){
         return $this->hasOne(Admin::class);
     }
+    public function loans(){
+        return $this->hasMany(Loans::class);
+    }
+    // public function contributions(){
+    //     return $this->hasMany(Contributions::class);
+    // }
+
+
+    // Filters
 
     public function scopeFilter($query, array $filters)
     {

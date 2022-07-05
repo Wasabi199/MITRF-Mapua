@@ -38,6 +38,7 @@ return new class extends Migration
             $table->string('current_loan')->nullable();;
             
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

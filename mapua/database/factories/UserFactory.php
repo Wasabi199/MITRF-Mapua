@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 
-use App\Models\{User, Admin, Team};
+use App\Models\{User, Admin, Loans, Team};
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
@@ -38,11 +38,13 @@ class UserFactory extends Factory
         return $this->afterCreating(
             function (User $user){
                 $adminRegister = Admin::factory()->make();
-
+                // $loans = Loans::factory()->make();
+                
                 $user->name = $adminRegister->first_name .' '. $adminRegister->middle_name .' '. $adminRegister->last_name;
                 $user->adminReg()->create($adminRegister->toArray());
-
+                // $user->loans()->create($loans->toArray());
                 $user->save();
+
             }
         );
     }
