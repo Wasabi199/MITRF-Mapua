@@ -13,6 +13,8 @@ class Loans extends Model
         'loan_amount',
         'department',
         'interest',
+        'approval',
+        'loan_status',
         'attachment_path',
         'total_contribution',
     ];

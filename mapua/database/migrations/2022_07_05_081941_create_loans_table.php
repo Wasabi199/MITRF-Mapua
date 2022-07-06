@@ -23,6 +23,10 @@ return new class extends Migration
             $table->integer('interest');
             $table->string('attachment_path');
             $table->integer('total_contribution');
+
+            $table->string('loan_status');
+            $table->string('approval');
+            
             $table->softDeletes();
             $table->timestamps();
         });

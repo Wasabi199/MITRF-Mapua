@@ -56,12 +56,23 @@ class LoansFactory extends Factory
             'House',
             'Financial',
         ];
+        $aproval=[
+            'Approved',
+            'Pending',
+            'Reviewing',
+        ];
+        $loan_status=[
+            'Ongoing',
+            'Paid',
+        ];
         return [
             //
             'loan_type'=>$this->faker->randomElement($loan_type),
             'loan_amount'=>$this->faker->numberBetween($min = 1000, $max = 1000000000),
             'department'=> $this->faker->randomElement($department),
             'interest'=>$this->faker->numberBetween($min = 1000, $max=1000000),
+            'approval'=>$this->faker->randomElement($aproval),
+            'loan_status'=>$this->faker->randomElement($loan_status),
             'attachment_path'=>'http://3.bp.blogspot.com/_R-G_62JmanY/SCAB4RHj0_I/AAAAAAAAANQ/EGLQOelOyqo/s1600/Mapua_logo.jpg',
             'total_contribution'=>$this->faker->numberBetween($min = 1000, $max=1000000),
         ];
