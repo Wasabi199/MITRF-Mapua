@@ -36,6 +36,7 @@ class UserAdmin implements ToModel, WithHeadingRow
             'last_name'     =>$row['Last Name'],
             'mobile_number' =>$row['Mobile'],
             'birth_date'    =>$row['Birthdate'],
+            'birth_place'   =>$row['Birthplace'],
             'civil_status'  =>$row['Civil Status'],
 
             'region'        =>$row['Region'],

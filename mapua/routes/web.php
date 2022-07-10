@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoansController;
 use App\Http\Controllers\UpdateUser;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,6 @@ Route::prefix('Admin')->middleware(['auth:sanctum','Admin'])->group(function(){
 
 });
 Route::prefix('Users')->middleware(['auth:sanctum','Users'])->group(function(){
-
+    Route::get('User/Loan',[LoansController::class,'index'])->name('userLoan');
 });
 

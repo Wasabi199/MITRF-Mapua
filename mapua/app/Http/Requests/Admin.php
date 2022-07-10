@@ -30,9 +30,12 @@ class Admin extends FormRequest
             'middle_name' =>'required',
             'last_name' => 'required',
             'birth_date'=>'required',
+            'birth_place'=>'required',
             'mobile_number' => 'required',
+            'civil_status'=>'required',
             'department' => 'required',
             'salary' => 'required',
+
             'membership' => 'required',
             'employment' => 'required',
             

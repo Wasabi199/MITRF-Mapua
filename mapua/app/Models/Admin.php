@@ -15,6 +15,7 @@ class Admin extends Model
         'last_name',
         'mobile_number',
         'birth_date',
+        'birth_place',
         'civil_status',
 
         'region',

@@ -112,6 +112,18 @@
 
 
                 </div>
+                       <div >
+                    <JetLabel for="birth_place" value="Place of Birth" />
+                    <JetInput
+                        id="birth_place"
+                        v-model="form.birth_place"
+                        type="text"
+                        class="mt-1 block w-full"
+                        required
+                        autofocus
+                 
+                    />
+                </div>
 
 
                 <div class="flex justify-between">
@@ -180,13 +192,12 @@
 
                          <div class="mt-4">
                              <JetLabel for="civil status" value="Civil Status"/>
-                             <JetInput
-                                 id="civil status"
-
-                                 class="mt-1 block w-full"
-                                 required
-                                 type="text"
-                             />
+                                <select v-model="form.civil_status"
+                                        class="mt-1 block w-full dark  text-gray-900 border-gray-300   focus:ring-opacity-50 rounded-md shadow-sm"
+                                        required>
+                                    <option disabled value="placeholder">Select Status</option>
+                                    <option v-for="status in civil_status" v-bind:key="status" :value="status">{{ status }}</option>
+                                 </select>
                          </div>
 
                      </div>
@@ -358,6 +369,8 @@ export default {
                 middle_name:'',
                 last_name:'',
                 birth_date:'',
+                birth_place:'',
+                civil_status:'',
                 employment:'',
                 membership:'',
                 mobile_number:'',
@@ -415,6 +428,13 @@ export default {
                 "Admin",
                 "User",
             ],
+            civil_status:[
+            'Single',
+            'Maried',
+            'Widowed',
+            'Divorced',
+        ],
+
         }
 
     },

@@ -84,6 +84,11 @@
                             <p class="ml-2 underline">{{user.admin_reg.birth_date}}</p>
                         </div>
 
+                        <!-- place of birth -->
+                        <div class="flex text-lg">
+                            <p class="font-semibold">Place of Birth:</p>
+                            <p class="ml-2 underline">{{user.admin_reg.birth_place}}</p>
+                        </div>
                         <!-- address -->
 
                         <div class="flex text-lg">

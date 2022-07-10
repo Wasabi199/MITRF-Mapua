@@ -43,6 +43,7 @@ class UsersImport implements   WithHeadingRow, ToCollection, WithValidation
                     'last_name'     =>$row['last_name'],
                     'mobile_number' =>$row['mobile'],
                     'birth_date'    =>date('Y-m-d',$row['birthdate']),
+                    'birth_place'   =>$row['Birthplace'],
                     'civil_status'  =>$row['civil_status'],
 
                     'region'        =>$row['region'],
@@ -72,6 +73,7 @@ class UsersImport implements   WithHeadingRow, ToCollection, WithValidation
             
             'mobile'=>'required',
             'birthdate'=>'required',
+            'birth_place'=>'required',
             'civil_status'=>'required',
 
             'region'=>'required',

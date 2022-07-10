@@ -89,7 +89,8 @@ class AdminController extends Controller
                 'middle_name'=>$validated_data['middle_name'],
                 'last_name'=>$validated_data['last_name'],
                 'birth_date'=>$validated_data['birth_date'],
-                
+                'birth_place'=>$validated_data['birth_place'],
+                'civil_status'=>$validated_data['civil_status'],
                 'employment'=>$validated_data['employment'],
                 'membership'=>$validated_data['membership'],
                 'mobile_number'=>$validated_data['mobile_number'],

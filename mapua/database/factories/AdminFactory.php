@@ -63,6 +63,7 @@ class AdminFactory extends Factory
             'last_name' => $this->faker->lastName(),
             'mobile_number'=>$this->faker->phoneNumber(),
             'birth_date'=>$this->faker->date('Y-m-d', Carbon::now()->subYears(18)),
+            'birth_place'=>$this->faker->city(),
             'civil_status'=>$this->faker->randomElement($civil_status),
 
             'region'=> $this->faker->state(),
