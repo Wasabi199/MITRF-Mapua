@@ -152,7 +152,7 @@
                             <option value="60">60</option>
                         </select>
                         <div>
-                            <label class="mb-1 text-lg text-gray-700" for="amount">Amount</label><br>
+                            <label class="mb-1 text-lg" for="amount">Amount</label><br>
                             <div class="mt-1 relative w-64 rounded-md">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <span class="text-gray-500 text-lg">
