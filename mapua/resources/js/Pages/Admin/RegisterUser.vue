@@ -364,6 +364,7 @@ export default {
     data(){
         return{
            isSubmiting:false,
+           
             form:this.$inertia.form({
                 first_name:'',
                 middle_name:'',
