@@ -8,8 +8,8 @@
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <p class="mb-1 mt-4 text-lg">Purpose of Loan</p>
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg ">
+                    <p class="mb-1 mt-4 ml-10 text-lg">Purpose of Loan</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <select
                         v-model="page" 
                         @change="showModal = !showModal"
@@ -20,7 +20,6 @@
                      
                         
                     </select>
-
                     <!-- Loan For Home -->
                     <form v-if="page == 'Housing Loan'"   class="p-6 sm:px-20 bg-white border-b border-gray-200">
                         <p class="mb-1 text-lg">Terms (Months)</p>
