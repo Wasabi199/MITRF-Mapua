@@ -202,7 +202,7 @@
 
                      </div>
 
-
+<!-- 
                 <div class="mt-2 text-lg font-extrabold">
                     Address Information
                 </div>
@@ -268,7 +268,7 @@
                         class="mt-1 block w-full"
 
                     />
-                </div>
+                </div> -->
 
                 <div class="mt-2 text-lg font-extrabold">
                     Account Information

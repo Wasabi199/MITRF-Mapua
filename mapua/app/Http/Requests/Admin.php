@@ -39,11 +39,11 @@ class Admin extends FormRequest
             'membership' => 'required',
             'employment' => 'required',
             
-            'address_information.region'=>'required',
-            'address_information.province'=>'required',
-            'address_information.municipality'=>'required',
-            'address_information.barangay'=>'required',
-            'address_information.current_address' => 'required',
+            // 'address_information.region'=>'required',
+            // 'address_information.province'=>'required',
+            // 'address_information.municipality'=>'required',
+            // 'address_information.barangay'=>'required',
+            // 'address_information.current_address' => 'required',
 
             'account_information.email'=>'required|email|unique:users,email',
             'account_information.password' => $this->passwordRules(),

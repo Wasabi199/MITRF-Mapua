@@ -18,11 +18,11 @@ class Admin extends Model
         'birth_place',
         'civil_status',
 
-        'region',
-        'province',
-        'municipality',
-        'barangay',
-        'current_address',
+        // 'region',
+        // 'province',
+        // 'municipality',
+        // 'barangay',
+        // 'current_address',
 
         'department',
         'salary',

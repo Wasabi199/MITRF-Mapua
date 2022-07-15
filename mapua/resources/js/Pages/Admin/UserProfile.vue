@@ -91,11 +91,11 @@
                         </div>
                         <!-- address -->
 
-                        <div class="flex text-lg">
+                        <!-- <div class="flex text-lg">
                             <p class="font-semibold">Address:</p>
                             <p class="ml-2 underline">{{ user.admin_reg.current_address }} {{ user.admin_reg.barangay }}
                                 {{ user.admin_reg.municipality }}</p>
-                        </div>
+                        </div> -->
 
                         <!-- department -->
 
@@ -186,35 +186,36 @@
                                  <option v-for="status in civil_status" v-bind:key="status" :value="status">{{ status }}</option>
                              </select>
                 </div>
-                <div class="flex flex-col col-span-2">
+                <!-- <div class="flex flex-col col-span-2">
                     <span class="text-sm leading-snug font-bold  text-gray-900">Update Address Information</span>
 
                 </div>
-                    <!-- Region -->
+                    Region
                 <div class="flex flex-col">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Region</span>
                     <jet-input  v-model="form.region" :placeholder="user.admin_reg.region" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
                 </div>
-                <!-- Province -->
+                Province
                 <div class="flex flex-col">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Province</span>
                     <jet-input v-model="form.province" :placeholder="user.admin_reg.province" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
                 </div>
-                <!-- Municipality -->
+                Municipality
                 <div class="flex flex-col">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Municipality</span>
                     <jet-input v-model="form.municipality" :placeholder="user.admin_reg.municipality" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
                 </div>
-                <!-- Barangay -->
+                Barangay
                 <div class="flex flex-col">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Barangay</span>
                     <jet-input v-model="form.barangay" :placeholder="user.admin_reg.barangay" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
                 </div>
-                <!-- Current Address -->
+                Current Address
                 <div class="flex flex-col col-span-2">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Current Address</span>
                     <jet-input v-model="form.current_address" :placeholder="user.admin_reg.current_address" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
-                </div>
+                </div> -->
+
                   <div class="flex flex-col col-span-2">
                     <span class="text-sm leading-snug font-bold  text-gray-900">Update Loan Information</span>
 

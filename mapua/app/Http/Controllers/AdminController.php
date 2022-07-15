@@ -97,11 +97,11 @@ class AdminController extends Controller
                 'department'=>$validated_data['department'],
                 'salary'=>$validated_data['salary'],
 
-                'region'=>$validated_data['address_information']['region'],
-                'province'=>$validated_data['address_information']['province'],
-                'municipality'=>$validated_data['address_information']['municipality'],
-                'barangay'=>$validated_data['address_information']['barangay'],
-                'current_address'=>$validated_data['address_information']['current_address'],
+                // 'region'=>$validated_data['address_information']['region'],
+                // 'province'=>$validated_data['address_information']['province'],
+                // 'municipality'=>$validated_data['address_information']['municipality'],
+                // 'barangay'=>$validated_data['address_information']['barangay'],
+                // 'current_address'=>$validated_data['address_information']['current_address'],
 
             ]);
         });

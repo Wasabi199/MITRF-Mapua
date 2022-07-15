@@ -25,11 +25,11 @@ return new class extends Migration
             $table->string('birth_place');
             $table->string('civil_status');
             
-            $table->string('region');
-            $table->string('province');
-            $table->string('municipality');
-            $table->string('barangay');
-            $table->string('current_address');
+            // $table->string('region');
+            // $table->string('province');
+            // $table->string('municipality');
+            // $table->string('barangay');
+            // $table->string('current_address');
            
             $table->string('department');
             $table->string('salary')->nullable();
