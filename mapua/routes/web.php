@@ -43,5 +43,6 @@ Route::prefix('Admin')->middleware(['auth:sanctum','Admin'])->group(function(){
 });
 Route::prefix('Users')->middleware(['auth:sanctum','Users'])->group(function(){
     Route::get('User/Loan',[LoansController::class,'index'])->name('userLoan');
+    Route::post('Loan/createLoans',[LoansController::class,'createLoans'])->name('createLoans');
 });
 

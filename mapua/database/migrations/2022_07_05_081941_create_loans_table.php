@@ -19,10 +19,12 @@ return new class extends Migration
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('loan_type');
             $table->integer('loan_amount');
-            $table->string('department');
+            // $table->string('department');
             $table->integer('interest');
             $table->string('attachment_path');
-            $table->integer('total_contribution');
+            // $table->integer('total_contribution');
+            $table->integer('duration');
+          
 
             $table->string('loan_status');
             $table->string('approval');

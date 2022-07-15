@@ -378,13 +378,13 @@ export default {
                 department:'',
                 salary:'',
 
-            address_information:{
-                region:'',
-                province:'',
-                municipality:'',
-                barangay:'',
-                current_address:'',
-                },
+            // address_information:{
+            //     region:'',
+            //     province:'',
+            //     municipality:'',
+            //     barangay:'',
+            //     current_address:'',
+            //     },
             account_information:{
                 email:'',
                 password:'',
