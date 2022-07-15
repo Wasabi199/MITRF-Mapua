@@ -269,10 +269,69 @@
         <div v-if="page == 'Educational Loan'" class="p-5">
             <div class="flex justify-center text-xl font-bold text-gray-900 my-3">
                 <span>Guideline : {{page}}</span>
-            
             </div>
-            <div>
+            <br>
+            <div class="flex justify-left text-l font-bold text-gray-900 my-3">
+                <span><u>MITRF LOAN TERMS AND CONDITIONS</u>
+                </span>
+            </div>
+            <br>
+            <div class="flex justify-left text-m font-bold text-gray-900 my-3">
+                <span>Eligibility Requirements
+                </span>
+            </div>
+            <div class="flex justify-left text-s text-gray-900 my-3">
+                <span>1. Member-borrower must be a regular employee of the institute and contributing 5% of his monthly basic salary to MITRF.
+                </span>
+            </div>
+            <div class="flex justify-left text-s text-gray-900 my-3">
+                <span>2. Member-borrower must maintain at least 45% net take home pay after deducting all his obligations including the MITRF amortization.
+                </span>
+            </div>
 
+               <br> 
+            <div class="flex justify-left text-m font-bold text-gray-900 my-3">
+                <span>Loan Amount
+                </span>
+            </div>
+
+            <div class="flex justify-left text-s text-gray-900 my-3">
+                <span>1. The maximum amount shall be the total member-follower's fund contribution and earnings.
+                </span>
+            </div>
+
+             <br>
+            <div class="flex justify-left text-m font-bold text-gray-900 my-3">
+                <span>Education  Assistance
+                </span>
+            </div>
+
+            <div class="flex justify-left text-s text-gray-900 my-3">
+                <span>For Education, Loan requirements are the following: (30,000 maximum, 1 year term)
+
+                </span>
+            </div>
+            <div class="flex justify-left text-s text-gray-900 my-3">
+                <span>1. Application Form
+                </span>
+            </div>
+            <div class="flex justify-left text-s text-gray-900 my-3">
+                <span>2. Proof of relation (Birth certificate in case of relatives).
+                </span>
+            </div>
+            <div class="flex justify-left text-s text-gray-900 my-3">
+                <span>3. Certificate of Enrollment and Statement of Account from school.
+
+                </span>
+            </div>
+            <br>
+            <div class="flex justify-left text-s text-gray-900 my-3">
+                <span><u><i>This loan have a 9% interest per annum and a 2% service fee</i></u>
+                </span>
+            </div>
+            <div class="flex justify-left text-s font-bold text-gray-900 my-3">
+                <span><u>Note: It cannot be loaned at the same time with Housing Loan.</u>
+                </span>
             </div>
             <div  class="flex justify-end text-xl font-bold dark:text-gray-200 my-3">
                 <div @click="accept" class="flex space-x-2 px-4 py-1 border text-sm leading-snug font-semibold text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:bg-green-500 cursor-pointer">
