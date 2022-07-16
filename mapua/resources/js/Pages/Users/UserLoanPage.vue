@@ -489,8 +489,64 @@
                 <span>Guideline : {{form.loan_type}}</span>
               
             </div>
-            <div>
+            <br>
+            <div class="flex justify-left text-l font-bold text-gray-900 my-3">
+                <span><u>MITRF LOAN TERMS AND CONDITIONS</u>
+                </span>
+            </div>
+            <br>
+            <div class="flex justify-left text-m font-bold text-gray-900 my-3">
+                <span>Eligibility Requirements
+                </span>
+            </div>
+            <div class="flex justify-left text-s text-gray-900 my-3">
+                <span>1. Member-borrower must be a regular employee of the institute and contributing 5% of his monthly basic salary to MITRF.
+                </span>
+            </div>
+            <div class="flex justify-left text-s text-gray-900 my-3">
+                <span>2. Member-borrower must maintain at least 45% net take home pay after deducting all his obligations including the MITRF amortization.
+                </span>
+            </div>
 
+               <br> 
+            <div class="flex justify-left text-m font-bold text-gray-900 my-3">
+                <span>Loan Amount
+                </span>
+            </div>
+
+            <div class="flex justify-left text-s text-gray-900 my-3">
+                <span>1. The maximum amount shall be the total member-follower's fund contribution and earnings.
+                </span>
+            </div>
+
+             <br>
+            <div class="flex justify-left text-m font-bold text-gray-900 my-3">
+                <span>Emergency Assistance
+                </span>
+            </div>
+
+            <div class="flex justify-left text-s text-gray-900 my-3">
+                <span>For emergency, Loan requirements are the following: (30,000 maximum, 1-2 years term)
+
+                </span>
+            </div>
+            <div class="flex justify-left text-s text-gray-900 my-3">
+                <span>1. Application Form
+                </span>
+            </div>
+            <div class="flex justify-left text-s text-gray-900 my-3">
+                <span>2. 4.5% interest for a 2-year term.
+                </span>
+            </div>
+            <div class="flex justify-left text-s text-gray-900 my-3">
+                <span>3. 2.25% interest for a 1-year term.
+
+                </span>
+            </div>
+	    <div class="flex justify-left text-s text-gray-900 my-3">
+                <span>4. 45% threshold of net pay is not applicable but must not be zero or negative.
+
+                </span>
             </div>
             
             <div class="flex justify-center text-xl font-bold dark:text-gray-200 my-3 space-x-40">
