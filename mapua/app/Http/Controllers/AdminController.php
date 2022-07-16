@@ -16,6 +16,7 @@ use Illuminate\Routing\Route;
 use App\Imports\UsersImport;
 use Illuminate\Support\Facades\{Hash, DB, Redirect };
 use Maatwebsite\Excel\Facades\Excel;
+use App\Services\NotificationService;
 
 
 class AdminController extends Controller
@@ -52,7 +53,8 @@ class AdminController extends Controller
     public function userDelete(deleteRequest $request){
         $user_to_delete = User::findOrFail($request->validated()['id']);
         $user_to_delete->delete();
-        return back()->with('Success', 'User Deleted!');
+        return Redirect::back()->with('message',
+            [NotificationService::notificationItem('success', '', 'Sucessfully Deleted')]);
 
     }
 
@@ -105,7 +107,8 @@ class AdminController extends Controller
 
             ]);
         });
-        return Redirect::route('users');
+        return Redirect::route('users')->with('message',
+            [NotificationService::notificationItem('success', '', 'Sucessfully Registered')]);;
 
     }
     public function userUpdate(updateRequest $request){
@@ -117,7 +120,8 @@ class AdminController extends Controller
             'name' =>$data['first_name'].' '.$data['middle_name'].''.$data['last_name']
         ]);
         $admin->update($data);
-        return back();
+        return Redirect::back()->with('message',
+            [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
     }
 
     public function userUpload(Request $request){
@@ -135,7 +139,8 @@ class AdminController extends Controller
         Excel::import(new UsersImport, $request->file);
         // Excel::import(new UserAdmin, $request->file);
 
-        return Route('dashboard');
+        return Redirect::route('dashboard')->with('message',
+            [NotificationService::notificationItem('success', '', 'Sucessfully Uploaded')]);;
     }
     
 }

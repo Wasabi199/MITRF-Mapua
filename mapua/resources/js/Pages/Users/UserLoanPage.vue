@@ -426,14 +426,14 @@
 <script>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import Modal from '@/Jetstream/Modal';
-import axios from 'axios';
-import {Link } from '@inertiajs/inertia-vue3';
+
+
 export default {
     
     components:{
         AppLayout,
         Modal,
-        Link
+        
     },
     setup() {
         

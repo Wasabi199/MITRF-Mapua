@@ -9,9 +9,14 @@ import JetDropdownLink from '@/Jetstream/DropdownLink.vue';
 import JetNavLink from '@/Jetstream/NavLink.vue';
 import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue';
 
+import NotificationArea from '@/Components/NotificationArea';
+
 defineProps({
     title: String,
+    NotificationArea,
 });
+
+
 
 const showingNavigationDropdown = ref(false);
 
@@ -26,7 +31,9 @@ const switchToTeam = (team) => {
 const logout = () => {
     Inertia.post(route('logout'));
 };
+
 </script>
+
 
 <template>
     <div>
@@ -35,6 +42,7 @@ const logout = () => {
         <JetBanner />
 
         <div class="min-h-screen bg-gray-100">
+                <notification-area :messages="$page.props.flash.message" />
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -9,6 +9,8 @@ use Inertia\Inertia;
 use App\Models\{Loans, User};
 use Illuminate\Support\Facades\Redirect;
 use Tightenco\Ziggy\Output\Script;
+use App\Services\NotificationService;
+
 
 class LoansController extends Controller
 {
@@ -42,8 +44,9 @@ class LoansController extends Controller
                 'approval'=>'pending',
              
             ]);
-            
-            return Redirect::route('dashboard');      
+            return Redirect::route('dashboard')->with('message',
+                [NotificationService::notificationItem('success', '', 'Sucessfully '.$validate_data['loan_type'])]);
+        
         }
 
          
