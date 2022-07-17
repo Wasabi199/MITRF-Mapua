@@ -55,7 +55,7 @@ const logout = () => {
                                 </Link>
                             </div>
 
-                            <!-- Navigation Links -->
+                            <!--Admin Navigation -->
                             <div v-if="$page.props.user.userType == 1" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <!-- Dashboard -->
                                 <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
@@ -65,17 +65,30 @@ const logout = () => {
                                 <JetNavLink :href="route('users')" :active="route().current('users')">
                                     Users
                                 </JetNavLink>
+                                 <JetNavLink :href="route('adminLoansView')" :active="route().current('adminLoansView')">
+                                    Loans
+                                </JetNavLink>
+                                <JetNavLink :href="route('contributions')" :active="route().current('contributions')">
+                                    Contributions
+                                </JetNavLink>
                             </div>
 
+
+                            <!-- User Navigation -->
                             <div v-if="$page.props.user.userType == 2" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <!-- Dashboard -->
                                 <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </JetNavLink>
+                                <!-- Current Loans -->
+                                <JetNavLink :href="route('loansView')" :active="route().current('loansView')">
+                                    Current Loan
+                                </JetNavLink>
                                 <!-- Users Loan -->
-                                  <JetNavLink :href="route('userLoan')" :active="route().current('userLoan')">
+                                <JetNavLink :href="route('userLoan')" :active="route().current('userLoan')">
                                     Loan
                                 </JetNavLink>
+                               
                                
                             </div>
                          

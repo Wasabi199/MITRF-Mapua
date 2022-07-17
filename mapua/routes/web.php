@@ -32,17 +32,21 @@ Route::middleware(['auth:sanctum'])->get('/dashboard',[DashboardController::clas
 
 Route::prefix('Admin')->middleware(['auth:sanctum','Admin'])->group(function(){
 
-      Route::get('/users',[AdminController::class, 'users'])->name('users');
-      Route::get('/user/register',[AdminController::class,'userRegister'])->name('registerUser');
-      Route::get('/user/{id}',[AdminController::class,'userProfile'])->name('userProfile');
-      Route::delete('/user/delete',[AdminController::class,'userDelete'])->name('userDelete');
-      Route::post('/user/register',[AdminController::class, 'userRegisterSubmit'])->name('registerUserSubmit');
-      Route::post('user/update/submit',[AdminController::class,'userUpdate'])->name('userUpdate');
-      Route::post('import',[AdminController::class, 'userUpload'])->name('import');
+    Route::get('users',[AdminController::class, 'users'])->name('users');
+    Route::get('user/register',[AdminController::class,'userRegister'])->name('registerUser');
+    Route::get('user/{id}',[AdminController::class,'userProfile'])->name('userProfile');
+    Route::delete('user/delete',[AdminController::class,'userDelete'])->name('userDelete');
+    Route::post('user/register',[AdminController::class, 'userRegisterSubmit'])->name('registerUserSubmit');
+    Route::post('user/update/submit',[AdminController::class,'userUpdate'])->name('userUpdate');
+    Route::post('import',[AdminController::class, 'userUpload'])->name('import');
 
+    Route::get('loansView',[AdminController::class,'adminLoansView'])->name('adminLoansView');
+    Route::get('contributions',[AdminController::class,'contributions'])->name('contributions');
 });
 Route::prefix('Users')->middleware(['auth:sanctum','Users'])->group(function(){
     Route::get('User/Loan',[LoansController::class,'index'])->name('userLoan');
     Route::post('Loan/createLoans',[LoansController::class,'createLoans'])->name('createLoans');
+    
+    Route::get('Loan/view',[LoansController::class,'loansView'])->name('loansView');
 });
 

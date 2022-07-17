@@ -21,6 +21,13 @@ class LoansController extends Controller
            
         ]);
     }
+// Loans View
+    public function loansView(){
+        return Inertia::render('Users/LoanView',[
+
+        ]);
+    }
+
     public function createLoans(request $request){
         $validate_data = $request->validated();
       

@@ -125,22 +125,22 @@ class AdminController extends Controller
     }
 
     public function userUpload(Request $request){
-
-        // $path = $request->file('file')->getRealPath();
-        // $rows = Excel::import(new UsersImport, $path);
-
-        // dd($request->file('file'));
-        
-        
-        // $data = Excel::toArray(new UserAdmin,$request->file);
-   
-        // dd($data);
-        
         Excel::import(new UsersImport, $request->file);
-        // Excel::import(new UserAdmin, $request->file);
+      
 
         return Redirect::route('dashboard')->with('message',
             [NotificationService::notificationItem('success', '', 'Sucessfully Uploaded')]);;
     }
     
+    public function adminLoansView(){
+        return Inertia::render('Admin/LoansView',[
+
+        ]);
+    }
+    public function contributions(){
+        return Inertia::render('Admin/Contributions',[
+            
+        ]);
+    }
+
 }
