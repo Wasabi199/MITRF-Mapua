@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{User, AddressInformation, PersonalInformation};
+use App\Models\{User, AddressInformation, PersonalInformation, Loans};
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Request as QueryRequest;
@@ -133,8 +133,17 @@ class AdminController extends Controller
     }
     
     public function adminLoansView(){
-        return Inertia::render('Admin/LoansView',[
 
+        $loans = Loans::with('user')
+        ->orderBy('loan_type')
+        ->where('approval','=','Approved')
+        ->limit(5)
+        ->paginate(5)
+        ;
+
+
+        return Inertia::render('Admin/LoansView',[
+            'loans' => $loans,
         ]);
     }
     public function contributions(){
