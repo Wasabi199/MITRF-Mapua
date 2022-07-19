@@ -24,8 +24,17 @@ class Loans extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
     public function contributions(){
         return $this->hasMany(Contributions::class);
     }
     
+
+    // filters
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['approval'] ?? null, function ($query, $approval) {
+            $query->where('approval','=', $approval);
+        });
+    }
 }

@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use App\Models\Admin;
 use Illuminate\Routing\Route;
 use App\Imports\UsersImport;
+use App\Services\Approval;
 use Illuminate\Support\Facades\{Hash, DB, Redirect };
 use Maatwebsite\Excel\Facades\Excel;
 use App\Services\NotificationService;
@@ -132,20 +133,26 @@ class AdminController extends Controller
             [NotificationService::notificationItem('success', '', 'Sucessfully Uploaded')]);;
     }
     
-    public function adminLoansView(){
-
+    public function adminLoansView(QueryRequest $query){
+        
+        $filters = $query::only('approval');
+        isset($filters['approval']) ? $filters['approval'] = Approval::approval($filters['approval']) : $filters['approval'] = Approval::approval($filters['approval']='All');
+        // dd($filters);
         $loans = Loans::with('user')
-        ->orderBy('loan_type')
-        ->where('approval','=','Approved')
+        // ->orderBy('name')
+        ->filter($filters)
+        // ->where('approval','=','Approved')
         ->limit(5)
         ->paginate(5)
-        ;
-
-
+        ->appends($query::only(['approval']));
+        
         return Inertia::render('Admin/LoansView',[
+            'filters'=>$filters,
             'loans' => $loans,
         ]);
     }
+
+
     public function contributions(){
         return Inertia::render('Admin/Contributions',[
             

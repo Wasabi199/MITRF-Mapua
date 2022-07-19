@@ -11,13 +11,35 @@
         <div class="p-2 px-6 leading-tight flex justify-between items-center">
             <h1 class="text-xl text-gray-700 font-extrabold pl-8">Approved Loans</h1>
 
-            <div class="flex-1">
+            <!-- <div class="flex-1">
                 <Link :href="route('registerUser')" class="text-blue-500 font-semibold text-sm hover:underline ml-4">
                     Unapproved/Pending Loans
                 </Link>
-            </div>
+            </div> -->
 
-        </div>
+            <!-- <input id="search_term"  class="border rounded-md mx-4" v-model="form.search" name="search_term" placeholder="Search" type="text"> -->
+                   <div class="flex px-3 py-1 gap-2">
+                    <Listbox class="w-80" v-model="form.approval">
+                         <div class="relative">
+                            <ListboxButton class="elative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
+                                Sort By: {{form.approval}}
+                                <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                                    <SelectorIcon class="w-5 h-5 text-gray-400" aria-hidden="true" />
+                                </span>
+                            </ListboxButton>
+                            <transition
+                                leave-active-class="transition duration-100 ease-in"
+                                leave-from-class="opacity-100"
+                                leave-to-class="opacity-0"
+                            >
+                                <ListboxOptions class="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                    <ListboxOption v-for="status in statuses" :key="status" :value="status" as="template"><li class="px-3 py-2 hover:bg-gray-200 cursor-pointer"> {{status}}</li></ListboxOption>
+                                </ListboxOptions>
+                            </transition>
+                        </div>
+                        </Listbox>
+                    </div>
+                </div>
 
             <div class="mx-12 my-6 shadow-md">
                 <div class="flex flex-col">
@@ -165,30 +187,49 @@ import Modal from '@/Jetstream/Modal';
 import {pickBy, throttle} from 'lodash';
 import route from '../../../../vendor/tightenco/ziggy/src/js';
 import { useForm } from '@inertiajs/inertia-vue3'
+import {Listbox, ListboxButton, ListboxOptions, ListboxOption} from '@headlessui/vue';
+// import SelectorIcon 
 export default {
     components:{
         AppLayout,
         Pagination,
         JetApplicationLogo,
         Link,
-        Modal
+        Modal,
+        Listbox,
+        ListboxButton,
+        ListboxOptions,
+        ListboxOption,
+        // SelectorIcon
 
     },
     props: {
         loans: Object,
+        filters: Object,
         
     },
+    
 
     setup() {
-        const forms = useForm({
-            file:null,
-        })
-        return { forms }
+        // const forms = useForm({
+        //     file:null,
+        // })
+        // return { forms }
     },
 
     data() {
         return {
             id: Number,
+            form:{
+                // search: this.filters.search,
+                approval: this.filters.approval == null ? 'All' : this.filters.approval,
+            },
+
+            statuses:[
+                'All',
+                'Reviewing',
+                'Approved',
+            ],
         }
     },
 
@@ -198,9 +239,7 @@ export default {
             handler:
                 throttle(
                     function () {
-                        this.$inertia.get(route('loansView'), pickBy(this.form), {
-                            preserveState: true,
-                            preserveScroll: true,
+                        this.$inertia.get(route('adminLoansView'), pickBy(this.form), {preserveState: true, preserveScroll: true,
                         })
                     },
                     600
@@ -209,3 +248,8 @@ export default {
     },
 }
 </script>
+<style scoped>
+ i {
+        font-size: 1rem !important;
+    }
+</style>

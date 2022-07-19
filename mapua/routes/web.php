@@ -44,9 +44,10 @@ Route::prefix('Admin')->middleware(['auth:sanctum','Admin'])->group(function(){
     Route::get('contributions',[AdminController::class,'contributions'])->name('contributions');
 });
 Route::prefix('Users')->middleware(['auth:sanctum','Users'])->group(function(){
+
     Route::get('User/Loan',[LoansController::class,'index'])->name('userLoan');
     Route::post('Loan/createLoans',[LoansController::class,'createLoans'])->name('createLoans');
     
-    Route::get('Loan/view',[LoansController::class,'loansView'])->name('loansView');
+    Route::get('Loan/View',[LoansController::class,'loansView'])->name('loansView');
 });
 
