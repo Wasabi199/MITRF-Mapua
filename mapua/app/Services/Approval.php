@@ -15,6 +15,9 @@ class Approval{
             case 'Reviewing':
                 return 'Reviewing';
             break;
+            case 'Pending':
+                return 'Pending';
+            break;
             default:
                 return null;
             }

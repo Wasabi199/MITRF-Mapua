@@ -79,7 +79,7 @@ class User extends Authenticatable
         return $this->hasOne(Admin::class);
     }
     public function loans(){
-        return $this->hasMany(Loans::class);
+        return $this->hasMany(Loans::class,"user_id");
     }
     // public function contributions(){
     //     return $this->hasMany(Contributions::class);

@@ -23,8 +23,14 @@ class LoansController extends Controller
     }
 // Loans View
     public function loansView(){
+        $user = Auth::user();
+        $loans = $user->loans()
+        ->limit(5)
+        ->paginate(5);
+        // dd($loans);
+        
         return Inertia::render('Users/LoanView',[
-
+            'loans' => $loans,
         ]);
     }
 

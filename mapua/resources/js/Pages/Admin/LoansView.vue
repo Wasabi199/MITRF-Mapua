@@ -229,6 +229,7 @@ export default {
                 'All',
                 'Reviewing',
                 'Approved',
+                'Pending',
             ],
         }
     },
