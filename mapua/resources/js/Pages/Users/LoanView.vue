@@ -9,6 +9,7 @@
         </template>
 
         <div class="mx-12 my-6 shadow-md">
+                <!--
                 <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -23,7 +24,7 @@
                                     <th class="text-left px-16">Approval</th>
                                     <th class="text-left px-16">Duration</th>
                                     <th class="text-left px-16">Loan Status</th>
-                                    <!--<th class="text-left px-16">Attachment Path</th>-->
+                                    <th class="text-left px-16">Attachment Path</th>
                                 </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
@@ -33,6 +34,7 @@
                     </div>
                 </div>
                 </div>
+                -->
         
 
         <div class="flex flex-col ">
@@ -41,6 +43,15 @@
                             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                 <table class="min-w-full divide-y divide-gray-200">
                                     <tbody class="bg-white divide-y divide-gray-200">
+                                        
+                                        <th class="text-left px-16 bg-gray-100">Name</th>
+                                        <th class="text-left px-16 bg-gray-100">Loan Type</th>
+                                        <th class="text-left px-16 bg-gray-100">Loan Amount</th>
+                                        <th class="text-left px-16 bg-gray-100">Interest</th>
+                                        <th class="text-left px-16 bg-gray-100">Approval</th>
+                                        <th class="text-left px-16 bg-gray-100">Duration</th>
+                                        <th class="text-left px-16 bg-gray-100">Loan Status</th>
+
                                         <tr v-for="loan in loans.data" v-bind:key="loan.id">
 
                                             <td class="px-6 py-4 whitespace-nowrap">
