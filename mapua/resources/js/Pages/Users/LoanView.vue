@@ -17,10 +17,10 @@
                                 <thead class="inline-flex">
                                 <tr class="m-2">
                                     <th class="text-left px-16">Name</th>
-                                    <th class="text-left px-16">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Loan Type</th>
-                                    <th class="text-left px-16">&emsp;Loan Amount</th>
-                                    <th class="text-left px-16">&emsp;&emsp;&emsp;Interest</th>
-                                    <th class="text-left px-16">&emsp;&nbsp;&nbsp;Approval</th>
+                                    <th class="text-left px-16">Loan Type</th>
+                                    <th class="text-left px-16">Loan Amount</th>
+                                    <th class="text-left px-16">Interest</th>
+                                    <th class="text-left px-16">Approval</th>
                                     <th class="text-left px-16">Duration</th>
                                     <th class="text-left px-16">Loan Status</th>
                                     <!--<th class="text-left px-16">Attachment Path</th>-->
