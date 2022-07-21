@@ -14,7 +14,7 @@
                         <select
                             v-model="form.loan_type" 
                             @change="showModal = !showModal"
-                            class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 transition ease-in duration-150 rounded-md ">
+                            class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 transition ease-in duration-150 rounded-md mb-10">
                             <option value="placeholder" disabled>Select Loan Type</option>
                             <option  v-for="type in loanTypes" v-bind:key="type" :value="type">{{type}}</option>
 
@@ -22,7 +22,7 @@
                     </div>
 
                     <!-- Loan For Home -->
-                    <form v-if="form.loan_type == 'Housing Loan'" @submit.prevent="submit" class="p-6 sm:px-20 bg-white border-b border-gray-200" enctype="multipart/form-data">
+                    <form v-if="form.loan_type == 'Housing Loan'" @submit.prevent="submit" class="p-6 sm:px-20 bg-white border-b border-gray-200 mt-[-40px]" enctype="multipart/form-data">
                         
                         <p class="mb-1 text-lg">Terms (Months)</p>
                         <select v-model="form.duration"
@@ -65,7 +65,7 @@
                     </form>
 
                     <!-- Loan For Educational -->
-                     <form v-if="form.loan_type == 'Educational Loan'" class="p-6 sm:px-20 bg-white border-b border-gray-200">
+                     <form v-if="form.loan_type == 'Educational Loan'" class="p-6 sm:px-20 bg-white border-b border-gray-200 mt-[-40px]">
                         
                         
                         <p class="mb-1 text-lg">Terms (Months)</p>
@@ -106,7 +106,7 @@
                     </form>
 
                     <!-- Loan For Medical -->
-                     <form v-if="form.loan_type == 'Medical Reimbursement'" class="p-6 sm:px-20 bg-white border-b border-gray-200">
+                     <form v-if="form.loan_type == 'Medical Reimbursement'" class="p-6 sm:px-20 bg-white border-b border-gray-200 mt-[-40px]">
                         <p class="mb-1 text-lg">Terms (Months)</p>
                         <select
                             class="mb-5 border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 transition ease-in duration-150 rounded-md">
@@ -145,7 +145,7 @@
                     </form>
 
                     <!-- Loan For Emergencies -->
-                     <form v-if="form.loan_type == 'Emergency Loan'" class="p-6 sm:px-20 bg-white borsder-b border-gray-200">
+                     <form v-if="form.loan_type == 'Emergency Loan'" class="p-6 sm:px-20 bg-white borsder-b border-gray-200 mt-[-40px]">
                         <p class="mb-1 text-lg">Terms (Months)</p>
                         <select
                             class="mb-5 border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 transition ease-in duration-150 rounded-md">
