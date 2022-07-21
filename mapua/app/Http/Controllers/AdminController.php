@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Request as QueryRequest;
 use App\Http\Requests\UserDeleteRequest as deleteRequest;
+use App\Http\Requests\LoanDeleteRequest as deleteloanRequest;
 use App\Http\Requests\UserUpdateRequest as updateRequest;
+use App\Http\Requests\LoanReviewRequest as reviewloanRequest;
 use App\Http\Requests\Admin as RegiterUserRequest;
 use App\Imports\UserAdmin;
 use Carbon\Carbon;
@@ -150,6 +152,30 @@ class AdminController extends Controller
             'filters'=>$filters,
             'loans' => $loans,
         ]);
+    }
+
+    public function loanDelete(deleteloanRequest $request){
+        $loan_to_delete = Loans::findOrFail($request->validated()['id']);
+        $loan_to_delete->delete();
+        return Redirect::back()->with('message',
+            [NotificationService::notificationItem('success', '', 'Sucessfully Deleted')]);
+
+    }
+
+    public function loanApprove(reviewloanRequest $request){
+        $loans = loans::find($request->validated()['id']);
+        $data = $request->validated();
+        $loans->update($data);
+        return Redirect::back()->with('message',
+            [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
+    }
+
+    public function loanReject(reviewloanRequest $request){
+        $loans = loans::find($request->validated()['id']);
+        $data = $request->validated();
+        $loans->update($data);
+        return Redirect::back()->with('message',
+            [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
     }
 
 
