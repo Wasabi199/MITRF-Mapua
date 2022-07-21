@@ -31,8 +31,8 @@
                                 <tr class="m-2">
                                     <th class="text-left px-16">Name</th>
                                     <th class="text-left px-72">Contact No.</th>
-                                    <th class="text-left px-16">Address</th>
-                                    <th class="text-left px-32">Status</th>
+                                    <th class="text-left px-16">E-mail</th>
+                                    <th class="text-left px-32">Department</th>
                                 </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
