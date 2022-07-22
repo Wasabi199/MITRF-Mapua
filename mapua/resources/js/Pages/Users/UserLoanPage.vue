@@ -9,6 +9,12 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <div class="text-rose-600">
+                        <ul>
+                            <li v-for="error in $page.props.errors" v-bind:key="error">{{error}}</li>
+                        </ul>
+                    </div>
+                    <JetValidationErrors class="mb-4" />
                     <div class="ml-20 mt-10">
                         <p class="mb-1 mt-4 text-lg">Purpose of Loan</p>
                         <select
@@ -69,7 +75,7 @@
                         
                         
                         <p class="mb-1 text-lg">Terms (Months)</p>
-                        <select
+                        <select v-model="form.duration"
                             class="mb-5 border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 transition ease-in duration-150 rounded-md">
                             <option value="12">12</option>
                             <option value="24">24</option>
@@ -81,11 +87,11 @@
                             <label class="mb-1 text-lg text-gray-700" for="amount">Amount</label><br>
                             <div class="mt-1 relative w-64 rounded-md">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <span class="text-gray-500 text-lg">
+                                    <span  class="text-gray-500 text-lg" >
                                         ₱
                                     </span>
                                 </div>
-                                <input type="number" placeholder="0.00"
+                                <input v-model="amount" type="number" placeholder="0.00"
                                     class="focus:ring-indigo-500 border-2 
                                 border-opacity-50 border-gray-400 hover:border-indigo-500 text-black block pl-7 pr-12 w-64 mb-5 font-lg rounded-md" />
                             </div>
@@ -93,13 +99,13 @@
                         <p class="mb-1 text-lg">Upload Requirements</p>
 
                         <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
-                            <input type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
+                            <input @change="onChange" type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
                                 class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
                         <div class="flex justify-center">
-                            <button type="button" @click="submitModal = !submitModal"
+                            <button type="button" @click="submit"
                                 class=" py-2 px-4 mb-5 bg-indigo-600 hover:bg-indigo-700 focus:ring focus:ring-indigo-300 text-white w-64 
                                 transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg">Submit</button>
                         </div>
@@ -108,7 +114,7 @@
                     <!-- Loan For Medical -->
                      <form v-if="form.loan_type == 'Medical Reimbursement'" class="p-6 sm:px-20 bg-white border-b border-gray-200 mt-[-40px]">
                         <p class="mb-1 text-lg">Terms (Months)</p>
-                        <select
+                        <select v-model="form.duration"
                             class="mb-5 border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 transition ease-in duration-150 rounded-md">
                             <option value="12">12</option>
                             <option value="24">24</option>
@@ -124,7 +130,7 @@
                                         ₱
                                     </span>
                                 </div>
-                                <input type="number" placeholder="0.00"
+                                <input v-model="ammount" type="number" placeholder="0.00"
                                     class="focus:ring-indigo-500 border-2 
                                 border-opacity-50 border-gray-400 hover:border-indigo-500 text-black block pl-7 pr-12 w-64 mb-5 font-lg rounded-md" />
                             </div>
@@ -132,13 +138,13 @@
                         <p class="mb-1 text-lg">Upload Requirements</p>
 
                         <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
-                            <input type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
+                            <input @change="onChange" type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
                                 class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
                         <div class="flex justify-center">
-                            <button type="button" @click="submitModal = !submitModal"
+                            <button type="button" @click="submit"
                                 class=" py-2 px-4 mb-5 bg-indigo-600 hover:bg-indigo-700 focus:ring focus:ring-indigo-300 text-white w-64 
                                 transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg">Submit</button>
                         </div>
@@ -147,7 +153,7 @@
                     <!-- Loan For Emergencies -->
                      <form v-if="form.loan_type == 'Emergency Loan'" class="p-6 sm:px-20 bg-white borsder-b border-gray-200 mt-[-40px]">
                         <p class="mb-1 text-lg">Terms (Months)</p>
-                        <select
+                        <select v-model="form.duration"
                             class="mb-5 border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 transition ease-in duration-150 rounded-md">
                             <option value="12">12</option>
                             <option value="24">24</option>
@@ -163,7 +169,7 @@
                                         ₱
                                     </span>
                                 </div>
-                                <input type="number" placeholder="0.00"
+                                <input v-model="amount" type="number" placeholder="0.00"
                                     class="focus:ring-indigo-500 border-2 
                                 border-opacity-50 border-gray-400 hover:border-indigo-500 text-black block pl-7 pr-12 w-64 mb-5 font-lg rounded-md" />
                             </div>
@@ -171,13 +177,13 @@
                         <p class="mb-1 text-lg">Upload Requirements</p>
 
                         <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
-                            <input type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
+                            <input @change="onChange" type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
                                 class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
                         <div class="flex justify-center">
-                            <button type="button" @click="submitModal = !submitModal"
+                            <button type="button" @click="submit"
                                 class=" py-2 px-4 mb-5 bg-indigo-600 hover:bg-indigo-700 focus:ring focus:ring-indigo-300 text-white w-64 
                                 transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg">Submit</button>
                         </div>
@@ -654,7 +660,7 @@ export default {
                 this.form.loan_amount = this.amount + this.total_amount;
              }
             if(this.form.loan_type == 'Educational Loan'){
-                this.form.interest ='5%';
+               this.form.interest ='5%';
                 this.total_amount = parseFloat(this.amount) * 0.05;
                 this.form.loan_amount = this.amount + this.total_amount;
              }

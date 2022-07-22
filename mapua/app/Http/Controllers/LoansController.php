@@ -28,8 +28,8 @@ class LoansController extends Controller
         $loans = Loans::with('contributions')
         ->filterOwner($user->id)
         ->limit(5)
-        ->paginate(5);
-        // ->appends($query::only(auth()->id()));
+        ->paginate(5)
+        ->appends($query::only(auth()->id()));
         
         return Inertia::render('Users/LoanView',[
             'loans' => $loans,
@@ -60,13 +60,9 @@ class LoansController extends Controller
              
             ]);
             return Redirect::route('dashboard')->with('message',
-                [NotificationService::notificationItem('success', '', 'Sucessfully '.$validate_data['loan_type'])]);
+                [NotificationService::notificationItem('Sucess', '', 'Sucessfully '.$validate_data['loan_type'])]);
         
         }
-
-         
-      
-        
     }
 
 }
