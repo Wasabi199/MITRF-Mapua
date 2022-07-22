@@ -10,6 +10,7 @@ use App\Models\{Loans, User};
 use Illuminate\Support\Facades\Redirect;
 use Tightenco\Ziggy\Output\Script;
 use App\Services\NotificationService;
+use Illuminate\Support\Facades\Request as query;
 
 
 class LoansController extends Controller
@@ -22,12 +23,13 @@ class LoansController extends Controller
         ]);
     }
 // Loans View
-    public function loansView(){
+    public function loansView(query $query){
         $user = Auth::user();
-        $loans = $user->loans()
+        $loans = Loans::with('contributions')
+        ->filterOwner($user->id)
         ->limit(5)
         ->paginate(5);
-        // dd($loans);
+        // ->appends($query::only(auth()->id()));
         
         return Inertia::render('Users/LoanView',[
             'loans' => $loans,

@@ -37,4 +37,11 @@ class Loans extends Model
             $query->where('approval','=', $approval);
         });
     }
+
+    public function scopeFilterOwner($query,$id){
+        $query->when($id ?? null, function($query, $id){
+            $query->where('user_id','=',$id);
+        });
+    }
+
 }

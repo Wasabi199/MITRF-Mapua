@@ -33,6 +33,7 @@
                                     <th class="text-left px-72">Contact No.</th>
                                     <th class="text-left px-16">E-mail</th>
                                     <th class="text-left px-32">Department</th>
+                                    
                                 </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
@@ -74,7 +75,7 @@
                                         </div>
 
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
+                                    <!-- <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div>
                                                 <div class="text-sm font-medium text-gray-900">
@@ -84,12 +85,22 @@
                                             </div>
                                         </div>
 
-                                    </td>
+                                    </td> -->
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div>
                                                 <div class="text-sm font-medium text-gray-900">
                                                     {{ user.email }}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </td >
+                                      <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div>
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    {{ user.admin_reg.department }}
                                                 </div>
                                             </div>
                                         </div>

@@ -44,7 +44,7 @@
                                 <table class="min-w-full divide-y divide-gray-200">
                                     <tbody class="bg-white divide-y divide-gray-200">
                                         
-                                        <th class="text-left px-16 bg-gray-100">Name</th>
+                                        <!-- <th class="text-left px-16 bg-gray-100">Name</th> -->
                                         <th class="text-left px-16 bg-gray-100">Loan Type</th>
                                         <th class="text-left px-16 bg-gray-100">Loan Amount</th>
                                         <th class="text-left px-16 bg-gray-100">Interest</th>
@@ -69,7 +69,7 @@
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            {{ loan.loan_amount }}
+                                                            {{ loan.loan_amount }} PHP
                                                         </div>
                                                     </div>
                                                 </div>
@@ -80,7 +80,7 @@
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            {{ loan.interest }}
+                                                            {{ loan.interest }}%
                                                         </div>
                                                     </div>
                                                 </div>
@@ -102,7 +102,7 @@
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            {{ loan.duration }}
+                                                            {{ loan.duration }} months
                                                         </div>
                                                     </div>
                                                 </div>

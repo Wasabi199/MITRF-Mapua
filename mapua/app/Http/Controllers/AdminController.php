@@ -139,11 +139,8 @@ class AdminController extends Controller
         
         $filters = $query::only('approval');
         isset($filters['approval']) ? $filters['approval'] = Approval::approval($filters['approval']) : $filters['approval'] = Approval::approval($filters['approval']='All');
-        // dd($filters);
         $loans = Loans::with('user')
-        // ->orderBy('name')
         ->filter($filters)
-        // ->where('approval','=','Approved')
         ->limit(5)
         ->paginate(5)
         ->appends($query::only(['approval']));
