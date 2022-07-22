@@ -251,6 +251,12 @@ const logout = () => {
                         <JetResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </JetResponsiveNavLink>
+                        <JetResponsiveNavLink :href="route('loansView')" :active="route().current('loansView')">
+                            Current Loan
+                        </JetResponsiveNavLink>
+                        <JetResponsiveNavLink :href="route('loansView')" :active="route().current('userLoan')">
+                            Loan
+                        </JetResponsiveNavLink>
                     </div>
 
                     <!-- Responsive Settings Options -->
