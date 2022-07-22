@@ -15,7 +15,7 @@
                         </ul>
                     </div>
                     <JetValidationErrors class="mb-4" />
-                    <div class="ml-20 mt-10">
+                    <div class="ml-6 lg:ml-20 mt-10">
                         <p class="mb-1 mt-4 text-lg">Purpose of Loan</p>
                         <select
                             v-model="form.loan_type" 
@@ -388,7 +388,7 @@
                 <span>A. Computation of Medical benefits for 2021 Members of MITRF</span>
             </div>
 
-            <table class="table-auto m-auto bg-white shadow rounded-lg w-5/6">
+            <table class="table-auto m-auto bg-white shadow rounded-lg lg:w-5/6">
                 <thead class="bg-blue-100">
                     <tr>
                         <th>Membership Year</th>
@@ -447,7 +447,7 @@
                 <span>B. Computation of Medical benefits prior to 2021</span>
             </div>
 
-            <table class="table-auto m-auto bg-white rounded-lg  shadow w-5/6">
+            <table class="table-auto m-auto bg-white rounded-lg shadow min-w-[100%] lg:w-5/6">
                 <thead class="bg-blue-100">
                     <tr>
                         <th>Membership Year</th>
@@ -470,7 +470,7 @@
                 </tbody>
             </table>
 
-            <div class="text-m text-gray-900 italic my-3 mb-10">
+            <div class="text-m text-gray-900 italic my-3 mb-16 lg:mb-10">
                 <span class="float-right pr-12 underline">Where x = years as member of MITRF</span><br>
             </div>
 

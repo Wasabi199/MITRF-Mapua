@@ -254,7 +254,7 @@ const logout = () => {
                         <JetResponsiveNavLink :href="route('loansView')" :active="route().current('loansView')">
                             Current Loan
                         </JetResponsiveNavLink>
-                        <JetResponsiveNavLink :href="route('loansView')" :active="route().current('userLoan')">
+                        <JetResponsiveNavLink :href="route('userLoan')" :active="route().current('userLoan')">
                             Loan
                         </JetResponsiveNavLink>
                     </div>
