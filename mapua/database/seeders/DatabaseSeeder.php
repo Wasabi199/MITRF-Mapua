@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\{User, Admin, Contributions, Loans};
+use App\Models\{User, Admin, Contributions, Loans, Medical};
 use Illuminate\Support\Facades\Hash;
 
 
@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-            User::factory(50)->has(Loans::factory(),'loans')->create();
+           
         // User::factory(10)->has(Admin::factory(),'adminReg')->create();
             $admin = User::create([
                 'name' => "Super Admin",
@@ -31,14 +31,33 @@ class DatabaseSeeder extends Seeder
                 'email' => 'admin@admin.com',
                 'password' => Hash::make('password'),
             ]);
-            $admin ->adminReg()->create(Admin::factory(['user_id' => $admin->id])->make()->toArray());
+            $admin->adminReg()->create(Admin::factory(['user_id' => $admin->id])->make()->toArray());
+           
+
             $user = User::create([
                 'name' => "Normal User",
                 'usertype' => 2,
                 'email' => 'user@user.com',
                 'password' => Hash::make('password'),
             ]);
-            $user ->adminReg()->create(Admin::factory(['user_id' => $user->id])->make()->toArray());
+            $user->adminReg()->create(Admin::factory(['user_id' => $user->id])->make()->toArray());
+           
+
+            $medical = User::create([
+                'name' => "Medical Admin",
+                'usertype' => 3,
+                'email' => 'medical@medical.com',
+                'password' => Hash::make('password'),
+            ]);
+            $medical->adminReg()->create(Admin::factory(['user_id' => $admin->id])->make()->toArray());
+            
+            
+
+
+            User::factory(50)->has(Loans::factory(),'loans')
+            ->has(Medical::factory(),'medicals')
+            ->create();
+            
             
 
     }

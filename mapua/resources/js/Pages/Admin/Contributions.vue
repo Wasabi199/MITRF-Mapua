@@ -1,9 +1,18 @@
 <template>
     <AppLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Contributions
-            </h2>
+             <div class="flex justify-between">
+                <div class="flex items-center ">
+                    <Link :href="route('adminLoansView')" class="hover:underline">
+                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">Loans</h1>
+                    </Link>
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">{{info.first_name}} {{info.middle_name}} {{info.last_name}}</h1>
+                </div>
+
+            </div>
         </template>
     
     <div class="grid grid-cols-1 m-8 gap-8 lg:m-10 lg:grid-cols-2">
@@ -19,7 +28,7 @@
                             stroke-linejoin="round"/>
                     </svg>
 
-                    <p class="pl-2 font-semibold">richie56@example.net</p>
+                    <p class="pl-2 font-semibold">{{loan.loan_type}}</p>
                     <!-- <p class="pl-2 font-semibold">{{ user.email }}</p> -->
                 </div>
                 <div class="flex lg:text-lg pb-2">
@@ -31,7 +40,7 @@
                             stroke-linejoin="round"/>
                     </svg>
 
-                    <p class="pl-2 font-semibold">(409) 822-4953</p>
+                    <p class="pl-2 font-semibold">{{loan.loan_amount}}</p>
                     <!-- <p class="pl-2 font-semibold">{{ user.admin_reg.mobile_number }}</p> -->
                 </div>
 
@@ -39,7 +48,7 @@
                 <div class="justify-between flex">
                     <div class="flex lg:text-lg">
                         <p class="font-semibold">Name: </p>
-                        <p class="ml-2 underline">Agnes Considine Hodkiewicz</p>
+                        <p class="ml-2 underline">{{info.first_name}} {{info.middle_name}} {{info.last_name}}</p>
                     </div>
 
 
@@ -56,44 +65,44 @@
                 <!-- Civil status -->
                 <div class="flex lg:text-lg">
                     <p class="font-semibold">Civil Status:</p>
-                    <p class="ml-2 underline">Single</p>
+                    <p class="ml-2 underline">{{info.civil_status}}</p>
                 </div>
 
                 <!-- birth date -->
                 <div class="flex lg:text-lg">
                     <p class="font-semibold">Birthdate:</p>
-                    <p class="ml-2 underline">1988-07-18</p>
+                    <p class="ml-2 underline">{{info.birth_date}}</p>
                 </div>
 
                 <!-- place of birth -->
                 <div class="flex lg:text-lg">
                     <p class="font-semibold">Place of Birth:</p>
-                    <p class="ml-2 underline">East Noel</p>
+                    <p class="ml-2 underline">{{info.birth_place}}</p>
                 </div>
 
                 <!-- department -->
                 <div class="flex lg:text-lg">
                     <p class="font-semibold">Department:</p>
-                    <p class="ml-2 underline">Department of Arts and Letters</p>
+                    <p class="ml-2 underline">{{info.department}}</p>
 
                 </div>
 
                 <!-- membership date -->
                 <div class="flex lg:text-lg">
                     <p class="font-semibold">Member Since:</p>
-                    <p class="ml-2 underline">2001-12-25</p>
+                    <p class="ml-2 underline">{{info.membership}}</p>
 
                 </div>
 
-                <!-- Contribution -->
+                <!-- Loan -->
                 <div class="flex lg:text-lg">
-                    <p class="font-semibold">Current Contribution:</p>
-                    <p class="ml-2 underline">No Contribution</p>
+                    <p class="font-semibold">Loan Duration:</p>
+                    <p class="ml-2 underline">{{loan.duration}} month's</p>
                 </div>
             </div>
         </div>
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-20 ">
-            <img src="" alt="">
+            <img :src="loan.attachment_path == null ? '' : loan.attachment_path" class="w-auto h-auto">
         </div>
     </div>
 
@@ -110,11 +119,16 @@
 </template>
 <script>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
 export default {
     components:{
         AppLayout,
+        Link
     },
-
+    props:{
+        loan:Object,
+        info:Object,
+    },
     setup() {
         
     },

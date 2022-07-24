@@ -81,9 +81,10 @@ class User extends Authenticatable
     public function loans(){
         return $this->hasMany(Loans::class,"user_id");
     }
-    // public function contributions(){
-    //     return $this->hasMany(Contributions::class);
-    // }
+
+    public function medicals(){
+        return $this->hasMany(Medical::class);
+    }
 
 
     // Filters

@@ -7,17 +7,31 @@
                 </div>
             </div>
         </template>
-            <div class="p-2 px-6 leading-tight flex justify-between items-center">
-            <h1 class="text-xl text-gray-700 font-extrabold pl-8">Loans Management</h1>
-
-            <div class="flex-1">
-                <Link :href="route('userLoan')" class="text-blue-500 font-semibold text-sm hover:underline ml-4">
-                    Create New Loan
-                </Link>
-            </div>
-
-        </div>
-
+         <div class="p-2 px-6 leading-tight flex justify-between items-center">
+            <h1 class="text-xl text-gray-700 font-extrabold pl-8">Medical Reimbursment</h1>
+                 <div class="flex px-3 py-1 gap-2">
+                    <Listbox class="w-80" v-model="form.status">
+                         <div class="relative">
+                            <ListboxButton class="elative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
+                                Sort By: {{form.status}}
+                                <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                                    <SelectorIcon class="w-5 h-5 text-gray-400" aria-hidden="true" />
+                                </span>
+                            </ListboxButton>
+                            <transition
+                                leave-active-class="transition duration-100 ease-in"
+                                leave-from-class="opacity-100"
+                                leave-to-class="opacity-0"
+                            >
+                                <ListboxOptions class="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                    <ListboxOption v-for="approve in approval" :key="approve" :value="approve" as="template"><li class="px-3 py-2 hover:bg-gray-200 cursor-pointer"> {{approve}}</li></ListboxOption>
+                                </ListboxOptions>
+                            </transition>
+                        </div>
+                        </Listbox>
+                    </div>
+              
+                </div>
         <div class="mx-12 my-6 shadow-md">
                 <!--
                 <div class="flex flex-col">
@@ -59,16 +73,15 @@
                                         <th class="text-left px-16 bg-gray-100">Loan Amount</th>
                                         <th class="text-left px-16 bg-gray-100">Interest</th>
                                         <th class="text-left px-16 bg-gray-100">Approval</th>
-                                        <th class="text-left px-16 bg-gray-100">Duration</th>
-                                        <th class="text-left px-16 bg-gray-100">Loan Status</th>
+                                      
 
-                                        <tr v-for="loan in loans.data" v-bind:key="loan.id">
-
+                                        <tr v-for="medical in medicals.data" v-bind:key="medical.id">
+                                        <!-- <tr> -->
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            {{ loan.loan_type }}
+                                                            {{medical.reimbursment_type}}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -79,7 +92,7 @@
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            {{ loan.loan_amount }} PHP
+                                                            {{ medical.amount}} PHP
                                                         </div>
                                                     </div>
                                                 </div>
@@ -90,7 +103,7 @@
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            {{ loan.interest }}%
+                                                            {{medical.medical_benifit }}%
                                                         </div>
                                                     </div>
                                                 </div>
@@ -101,39 +114,19 @@
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            {{ loan.approval }}
+                                                            {{ medical.status}}
                                                         </div>
                                                     </div>
                                                 </div>
 
                                             </td>
 
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="flex items-center">
-                                                    <div>
-                                                        <div class="text-sm font-medium text-gray-900">
-                                                            {{ loan.duration }} months
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </td>
-
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="flex items-center">
-                                                    <div>
-                                                        <div class="text-sm font-medium text-gray-900">
-                                                            {{ loan.loan_status }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </td>
+                                 
                                         </tr>
                                     </tbody>
                                 </table>
 
-                                <pagination :links="loans.links"/>
+                                <pagination :links="medicals.links"/>
                             </div>
                         </div>
                     </div>
@@ -166,7 +159,8 @@ export default {
 
     },
     props: {
-        loans: Object,
+        medicals: Object,
+        filters:Object
         
     },
     
@@ -177,7 +171,18 @@ export default {
 
     data() {
         return {
-            id: Number,
+             form:{
+                // status: this.filters.status == null ? 'All' : this.filters.status,
+            
+            },
+
+              approval:[
+                'All',
+                'Processing',
+                'Approved',
+                'Pending',
+            ],
+
         }
     },
 
@@ -187,7 +192,7 @@ export default {
             handler:
                 throttle(
                     function () {
-                        this.$inertia.get(route('usersLoansView'), pickBy(this.form), {preserveState: true, preserveScroll: true,
+                        this.$inertia.get(route('medicalView'), pickBy(this.form), {preserveState: true, preserveScroll: true,
                         })
                     },
                     600

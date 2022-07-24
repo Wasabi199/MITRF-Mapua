@@ -1,9 +1,16 @@
 <template>
     <AppLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Apply for Personal Loan
-            </h2>
+              <div class="flex items-center ">
+
+                    <Link :href="route('loansView')" class="hover:underline">
+                        <h1 class="font-extrabold text-xl text-gray-800 leading-tight">Current Loan</h1>
+                    </Link>
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">Apply For Loan</h1>
+                </div>
         </template>
 
         <div class="py-12">
@@ -572,11 +579,13 @@
         <!-- Submit modal -->
         
     </Modal>
-    <Modal  :show="submitModal" :closeable="true" >
+    <Modal  :show="submitModal" :closeable="true" @close="submitModal = !submitModal">
     <div  class="p-5">
-            <div class="flex justify-center text-xl font-bold text-gray-900 my-3">
+            <div class="flex justify-between text-xl font-bold text-gray-900 my-3 " >
                 <span>Agreement</span>
-              
+              <svg @click="submitModal = !submitModal" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
             </div>
             <div>
 
@@ -600,18 +609,23 @@
 <script>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import Modal from '@/Jetstream/Modal';
-
+import {Link} from '@inertiajs/inertia-vue3';
 
 export default {
-    
+
+    props:{
+        user:Object
+    },
+
     components:{
         AppLayout,
         Modal,
-        
+        Link,
     },
     setup() {
         
     },
+    
     
     data(){
         return {
@@ -620,6 +634,7 @@ export default {
             submitModal: false,
             amount:'',
             total_amount:0,
+            membership: this.$props.user.admin_reg.membership,
             
             // image:null,
             loanTypes:[
@@ -629,7 +644,7 @@ export default {
                 'Emergency Loan',
             ],
             form: this.$inertia.form({
-                user_loan: this.$attrs.user.id,
+                // user_loan: this.$attrs.user.id,
                 loan_type:'',
                 loan_amount:'',
                 duration:'',
@@ -655,24 +670,28 @@ export default {
             // console.log(this.$attrs.user.id);
             this.submitModal = true;
              if(this.form.loan_type == 'Housing Loan'){
-                this.form.interest ='5%';
-                this.total_amount = parseFloat(this.amount) * 0.05;
-                this.form.loan_amount = this.amount + this.total_amount;
+                let interest = 0.09 + 0.02;
+                this.form.loan_amount = this.amount + ((this.amount * interest) * (this.form.duration/12));
              }
             if(this.form.loan_type == 'Educational Loan'){
-               this.form.interest ='5%';
-                this.total_amount = parseFloat(this.amount) * 0.05;
-                this.form.loan_amount = this.amount + this.total_amount;
+                let interest = 0.09 + 0.02;
+                this.form.loan_amount = this.amount + ((this.amount * interest) * (this.form.duration/12));
              }
             if(this.form.loan_type == 'Medical Reimbursement'){
-                this.form.interest ='5%';
-                this.total_amount = parseFloat(this.amount) * 0.05;
-                this.form.loan_amount = this.amount + this.total_amount;
+                
+                // console.log("TOTAL: "+new Date(this.membership) );
+                if(new Date('2021-01-01') > new Date(this.membership)){
+                    // console.log(new Date('2021-01-01').getFullYear - new Date(this.membership).getFullYear);
+                    console.log(2021 -  new Date(this.membership).getUTCFullYear());
+                }
+
+                // this.form.interest ='5%';
+                // this.total_amount = parseFloat(this.amount) * 0.05;
+                // this.form.loan_amount = this.amount + this.total_amount;
              }
             if(this.form.loan_type == 'Emergency Loan'){
-                this.form.interest ='5%';
-                this.total_amount = parseFloat(this.amount) * 0.05;
-                this.form.loan_amount = this.amount + this.total_amount;
+                let interest = 0.09 + 0.02;
+                this.form.loan_amount = this.amount + ((this.amount * interest) * (this.form.duration/12));
              }
         },
 

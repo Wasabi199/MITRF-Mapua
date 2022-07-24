@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoansController;
+use App\Http\Controllers\MedicalController;
 use App\Http\Controllers\UpdateUser;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -41,7 +42,7 @@ Route::prefix('Admin')->middleware(['auth:sanctum','Admin'])->group(function(){
     Route::post('import',[AdminController::class, 'userUpload'])->name('import');
 
     Route::get('loansView',[AdminController::class,'adminLoansView'])->name('adminLoansView');
-    Route::get('contributions',[AdminController::class,'contributions'])->name('contributions');
+    Route::get('contributions/{id}',[AdminController::class,'contributions'])->name('contributions');
     Route::delete('loan/delete',[AdminController::class,'loanDelete'])->name('loanDelete');
     Route::post('loan/approve',[AdminController::class,'loanApprove'])->name('loanApprove');
     Route::post('loan/reject',[AdminController::class,'loanReject'])->name('loanReject');
@@ -50,7 +51,11 @@ Route::prefix('Users')->middleware(['auth:sanctum','Users'])->group(function(){
 
     Route::get('User/Loan',[LoansController::class,'index'])->name('userLoan');
     Route::post('Loan/createLoans',[LoansController::class,'createLoans'])->name('createLoans');
-    
     Route::get('Loan/View',[LoansController::class,'loansView'])->name('loansView');
+    Route::get('Loan/MedicalView',[LoansController::class,'medicalReimbursment'])->name('medicalView');
+});
+Route::prefix('Medical')->middleware(['auth:sanctum','Medical'])->group(function(){
+    Route::get('Medical/List',[MedicalController::class,'index'])->name('medicalList');
+
 });
 

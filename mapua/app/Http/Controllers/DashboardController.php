@@ -20,6 +20,10 @@ class DashboardController extends Controller
             return Inertia::render('Users/UserDashboard',[
 
             ]);
+        }else if(Auth::user()->userType ==3){
+            return Inertia::render('Medical/Dashboard',[
+                
+            ]);
         }
     }
     

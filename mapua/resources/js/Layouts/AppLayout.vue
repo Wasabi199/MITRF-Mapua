@@ -68,9 +68,6 @@ const logout = () => {
                                  <JetNavLink :href="route('adminLoansView')" :active="route().current('adminLoansView')">
                                     Loans
                                 </JetNavLink>
-                                <JetNavLink :href="route('contributions')" :active="route().current('contributions')">
-                                    Contributions
-                                </JetNavLink>
                             </div>
 
 
@@ -85,9 +82,23 @@ const logout = () => {
                                     Current Loan
                                 </JetNavLink>
                                 <!-- Users Loan -->
-                                <JetNavLink :href="route('userLoan')" :active="route().current('userLoan')">
-                                    Loan
+                             
+                                 <JetNavLink :href="route('medicalView')" :active="route().current('medicalView')">
+                                    Medical
                                 </JetNavLink>
+                               
+                               <!-- Medical Dashboard -->
+                            </div>
+                                 <div v-if="$page.props.user.userType == 3" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <!-- Dashboard -->
+                                <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                    Dashboard
+                                </JetNavLink>
+                                <!-- Medical Reimbursement List -->
+                                <JetNavLink :href="route('medicalList')" :active="route().current('medicalList')">
+                                    Medical
+                                </JetNavLink>
+                              
                                
                                
                             </div>

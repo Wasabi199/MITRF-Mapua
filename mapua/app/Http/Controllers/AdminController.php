@@ -47,6 +47,7 @@ class AdminController extends Controller
 
         ]);
     }
+
     public function userProfile($id){
         $userProfile = User::with('AdminReg')->find($id);
         return Inertia::render('Admin/UserProfile',[
@@ -176,10 +177,16 @@ class AdminController extends Controller
     }
 
 
-    public function contributions(){
+    public function contributions($id){
+        $loanProfile = Loans::with('contributions')->find($id);
+        $info = Admin::find($loanProfile->user_id);
+        
         return Inertia::render('Admin/Contributions',[
+            'loan' => $loanProfile,
+            'info'=>$info
             
         ]);
     }
+ 
 
 }

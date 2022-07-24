@@ -6,9 +6,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoanRequest as request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
-use App\Models\{Loans, User};
+use App\Models\{Loans, Medical, User};
 use Illuminate\Support\Facades\Redirect;
 use Tightenco\Ziggy\Output\Script;
+use App\Services\Approval;
 use App\Services\NotificationService;
 use Illuminate\Support\Facades\Request as query;
 
@@ -17,9 +18,10 @@ class LoansController extends Controller
 {
     //
     public function index(){
-        
+        $id = auth()->id();
+        $user = User::with('adminReg')->find($id);
         return Inertia::render('Users/UserLoanPage',[
-           
+           'user' =>$user           
         ]);
     }
 // Loans View
@@ -46,7 +48,7 @@ class LoansController extends Controller
            
             $file->move(public_path('uploads/'),$file_name);
 
-            $user = User::find($validate_data['user_loan']);
+            $user = User::find(auth()->id());
           
             $user->loans()->create([
              
@@ -63,6 +65,22 @@ class LoansController extends Controller
                 [NotificationService::notificationItem('Sucess', '', 'Sucessfully '.$validate_data['loan_type'])]);
         
         }
+    }
+
+    public function medicalReimbursment(query $query){
+       
+        $filters = $query::only('status');
+        isset($filters['status']) ? $filters['status'] = Approval::status($filters['status']) : $filters['status'] = Approval::status($filters['status']='All');
+        
+        $medical = Medical::with('user')
+        ->filter($filters)
+        ->limit(5)
+        ->paginate(5)
+        ->appends($query::only(['status']));
+        return Inertia::render('Users/MedicalReimbursment',[
+            'medicals'=>$medical,
+            'filter'=>$filters
+        ]);
     }
 
 }

@@ -18,7 +18,7 @@
             </div> -->
 
             <!-- <input id="search_term"  class="border rounded-md mx-4" v-model="form.search" name="search_term" placeholder="Search" type="text"> -->
-                   <div class="flex px-3 py-1 gap-2">
+                <div class="flex px-3 py-1 gap-2">
                     <Listbox class="w-80" v-model="form.approval">
                          <div class="relative">
                             <ListboxButton class="elative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
@@ -90,9 +90,11 @@
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
                                                     <div>
-                                                        <div class="text-sm font-medium text-gray-900">
-                                                            {{ loan.user.name }}
-                                                        </div>
+                                                        <Link :href="route('contributions',loan.id)">
+                                                            <div class="text-sm font-medium text-gray-900">
+                                                                {{ loan.user.name }}
+                                                            </div>
+                                                         </Link>
                                                     </div>
                                                 </div>
 
@@ -384,7 +386,7 @@ export default {
             
             form:{
                 // search: this.filters.search,
-                approval: this.filters.approval == null ? 'All' : this.filters.approval,
+                // approval: this.filters.approval == null ? 'All' : this.filters.approval,
             },
 
             statuses:[
