@@ -22,6 +22,7 @@
         </div>
 
         <div class="mx-12 my-6 shadow-md">
+            <!--
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -43,12 +44,17 @@
                     </div>
                 </div>
             </div>
+            -->
 
             <div class="flex flex-col ">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                             <table class="min-w-full divide-y divide-gray-200">
+                                <th class="text-left px-16 bg-gray-100">Name</th>
+                                <th class="text-left px-16 bg-gray-100">Contact No.</th>
+                                <th class="text-left px-16 bg-gray-100">E-mail</th>
+                                <th class="text-left px-16 bg-gray-100">Department</th>
 
                             <tbody class="bg-white divide-y divide-gray-200">
 
