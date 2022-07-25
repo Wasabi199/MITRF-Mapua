@@ -50,7 +50,7 @@
                         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                             <table class="min-w-full divide-y divide-gray-200">
 
-                                <tbody class="bg-white divide-y divide-gray-200">
+                            <tbody class="bg-white divide-y divide-gray-200">
 
                                 <tr v-for="user in users.data" v-bind:key="user.id">
                                     <td class="px-6 py-4 whitespace-nowrap">
@@ -63,7 +63,6 @@
                                                 </div>
                                             </Link>
                                         </div>
-
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
@@ -73,7 +72,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </td>
                                     <!-- <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
@@ -137,7 +135,7 @@
 
                                     </td>
                                 </tr>
-                                </tbody>
+                            </tbody>
 
                             </table>
                             <pagination :links="users.links"/>
@@ -182,7 +180,7 @@
                                             <g></g>
                                             <g></g>
                                             <g></g>
-                        </svg>
+                                     </svg>
                                         <span class="text-center">You are about to delete {{ userToDelete.name }}'s account are you sure you want to proceed?</span>
                                     </div>
                                     <div class="flex justify-center">

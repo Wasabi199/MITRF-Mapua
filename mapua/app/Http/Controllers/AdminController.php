@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{User, AddressInformation, PersonalInformation, Loans};
+use App\Models\{User, AddressInformation, Contributions, PersonalInformation, Loans};
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Request as QueryRequest;
@@ -180,10 +180,14 @@ class AdminController extends Controller
     public function contributions($id){
         $loanProfile = Loans::with('contributions')->find($id);
         $info = Admin::find($loanProfile->user_id);
-        
+        $contribution = Contributions::where('loans_id','=',$loanProfile->id)
+        ->limit(5)
+        ->paginate(5);
+        // dd($contribution);
         return Inertia::render('Admin/Contributions',[
             'loan' => $loanProfile,
-            'info'=>$info
+            'info'=>$info,
+            'contributions'=>$contribution
             
         ]);
     }
