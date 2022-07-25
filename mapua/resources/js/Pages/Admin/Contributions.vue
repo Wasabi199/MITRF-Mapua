@@ -116,8 +116,8 @@
                         transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="reviewLoan(loan)">Accept</button>
             </div>
         </div>
-    <div v-if="loan.approval == 'Approved'" class="bg-white p-4 overflow-hidden border-gray-300 shadow-xl rounded-lg lg:m-20 lg:max-w-[75%] shadow-lg max-width: 768px">
-                <table class="min-w-auto divide-y divide-gray-200 table-flex">
+    <div v-if="loan.approval == 'Approved'" class="bg-white p-4 overflow-x-auto border-gray-300 shadow-xl rounded-lg lg:m-20 lg:max-w-[75%] shadow-lg max-width: 768px">
+                <table class="min-w-auto divide-y divide-gray-200 table-fixed">
                     <thead class="inline-auto">
                         <tr class="box-content h-10 w-20 p-4 border-10  bg-red-800 text-yellow-400">
                             <th class="text-left px-16">Past Loan</th>
