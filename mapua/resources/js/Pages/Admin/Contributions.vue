@@ -111,15 +111,15 @@
             <div  class="w-full p-0 m-0 flex items-center justify-center gap-20">
                     <button  type="button" class=" py-2 px-4 mb-5 bg-red-600 hover:bg-red-700 focus:ring focus:ring-red-300 text-white w-64 
                         transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="deleteLoan(loan)">Reject</button>
-
+ 
                     <button type="button" class=" py-2 px-4 mb-5 bg-green-600 hover:bg-green-700 focus:ring focus:ring-green-300 text-white w-64 
                         transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="reviewLoan(loan)">Accept</button>
             </div>
         </div>
-    <div v-if="loan.approval == 'Approved'" class="bg-white shadow-lg">
-                <table class="min-w-full divide-y divide-gray-200 table-auto">
-                    <thead class="inline-flex">
-                        <tr class=" bg-red-800 text-yellow-400">
+    <div v-if="loan.approval == 'Approved'" class="bg-white p-4 overflow-hidden border-gray-300 shadow-xl rounded-lg lg:m-20 lg:max-w-[75%] shadow-lg max-width: 768px">
+                <table class="min-w-auto divide-y divide-gray-200 table-flex">
+                    <thead class="inline-auto">
+                        <tr class="box-content h-10 w-20 p-4 border-10  bg-red-800 text-yellow-400">
                             <th class="text-left px-16">Past Loan</th>
                             <th class="text-left px-16">Amount</th>
                             <th class="text-left px-16">Date of Completion</th>
@@ -127,10 +127,10 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                         <tr v-for="contribution in contributions.data" v-bind:key="contribution.id">
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="px-6 py-6 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div>
-                                            <div class="text-sm font-medium text-gray-900">
+                                            <div class="px-12 text-sm font-medium text-gray-900">
                                                    {{contribution.id}}
                                             </div>
                                         </div>
@@ -139,7 +139,7 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     <div>
-                                        <div class="text-sm font-medium text-gray-900">
+                                        <div class="px-10 text-sm font-medium text-gray-900">
                                             {{ contribution.contribution_amount}}
                                         </div>
                                     </div>
@@ -148,7 +148,7 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     <div>
-                                        <div class="text-sm font-medium text-gray-900">
+                                        <div class="px-5 text-sm font-medium text-gray-900">
                                             {{ contribution.created_at}}
                                         </div>
                                     </div>
