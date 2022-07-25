@@ -18,6 +18,9 @@ class Approval{
             case 'Pending':
                 return 'Pending';
             break;
+            case 'Rejected':
+                return 'Rejected';
+            break;
             default:
                 return null;
             }

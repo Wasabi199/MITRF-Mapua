@@ -52,9 +52,9 @@
                         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                             <table class="min-w-full divide-y divide-gray-200">
                                 <th class="text-left px-16 bg-gray-100">Name</th>
-                                <th class="text-left px-16 bg-gray-100">Contact No.</th>
-                                <th class="text-left px-16 bg-gray-100">E-mail</th>
-                                <th class="text-left px-16 bg-gray-100">Department</th>
+                                <th class="text-left px-9 bg-gray-100">Contact No.</th>
+                                <th class="text-left px-20 bg-gray-100">E-mail</th>
+                                <th class="text-left px-20 bg-gray-100">Department</th>
 
                             <tbody class="bg-white divide-y divide-gray-200">
 

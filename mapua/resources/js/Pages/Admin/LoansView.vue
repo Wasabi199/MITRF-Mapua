@@ -105,7 +105,7 @@
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ loan.loan_type }}
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ loan.loan_type }}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -181,7 +181,7 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                 <!-- Review loan info -->
                                                 <div class="inline-flex">
-                                                    <svg class="h-6 w-6" fill="none" stroke="currentColor"
+                                                    <!--<svg class="h-6 w-6" fill="none" stroke="currentColor"
                                                         stroke-width="2"
                                                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                                                         @click="reviewLoan(loan)">
@@ -189,7 +189,7 @@
                                                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
                                                             stroke-linecap="round"
                                                             stroke-linejoin="round"/>
-                                                    </svg>
+                                                    </svg>-->
 
                                                     <!-- delete Loan -->
 
@@ -291,7 +291,7 @@
                                         </div>
                                     </Modal>
 
-                                    <Modal :closeable="true" :show="showReviewModal"
+                                    <!--<Modal :closeable="true" :show="showReviewModal"
                                         @close="showReviewModal = !showReviewModal">
                                         <div class="p-5">
                                             <div class="flex justify-between text-xl font-bold text-gray-900 my-3">
@@ -328,7 +328,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </Modal>
+                                    </Modal>-->
                             </div>
                         </div>
                     </div>
@@ -380,9 +380,9 @@ export default {
     data() {
         return {
             loanToDelete: Object,
-            loanToReview: Object,
+            //loanToReview: Object,
             showDeleteModal: false,
-            showReviewModal: false,
+            //showReviewModal: false,
             
             form:{
                 // search: this.filters.search,
@@ -394,13 +394,14 @@ export default {
                 'Reviewing',
                 'Approved',
                 'Pending',
+                'Rejected',
             ],
 
             deleteForm: this.$inertia.form({
                 id: Number,
             }),
 
-            approveForm: this.$inertia.form({
+        /*    approveForm: this.$inertia.form({
                 id: Number, 
                 approval:'',
             }),
@@ -408,7 +409,7 @@ export default {
             rejectForm: this.$inertia.form({
                 id: Number,
                 approval:'',
-            }),
+            }),*/
         }
     },
 
@@ -440,7 +441,7 @@ export default {
             });
         },
 
-        reviewLoan(loan) {
+    /*    reviewLoan(loan) {
             this.loanToReview = loan
             this.showReviewModal = !this.showReviewModal
         },
@@ -463,7 +464,7 @@ export default {
                     this.showReviewModal = false
                 }
             });
-        },
+        },*/
     //  importing(){
     //     this.$inertia.post(route('import'),{
             
