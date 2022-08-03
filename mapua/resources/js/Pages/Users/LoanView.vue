@@ -11,7 +11,7 @@
             <h1 class="text-xl text-gray-700 font-extrabold pl-8">Loans Management</h1>
 
             <div class="flex-1">
-                <Link :href="route('userLoan')" class="text-blue-500 font-semibold text-sm hover:underline ml-4">
+                <Link :href="route('userLoan')" class="text-yellow-500 font-semibold text-sm hover:underline ml-4">
                     Create New Loan
                 </Link>
             </div>
