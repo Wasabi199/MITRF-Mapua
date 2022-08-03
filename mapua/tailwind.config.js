@@ -1,5 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
+
 module.exports = {
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
@@ -16,6 +17,11 @@ module.exports = {
             },
 
         },
+
+        // colors: {
+        //     gold:'#FFD700',
+        //     maroon:'#800000',
+        // },
     },
 
 
