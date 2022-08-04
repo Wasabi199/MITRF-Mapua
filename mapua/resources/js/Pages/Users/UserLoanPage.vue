@@ -86,7 +86,7 @@
                         </div>
                         <div class="flex justify-center">
                             <button type="button"  @click="submit"
-                                class=" py-2 px-4 mb-5 bg-indigo-600 hover:bg-indigo-700 focus:ring focus:ring-indigo-300 text-white w-64 
+                                class=" py-2 px-4 mb-5 bg-red-800 hover:bg-red-700 focus:ring focus:ring-indigo-300 text-yellow-500 w-64 
                                 transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg">Submit</button>
                         </div>
                     </form>
@@ -142,7 +142,7 @@
 
                         <div class="flex justify-center">
                             <button type="button" @click="submit"
-                                class=" py-2 px-4 mb-5 bg-indigo-600 hover:bg-indigo-700 focus:ring focus:ring-indigo-300 text-white w-64 
+                                class=" py-2 px-4 mb-5 bg-red-800 hover:bg-red-700 focus:ring focus:ring-indigo-300 text-yellow-500 w-64 
                                 transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg">Submit</button>
                         </div>
                     </form>
@@ -181,7 +181,7 @@
                         </div>
                         <div class="flex justify-center">
                             <button type="button" @click="submit"
-                                class=" py-2 px-4 mb-5 bg-indigo-600 hover:bg-indigo-700 focus:ring focus:ring-indigo-300 text-white w-64 
+                                class=" py-2 px-4 mb-5 bg-red-800 hover:bg-red-700 focus:ring focus:ring-indigo-300 text-yellow-500 w-64 
                                 transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg">Submit</button>
                         </div>
                     </form>
@@ -234,7 +234,7 @@
                         </div>
                         <div class="flex justify-center">
                             <button type="button" @click="submit"
-                                class=" py-2 px-4 mb-5 bg-indigo-600 hover:bg-indigo-700 focus:ring focus:ring-indigo-300 text-white w-64 
+                                class=" py-2 px-4 mb-5 bg-red-800 hover:bg-red-700 focus:ring focus:ring-indigo-300 text-yellow-500 w-64 
                                 transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg">Submit</button>
                         </div>
                     </form>

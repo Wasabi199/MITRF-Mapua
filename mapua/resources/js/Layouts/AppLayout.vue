@@ -43,9 +43,9 @@ const logout = () => {
 
         <div class="min-h-screen bg-gray-100">
                 <notification-area :messages="$page.props.flash.message" />
-            <nav class="bg-white border-b border-gray-100">
+            <nav class="bg-[#9d0a10] border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#9d0a10]">
                     <div class="flex justify-between h-16">
                         <div class="flex">
                             <!-- Logo -->
@@ -185,7 +185,7 @@ const logout = () => {
                                         </button>
 
                                         <span v-else class="inline-flex rounded-md">
-                                            <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                                            <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-red-800 bg-white hover:text-red-700 focus:outline-none transition">
                                                 {{ $page.props.user.name }}
 
                                                 <svg
@@ -202,7 +202,7 @@ const logout = () => {
 
                                     <template #content>
                                         <!-- Account Management -->
-                                        <div class="block px-4 py-2 text-xs text-gray-400">
+                                        <div class="block px-4 py-2 text-xs text-red-400">
                                             Manage Account
                                         </div>
 
@@ -278,10 +278,10 @@ const logout = () => {
                             </div>
 
                             <div>
-                                <div class="font-medium text-base text-gray-800">
+                                <div class="font-medium text-base text-white">
                                     {{ $page.props.user.name }}
                                 </div>
-                                <div class="font-medium text-sm text-gray-500">
+                                <div class="font-medium text-sm text-white">
                                     {{ $page.props.user.email }}
                                 </div>
                             </div>
