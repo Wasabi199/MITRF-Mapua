@@ -3,12 +3,17 @@
         <template #header>
             <div class="flex justify-between">
                 <div class="flex items-center ">
-                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">Current Loans</h1>
+                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">Medical Reimbursment</h1>
                 </div>
             </div>
         </template>
          <div class="p-2 px-6 leading-tight flex justify-between items-center">
             <h1 class="text-xl text-gray-700 font-extrabold pl-8">Medical Reimbursment</h1>
+            <div class="flex-1">
+                <Link :href="route('createReimburstment')" class="text-blue-500 font-semibold text-sm hover:underline ml-4">
+                    Create New Reimbursment
+                </Link>
+            </div>
                  <div class="flex px-3 py-1 gap-2">
                     <Listbox class="w-80" v-model="form.status">
                          <div class="relative">

@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 // use Illuminate\Http\Request;
 use App\Http\Requests\LoanRequest as request;
+use App\Http\Requests\MedicalReimbursmentRequest as medicalRequest;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
-use App\Models\{Loans, Medical, User};
+use App\Models\{Loans, Medical, User, Admin};
 use Illuminate\Support\Facades\Redirect;
 use Tightenco\Ziggy\Output\Script;
 use App\Services\Approval;
@@ -21,7 +22,7 @@ class LoansController extends Controller
         $id = auth()->id();
         $user = User::with('adminReg')->find($id);
         return Inertia::render('Users/UserLoanPage',[
-           'user' =>$user           
+           'users' =>$user           
         ]);
     }
 // Loans View
@@ -39,22 +40,30 @@ class LoansController extends Controller
     }
 
     public function createLoans(request $request){
+        // dd($request);
         $validate_data = $request->validated();
       
-        if($request->hasFile('attactment_path')){
-            $file = $request->file('attactment_path');
-            
-            $file_name = time().'.'.$file->getClientOriginalName();
+        if($request->hasFile('attatchment1') && $request->hasFile('attatchment2') && $request->hasFile('attatchment3')){
+            $file1 = $request->file('attatchment1');
+            $file2 = $request->file('attatchment2');
+            $file3 = $request->file('attatchment3');
            
-            $file->move(public_path('uploads/'),$file_name);
+            $file_name1 = time().'.'.$file1->getClientOriginalName();
+            $file_name2 = time().'.'.$file2->getClientOriginalName();
+            $file_name3 = time().'.'.$file3->getClientOriginalName();
 
+            $file1->move(public_path('uploads/loans'),$file_name1);
+            $file2->move(public_path('uploads/loans'),$file_name2);
+            $file3->move(public_path('uploads/loans'),$file_name3);
             $user = User::find(auth()->id());
           
             $user->loans()->create([
              
                 'loan_type'=>$validate_data['loan_type'],
                 'duration'=>$validate_data['duration'],
-                'attachment_path'=>'uploads/'.$file_name,
+                'attachment1'=>'../../../uploads/loans/'.$file_name1,
+                'attachment2'=>'../../../uploads/loans/'.$file_name2,
+                'attachment3'=>'../../../uploads/loans/'.$file_name3,
                 'loan_amount'=>$validate_data['loan_amount'],
                 'interest'=>$validate_data['interest'],
                 'loan_status'=>'pending',
@@ -81,6 +90,51 @@ class LoansController extends Controller
             'medicals'=>$medical,
             'filter'=>$filters
         ]);
+    }
+
+    public function createReimburstment(){
+        $info = Admin::find(auth()->id());
+        return Inertia::render('Users/UserReimbursmentView',[
+            'info' =>$info
+        ]);
+    }
+    public function submitCreateReimburstment(medicalRequest $request){
+        // dd($request);
+        $validate_data = $request->validated();
+        if($request->hasFile('medical_record1') || $request->hasFile('medical_record2') || $request->hasFile('medical_record3') || $request->hasFile('medical_record4')){
+            $file1 = $request->file('medical_record1');
+            $file2 = $request->file('medical_record2');
+            $file3 = $request->file('medical_record3');
+            $file4 = $request->file('medical_record4');
+           
+            $file_name1 = time().'.'.$file1->getClientOriginalName();
+            $file_name2 = time().'.'.$file2->getClientOriginalName();
+            $file_name3 = time().'.'.$file3->getClientOriginalName();
+            $file_name4 = time().'.'.$file4->getClientOriginalName();
+
+            $file1->move(public_path('uploads/reimburstment'),$file_name1);
+            $file2->move(public_path('uploads/reimburstment'),$file_name2);
+            $file3->move(public_path('uploads/reimburstment'),$file_name3);
+            $file4->move(public_path('uploads/reimburstment'),$file_name4);
+        
+            $user = User::find(auth()->id());
+            // dd($validate_data);
+            $user->medicals()->create([
+
+                'reimbursment_type'=>$validate_data['reimbursment_type'],
+                'amount'=>$validate_data['amount'],
+                'medical_benifit'=>$validate_data['medical_benifit'],
+                'medical_record1'=>'../../../uploads/reimburstment/'.$file_name1,
+                'medical_record2'=>'../../../uploads/reimburstment/'.$file_name2,
+                'medical_record3'=>'../../../uploads/reimburstment/'.$file_name3,
+                'medical_record4'=>'../../../uploads/reimburstment/'.$file_name4,
+
+            ]);
+            return Redirect::route('dashboard')->with('message',
+                [NotificationService::notificationItem('Sucess', '', 'Sucessfully Medical Reimburstment'.$validate_data['reimbursment_type'])]);
+        }
+
+
     }
 
 }

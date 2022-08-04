@@ -53,6 +53,9 @@ Route::prefix('Users')->middleware(['auth:sanctum','Users'])->group(function(){
     Route::post('Loan/createLoans',[LoansController::class,'createLoans'])->name('createLoans');
     Route::get('Loan/View',[LoansController::class,'loansView'])->name('loansView');
     Route::get('Loan/MedicalView',[LoansController::class,'medicalReimbursment'])->name('medicalView');
+    Route::get('Loan/Create/Reimburstment',[LoansController::class,'createReimburstment'])->name('createReimburstment');
+    Route::post('Medical/MedicalReimburstment',[LoansController::class,'submitCreateReimburstment'])->name('ReimburstmentSubmit');
+
 });
 Route::prefix('Medical')->middleware(['auth:sanctum','Medical'])->group(function(){
     Route::get('Medical/List',[MedicalController::class,'index'])->name('medicalList');

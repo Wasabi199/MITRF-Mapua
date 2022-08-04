@@ -32,7 +32,10 @@ class MedicalFactory extends Factory
         return [
             //
             'reimbursment_type' =>$this->faker->randomElement($reimbursment),
-            'medical_record'=>'http://3.bp.blogspot.com/_R-G_62JmanY/SCAB4RHj0_I/AAAAAAAAANQ/EGLQOelOyqo/s1600/Mapua_logo.jpg',
+            'medical_record1'=>'http://3.bp.blogspot.com/_R-G_62JmanY/SCAB4RHj0_I/AAAAAAAAANQ/EGLQOelOyqo/s1600/Mapua_logo.jpg',
+            'medical_record2'=>'http://3.bp.blogspot.com/_R-G_62JmanY/SCAB4RHj0_I/AAAAAAAAANQ/EGLQOelOyqo/s1600/Mapua_logo.jpg',
+            'medical_record3'=>'http://3.bp.blogspot.com/_R-G_62JmanY/SCAB4RHj0_I/AAAAAAAAANQ/EGLQOelOyqo/s1600/Mapua_logo.jpg',
+            'medical_record4'=>'http://3.bp.blogspot.com/_R-G_62JmanY/SCAB4RHj0_I/AAAAAAAAANQ/EGLQOelOyqo/s1600/Mapua_logo.jpg',
             'amount'=>$this->faker->numberBetween($max=100000000, $min=1000),
             'status'=>$this->faker->randomElement($status),
             'medical_benifit'=>$this->faker->numberBetween($max = 100, $min =0).'%',

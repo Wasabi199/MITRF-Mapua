@@ -21,7 +21,12 @@ return new class extends Migration
             $table->integer('loan_amount');
             // $table->string('department');
             $table->integer('interest');
-            $table->string('attachment_path');
+
+            $table->string('attachment1')->nullable();
+            $table->string('attachment2')->nullable();
+            $table->string('attachment3')->nullable();
+            $table->string('attachment4')->nullable();
+            
             // $table->integer('total_contribution');
             $table->integer('duration');
           

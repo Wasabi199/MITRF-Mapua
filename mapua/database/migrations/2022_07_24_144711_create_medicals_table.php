@@ -17,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('reimbursment_type');
-            $table->string('medical_record')->nullable();
+            $table->string('medical_record1')->nullable();
+            $table->string('medical_record2')->nullable();
+            $table->string('medical_record3')->nullable();
+            $table->string('medical_record4')->nullable();
             $table->integer('amount');
             $table->string('status')->default('Pending');
             $table->string('medical_benifit');

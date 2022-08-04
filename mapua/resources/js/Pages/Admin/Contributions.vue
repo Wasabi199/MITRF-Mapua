@@ -121,10 +121,14 @@
         <div v-if="loan.approval == 'Pending' ">     
             
                 <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 "> 
-                    <img :src="loan.attachment_path == null ? '' : loan.attachment_path" class="w-auto h-auto" >
+                    <img :src="loan.attachment1 == null ? '' : loan.attachment1" class="w-auto h-auto" >
                 </div>
-            
-
+                   <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 "> 
+                    <img :src="loan.attachment2 == null ? '' : loan.attachment2" class="w-auto h-auto" >
+                </div>
+                   <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 "> 
+                    <img :src="loan.attachment3 == null ? '' : loan.attachment3" class="w-auto h-auto" >
+                </div>
             <br>
             <div  class="w-full p-0 m-0 flex items-center justify-center gap-20">
                     <button  type="button" class=" py-2 px-4 mb-5 bg-red-600 hover:bg-red-700 focus:ring focus:ring-red-300 text-white w-64 

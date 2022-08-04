@@ -17,7 +17,11 @@ class Loans extends Model
         'approval',
         'duration',
         'loan_status',
-        'attachment_path',
+        
+        'attachment1',
+        'attachment2',
+        'attachment3',
+        'attachment4',
         // 'total_contribution',
         
     ];

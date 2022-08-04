@@ -25,7 +25,7 @@ class LoanRequest extends FormRequest
     {
         return [
             //
-            'user_loan'=>'required|exists:users,id',
+            // 'user_loan'=>'required|exists:users,id',
             
             'loan_type'=>'required',
             'loan_amount'=>'required',
@@ -34,7 +34,9 @@ class LoanRequest extends FormRequest
             // 'approval'=>'required',
             'duration'=>'required',
             // 'loan_status'=>'required',
-            'attachment_path'=>'file|mimes:jpg,png,jpeg,pdf',
+            'attatchment1'=>'file|mimes:jpg,png,jpeg,pdf',
+            'attatchment2'=>'file|mimes:jpg,png,jpeg,pdf',
+            'attatchment3'=>'file|mimes:jpg,png,jpeg,pdf',
             // 'total_contribution'=>'required',
         ];
     }
