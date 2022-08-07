@@ -43,10 +43,10 @@ class LoansController extends Controller
         // dd($request);
         $validate_data = $request->validated();
       
-        if($request->hasFile('attatchment1') && $request->hasFile('attatchment2') && $request->hasFile('attatchment3')){
-            $file1 = $request->file('attatchment1');
-            $file2 = $request->file('attatchment2');
-            $file3 = $request->file('attatchment3');
+        if($request->hasFile('attachment1') && $request->hasFile('attachment2') && $request->hasFile('attachment3')){
+            $file1 = $request->file('attachment1');
+            $file2 = $request->file('attachment2');
+            $file3 = $request->file('attachment3');
            
             $file_name1 = time().'.'.$file1->getClientOriginalName();
             $file_name2 = time().'.'.$file2->getClientOriginalName();

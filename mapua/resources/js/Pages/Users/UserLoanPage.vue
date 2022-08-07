@@ -695,12 +695,10 @@ export default {
                 loan_amount:'',
                 duration:'',
                 interest:'',
-                attatchment1:'',
-                attatchment2:'',
-                attatchment3:'',
-               
-
-                
+                attachment1:'',
+                attachment2:'',
+                attachment3:'',
+    
             }),
           
         }
@@ -713,19 +711,19 @@ export default {
         },
         onChange1(e){
             console.log("Selected File 1", e.target.files[0])
-            this.form.attactment1 = e.target.files[0]
+            this.form.attachment1 = e.target.files[0]
         },
          onChange2(e){
             console.log("Selected File 2", e.target.files[0])
-            this.form.attactment2 = e.target.files[0]
+            this.form.attachment2 = e.target.files[0]
         },
          onChange3(e){
             console.log("Selected File 3", e.target.files[0])
-            this.form.attactment3 = e.target.files[0]
+            this.form.attachment3 = e.target.files[0]
         },
          onChange4(e){
             console.log("Selected File 4", e.target.files[0])
-            this.form.attactment4 = e.target.files[0]
+            this.form.attachment4 = e.target.files[0]
         },
         submit(){
             // console.log(this.$attrs.user.id);
