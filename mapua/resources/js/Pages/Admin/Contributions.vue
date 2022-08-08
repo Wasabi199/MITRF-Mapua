@@ -16,143 +16,59 @@
         </template>
     
     <div class="grid grid-cols-1 m-8 gap-8 lg:m-10 lg:grid-cols-2">
-        <div class="bg-white p-4 overflow-hidden border-gray-300 shadow-xl rounded-lg">
-            <div v-if="loan.approval === 'Pending'" class="">
-                <!-- Contact -->           
-                <div class="flex lg:text-lg">
-                    <svg class="h-6 w-6 text-red-900" fill="none" stroke="currentColor" stroke-width="2"
-                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"/>
-                    </svg>
-
-                    <p class="pl-2 font-semibold">{{loan.loan_type}}</p>
-                    <!-- <p class="pl-2 font-semibold">{{ user.email }}</p> -->
-                </div>
-                <div class="flex lg:text-lg pb-2">
-                    <svg class="h-6 w-6 text-red-900" fill="none" stroke="currentColor" stroke-width="2"
-                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"/>
-                    </svg>
-
-                    <p class="pl-2 font-semibold">{{loan.loan_amount}}</p>
-                    <!-- <p class="pl-2 font-semibold">{{ user.admin_reg.mobile_number }}</p> -->
-                </div>
-
-                <!-- Name -->
-                <div class="justify-between flex">
-                    <div class="flex lg:text-lg">
-                        <p class="font-semibold">Name: </p>
-                        <p class="ml-2 underline">{{info.first_name}} {{info.middle_name}} {{info.last_name}}</p>
-                    </div>
-
-
-                    <svg @click="showModal = !showModal" class="h-6 w-6 text-red-900 hover:text-red-700" fill="none" stroke="currentColor" stroke-width="2"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                            stroke-linecap="round"
-                            troke-linejoin="round"/>
-                    </svg>
-
-                </div>
-
-                <!-- Civil status -->
-                <div class="flex lg:text-lg">
-                    <p class="font-semibold">Civil Status:</p>
-                    <p class="ml-2 underline">{{info.civil_status}}</p>
-                </div>
-
-                <!-- birth date -->
-                <div class="flex lg:text-lg">
-                    <p class="font-semibold">Birthdate:</p>
-                    <p class="ml-2 underline">{{info.birth_date}}</p>
-                </div>
-
-                <!-- place of birth -->
-                <div class="flex lg:text-lg">
-                    <p class="font-semibold">Place of Birth:</p>
-                    <p class="ml-2 underline">{{info.birth_place}}</p>
-                </div>
-
-                <!-- department -->
-                <div class="flex lg:text-lg">
-                    <p class="font-semibold">Department:</p>
-                    <p class="ml-2 underline">{{info.department}}</p>
-
-                </div>
-
-                <!-- membership date -->
-                <div class="flex lg:text-lg">
-                    <p class="font-semibold">Member Since:</p>
-                    <p class="ml-2 underline">{{info.membership}}</p>
-
-                </div>
-
-                <!-- Loan -->
-                <div class="flex lg:text-lg">
-                    <p class="font-semibold">Loan Duration:</p>
-                    <p class="ml-2 underline">{{loan.duration}} months</p>
-                </div>
-            </div>
-            
-            <div v-else>
+        <div class="bg-white p-4 overflow-hidden border-gray-300 shadow-xl rounded-lg">            
+            <div v-if="loan.approval === 'Pending'">
                 <form>
                     <div class="px-2 py-5 bg-white sm:p-6">
                         <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6 sm:col-span-3">
                             <label class="block text-sm font-medium text-gray-700">Name of Borrower</label>
-                            <input type="text" class="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Date of Birth</label>
-                            <input type="date" class="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
                         </div>
 
                         <div class="col-span-6 sm:col-span-1">
                             <label class="block text-sm font-medium text-gray-700">Age</label>
-                            <input type="number" class="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" min="18">
+                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Date of Employment</label>
-                            <input type="date" class="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Years of Service</label>
-                            <input type="number" class="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" min="0">
+                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
                         </div>
 
                         <div class="col-span-6 sm:col-span-4">
                             <label class="block text-sm font-medium text-gray-700">If Administration Employee, state department</label>
-                            <input type="text" class="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
                         </div>
 
                         <div class="col-span-6 sm:col-span-4">
                             <label class="block text-sm font-medium text-gray-700">If Faculty, state school or department</label>
-                            <input type="text" class="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <label class="block text-sm font-medium text-gray-700">Amount of Loan</label>
-                            <input type="number" class="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" min="0" placeholder="0.00">
+                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
                         </div>
 
                         <div class="col-span-6 sm:col-span-4">
                             <label class="block text-sm font-medium text-gray-700">Purpose of Loan</label>
-                            <input type="text" class="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Term of Payment &lpar;Months&rpar;</label>
-                            <input type="number" class="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" min="1">
+                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
                         </div>
                         </div>
                     </div>
