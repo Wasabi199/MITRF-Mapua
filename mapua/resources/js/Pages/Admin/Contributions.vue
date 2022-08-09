@@ -23,52 +23,52 @@
                         <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6 sm:col-span-3">
                             <label class="block text-sm font-medium text-gray-700">Name of Borrower</label>
-                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
+                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="fname +' '+ lname" disabled>
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Date of Birth</label>
-                            <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
+                            <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="birthday" disabled>
                         </div>
 
                         <div class="col-span-6 sm:col-span-1">
                             <label class="block text-sm font-medium text-gray-700">Age</label>
-                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
+                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="age" disabled>
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Date of Employment</label>
-                            <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
+                            <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="employment" disabled>
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Years of Service</label>
-                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
+                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="service" disabled>
                         </div>
 
                         <div class="col-span-6 sm:col-span-4">
                             <label class="block text-sm font-medium text-gray-700">If Administration Employee, state department</label>
-                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
+                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="department" disabled>
                         </div>
 
-                        <div class="col-span-6 sm:col-span-4">
+                        <!-- <div class="col-span-6 sm:col-span-4">
                             <label class="block text-sm font-medium text-gray-700">If Faculty, state school or department</label>
                             <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
-                        </div>
+                        </div> -->
 
                         <div class="col-span-6 sm:col-span-3">
                             <label class="block text-sm font-medium text-gray-700">Amount of Loan</label>
-                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
+                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="amount" disabled>
                         </div>
 
-                        <div class="col-span-6 sm:col-span-4">
+                        <!-- <div class="col-span-6 sm:col-span-4">
                             <label class="block text-sm font-medium text-gray-700">Purpose of Loan</label>
                             <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
-                        </div>
+                        </div> -->
 
                         <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Term of Payment &lpar;Months&rpar;</label>
-                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
+                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="duration" disabled>
                         </div>
                         </div>
                     </div>
@@ -252,6 +252,16 @@ export default {
             loanToApprove: Object,
             showRejectModal: false,
             showApproveModal: false,
+
+            fname:this.$props.info.first_name,
+            lname:this.$props.info.last_name,
+            birthday:this.$props.info.birth_date,
+            age: new Date().getUTCFullYear() - new Date(this.$props.info.birth_date).getUTCFullYear(),
+            employment:this.$props.info.employment,
+            service:new Date().getUTCFullYear() - new Date(this.$props.info.employment).getUTCFullYear(),
+            department:this.$props.info.department,
+            amount:this.$props.loan.loan_amount,
+            duration:this.$props.loan.duration,
 
             rejectForm: this.$inertia.form({
                 id: Number,
