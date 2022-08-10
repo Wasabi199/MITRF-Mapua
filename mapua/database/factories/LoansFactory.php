@@ -28,7 +28,7 @@ class LoansFactory extends Factory
         $aproval=[
             'Approved',
             'Pending',
-            'Reviewing',
+            
         ];
         $loan_status=[
             'Ongoing',
