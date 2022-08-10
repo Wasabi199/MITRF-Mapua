@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoanReviewRequest extends FormRequest
+class MedicalApprove extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,9 @@ class LoanReviewRequest extends FormRequest
     public function rules()
     {
         return [
-            'id'=>'required|exists:loans,id',
-            'approval'=>'required',
+            //
+            'id'=>'required|exists:medicals,id',
+            'status'=>'required'
         ];
     }
 }

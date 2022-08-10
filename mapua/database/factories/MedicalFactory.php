@@ -26,8 +26,8 @@ class MedicalFactory extends Factory
         ];
         $status = [
             'Pending',
-            'Aprrove',
-            'Processing',
+            'Aprroved',
+            // 'Processing',
         ];
         return [
             //

@@ -60,6 +60,8 @@ Route::prefix('Users')->middleware(['auth:sanctum','Users'])->group(function(){
 Route::prefix('Medical')->middleware(['auth:sanctum','Medical'])->group(function(){
     Route::get('Medical/List',[MedicalController::class,'index'])->name('medicalList');
     Route::get('Medical/{id}',[MedicalController::class,'medicalProfile'])->name('medicalProfile');
+    Route::post('Medical/Approve',[MedicalController::class,'medicalApprove'])->name('medicalApprove');
+    Route::post('Medical/Reject',[MedicalController::class,'medicalReject'])->name('medicalReject');
 
 });
 

@@ -7,12 +7,12 @@
                 </div>
             </div>
         </template>
-         <div class="p-2 px-6 leading-tight flex justify-between items-center">
+         <!-- <div class="p-2 px-6 leading-tight flex justify-between items-center">
             <h1 class="text-xl text-gray-700 font-extrabold pl-8">Medical Management</h1>
                         <input id="search_term" v-model="this.form.search" class="border rounded-md mx-4 " name="search_term"
                             placeholder="Search" type="text"> 
              
-        </div>
+        </div> -->
 
         <div class="mx-12 my-6 shadow-md">
 
@@ -31,14 +31,14 @@
                                         
                                         <th class="text-left px-16 bg-gray-100">Loan Status</th>
 
-                                        <tr v-for="user in users.data" v-bind:key="user.id">
+                                        <tr v-for="med in medical.data" v-bind:key="med.id">
                                         <!-- <tr> -->
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
                                                     <div>
-                                                        <Link :href="route('medicalProfile',user.id)">
+                                                        <Link :href="route('medicalProfile',med.id)">
                                                             <div class="text-sm font-medium text-gray-900">
-                                                                {{user.name}}
+                                                                {{med.reimbursment_type}}
                                                             </div>
                                                         </Link>
                                                     </div>
@@ -49,7 +49,7 @@
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            {{user.medicals[0].reimbursment_type}}
+                                                            {{med.user.name}}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -60,7 +60,7 @@
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            {{user.medicals[0].amount}} PHP
+                                                            {{med.medical_benifit}}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -71,7 +71,7 @@
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            {{ user.medicals[0].medical_benifit }}
+                                                            {{ med.status }}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -82,7 +82,7 @@
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            {{  user.medicals[0].status}}
+                                                            {{  med.amount}}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -92,7 +92,7 @@
                                     </tbody>
                                 </table>
 
-                                <pagination :links="users.links"/>
+                                <pagination :links="medical.links"/>
                             </div>
                         </div>
                     </div>
@@ -127,16 +127,16 @@ components:{
         
     },
     props:{
-        users:Object,
-        filters:Object
+        medical:Object,
+        // filters:Object
     },
     data(){
         return{
 
-            form: {
-            search: this.filters.search,
+            // form: {
+            // search: this.filters.search,
             
-            },
+            // },
             statuses:[
             'Pending',
             'Aprrove',
