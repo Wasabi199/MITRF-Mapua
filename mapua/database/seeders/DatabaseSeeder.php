@@ -54,7 +54,8 @@ class DatabaseSeeder extends Seeder
             
 
 
-            User::factory(50)->has(Loans::factory(),'loans')
+            User::factory(50)
+            ->has(Loans::factory(),'loans')
             ->has(Medical::factory(),'medicals')
             ->create();
             

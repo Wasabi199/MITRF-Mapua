@@ -28,6 +28,7 @@ class Admin extends Model
         'salary',
         'membership',
         'employment',
+        'total_contribution'
     ];
 
     public function user(){
