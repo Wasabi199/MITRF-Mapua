@@ -391,7 +391,7 @@ export default {
 
             statuses:[
                 'All',
-                'Reviewing',
+                // 'Reviewing',
                 'Approved',
                 'Pending',
                 'Rejected',
