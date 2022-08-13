@@ -226,6 +226,11 @@ class AdminController extends Controller
         
         
     }
+    public function loanPrint(){
+        return Inertia::render('Admin/Printing',[
+
+        ]);
+    }
  
 
 }
