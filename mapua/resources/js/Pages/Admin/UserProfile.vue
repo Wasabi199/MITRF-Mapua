@@ -125,7 +125,7 @@
 
             <!-- Past loans -->
 
-            <div class="bg-white shadow-lg">
+            <div class="bg-white shadow-lg mr-20">
                 <table class="min-w-full divide-y divide-gray-200 table-auto">
                     <thead class="inline-flex">
                     <tr class=" bg-red-800 text-yellow-400">
