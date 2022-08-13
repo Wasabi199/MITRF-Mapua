@@ -66,8 +66,8 @@ class LoansController extends Controller
                 'attachment3'=>'../../../uploads/loans/'.$file_name3,
                 'loan_amount'=>$validate_data['loan_amount'],
                 'interest'=>$validate_data['interest'],
-                'loan_status'=>'pending',
-                'approval'=>'pending',
+                'loan_status'=>'Pending',
+                'approval'=>'Ongoing',
              
             ]);
             return Redirect::route('dashboard')->with('message',
