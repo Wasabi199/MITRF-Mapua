@@ -50,8 +50,12 @@ class AdminController extends Controller
 
     public function userProfile($id){
         $userProfile = User::with('AdminReg')->find($id);
+        $userLoan = Loans::where('user_id','=',$id)->where('loan_status','=','Paid')->get();
+        // dd($userLoan);
         return Inertia::render('Admin/UserProfile',[
-            'user' => $userProfile
+            'users' => $userProfile,
+            'loans'=>$userLoan
+
         ]);
     }
     public function userDelete(deleteRequest $request){
