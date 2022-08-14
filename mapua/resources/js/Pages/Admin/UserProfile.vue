@@ -127,7 +127,7 @@
 
             <div class="bg-white shadow-lg mr-20">
                 <table class="min-w-full divide-y divide-gray-200 table-auto">
-                    <thead class="inline-flex">
+                    <thead>
                     <tr class=" bg-red-800 text-yellow-400">
                         <th class="text-left px-16">Past Loan</th>
                         <th class="text-left px-16">Amount</th>
