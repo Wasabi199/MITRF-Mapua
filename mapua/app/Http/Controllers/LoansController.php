@@ -133,8 +133,14 @@ class LoansController extends Controller
             return Redirect::route('dashboard')->with('message',
                 [NotificationService::notificationItem('Sucess', '', 'Sucessfully Medical Reimburstment'.$validate_data['reimbursment_type'])]);
         }
-
-
+    }
+    public function  UserLoanView($id){
+        $user = User::with('AdminReg')->find($id);
+        $loan = Loans::with('contributions')->filterOwner($id)->get()->first();
+            return Inertia::render('Users/UserLoanView',[
+                'users'=>$user,
+                'loans'=>$loan
+        ]);
     }
 
 }
