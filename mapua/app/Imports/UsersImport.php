@@ -42,20 +42,20 @@ class UsersImport implements   WithHeadingRow, ToCollection, WithValidation
                     'middle_name'   =>$row['middle_name'],
                     'last_name'     =>$row['last_name'],
                     'mobile_number' =>$row['mobile'],
-                    'birth_date'    =>date('Y-m-d',$row['birthdate']),
+                    'birth_date'    =>new Date('Y-m-d',$row['birthdate']),
                     'birth_place'   =>$row['Birthplace'],
                     'civil_status'  =>$row['civil_status'],
 
-                    'region'        =>$row['region'],
-                    'province'      =>$row['province'],
-                    'municipality'  =>$row['municipality'],
-                    'barangay'      =>$row['barangay'],
-                    'current_address'=>$row['current_address'],
+                    // 'region'        =>$row['region'],
+                    // 'province'      =>$row['province'],
+                    // 'municipality'  =>$row['municipality'],
+                    // 'barangay'      =>$row['barangay'],
+                    // 'current_address'=>$row['current_address'],
 
                     'department'    =>$row['department'],
                     'salary'        =>$row['salary'],
-                    'membership'    =>date('Y-m-d',$row['membership']),
-                    'employment'    =>date('Y-m-d',$row['employment']),
+                    'membership'    =>new Date('Y-m-d',$row['membership']),
+                    'employment'    =>new Date('Y-m-d',$row['employment']),
                 ]);
                 
 
@@ -76,11 +76,11 @@ class UsersImport implements   WithHeadingRow, ToCollection, WithValidation
             'birth_place'=>'required',
             'civil_status'=>'required',
 
-            'region'=>'required',
-            'province'=>'required',
-            'municipality'=>'required',
-            'barangay'=>'required',
-            'current_address'=>'required',
+            // 'region'=>'required',
+            // 'province'=>'required',
+            // 'municipality'=>'required',
+            // 'barangay'=>'required',
+            // 'current_address'=>'required',
 
             'department'=>'required',
             'salary'=>'required',

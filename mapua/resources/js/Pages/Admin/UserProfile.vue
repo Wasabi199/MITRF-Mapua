@@ -11,7 +11,7 @@
                          xmlns="http://www.w3.org/2000/svg">
                         <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                     </svg>
-                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">{{users.name}} Profile</h1>
+                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">{{users.name}}'s Profile</h1>
                 </div>
 
             </div>
@@ -56,7 +56,7 @@
                         <div class="justify-between flex">
                             <div class="flex text-lg">
                                 <p class="font-semibold">Name: </p>
-                                <!-- <p class="ml-2 underline">{{ users.name }}</p> -->
+                                <p class="ml-2 underline">{{ users.name }}</p>
                             </div>
 
 
@@ -213,7 +213,7 @@
                 <!-- Birth Date -->
                  <div class="flex flex-col ">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Date of Birth</span>
-                    <jet-input v-model="form.birth_date" :placeholder="users.admin_reg.birth_date" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" type="date" />
+                    <jet-input v-model="form.birth_date" :placeholder="users.admin_reg.birth_date" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" type="text" onfocus="(this.type='date')"/>
                 </div>
                 <!-- Civil Status -->
                  <div class="flex flex-col ">
@@ -255,10 +255,10 @@
                     <jet-input v-model="form.current_address" :placeholder="user.admin_reg.current_address" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
                 </div> -->
 
-                  <div class="flex flex-col col-span-2">
+                  <!-- <div class="flex flex-col col-span-2">
                     <span class="text-sm leading-snug font-bold  text-gray-900">Update Loan Information</span>
 
-                </div>
+                </div> -->
                       <!-- Department -->
                 <div class="flex flex-col col-span-2">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Department</span>
@@ -272,18 +272,18 @@
                 <!-- Employment -->
                 <div class="flex flex-col">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Date of Employment</span>
-                    <jet-input v-model="form.employment" :placeholder="users.admin_reg.employment" type="date" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
+                    <jet-input v-model="form.employment" :placeholder="users.admin_reg.employment" type="text" onfocus="(this.type='date')" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
                 </div>
                 <!-- Membership -->
                 <div class="flex flex-col">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Date of Membership</span>
-                    <jet-input v-model="form.membership" :placeholder="users.admin_reg.membership" type="date" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
+                    <jet-input v-model="form.membership" :placeholder="users.admin_reg.membership" type="text" onfocus="(this.type='date')" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
                 </div>
                 <!-- Total Contribution -->
-                <div class="flex flex-col col-span-2">
+                <!-- <div class="flex flex-col col-span-2">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Total Contribution</span>
                     <jet-input v-model="form.total_contribution" :placeholder="users.admin_reg.total_contribution != null ? users.admin_reg.total_contribution:'No Contribution'" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
-                </div>
+                </div> -->
 
             </div>
             <div class="flex justify-end text-xl font-bold dark:text-gray-200 my-3">
@@ -418,7 +418,7 @@ export default {
             this.form.department == ''? this.form.department = this.users.admin_reg.department : this.form.department
             this.form.employment == ''? this.form.employment = this.users.admin_reg.employment : this.form.employment
             this.form.membership == ''? this.form.membership = this.users.admin_reg.membership : this.form.membership
-            this.form.total_contribution == ''? this.form.total_contribution = 'No Contribution' : this.form.total_contribution
+            // this.form.total_contribution == ''? this.form.total_contribution = 'No Contribution' : this.form.total_contribution
 
             this.form.post(route('userUpdate'),{
                 onSuccess:()=>{

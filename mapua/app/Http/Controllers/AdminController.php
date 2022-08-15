@@ -226,9 +226,14 @@ class AdminController extends Controller
         
         
     }
-    public function loanPrint(){
+    public function loanPrint($id){
+       
+        $loan = Loans::find($id);
+        $info = Admin::where('user_id',$loan->user_id)->get()->first();
+        // dd($info);
         return Inertia::render('Admin/Printing',[
-
+            'loan'=>$loan,
+            'info'=>$info,
         ]);
     }
  

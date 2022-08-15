@@ -24,12 +24,11 @@
                                     <tbody class="bg-white divide-y divide-gray-200">
                                         
                                         <!-- <th class="text-left px-16 bg-gray-100">Name</th> -->
-                                        <th class="text-left px-16 bg-gray-100">Loan Type</th>
-                                        <th class="text-left px-16 bg-gray-100">Loan Amount</th>
-                                        <th class="text-left px-16 bg-gray-100">Interest</th>
-                                        <th class="text-left px-16 bg-gray-100">Approval</th>
-                                        
-                                        <th class="text-left px-16 bg-gray-100">Loan Status</th>
+                                        <th class="text-left px-16 bg-gray-100">Medical Type</th>
+                                        <th class="text-left px-16 bg-gray-100">Name</th>
+                                        <th class="text-left px-16 bg-gray-100">Medical Benifit</th>
+                                        <th class="text-left px-16 bg-gray-100">Status</th>
+                                        <th class="text-left px-16 bg-gray-100">Amount</th>
 
                                         <tr v-for="med in medical.data" v-bind:key="med.id">
                                         <!-- <tr> -->

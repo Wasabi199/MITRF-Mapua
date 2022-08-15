@@ -9,7 +9,7 @@
                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">{{info.first_name}} {{info.middle_name}} {{info.last_name}}</h1>
+                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">{{info.first_name}} {{info.middle_name}} {{info.last_name}}'s</h1>
                 </div>
 
             </div>
@@ -73,6 +73,15 @@
                         </div>
                     </div>
                 </form>
+                <div class="flex justify-center">
+                    <Link :href="route('printingLoan',loan.id)">
+                    <div class="flex justify-between text-xl font-bold dark:text-gray-200 my-3">
+                        <div class="flex space-x-2 mr-5 px-4 py-1 border text-md text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-green-500 cursor-pointer">
+                            <span>Print</span>
+                        </div>
+                    </div>
+                    </Link>
+                </div>
             </div>
             <div v-if="loan.approval == 'Approved'" class="bg-white p-4 overflow-hidden border-gray-300 shadow-xl sm:rounded-lg ">
 
@@ -165,6 +174,7 @@
                                     user.admin_reg.contribution != null ? user.admin_reg.contribution : 'No Contribution'
                                 }}</p> 
                         </div> -->
+                        
                     </div>
         </div>
         <!-- <div v-if="loan.approval == 'Reviewing' ">     
@@ -278,7 +288,6 @@
                         <span>Approve</span>
                     </div>
                 </div>
-                
             </div>
         </div>
     </Modal>

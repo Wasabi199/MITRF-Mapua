@@ -48,7 +48,7 @@ Route::prefix('Admin')->middleware(['auth:sanctum','Admin'])->group(function(){
     Route::post('loan/reject',[AdminController::class,'loanReject'])->name('loanReject');
 
     // Route::get('contribution/add',[AdminController::class,'addContribution'])->name('addContri');
-    Route::get('loan/print',[AdminController::class,'loanPrint'])->name('printingLoan');
+    Route::get('loan/print/{id}',[AdminController::class,'loanPrint'])->name('printingLoan');
 });
 Route::prefix('Users')->middleware(['auth:sanctum','Users'])->group(function(){
 
