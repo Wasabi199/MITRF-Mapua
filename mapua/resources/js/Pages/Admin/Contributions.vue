@@ -341,7 +341,9 @@ export default {
     props:{
         loan:Object,
         info:Object,
-        contributions:Object
+        contributions:Object,
+        notification:Object,
+
     },
     setup() {
         

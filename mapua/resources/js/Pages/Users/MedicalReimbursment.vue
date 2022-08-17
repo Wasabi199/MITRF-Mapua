@@ -165,8 +165,8 @@ export default {
     },
     props: {
         medicals: Object,
-        filters:Object
-        
+        filters:Object,
+        notification:Object,
     },
     
 

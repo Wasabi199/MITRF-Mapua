@@ -349,6 +349,9 @@ export default {
     setup() {
 
     },
+    props:{
+        notification:Object,
+    },
     components:{
         AppLayout,
         JetAuthenticationCard,

@@ -262,6 +262,7 @@ export default {
     },
     props:{
         info:Object,
+        notification:Object,
     },
     setup() {
         

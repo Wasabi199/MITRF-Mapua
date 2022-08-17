@@ -366,6 +366,7 @@ export default {
     props: {
         loans: Object,
         filters: Object,
+        notification:Object
         
     },
     

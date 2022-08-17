@@ -127,7 +127,7 @@ components:{
     },
     props:{
         medical:Object,
-        // filters:Object
+        notification:Object,
     },
     data(){
         return{

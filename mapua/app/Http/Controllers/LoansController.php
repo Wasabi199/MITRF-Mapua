@@ -7,7 +7,7 @@ use App\Http\Requests\LoanRequest as request;
 use App\Http\Requests\MedicalReimbursmentRequest as medicalRequest;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
-use App\Models\{Loans, Medical, User, Admin};
+use App\Models\{Loans, Medical, User, Admin, UserNotifications};
 use Illuminate\Support\Facades\Redirect;
 use Tightenco\Ziggy\Output\Script;
 use App\Services\Approval;
@@ -20,13 +20,17 @@ class LoansController extends Controller
     //
     public function index(){
         $id = auth()->id();
+        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->get();
         $user = User::with('adminReg')->find($id);
         return Inertia::render('Users/UserLoanPage',[
-           'users' =>$user           
+           'users' =>$user,
+           'notification'=>$userNotification           
         ]);
     }
 // Loans View
     public function loansView(query $query){
+        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->get();
+
         $user = Auth::user();
         $loans = Loans::with('contributions')
         ->filterOwner($user->id)
@@ -36,6 +40,7 @@ class LoansController extends Controller
         
         return Inertia::render('Users/LoanView',[
             'loans' => $loans,
+            'notification'=>$userNotification,
         ]);
     }
 
@@ -57,7 +62,7 @@ class LoansController extends Controller
             $file3->move(public_path('uploads/loans'),$file_name3);
             $user = User::find(auth()->id());
           
-            $user->loans()->create([
+            $user_loans = $user->loans()->create([
              
                 'loan_type'=>$validate_data['loan_type'],
                 'duration'=>$validate_data['duration'],
@@ -70,6 +75,9 @@ class LoansController extends Controller
                 'approval'=>'Ongoing',
              
             ]);
+            
+            dd($user_loans->id);
+
             return Redirect::route('dashboard')->with('message',
                 [NotificationService::notificationItem('Sucess', '', 'Sucessfully '.$validate_data['loan_type'])]);
         
@@ -77,7 +85,7 @@ class LoansController extends Controller
     }
 
     public function medicalReimbursment(query $query){
-       
+        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->get();
         $filters = $query::only('status');
         isset($filters['status']) ? $filters['status'] = Approval::status($filters['status']) : $filters['status'] = Approval::status($filters['status']='All');
         
@@ -88,14 +96,17 @@ class LoansController extends Controller
         ->appends($query::only(['status']));
         return Inertia::render('Users/MedicalReimbursment',[
             'medicals'=>$medical,
-            'filter'=>$filters
+            'filter'=>$filters,
+            'notification'=>$userNotification
         ]);
     }
 
     public function createReimburstment(){
+        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->get();
         $info = Admin::find(auth()->id());
         return Inertia::render('Users/UserReimbursmentView',[
-            'info' =>$info
+            'info' =>$info,
+            'notification'=>$userNotification
         ]);
     }
     public function submitCreateReimburstment(medicalRequest $request){
@@ -130,16 +141,21 @@ class LoansController extends Controller
                 'medical_record4'=>'../../../uploads/reimburstment/'.$file_name4,
 
             ]);
+            // $user->userNotif()->create([
+
+            // ]);
             return Redirect::route('dashboard')->with('message',
                 [NotificationService::notificationItem('Sucess', '', 'Sucessfully Medical Reimburstment'.$validate_data['reimbursment_type'])]);
         }
     }
     public function  UserLoanView($id){
+        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->get();
         $user = User::with('AdminReg')->find($id);
         $loan = Loans::with('contributions')->filterOwner($id)->get()->first();
-            return Inertia::render('Users/UserLoanView',[
-                'users'=>$user,
-                'loans'=>$loan
+        return Inertia::render('Users/UserLoanView',[
+            'users'=>$user,
+            'loans'=>$loan,
+            'notification'=>$userNotification
         ]);
     }
 

@@ -121,5 +121,8 @@ export default {
     setup() {
 
     },
+    props:{
+        notification:Object,
+    }
 }
 </script>

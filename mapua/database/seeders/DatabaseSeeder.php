@@ -4,7 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\{User, Admin, Contributions, Loans, Medical};
+use App\Models\{User, Admin, Contributions, Loans, Medical, UserNotifications};
+use Database\Factories\NotificationsFactory;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -57,6 +58,7 @@ class DatabaseSeeder extends Seeder
             User::factory(50)
             ->has(Loans::factory(),'loans')
             ->has(Medical::factory(),'medicals')
+            ->has(UserNotifications::factory(5),'userNotif')
             ->create();
             
             

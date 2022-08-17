@@ -6,14 +6,14 @@ use App\Http\Requests\MedicalApprove;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Request as QueryRequest;
-use App\Models\{Admin, Medical, User};
-use Illuminate\Support\Facades\{Hash, DB, Redirect };
+use App\Models\{Admin, Medical, User, UserNotifications};
+use Illuminate\Support\Facades\{Hash, DB, Redirect,Auth };
 use App\Services\NotificationService;
 class MedicalController extends Controller
 {
     //
     public function index(QueryRequest $query){
-        
+        $notification = UserNotifications::filter(Auth::user()->userType)->get();
         // $user = User::with('medicals')
         $medical = Medical::with('user')
         // ->orderBy('name')
@@ -24,10 +24,11 @@ class MedicalController extends Controller
         // $filters = $query::all('search');
         return Inertia::render('Medical/Medical_Reimbursment',[
             'medical'=>$medical,
-            // 'filters'=>$filters
+            'notification'=>$notification
         ]);
     }
     public function medicalProfile($id){
+        $notification = UserNotifications::filter(Auth::user()->userType)->get();
         $medical = Medical::find($id);
         $info = Admin::find($medical->user_id);
         // dd($info);
@@ -36,6 +37,7 @@ class MedicalController extends Controller
         return Inertia::render('Medical/MedicalAppliedView',[
             'userProfile'=> $info,
             'userMedical'=> $medical,
+            'notification'=>$notification
         ]);
     }
     public function medicalApprove(MedicalApprove $request){

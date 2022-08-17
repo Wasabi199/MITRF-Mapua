@@ -287,6 +287,7 @@ export default {
     props: {
         filters: Object,
         users: Object,
+        notification:Object,
 
     },
 

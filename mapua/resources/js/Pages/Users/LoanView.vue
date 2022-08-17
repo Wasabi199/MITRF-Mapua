@@ -169,7 +169,7 @@ export default {
     },
     props: {
         loans: Object,
-        
+        notification:Object,
     },
     
 

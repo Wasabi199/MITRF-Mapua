@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{User, AddressInformation, Contributions, PersonalInformation, Loans};
+use App\Models\{User, AddressInformation, Contributions, UserNotifications, Loans};
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Request as QueryRequest;
@@ -13,6 +13,8 @@ use App\Http\Requests\LoanReviewRequest as reviewloanRequest;
 use App\Http\Requests\Admin as RegiterUserRequest;
 use App\Imports\UserAdmin;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\{Auth};
+
 use App\Models\Admin;
 use Illuminate\Routing\Route;
 use App\Imports\UsersImport;
@@ -26,7 +28,7 @@ class AdminController extends Controller
 {
     //
     public function users(QueryRequest $query){
-        
+        $notification = UserNotifications::filter(Auth::user()->userType)->get();
         $users = User::with('adminReg')
         ->orderBy('name')
         ->filter($query::only('search'))
@@ -37,22 +39,25 @@ class AdminController extends Controller
         ;
         $filters = $query::all('search');
         return Inertia::render('Admin/Users',[
-            
+            'notification'=>$notification,
             'users' => $users,
             'filters' =>$filters,
         ]);
     }
     public function userRegister(){
+        $notification = UserNotifications::filter(Auth::user()->userType)->get();
         return Inertia::render('Admin/RegisterUser',[
-
+            'notification'=>$notification
         ]);
     }
 
     public function userProfile($id){
+        $notification = UserNotifications::filter(Auth::user()->userType)->get();
         $userProfile = User::with('AdminReg')->find($id);
         $userLoan = Loans::where('user_id','=',$id)->where('loan_status','=','Paid')->get();
         // dd($userLoan);
         return Inertia::render('Admin/UserProfile',[
+            'notification'=>$notification,
             'users' => $userProfile,
             'loans'=>$userLoan
 
@@ -141,7 +146,7 @@ class AdminController extends Controller
     }
     
     public function adminLoansView(QueryRequest $query){
-        
+        $notification = UserNotifications::filter(Auth::user()->userType)->get();
         $filters = $query::only('approval');
         isset($filters['approval']) ? $filters['approval'] = Approval::approval($filters['approval']) : $filters['approval'] = Approval::approval($filters['approval']='All');
         $loans = Loans::with('user')
@@ -151,6 +156,7 @@ class AdminController extends Controller
         ->appends($query::only(['approval']));
         
         return Inertia::render('Admin/LoansView',[
+            'notification'=>$notification,
             'filters'=>$filters,
             'loans' => $loans,
         ]);
@@ -182,6 +188,7 @@ class AdminController extends Controller
 
 
     public function contributions($id){
+        $notification = UserNotifications::filter(Auth::user()->userType)->get();
         $loanProfile = Loans::with('contributions')->find($id);
         $info = Admin::find($loanProfile->user_id);
         $contribution = Contributions::where('loans_id','=',$loanProfile->id)
@@ -189,6 +196,7 @@ class AdminController extends Controller
         ->paginate(5);
         // dd($contribution);
         return Inertia::render('Admin/Contributions',[
+            'notification'=>$notification,
             'loan' => $loanProfile,
             'info'=>$info,
             'contributions'=>$contribution

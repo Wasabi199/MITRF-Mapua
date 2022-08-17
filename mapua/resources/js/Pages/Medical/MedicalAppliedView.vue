@@ -179,7 +179,8 @@ export default {
     },
     props:{
         userProfile:Object,
-        userMedical:Object
+        userMedical:Object,
+        notification:Object,
     },
     data(){
         return{

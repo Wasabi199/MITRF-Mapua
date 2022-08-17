@@ -9,6 +9,7 @@ export default {
     props:{
         users:Object,
         loans:Object,
+        notification:Object,
     }
 }
 </script>

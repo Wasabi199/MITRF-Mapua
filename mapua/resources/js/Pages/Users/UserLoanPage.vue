@@ -659,7 +659,8 @@ import {Link} from '@inertiajs/inertia-vue3';
 export default {
 
     props:{
-        users:Object
+        users:Object,
+        notification:Object,
     },
 
     components:{

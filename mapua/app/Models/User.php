@@ -85,6 +85,9 @@ class User extends Authenticatable
     public function medicals(){
         return $this->hasMany(Medical::class);
     }
+    public function userNotif(){
+        return $this->hasMany(UserNotifications::class)->latest();
+    }
 
 
     // Filters
