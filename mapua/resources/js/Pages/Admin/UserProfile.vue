@@ -340,11 +340,11 @@ export default {
             birth_date:'',
             civil_status:'',
 
-            region:'',
-            province:'',
-            municipality:'',
-            barangay:'',
-            current_address:'',
+            // region:'',
+            // province:'',
+            // municipality:'',
+            // barangay:'',
+            // current_address:'',
 
             department:'',
             employment:'',
@@ -410,11 +410,11 @@ export default {
             this.form.birth_date == ''? this.form.birth_date = this.users.admin_reg.birth_date : this.form.birth_date
             this.form.civil_status == ''? this.form.civil_status = this.users.admin_reg.civil_status : this.form.civil_status
             // Address Information
-            this.form.region == ''? this.form.region = this.users.admin_reg.region : this.form.region
-            this.form.province == ''? this.form.province = this.users.admin_reg.province : this.form.province
-            this.form.municipality == ''? this.form.municipality = this.users.admin_reg.municipality : this.form.municipality
-            this.form.barangay == ''? this.form.barangay = this.users.admin_reg.barangay : this.form.barangay
-            this.form.current_address == ''? this.form.current_address = this.users.admin_reg.current_address : this.form.current_address
+            // this.form.region == ''? this.form.region = this.users.admin_reg.region : this.form.region
+            // this.form.province == ''? this.form.province = this.users.admin_reg.province : this.form.province
+            // this.form.municipality == ''? this.form.municipality = this.users.admin_reg.municipality : this.form.municipality
+            // this.form.barangay == ''? this.form.barangay = this.users.admin_reg.barangay : this.form.barangay
+            // this.form.current_address == ''? this.form.current_address = this.users.admin_reg.current_address : this.form.current_address
             // loan information
             this.form.department == ''? this.form.department = this.users.admin_reg.department : this.form.department
             this.form.employment == ''? this.form.employment = this.users.admin_reg.employment : this.form.employment

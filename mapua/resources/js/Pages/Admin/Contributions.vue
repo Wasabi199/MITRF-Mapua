@@ -375,19 +375,19 @@ export default {
                 approval:'',
             }),
 
-   watch: {
-        form: {
-            deep: true,
-            handler:
-                throttle(
-                    function () {
-                        this.$inertia.get(route('adminLoansView'), pickBy(this.form), {preserveState: true, preserveScroll: true,
-                        })
-                    },
-                    600
-                ),
-        },
-    },
+//    watch: {
+//         form: {
+//             deep: true,
+//             handler:
+//                 throttle(
+//                     function () {
+//                         this.$inertia.get(route('adminLoansView'), pickBy(this.form), {preserveState: true, preserveScroll: true,
+//                         })
+//                     },
+//                     600
+//                 ),
+//         },
+//     },
         }
     },
     watch: {

@@ -13,16 +13,9 @@ class DashboardController extends Controller
 {
     //
     public function index(QueryRequest $request){
-        $notification = UserNotifications::filter(Auth::user()->userType)->get();
-        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->get();
-        // ->limit(5)
-        // ->paginate(5);
-        // ->get();
-        // ->filter(Auth::user()->userType)
-        // ->filter(Auth::user()->userType)
-        // ->appends($request::only(User::auth()->userType));
-        // dd(Auth::user()->userType);
-        // dd($userNotification);
+        $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+       
         if(Auth::user()->userType == 1){
             return Inertia::render('Admin/AdminDashboard',[
                 'notification'=>$notification

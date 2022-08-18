@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->nullable()->onDelete('cascade');
             $table->integer('universal_id');
-            $table->boolean('isRead');
+            $table->boolean('onRead');
             $table->string('value');
             $table->integer('type');
             $table->integer('notification_type');

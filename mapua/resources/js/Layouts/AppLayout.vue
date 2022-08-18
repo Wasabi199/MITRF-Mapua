@@ -1,4 +1,4 @@
-<script setup>
+<script>
 import { ref } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
 import { Head, Link } from '@inertiajs/inertia-vue3';
@@ -11,34 +11,75 @@ import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue';
 import Pagination from '@/Components/Pagination.vue';
 import {Popover, PopoverButton, PopoverPanel} from '@headlessui/vue'
 import NotificationArea from '@/Components/NotificationArea';
+import { data } from 'browserslist';
+export default {
+    setup() {
+        
+    },
+    props:{
+        title: String,
+    },
+    components:{
+        ref,
+        Inertia,
+        Head,
+        Link,
+        JetApplicationMark,
+        JetBanner,
+        JetDropdown,
+        JetDropdownLink,
+        JetNavLink,
+        JetResponsiveNavLink,
+        NotificationArea,
+        Popover,
+        PopoverButton,
+        PopoverPanel,
+        data
+    },
+    data(){
+        return{
+            showingNavigationDropdown: false,
+            // notifToClick:Object,
+            notif:this.$inertia.form({
+                id:Number,
+                onRead:'',
+            }),
+        }
+    },
+    methods:{
+        switchToTeam(team) {
+                this.$inertia.put(route('current-team.update'), {
+                    'team_id': team.id
+                }, {
+                    preserveState: false
+                })
+            },
+            logout() {
+                this.$inertia.post(route('logout'));
+            },
+            // notificationClick(notif){
+            //     this.notifToClick = notif;
+            //     this.submit();
+            // },
+            submit(notif){
+                this.notif.id = notif.id;
+                this.notif.onRead = true;
+                this.notif.post(route('notification'),[
 
-defineProps({
-    title: String,
-    NotificationArea,
-    Popover,
-    PopoverButton,
-    PopoverPanel,
-    Pagination
-});
+                ]);
+            },
+            revisit(notification_type, universal_id){
+                console.log(notification_type, universal_id);
+                if(notification_type == 1){
+                    this.$inertia.get(route('contributions',universal_id));
 
-
-
-const showingNavigationDropdown = ref(false);
-
-const switchToTeam = (team) => {
-    Inertia.put(route('current-team.update'), {
-        team_id: team.id,
-    }, {
-        preserveState: false,
-    });
-};
-
-const logout = () => {
-    Inertia.post(route('logout'));
-};
-
-</script>
-
+                }else if(notification_type == 2){
+                    this.$inertia.get(route('medicalProfile',universal_id));
+                }
+            },
+    }
+}
+</script>>
 
 <template>
     <div>
@@ -203,20 +244,20 @@ const logout = () => {
                                                 </div>
                                             </div>
                                             <div v-if="this.$page.props.notification.length > 0"  class="flex flex-col space-y-2 max-h-60 overflow-y-scroll  p-1 mt-2">
-                                                <div  v-for="notif in this.$page.props.notification" v-bind:key="notif.id" class="flex flex-col p-2 hover:bg-slate-700 hover:text-slate-100 rounded-xl cursor-pointer" v-on:mouseover="clearUnread" @click="showNotification()">
-                                                    <div v-if="notif.isRead == 0" class="flex flex-col  bg-slate-700 rounded-xl p-1 text-white">
+                                                <div  v-for="notif in this.$page.props.notification" v-bind:key="notif.id" class="flex flex-col p-2 hover:bg-slate-700 hover:text-slate-100 rounded-xl cursor-pointer" >
+                                                    <div v-if="notif.onRead == 0" class="flex flex-col  bg-slate-700 rounded-xl p-1 text-white" @click="submit(notif)">
                                                         <span  class="font-semibold">{{notif.type == 1? 'Loan':''}}</span>
-                                                        <span  class="font-semibold">{{notif.type == 2? 'Loan':''}}</span>
+                                                        <span  class="font-semibold">{{notif.type == 2? 'Applying':''}}</span>
                                                         <span  class="font-semibold">{{notif.type == 3? 'Medical':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 1?'Loan Register':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 2?'Medical Register':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 3?'Approved Loan':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 4?'Rejected Loan':''}}</span>
-                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 5?'Approved Loan':''}}</span>
+                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 5?'Approved Medical':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 6?'Rejected Medical':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis h-10">{{notif.value}}</span>
                                                     </div>
-                                                     <div v-if="notif.isRead == 1" class="flex flex-col p-1">
+                                                     <div v-if="notif.onRead == 1" class="flex flex-col p-1" @click="revisit(notif.notification_type, notif.universal_id)">
                                                         <span  class="font-semibold">{{notif.type == 1? 'Loan':''}}</span>
                                                         <span  class="font-semibold">{{notif.type == 2? 'Loan':''}}</span>
                                                         <span  class="font-semibold">{{notif.type == 3? 'Medical':''}}</span>

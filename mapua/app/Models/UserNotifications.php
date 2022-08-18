@@ -30,7 +30,7 @@ class UserNotifications extends Model
     public function scopeFilterOwner($query, $user_type){
         $query->when($user_type ?? null, function($query, $user_type){
             $query->where('type',$user_type)
-                ->where('user_id',Auth::user()->id);
+                ->where('user_id',auth()->id());
         });
     }
 }

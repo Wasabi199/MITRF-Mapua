@@ -28,7 +28,7 @@ class AdminController extends Controller
 {
     //
     public function users(QueryRequest $query){
-        $notification = UserNotifications::filter(Auth::user()->userType)->get();
+        $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $users = User::with('adminReg')
         ->orderBy('name')
         ->filter($query::only('search'))
@@ -45,14 +45,14 @@ class AdminController extends Controller
         ]);
     }
     public function userRegister(){
-        $notification = UserNotifications::filter(Auth::user()->userType)->get();
+        $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         return Inertia::render('Admin/RegisterUser',[
             'notification'=>$notification
         ]);
     }
 
     public function userProfile($id){
-        $notification = UserNotifications::filter(Auth::user()->userType)->get();
+        $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $userProfile = User::with('AdminReg')->find($id);
         $userLoan = Loans::where('user_id','=',$id)->where('loan_status','=','Paid')->get();
         // dd($userLoan);
@@ -146,7 +146,7 @@ class AdminController extends Controller
     }
     
     public function adminLoansView(QueryRequest $query){
-        $notification = UserNotifications::filter(Auth::user()->userType)->get();
+        $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $filters = $query::only('approval');
         isset($filters['approval']) ? $filters['approval'] = Approval::approval($filters['approval']) : $filters['approval'] = Approval::approval($filters['approval']='All');
         $loans = Loans::with('user')
@@ -174,6 +174,14 @@ class AdminController extends Controller
         $loans = loans::find($request->validated()['id']);
         $data = $request->validated();
         $loans->update($data);
+        UserNotifications::create([
+            'user_id'=>$loans->user_id,
+            'universal_id'=>$request->validated()['id'],
+            'onRead'=>false,
+            'value'=>'Your application has been APPROVED',
+            'type'=>2,
+            'notification_type'=>3
+        ]);
         return Redirect::back()->with('message',
             [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
     }
@@ -182,14 +190,22 @@ class AdminController extends Controller
         $loans = loans::find($request->validated()['id']);
         $data = $request->validated();
         $loans->update($data);
+        UserNotifications::create([
+            'user_id'=>$loans->user_id,
+            'universal_id'=>$request->validated()['id'],
+            'onRead'=>false,
+            'value'=>'Your application has been REJECTED',
+            'type'=>2,
+            'notification_type'=>4
+        ]);
         return Redirect::back()->with('message',
             [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
     }
 
 
     public function contributions($id){
-        $notification = UserNotifications::filter(Auth::user()->userType)->get();
-        $loanProfile = Loans::with('contributions')->find($id);
+        $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $loanProfile = Loans::find($id);
         $info = Admin::find($loanProfile->user_id);
         $contribution = Contributions::where('loans_id','=',$loanProfile->id)
         ->limit(5)

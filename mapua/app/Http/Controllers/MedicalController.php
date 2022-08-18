@@ -13,7 +13,7 @@ class MedicalController extends Controller
 {
     //
     public function index(QueryRequest $query){
-        $notification = UserNotifications::filter(Auth::user()->userType)->get();
+        $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         // $user = User::with('medicals')
         $medical = Medical::with('user')
         // ->orderBy('name')
@@ -28,7 +28,7 @@ class MedicalController extends Controller
         ]);
     }
     public function medicalProfile($id){
-        $notification = UserNotifications::filter(Auth::user()->userType)->get();
+        $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $medical = Medical::find($id);
         $info = Admin::find($medical->user_id);
         // dd($info);
@@ -42,20 +42,37 @@ class MedicalController extends Controller
     }
     public function medicalApprove(MedicalApprove $request){
         // dd($request);
-        $loans = Medical::find($request->validated()['id']);
+        $medical = Medical::find($request->validated()['id']);
         $data = $request->validated();
         // dd($data);
-        $loans->update($data);
+        $medical->update($data);
+        UserNotifications::create([
+            'user_id'=>$medical->user_id,
+            'universal_id'=>$request->validated()['id'],
+            'onRead'=>false,
+            'value'=>'Your application has been APPROVED',
+            'type'=>2,
+            'notification_type'=>5
+        ]);
         return Redirect::back()->with('message',
             [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
     }
 
     public function medicalReject(MedicalApprove $request){
         // dd($request);
-        $loans = Medical::find($request->validated()['id']);
+        $medical = Medical::find($request->validated()['id']);
         $data = $request->validated();
-        // dd($data);
-        $loans->update($data);
+        // dd($medical);
+        $medical->update($data);
+        UserNotifications::create([
+            'user_id'=>$medical->user_id,
+            'universal_id'=>$request->validated()['id'],
+            'onRead'=>false,
+            'value'=>'Your application has been REJECTED',
+            'type'=>2,
+            'notification_type'=>6
+        ]);
+
         return Redirect::back()->with('message',
             [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
     }

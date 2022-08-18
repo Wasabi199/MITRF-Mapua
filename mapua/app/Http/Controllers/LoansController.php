@@ -20,7 +20,7 @@ class LoansController extends Controller
     //
     public function index(){
         $id = auth()->id();
-        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->get();
+        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $user = User::with('adminReg')->find($id);
         return Inertia::render('Users/UserLoanPage',[
            'users' =>$user,
@@ -29,7 +29,7 @@ class LoansController extends Controller
     }
 // Loans View
     public function loansView(query $query){
-        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->get();
+        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
 
         $user = Auth::user();
         $loans = Loans::with('contributions')
@@ -71,12 +71,18 @@ class LoansController extends Controller
                 'attachment3'=>'../../../uploads/loans/'.$file_name3,
                 'loan_amount'=>$validate_data['loan_amount'],
                 'interest'=>$validate_data['interest'],
-                'loan_status'=>'Pending',
-                'approval'=>'Ongoing',
+                'loan_status'=>'Ongoing',
+                'approval'=>'Pending',
              
             ]);
-            
-            dd($user_loans->id);
+            $user->userNotif()->create([
+                'universal_id'=>$user_loans->id,
+                'onRead'=>false,
+                'value'=>$user->name.' Applying for '.$validate_data['loan_type'],
+                'type'=>1,
+                'notification_type'=>1
+            ]);
+            // dd($user_loans->id);
 
             return Redirect::route('dashboard')->with('message',
                 [NotificationService::notificationItem('Sucess', '', 'Sucessfully '.$validate_data['loan_type'])]);
@@ -85,7 +91,7 @@ class LoansController extends Controller
     }
 
     public function medicalReimbursment(query $query){
-        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->get();
+        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $filters = $query::only('status');
         isset($filters['status']) ? $filters['status'] = Approval::status($filters['status']) : $filters['status'] = Approval::status($filters['status']='All');
         
@@ -102,7 +108,7 @@ class LoansController extends Controller
     }
 
     public function createReimburstment(){
-        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->get();
+        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $info = Admin::find(auth()->id());
         return Inertia::render('Users/UserReimbursmentView',[
             'info' =>$info,
@@ -130,7 +136,7 @@ class LoansController extends Controller
         
             $user = User::find(auth()->id());
             // dd($validate_data);
-            $user->medicals()->create([
+            $userMedical = $user->medicals()->create([
 
                 'reimbursment_type'=>$validate_data['reimbursment_type'],
                 'amount'=>$validate_data['amount'],
@@ -141,15 +147,19 @@ class LoansController extends Controller
                 'medical_record4'=>'../../../uploads/reimburstment/'.$file_name4,
 
             ]);
-            // $user->userNotif()->create([
-
-            // ]);
+            $user->userNotif()->create([
+                'universal_id'=>$userMedical->id,
+                'onRead'=>false,
+                'value'=>$user->name.' Applying for Medical Reimburstment',
+                'type'=>3,
+                'notification_type'=>2
+            ]);
             return Redirect::route('dashboard')->with('message',
-                [NotificationService::notificationItem('Sucess', '', 'Sucessfully Medical Reimburstment'.$validate_data['reimbursment_type'])]);
+                [NotificationService::notificationItem('Sucess', '', 'Sucessfully Medical Reimburstment '.$validate_data['reimbursment_type'])]);
         }
     }
     public function  UserLoanView($id){
-        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->get();
+        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $user = User::with('AdminReg')->find($id);
         $loan = Loans::with('contributions')->filterOwner($id)->get()->first();
         return Inertia::render('Users/UserLoanView',[
