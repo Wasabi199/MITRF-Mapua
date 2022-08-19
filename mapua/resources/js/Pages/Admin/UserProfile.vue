@@ -394,7 +394,8 @@ export default {
     props: {
         users: Object,
         loans:Object,
-        notification:Object
+        notification:Object,
+        count:Number,
 
     },
     methods: {

@@ -263,6 +263,7 @@ export default {
     props:{
         info:Object,
         notification:Object,
+        count:Number,
     },
     setup() {
         

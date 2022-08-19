@@ -27,8 +27,10 @@ use App\Services\NotificationService;
 class AdminController extends Controller
 {
     //
+    
     public function users(QueryRequest $query){
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $notificationCount = $notification->where('onRead',false)->count();
         $users = User::with('adminReg')
         ->orderBy('name')
         ->filter($query::only('search'))
@@ -42,24 +44,30 @@ class AdminController extends Controller
             'notification'=>$notification,
             'users' => $users,
             'filters' =>$filters,
+            'count'=>$notificationCount
         ]);
     }
     public function userRegister(){
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $notificationCount = $notification->where('onRead',false)->count();
         return Inertia::render('Admin/RegisterUser',[
-            'notification'=>$notification
+            'notification'=>$notification,
+            'count'=>$notificationCount
+
         ]);
     }
 
     public function userProfile($id){
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $notificationCount = $notification->where('onRead',false)->count();
         $userProfile = User::with('AdminReg')->find($id);
         $userLoan = Loans::where('user_id','=',$id)->where('loan_status','=','Paid')->get();
         // dd($userLoan);
         return Inertia::render('Admin/UserProfile',[
             'notification'=>$notification,
             'users' => $userProfile,
-            'loans'=>$userLoan
+            'loans'=>$userLoan,
+            'count'=>$notificationCount
 
         ]);
     }
@@ -147,6 +155,7 @@ class AdminController extends Controller
     
     public function adminLoansView(QueryRequest $query){
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $notificationCount = $notification->where('onRead',false)->count();
         $filters = $query::only('approval');
         isset($filters['approval']) ? $filters['approval'] = Approval::approval($filters['approval']) : $filters['approval'] = Approval::approval($filters['approval']='All');
         $loans = Loans::with('user')
@@ -159,6 +168,7 @@ class AdminController extends Controller
             'notification'=>$notification,
             'filters'=>$filters,
             'loans' => $loans,
+            'count'=>$notificationCount
         ]);
     }
 
@@ -205,6 +215,7 @@ class AdminController extends Controller
 
     public function contributions($id){
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $notificationCount = $notification->where('onRead',false)->count();
         $loanProfile = Loans::find($id);
         $info = Admin::find($loanProfile->user_id);
         $contribution = Contributions::where('loans_id','=',$loanProfile->id)
@@ -215,7 +226,8 @@ class AdminController extends Controller
             'notification'=>$notification,
             'loan' => $loanProfile,
             'info'=>$info,
-            'contributions'=>$contribution
+            'contributions'=>$contribution,
+            'count'=>$notificationCount
             
         ]);
     }

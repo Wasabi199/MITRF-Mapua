@@ -343,6 +343,7 @@ export default {
         info:Object,
         contributions:Object,
         notification:Object,
+        count:Number,
 
     },
     setup() {

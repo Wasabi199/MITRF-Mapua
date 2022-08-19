@@ -128,6 +128,7 @@ components:{
     props:{
         medical:Object,
         notification:Object,
+        count:Number,
     },
     data(){
         return{

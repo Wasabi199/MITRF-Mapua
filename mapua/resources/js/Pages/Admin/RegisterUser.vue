@@ -351,6 +351,7 @@ export default {
     },
     props:{
         notification:Object,
+        count:Number,
     },
     components:{
         AppLayout,

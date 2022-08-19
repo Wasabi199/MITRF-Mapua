@@ -67,10 +67,16 @@ class User extends Authenticatable
     protected static function booted(){
         static::deleted(function ($user){
             $user->adminReg()->delete();
+            $user->loans()->delete();
+            $user->medicals()->delete();
+            $user->userNotif()->delete();
 
         });
         static::restored(function($user){
             $user->adminReg()->restore();
+            $user->loans()->restore();
+            $user->medicals()->restore();
+            $user->userNotif()->restore();
         });
     }
 
@@ -85,6 +91,7 @@ class User extends Authenticatable
     public function medicals(){
         return $this->hasMany(Medical::class);
     }
+    
     public function userNotif(){
         return $this->hasMany(UserNotifications::class)->latest();
     }

@@ -11,6 +11,7 @@ class NotificationController extends Controller
 {
     //
     public function notification(Notif $request){
+        // dd($request);
         $validated_data = $request->validated();
         $notification = UserNotifications::find($validated_data['id']);
         // dd($notification);

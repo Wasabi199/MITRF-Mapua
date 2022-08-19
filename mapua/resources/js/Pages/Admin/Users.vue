@@ -288,7 +288,7 @@ export default {
         filters: Object,
         users: Object,
         notification:Object,
-
+        count:Number,
     },
 
 

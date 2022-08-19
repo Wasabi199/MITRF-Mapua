@@ -661,6 +661,7 @@ export default {
     props:{
         users:Object,
         notification:Object,
+        count:Number,
     },
 
     components:{

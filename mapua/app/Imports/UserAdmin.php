@@ -39,11 +39,11 @@ class UserAdmin implements ToModel, WithHeadingRow
             'birth_place'   =>$row['Birthplace'],
             'civil_status'  =>$row['Civil Status'],
 
-            'region'        =>$row['Region'],
-            'province'      =>$row['Province'],
-            'municipality'  =>$row['Municipality'],
-            'barangay'      =>$row['Barangay'],
-            'current_address'=>$row['Current Address'],
+            // 'region'        =>$row['Region'],
+            // 'province'      =>$row['Province'],
+            // 'municipality'  =>$row['Municipality'],
+            // 'barangay'      =>$row['Barangay'],
+            // 'current_address'=>$row['Current Address'],
 
             'department'    =>$row['Department'],
             'salary'        =>$row['Salary'],

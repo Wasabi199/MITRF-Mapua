@@ -14,21 +14,28 @@ class MedicalController extends Controller
     //
     public function index(QueryRequest $query){
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $notificationCount = $notification->where('onRead',false)->count();
+
         // $user = User::with('medicals')
         $medical = Medical::with('user')
         // ->orderBy('name')
         // ->filter($query::only('search'))
+        // ->get()
         ->limit(5)
         ->paginate(5);
         // ->appends($query::only('search'));
         // $filters = $query::all('search');
+        
         return Inertia::render('Medical/Medical_Reimbursment',[
             'medical'=>$medical,
-            'notification'=>$notification
+            'notification'=>$notification,
+            'count'=>$notificationCount,
         ]);
     }
     public function medicalProfile($id){
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $notificationCount = $notification->where('onRead',false)->count();
+
         $medical = Medical::find($id);
         $info = Admin::find($medical->user_id);
         // dd($info);
@@ -37,7 +44,8 @@ class MedicalController extends Controller
         return Inertia::render('Medical/MedicalAppliedView',[
             'userProfile'=> $info,
             'userMedical'=> $medical,
-            'notification'=>$notification
+            'notification'=>$notification,
+            'count'=>$notificationCount
         ]);
     }
     public function medicalApprove(MedicalApprove $request){

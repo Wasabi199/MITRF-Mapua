@@ -167,6 +167,7 @@ export default {
         medicals: Object,
         filters:Object,
         notification:Object,
+        count:Number,
     },
     
 

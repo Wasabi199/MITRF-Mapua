@@ -38,13 +38,16 @@ class JetstreamServiceProvider extends ServiceProvider
                 // dd(Auth::user()->userType);
                 if(Auth::user()->userType == 2){
                     $notification = UserNotifications::filterOwner(Auth::user()->userType)->get();
+                    $notificationCount = $notification->where('onRead',false)->count();
                 }else{
                     $notification = UserNotifications::filter(Auth::user()->userType)->get();
+                    $notificationCount = $notification->where('onRead',false)->count();
                 }
                 
                 return array_merge($data, [
                     // Custom data...
                     'notification'=>$notification,
+                    'count'=>$notificationCount,
                 ]);
             }
         );

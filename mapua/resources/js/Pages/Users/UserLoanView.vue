@@ -10,6 +10,7 @@ export default {
         users:Object,
         loans:Object,
         notification:Object,
+        count:Number,
     }
 }
 </script>

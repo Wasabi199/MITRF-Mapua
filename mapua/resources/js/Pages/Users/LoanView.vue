@@ -170,6 +170,7 @@ export default {
     props: {
         loans: Object,
         notification:Object,
+        count:Number,
     },
     
 

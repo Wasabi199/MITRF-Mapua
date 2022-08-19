@@ -39,7 +39,8 @@ export default {
     props:{
         confirmsTwoFactorAuthentication: Boolean,
         sessions: Array,
-        notification:Object
+        notification:Object,
+        count:Number,
     },
 }
 </script>

@@ -3,7 +3,13 @@
         <template #header>
             <div class="flex justify-between">
                 <div class="flex items-center ">
-                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">Current Loans</h1>
+                    <Link :href="route('medicalList')">
+                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">Current Medical</h1>
+                    </Link>
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">{{userProfile.first_name}} {{userProfile.middle_name}} {{userProfile.last_name}}'s</h1>
                 </div>
             </div>
         </template>
@@ -167,12 +173,14 @@
 import JetApplicationLogo from '@/Jetstream/ApplicationLogo.vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import Modal from '@/Jetstream/Modal';
+import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
 
 export default {
     components:{
     JetApplicationLogo,
     AppLayout,
-    Modal
+    Modal,
+    Link
     },
     setup() {
         
@@ -181,6 +189,7 @@ export default {
         userProfile:Object,
         userMedical:Object,
         notification:Object,
+        count:Number,
     },
     data(){
         return{

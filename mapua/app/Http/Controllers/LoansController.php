@@ -21,16 +21,18 @@ class LoansController extends Controller
     public function index(){
         $id = auth()->id();
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $notificationCount = $userNotification->where('onRead',false)->count();
         $user = User::with('adminReg')->find($id);
         return Inertia::render('Users/UserLoanPage',[
            'users' =>$user,
-           'notification'=>$userNotification           
+           'notification'=>$userNotification,
+           'count'=>$notificationCount           
         ]);
     }
 // Loans View
     public function loansView(query $query){
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
-
+        $notificationCount = $userNotification->where('onRead',false)->count();
         $user = Auth::user();
         $loans = Loans::with('contributions')
         ->filterOwner($user->id)
@@ -41,6 +43,7 @@ class LoansController extends Controller
         return Inertia::render('Users/LoanView',[
             'loans' => $loans,
             'notification'=>$userNotification,
+            'count'=>$notificationCount
         ]);
     }
 
@@ -84,7 +87,7 @@ class LoansController extends Controller
             ]);
             // dd($user_loans->id);
 
-            return Redirect::route('dashboard')->with('message',
+            return Redirect::route('loansView')->with('message',
                 [NotificationService::notificationItem('Sucess', '', 'Sucessfully '.$validate_data['loan_type'])]);
         
         }
@@ -92,6 +95,7 @@ class LoansController extends Controller
 
     public function medicalReimbursment(query $query){
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $notificationCount = $userNotification->where('onRead',false)->count();
         $filters = $query::only('status');
         isset($filters['status']) ? $filters['status'] = Approval::status($filters['status']) : $filters['status'] = Approval::status($filters['status']='All');
         
@@ -103,16 +107,19 @@ class LoansController extends Controller
         return Inertia::render('Users/MedicalReimbursment',[
             'medicals'=>$medical,
             'filter'=>$filters,
-            'notification'=>$userNotification
+            'notification'=>$userNotification,
+            'count'=>$notificationCount,
         ]);
     }
 
     public function createReimburstment(){
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $notificationCount = $userNotification->where('onRead',false)->count();
         $info = Admin::find(auth()->id());
         return Inertia::render('Users/UserReimbursmentView',[
             'info' =>$info,
-            'notification'=>$userNotification
+            'notification'=>$userNotification,
+            'count'=>$notificationCount
         ]);
     }
     public function submitCreateReimburstment(medicalRequest $request){
@@ -154,18 +161,20 @@ class LoansController extends Controller
                 'type'=>3,
                 'notification_type'=>2
             ]);
-            return Redirect::route('dashboard')->with('message',
+            return Redirect::route('medicalView')->with('message',
                 [NotificationService::notificationItem('Sucess', '', 'Sucessfully Medical Reimburstment '.$validate_data['reimbursment_type'])]);
         }
     }
     public function  UserLoanView($id){
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $notificationCount = $userNotification->where('onRead',false)->count();
         $user = User::with('AdminReg')->find($id);
         $loan = Loans::with('contributions')->filterOwner($id)->get()->first();
         return Inertia::render('Users/UserLoanView',[
             'users'=>$user,
             'loans'=>$loan,
-            'notification'=>$userNotification
+            'notification'=>$userNotification,
+            'count'=>$notificationCount,
         ]);
     }
 

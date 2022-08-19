@@ -62,12 +62,22 @@ export default {
             //     this.submit();
             // },
             submit(notif){
+                // console.log(notif);
                 this.notif.id = notif.id;
                 this.notif.onRead = true;
-                this.notif.post(route('notification'),[
-
+                if(this.$page.props.user.userType == 1){
+                      this.notif.post(route('AdminNotification'),[
                 ]);
+                }else if(this.$page.props.user.userType == 2){
+                     this.notif.post(route('UserNotification'),[
+                ]);
+                }else if(this.$page.props.user.userType == 3){
+                     this.notif.post(route('MedicalNotification'),[
+                ]);
+                }
+              
             },
+
             revisit(notification_type, universal_id){
                 console.log(notification_type, universal_id);
                 if(notification_type == 1){
@@ -229,7 +239,7 @@ export default {
                                         <span class="inline-block cursor-pointer">
                                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" class="w-6 h-6 text-yellow-300 fill-current" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><path fill="currentColor" d="M16 7a5.38 5.38 0 0 0-4.46-4.85C11.6 1.46 11.53 0 10 0S8.4 1.46 8.46 2.15A5.38 5.38 0 0 0 4 7v6l-2 2v1h16v-1l-2-2zm-6 13a3 3 0 0 0 3-3H7a3 3 0 0 0 3 3z"/></svg>
                                             <span v-if="this.$page.props.notification.length > 0" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
-                                                {{this.$page.props.notification.length}}
+                                                {{this.$page.props.count}}
                                             </span>
                                         </span>
                                     </PopoverButton>
@@ -240,7 +250,7 @@ export default {
                                                 <span class="mb-5">Notifications</span>
                                                 <div class="flex items-center justify-center bg-slate-700 rounded-full px-3 py-1 space-x-2 cursor-pointer">
                                                     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" class="h-4 w-4 text-white" preserveAspectRatio="xMidYMid meet" viewBox="0 0 28 28"><path fill="currentColor" d="M21.75 3A3.25 3.25 0 0 1 25 6.25v15.5A3.25 3.25 0 0 1 21.75 25H6.25A3.25 3.25 0 0 1 3 21.75V6.25A3.25 3.25 0 0 1 6.25 3h15.5Zm0 1.5H6.25A1.75 1.75 0 0 0 4.5 6.25V15h6a.75.75 0 0 1 .743.648l.007.102a2.75 2.75 0 1 0 5.5 0a.75.75 0 0 1 .648-.743L17.5 15h6V6.25a1.75 1.75 0 0 0-1.75-1.75Z"/></svg>
-                                                    <span class="text-white text-sm"> 5 unread</span>
+                                                    <span class="text-white text-sm"> {{this.$page.props.count}} unread</span>
                                                 </div>
                                             </div>
                                             <div v-if="this.$page.props.notification.length > 0"  class="flex flex-col space-y-2 max-h-60 overflow-y-scroll  p-1 mt-2">
