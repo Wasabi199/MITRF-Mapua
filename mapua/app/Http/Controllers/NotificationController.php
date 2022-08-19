@@ -14,13 +14,17 @@ class NotificationController extends Controller
         // dd($request);
         $validated_data = $request->validated();
         $notification = UserNotifications::find($validated_data['id']);
+        
         // dd($notification);
         $notification->update($validated_data);
         if($notification->notification_type == 1){
             return Redirect::route('contributions',$notification->universal_id);
         }
-        if($notification->notification_type == 2){
+        else if($notification->notification_type == 2){
             return Redirect::route('medicalProfile',$notification->universal_id);
+        }
+        else{
+            return Redirect::route('dashboard');
         }
     }
 }
