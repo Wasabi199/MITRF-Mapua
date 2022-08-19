@@ -116,7 +116,7 @@
                             <p class="font-semibold">Current Contribution:</p>
                             <p class="ml-2 underline">
                                 {{
-                                    users.admin_reg.contribution != null ? users.admin_reg.contribution : 'No Contribution'
+                                    users.admin_reg.toal_contribution = null ? 'No Contribution' : 'Php '+users.admin_reg.total_contribution
                                 }}</p>
                         </div>
                     </div>

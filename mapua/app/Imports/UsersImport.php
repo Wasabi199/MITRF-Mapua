@@ -37,7 +37,7 @@ class UsersImport implements   WithHeadingRow, ToCollection, WithValidation
                         $userNew = User::create([
                             'name'      =>$row['first_name'].' '.$row['middle_name'].' '.$row['last_name'],
                             'email'     =>$row['email'],
-                            'userType'  =>1,
+                            'userType'  =>2,
                             'password'  =>Hash::make('password')
                         ]);
                         $userNew->adminReg()->create([
