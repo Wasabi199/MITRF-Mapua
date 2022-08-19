@@ -731,14 +731,14 @@ export default {
             // console.log(this.$attrs.user.id);
             this.submitModal = true;
              if(this.form.loan_type == 'Housing Loan'){
-                let interest = 0.09 + 0.02;
-                this.form.interest = interest * (this.form.duration/12);
-                this.form.loan_amount = this.amount + ((this.amount * interest) * (this.form.duration/12));
+                let interest = 0.09 ;
+                this.form.interest = (0.02+(interest * (this.form.duration/12))).toFixed(2);
+                this.form.loan_amount = this.amount + ((this.amount * interest) * (this.form.duration/12))+0.02;
              }
             if(this.form.loan_type == 'Educational Loan'){
-                let interest = 0.09 + 0.02;
-                this.form.interest = interest * (this.form.duration/12);
-                this.form.loan_amount = this.amount + ((this.amount * interest) * (this.form.duration/12));
+                let interest = 0.09;
+                this.form.interest = (0.02+(interest * (this.form.duration/12))).toFixed(2) ;
+                this.form.loan_amount = this.amount + ((this.amount * interest) * (this.form.duration/12))+0.02;
              }
             // if(this.form.loan_type == 'Medical Reimbursement'){
                 
@@ -753,9 +753,9 @@ export default {
             //     // this.form.loan_amount = this.amount + this.total_amount;
             //  }
             if(this.form.loan_type == 'Emergency Loan'){
-                let interest = 0.09 + 0.02;
-                this.form.interest = interest * (this.form.duration/12);
-                this.form.loan_amount = this.amount + ((this.amount * interest) * (this.form.duration/12));
+                let interest = 0.09 ;
+                this.form.interest =  (0.02+(interest * (this.form.duration/12))).toFixed(2);
+                this.form.loan_amount = this.amount + ((this.amount * interest) * (this.form.duration/12))+0.02;
              }
         },
 
