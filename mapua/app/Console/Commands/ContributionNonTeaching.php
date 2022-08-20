@@ -20,7 +20,7 @@ class ContributionNonTeaching extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'This will add a contribution for Non-Teaching on Database';
 
     /**
      * Execute the console command.
@@ -35,33 +35,33 @@ class ContributionNonTeaching extends Command
             ]);
     
            }
-            $loans = Loans::all()->where('approval','Approved')->where('loan_status','Ongoing');
+            // $loans = Loans::all()->where('approval','Approved')->where('loan_status','Ongoing');
             // $loans = User::has('loans')->get();
             // $info = Admin::all()->where($loans->user_id);
             // dd($loans);
-            foreach($loans as $loan){
-                $info = Admin::find($loan->user_id);
+            // foreach($loans as $loan){
+            //     $info = Admin::find($loan->user_id);
                 // dd($info->total_contribution + ($info->salary *0.05));
                 // dd($loan->loan_amount);
-                if($info->member_type == 'Non-Teaching'){
-                    if(!$loan->loan_amount <= 0){
-                        // dd($loan->loan_amount - $info->salary * 0.05,);
-                       $loan->update([
-                            'loan_amount'=>$loan->loan_amount - $info->salary * 0.05,
-                        ]); 
+            //     if($info->member_type == 'Non-Teaching'){
+            //         if(!$loan->loan_amount <= 0){
+            //             // dd($loan->loan_amount - $info->salary * 0.05,);
+            //            $loan->update([
+            //                 'loan_amount'=>$loan->loan_amount - $info->salary * 0.05,
+            //             ]); 
         
-                        $loan->contributions()->create([
-                            'loans_id' => $loan->id,
-                            'contribution_amount'=>$info->salary * 0.05,
-                        ]);
+            //             $loan->contributions()->create([
+            //                 'loans_id' => $loan->id,
+            //                 'contribution_amount'=>$info->salary * 0.05,
+            //             ]);
         
-                    }else{
-                        $loan->update([
-                            'loan_status'=>'Paid'
-                        ]);
-                    }
-                }
+            //         }else{
+            //             $loan->update([
+            //                 'loan_status'=>'Paid'
+            //             ]);
+            //         }
+            //     }
            
-            }
+            // }
     }
 }

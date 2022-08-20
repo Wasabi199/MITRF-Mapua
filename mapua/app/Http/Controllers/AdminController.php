@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\{Auth};
 
 use App\Models\Admin;
 use Illuminate\Routing\Route;
-use App\Imports\UsersImport;
+use App\Imports\{UsersImport, ContributionImport};
 use App\Services\Approval;
 use Illuminate\Support\Facades\{Hash, DB, Redirect };
 use Maatwebsite\Excel\Facades\Excel;
@@ -145,12 +145,21 @@ class AdminController extends Controller
     }
 
     public function userUpload(Request $request){
+        
         Excel::import(new UsersImport, $request->file);
       
-
         return Redirect::route('dashboard')->with('message',
             [NotificationService::notificationItem('success', '', 'Sucessfully Uploaded')]);;
     }
+    public function userContributions(Request $request){
+        // dd($request);
+        Excel::import(new ContributionImport, $request->file);
+      
+        return Redirect::route('dashboard')->with('message',
+            [NotificationService::notificationItem('success', '', 'Sucessfully Uploaded')]);
+    }
+
+
     
     public function adminLoansView(QueryRequest $query){
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();

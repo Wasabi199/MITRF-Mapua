@@ -40,7 +40,9 @@ Route::prefix('Admin')->middleware(['auth:sanctum','Admin'])->group(function(){
     Route::delete('user/delete',[AdminController::class,'userDelete'])->name('userDelete');
     Route::post('user/register',[AdminController::class, 'userRegisterSubmit'])->name('registerUserSubmit');
     Route::post('user/update/submit',[AdminController::class,'userUpdate'])->name('userUpdate');
-    Route::post('import',[AdminController::class, 'userUpload'])->name('import');
+
+    Route::post('importUser',[AdminController::class, 'userUpload'])->name('import');
+    Route::post('importContributions',[AdminController::class, 'userContributions'])->name('importContributions');
 
     Route::get('loansView',[AdminController::class,'adminLoansView'])->name('adminLoansView');
     Route::get('contributions/{id}',[AdminController::class,'contributions'])->name('contributions');

@@ -270,7 +270,8 @@ import {Link} from '@inertiajs/inertia-vue3';
 import Modal from '@/Jetstream/Modal';
 import {pickBy, throttle} from 'lodash';
 import route from '../../../../vendor/tightenco/ziggy/src/js';
-import { useForm } from '@inertiajs/inertia-vue3'
+import { useForm } from '@inertiajs/inertia-vue3';
+import JetValidationErrors from '@/Jetstream/ValidationErrors.vue';
 //pagination
 // import Pagination from "../../Shared/Pagination";
 
@@ -281,7 +282,8 @@ export default {
         Pagination,
         JetApplicationLogo,
         Link,
-        Modal
+        Modal,
+        JetValidationErrors
 
     },
     props: {
@@ -350,10 +352,10 @@ export default {
                 }
             });
         },
-        contri(){
-            console.log('click');
-            route('addContri');
-        }
+        // contri(){
+        //     console.log('click');
+        //     route('addContri');
+        // }
     //  importing(){
     //     this.$inertia.post(route('import'),{
             
