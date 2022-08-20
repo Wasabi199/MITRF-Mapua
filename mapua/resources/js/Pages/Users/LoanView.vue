@@ -10,12 +10,12 @@
             <div class="p-2 px-6 leading-tight flex justify-between items-center">
             <h1 class="text-xl text-gray-700 font-extrabold pl-8">Loans Management</h1>
 
-            <div class="flex-1">
-                <Link :href="route('userLoan')" class="text-yellow-500 font-semibold text-sm hover:underline ml-4">
-                    Create New Loan
+            <div class="px-6 py-4 whitespace-nowrap">
+                <Link :href="route('userLoan')" class="flex space-x-2 mr-5 px-4 py-1 border text-md text-yellow-600 dark:text-yellow-600 dark:border-yellow-600 border-yellow-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-yellow-500 cursor-pointer">
+                    <button>APPLY NEW LOAN</button>
                 </Link>
             </div>
-
+            
         </div>
 
         <div class="mx-12 my-6 shadow-md">
@@ -63,15 +63,22 @@
                                         <th class="text-left px-16 bg-gray-100">Loan Status</th>
 
                                         <tr v-for="loan in loans.data" v-bind:key="loan.id">
+                                            
 
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
                                                     <div>
+                                                        <!--
                                                         <Link :href="route('UserLoanView',loan.id)">
                                                             <div class="text-sm font-medium text-gray-900">
                                                                 {{ loan.loan_type }}
                                                             </div>
                                                         </Link>
+                                                        -->
+                                                            <div class="text-sm font-medium text-gray-900">
+                                                                
+                                                                {{ loan.loan_type }}
+                                                            </div>
                                                     </div>
                                                 </div>
 
@@ -131,13 +138,36 @@
                                                 </div>
 
                                             </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center pl-12 py-1 border text-md text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-green-500 cursor-pointer">
+                                                    <Link :href="route('UserLoanView',loan.id)">
+                                                    <div>
+                                                        <button>VIEW EXISTING LOAN</button>
+                                                    </div>
+                                                    
+                                                    </Link>
+                                                </div>
+
+                                            </td>
+                                            
                                         </tr>
                                     </tbody>
                                 </table>
+                                
 
                                 <pagination :links="loans.links"/>
                             </div>
                         </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="flex justify-center">
+                <div class="flex justify-between my-3">
+                    <div class="flex space-x-2 mr-5 px-4 py-1 border text-md text-red-600 dark:text-red-600 dark:border-red-600 border-red-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-red-500 cursor-pointer">
+                        <Link :href="route('dashboard')">
+                        <button>BACK TO HOME</button>
+                        </Link>
                     </div>
                 </div>
             </div>

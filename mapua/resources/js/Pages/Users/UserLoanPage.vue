@@ -62,7 +62,7 @@
                                 </div>
                               
                         </div>
-                        <p class="mb-1 text-lg">Upload Requirements</p>
+                        <p class="mb-1 text-lg">Upload Application Form</p>
 
                         <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
                             <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
@@ -70,14 +70,14 @@
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
-                         <p class="mb-1 text-lg">Upload Requirements</p>
+                         <p class="mb-1 text-lg">Upload Photo of you Including the Place to be Improved/Repaired</p>
                         <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
                             <input @change="onChange2"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
                                 class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
-                         <p class="mb-1 text-lg">Upload Requirements</p>
+                         <p class="mb-1 text-lg">Upload Laborer's Quotation</p>
                         <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
                             <input @change="onChange3"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
                                 class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
@@ -117,7 +117,7 @@
                                 border-opacity-50 border-gray-400 hover:border-indigo-500 text-black block pl-7 pr-12 w-64 mb-5 font-lg rounded-md" />
                             </div>
                         </div>
-                        <p class="mb-1 text-lg">Upload Requirements</p>
+                        <p class="mb-1 text-lg">Upload Application Form</p>
 
                         <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
                             <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
@@ -125,14 +125,14 @@
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
-                         <p class="mb-1 text-lg">Upload Requirements</p>
+                         <p class="mb-1 text-lg">Upload Proof of Relation (Birth Certificate in Case of Relatives)</p>
                         <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
                             <input @change="onChange2"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
                                 class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
-                         <p class="mb-1 text-lg">Upload Requirements</p>
+                         <p class="mb-1 text-lg">Upload Certificate of Enrollment and Statement of Account from School</p>
                         <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
                             <input @change="onChange3"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
                                 class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
@@ -210,7 +210,7 @@
                                 border-opacity-50 border-gray-400 hover:border-indigo-500 text-black block pl-7 pr-12 w-64 mb-5 font-lg rounded-md" />
                             </div>
                         </div>
-                         <p class="mb-1 text-lg">Upload Requirements</p>
+                         <p class="mb-1 text-lg">Upload Application Form</p>
 
                         <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
                             <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
@@ -218,14 +218,14 @@
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
-                         <p class="mb-1 text-lg">Upload Requirements</p>
+                         <p class="mb-1 text-lg">Upload 4.5% interest for a 2-year term</p>
                         <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
                             <input @change="onChange2"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
                                 class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
-                         <p class="mb-1 text-lg">Upload Requirements</p>
+                         <p class="mb-1 text-lg">Upload 2.25% interest for a 1-year term</p>
                         <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
                             <input @change="onChange3"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
                                 class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4

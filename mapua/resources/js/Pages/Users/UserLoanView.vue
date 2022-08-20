@@ -102,19 +102,15 @@
     </div>
 
 </div>
-
-
-   <div class="flex justify-center">
-    <div class="flex justify-between text-xl font-bold dark:text-gray-200 my-3">
-        <div class="flex space-x-2 mr-5 px-4 py-1 border text-md text-red-600 dark:text-red-600 dark:border-red-600 border-red-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-red-500 cursor-pointer">
-            <span>BACK TO HOME</span>
-            </div>
+<div class="flex justify-center">
+        <div class="flex justify-between my-3">
+                <div class="flex space-x-2 mr-5 px-4 py-1 border text-md text-red-600 dark:text-red-600 dark:border-red-600 border-red-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-red-500 cursor-pointer">
+                        <Link :href="route('dashboard')">
+                                <button>BACK TO HOME</button>
+                        </Link>
+                </div>
         </div>
 </div>
-    
-            
-
-               
 
 </AppLayout>
 </template>
