@@ -56,6 +56,10 @@ class AdminFactory extends Factory
             'Widowed',
             'Divorced',
         ];
+        $member_type=[
+            'Teaching',
+            'Non-Teaching',
+        ];
         return [
             //
             'first_name' => $this->faker->firstName(),
@@ -65,6 +69,7 @@ class AdminFactory extends Factory
             'birth_date'=>$this->faker->date('Y-m-d', Carbon::now()->subYears(18)),
             'birth_place'=>$this->faker->city(),
             'civil_status'=>$this->faker->randomElement($civil_status),
+            'member_type'=>$this->faker->randomElement($member_type),
 
             // 'region'=> $this->faker->state(),
             // 'province'=> $this->faker->cityPrefix(),

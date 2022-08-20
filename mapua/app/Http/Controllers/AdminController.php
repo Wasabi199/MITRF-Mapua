@@ -94,8 +94,6 @@ class AdminController extends Controller
         $validated_data = $request->validated();
         $user = null;
         $role = $this->roleToInt($validated_data['account_information']['role']);
-        
-        // dd($validated_data);
 
         DB::transaction(function () use ($validated_data, $user, $role){
 
@@ -114,6 +112,7 @@ class AdminController extends Controller
                 'birth_date'=>$validated_data['birth_date'],
                 'birth_place'=>$validated_data['birth_place'],
                 'civil_status'=>$validated_data['civil_status'],
+                'member_type'=>$validated_data['member_type'],
                 'employment'=>$validated_data['employment'],
                 'membership'=>$validated_data['membership'],
                 'mobile_number'=>$validated_data['mobile_number'],

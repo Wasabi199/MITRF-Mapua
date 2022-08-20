@@ -15,7 +15,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('loan:contribution')->twiceMonthly(15, 25, '13:00');
+        $schedule->command('loan:contribution')->twiceMonthly(10, 25, '13:00');
+        $schedule->command('loan:contributionNonTeaching')->twiceMonthly(5, 20, '13:00');
     }
 
     /**

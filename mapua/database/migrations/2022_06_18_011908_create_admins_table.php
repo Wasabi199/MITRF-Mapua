@@ -24,6 +24,9 @@ return new class extends Migration
             $table->date('birth_date');
             $table->string('birth_place');
             $table->string('civil_status');
+            $table->string('member_type');
+
+
             
             // $table->string('region');
             // $table->string('province');
@@ -36,7 +39,7 @@ return new class extends Migration
             $table->date('membership');
             $table->date('employment');
             $table->string('total_contribution')->default(0);
-            $table->string('current_loan')->nullable();;
+            $table->string('current_loan')->nullable();
             
             $table->timestamps();
             $table->softDeletes();

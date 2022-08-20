@@ -150,8 +150,26 @@
                     </div>
 
                 </div>
+                
+                <div class="flex ">
+                       
+
+                    <div class="mt-4">
+                        <jet-label for="department" value="Member Type"/>
+                        <select v-model="form.member_type"
+                                class="mt-1 block w-full dark  text-gray-900 border-gray-300   focus:ring-opacity-50 rounded-md shadow-sm"
+                                required>
+                            <option disabled value="placeholder">Select Member Type</option>
+                            <option v-for="memType in member_type" v-bind:key="memType" :value="memType">
+                                {{ memType }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
 
                 <div class="flex ">
+                       
+
                     <div class="mt-4">
                         <jet-label for="department" value="Department"/>
                         <select v-model="form.department"
@@ -376,6 +394,7 @@ export default {
                 birth_date:'',
                 birth_place:'',
                 civil_status:'',
+                member_type:'',
                 employment:'',
                 membership:'',
                 mobile_number:'',
@@ -397,6 +416,11 @@ export default {
             }
 
             }),
+            member_type:[
+            'Teaching',
+            'Non-Teaching',
+            ],
+
             departments:[
                 "School of Architecture, Industrial Design, and the Built Environment",
 

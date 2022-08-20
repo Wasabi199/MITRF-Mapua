@@ -29,6 +29,12 @@ class Contributions extends Command
      */
     public function handle()
     {
+       foreach(Admin::all() as $users){
+        $users->update([
+            'total_contribution'=>$users->total_contribution + ($users->salary * 0.05)
+        ]);
+
+       }
         $loans = Loans::all()->where('approval','Approved')->where('loan_status','Ongoing');
         // $loans = User::has('loans')->get();
         // $info = Admin::all()->where($loans->user_id);
@@ -37,26 +43,25 @@ class Contributions extends Command
             $info = Admin::find($loan->user_id);
             // dd($info->total_contribution + ($info->salary *0.05));
             // dd($loan->loan_amount);
-            if(!$loan->loan_amount <= 0){
-                // dd($loan->loan_amount - $info->salary * 0.05,);
-                $loan->update([
-                    'loan_amount'=>$loan->loan_amount - $info->salary * 0.05,
-                ]);
-
-                $loan->contributions()->create([
-                    'loans_id' => $loan->id,
-                    'contribution_amount'=>$info->salary * 0.05,
-                ]);
-
-                $info->update([
-                    'total_contribution'=>$info->total_contribution + ($info->salary *0.05)
-                ]);
-            
-            }else{
-                $loan->update([
-                    'loan_status'=>'Paid'
-                ]);
+            if($info->member_type == 'Teaching'){
+                if(!$loan->loan_amount <= 0){
+                    // dd($loan->loan_amount - $info->salary * 0.05,);
+                   $loan->update([
+                        'loan_amount'=>$loan->loan_amount - $info->salary * 0.05,
+                    ]); 
+    
+                    $loan->contributions()->create([
+                        'loans_id' => $loan->id,
+                        'contribution_amount'=>$info->salary * 0.05,
+                    ]);
+    
+                }else{
+                    $loan->update([
+                        'loan_status'=>'Paid'
+                    ]);
+                }
             }
+       
         }
     }
 }

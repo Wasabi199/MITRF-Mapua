@@ -33,6 +33,7 @@ class Admin extends FormRequest
             'birth_place'=>'required',
             'mobile_number' => 'required',
             'civil_status'=>'required',
+            'member_type'=>'required',
             'department' => 'required',
             'salary' => 'required',
 
