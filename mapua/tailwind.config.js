@@ -16,12 +16,17 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
 
+            fontSize: {
+                'title': '3.125rem',
+            }
+
+
         },
 
-        // colors: {
-        //     gold:'#FFD700',
+        //   colors: {
+        //       'grey':'#54565b',
         //     maroon:'#800000',
-        // },
+        //   },
     },
 
 

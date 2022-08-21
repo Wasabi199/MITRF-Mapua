@@ -36,8 +36,9 @@ const submit = () => {
     <JetAuthenticationCard>
         <template #logo>
             <JetApplicationLogo class="w-1/2 mx-auto"/>
-            <br>
-            <center>MITRF APP</center>
+            <br><center>
+            <h1 class="text-title text-gray-600">MITRF APP</h1>
+            </center>
         </template>
 
         <JetValidationErrors class="mb-4" />
