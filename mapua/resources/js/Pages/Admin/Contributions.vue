@@ -275,13 +275,16 @@
                     <img :src="loan.attachment3 == null ? '' : loan.attachment3" class="w-auto h-auto" >
                 </div>
             <br>
-            <div v-if="loan.approval == 'For Approval'" class="w-full p-0 m-0 flex items-center justify-center gap-20">
+            <!-- <div v-if="loan.approval == 'For Approval'" class="w-full p-0 m-0 flex items-center justify-center gap-20">
                     <button  type="button" class=" py-2 px-4 mb-5 bg-red-600 hover:bg-red-700 focus:ring focus:ring-red-300 text-white w-64 
                         transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="rejectLoan(loan)">Reject</button>
  
                     <button type="button" class=" py-2 px-4 mb-5 bg-green-600 hover:bg-green-700 focus:ring focus:ring-green-300 text-white w-64 
                         transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="acceptLoan(loan)">Accept</button>
-            </div>
+
+                    <button type="button" class=" py-2 px-4 mb-5 bg-green-600 hover:bg-green-700 focus:ring focus:ring-green-300 text-white w-64 
+                        transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="acceptLoan(loan)">Accept</button>
+            </div> -->
         </div>
           <div v-if="loan.approval == 'For Approval'" class="row-span-3">     
             
@@ -301,7 +304,9 @@
  
                     <button type="button" class=" py-2 px-4 mb-5 bg-green-600 hover:bg-green-700 focus:ring focus:ring-green-300 text-white w-64 
                         transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="acceptLoan(loan)">Accept</button>
+                    
             </div>
+   
         </div>
         
     <div v-else-if="loan.approval == 'Approved'" class="bg-white p-4 overflow-x-auto border-gray-300 shadow-xl rounded-lg lg:m-20 lg:max-w-[75%] shadow-lg max-width: 768px">
@@ -346,7 +351,13 @@
                     </tbody>
                 </table>
                 <pagination :links="contributions.links"/>
+                
     </div> 
+        <div v-if="loan.approval == 'Approved'" class=" w-full p-0 m-0 flex items-center justify-center gap-20">
+            
+            <button type="button" class=" py-2 px-4 mb-5 bg-green-600 hover:bg-green-700 focus:ring focus:ring-green-300 text-white w-64 
+                transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="releaseLoan(loan)">Release</button>
+        </div>
     <div v-else-if="loan.approval == 'Denied'" class="bg-white p-4 overflow-x-auto border-gray-300 shadow-xl rounded-lg lg:m-20 lg:max-w-[75%] shadow-lg max-width: 768px">
             <h1>Rejected Loan Application</h1>
     </div>
@@ -375,6 +386,36 @@
                         @click="submitApproveLoan">
                             
                         <span>Approve</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Modal>
+      <Modal :closeable="true" :show="showReleaseModal"
+        @close="showReleaseModal = !showReleaseModal">
+        <div class="p-5">
+            <div class="flex justify-between text-xl font-bold text-gray-900 my-3">
+                <span></span>
+                <svg class="h-6 w-6 cursor-pointer"
+                    fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                    @click="showReleaseModal = !showReleaseModal">
+                    <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="flex flex-col items-center text-xl font-bold text-gray-900 my-3">
+                
+                <span class="text-center">Release {{ info.first_name }} {{info.last_name}} loan?</span>
+            </div>
+            <div class="flex justify-center">
+                <div class="flex justify-between text-xl font-bold dark:text-gray-200 my-3">
+                    <div
+                        class="flex space-x-2 mr-5 px-4 py-1 border text-md text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-green-500 cursor-pointer"
+                        @click="submitReleaseLoan">
+                            
+                        <span>Release</span>
                     </div>
                 </div>
             </div>
@@ -442,8 +483,10 @@ export default {
         return{
             loanToReject: Object,
             loanToApprove: Object,
+            loanToRelease:Object,
             showRejectModal: false,
             showApproveModal: false,
+            showReleaseModal:false,
 
             fname:this.$props.info.first_name,
             lname:this.$props.info.last_name,
@@ -461,6 +504,10 @@ export default {
             }),
 
             approveForm: this.$inertia.form({
+                id: Number, 
+                approval:'',
+            }),
+            releaseForm:this.$inertia.form({
                 id: Number, 
                 approval:'',
             }),
@@ -502,6 +549,10 @@ export default {
             this.loanToApprove = loan
             this.showApproveModal = !this.showApproveModal
         },
+        releaseLoan(loan){
+            this.loanToRelease = loan
+            this.showReleaseModal = !this.showReleaseModal
+        },
 
         submitRejectLoan() {
             this.rejectForm.id = this.loanToReject.id;
@@ -518,6 +569,15 @@ export default {
             this.approveForm.post(route('loanApprove'), {
                 onSuccess: () => {
                     this.showApproveModal = false
+                }
+            });
+        },
+        submitReleaseLoan() {
+            this.releaseForm.id = this.loanToRelease.id;
+            this.releaseForm.approval = 'To Release';
+            this.releaseForm.post(route('loanRelease'), {
+                onSuccess: () => {
+                    this.showReleaseModal = false
                 }
             });
         },

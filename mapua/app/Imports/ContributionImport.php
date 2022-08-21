@@ -21,17 +21,21 @@ class ContributionImport implements ToCollection, WithHeadingRow, WithValidation
             // dd(User::find($user->id)->has('loans'));
             // dd($user);
             if(User::find($user->id)->has('loans')){
-                foreach($loan = Loans::filterOwner($user->id)->get() as $loanUpdate){
+                $loan = Loans::filterOwner($user->id)->get();
+                foreach($loan as $loanUpdate){
+                    // dd($loanUpdate->loan_type == $row['loan_type']);
+                   
                     if($loanUpdate->loan_type == $row['loan_type']){
-                        if(!$loan->loan_amount <= 0){
-                            $loan->update([
-                                'loan_amount'=>$loan->loan_amount - $row['contribution'],
+                        if(!$loanUpdate->loan_amount <= 0){
+                            
+                            $loanUpdate->update([
+                                'loan_amount'=>$loanUpdate->loan_amount - $row['contribution'],
                             ]); 
-                            $loan->contributions()->create([
+                            $loanUpdate->contributions()->create([
                                 'contribution_amount'=>$row['contribution']
                             ]);
                          }else{
-                            $loan->update([
+                            $loanUpdate->update([
                                 'loan_status'=>'Paid'
                             ]);
                         }

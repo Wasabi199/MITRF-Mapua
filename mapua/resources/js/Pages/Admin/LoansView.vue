@@ -417,10 +417,11 @@ export default {
 
             statuses:[
                 'All',
-                // 'Reviewing',
+                'Submitted',
+                'For Approval',
                 'Approved',
-                'Pending',
-                'Rejected',
+                'For Release',
+                'Denied',
             ],
 
             deleteForm: this.$inertia.form({

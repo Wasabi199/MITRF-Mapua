@@ -261,22 +261,22 @@ export default {
                                                         <span  class="font-semibold">{{notif.type == 3? 'Medical':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 1?'Loan Register':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 2?'Medical Register':''}}</span>
-                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 3?'Approved Loan':''}}</span>
-                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 4?'Rejected Loan':''}}</span>
-                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 5?'Approved Medical':''}}</span>
-                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 6?'Rejected Medical':''}}</span>
+                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 3?'Loan Update':''}}</span>
+                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 4?'Denied Loan':''}}</span>
+                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 5?'Medical Update':''}}</span>
+                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 6?'Denied Medical':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis h-10">{{notif.value}}</span>
                                                     </div>
                                                      <div v-if="notif.onRead == 1" class="flex flex-col p-1" @click="revisit(notif.notification_type, notif.universal_id)">
                                                         <span  class="font-semibold">{{notif.type == 1? 'Loan':''}}</span>
-                                                        <span  class="font-semibold">{{notif.type == 2? 'Loan':''}}</span>
+                                                        <span  class="font-semibold">{{notif.type == 2? 'Applying':''}}</span>
                                                         <span  class="font-semibold">{{notif.type == 3? 'Medical':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 1?'Loan Register':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 2?'Medical Register':''}}</span>
-                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 3?'Approved Loan':''}}</span>
-                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 4?'Rejected Loan':''}}</span>
-                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 5?'Approved Loan':''}}</span>
-                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 6?'Rejected Medical':''}}</span>
+                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 3?'Loan Update':''}}</span>
+                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 4?'Denied Loan':''}}</span>
+                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 5?'Medical Update':''}}</span>
+                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 6?'Denied Medical':''}}</span>
                                                         <span class="text-sm overflow-hidden text-ellipsis h-10">{{notif.value}}</span>
                                                     </div>
                                                 </div>

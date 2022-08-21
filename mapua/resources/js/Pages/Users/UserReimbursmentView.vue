@@ -34,7 +34,7 @@
                     
                     <form  @submit.prevent="submit" class="p-6 sm:px-20 bg-white border-b border-gray-200 mt-[-40px]" enctype="multipart/form-data">
                         
-                        <!-- <div>
+                        <div>
                             <label class="mb-1 text-lg text-gray-700" for="amount">Amount</label><br>
                          
                                 <div class="mt-1 relative w-64 rounded-md">
@@ -43,13 +43,13 @@
                                             ₱
                                         </span>
                                     </div>
-                                    <input type="number" placeholder="0.00"
+                                    <input v-model="form.amount" type="number" placeholder="0.00"
                                         class="focus:ring-indigo-500 border-2 
                                     border-opacity-50 border-gray-400 hover:border-indigo-500 text-black block pl-7 pr-12 w-64 mb-5 font-lg rounded-md" />
                                 
                                 </div>
                               
-                        </div> -->
+                        </div>
                         <p class="mb-1 text-lg">Upload Requirements</p>
 
                         <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
@@ -272,6 +272,7 @@ export default {
             showModal:true,
             submitModal:false,
             isSubmiting:false,
+            computationAmount:'',
             // membership: this.props.info.membership,
             form: this.$inertia.form({
                 reimbursment_type:'',
@@ -315,53 +316,63 @@ export default {
                 
                 if(date >= 1 && date <=3 ){
                     this.form.medical_benifit = '50%';
-                    this.form.amount = this.form.reimbursment_type == 'Hospital'? 12000*0.50 : 7000*0.50;
+                    this.computationAmount = this.form.reimbursment_type == 'Hospital'? 12000*0.50 : 7000*0.50;
                 }else if(date >= 3 && date <=5 ){
                     this.form.medical_benifit = '70%';
-                    this.form.amount = this.form.reimbursment_type == 'Hospital'? 12000*0.70 : 7000*0.70;
+                    this.computationAmount = this.form.reimbursment_type == 'Hospital'? 12000*0.70 : 7000*0.70;
                 }else if(date >= 5){
                     this.form.medical_benifit = '100%';
-                    this.form.amount = this.form.reimbursment_type == 'Hospital'? 12000 : 7000;
+                    this.computationAmount = this.form.reimbursment_type == 'Hospital'? 12000 : 7000;
                 }
 
             }else{
 
                 if(date >= 1 && date <=2 ){
                     this.form.medical_benifit = '10%';
-                    this.form.amount = this.form.reimbursment_type == 'Hospital'? 12000*0.10 : 7000*0.10;
+                    this.computationAmount = this.form.reimbursment_type == 'Hospital'? 12000*0.10 : 7000*0.10;
                 }else if(date >= 2 && date <=3 ){
                     this.form.medical_benifit = '20%';
-                    this.form.amount = this.form.reimbursment_type == 'Hospital'? 12000*0.20 : 7000*0.20;
+                    this.computationAmount = this.form.reimbursment_type == 'Hospital'? 12000*0.20 : 7000*0.20;
                 }else if(date >= 3 && date <= 4 ){
                     this.form.medical_benifit = '30%';
-                    this.form.amount = this.form.reimbursment_type == 'Hospital'? 12000*0.30 : 7000*0.30;
+                    this.computationAmount = this.form.reimbursment_type == 'Hospital'? 12000*0.30 : 7000*0.30;
                 }else if(date >= 4 && date <= 5 ){
                     this.form.medical_benifit = '40%';
-                    this.form.amount = this.form.reimbursment_type == 'Hospital'? 12000*0.40 : 7000*0.40;
+                    this.computationAmount = this.form.reimbursment_type == 'Hospital'? 12000*0.40 : 7000*0.40;
                 }else if(date >= 5 && date <=6 ){
                     this.form.medical_benifit = '50%';
-                    this.form.amount = this.form.reimbursment_type == 'Hospital'? 12000*0.50 : 7000*0.50;
+                    this.computationAmount = this.form.reimbursment_type == 'Hospital'? 12000*0.50 : 7000*0.50;
                 }else if(date >= 6 && date <=7 ){
                     this.form.medical_benifit = '60%';
-                    this.form.amount = this.form.reimbursment_type == 'Hospital'? 12000*0.60 : 7000*0.60;
+                    this.computationAmount = this.form.reimbursment_type == 'Hospital'? 12000*0.60 : 7000*0.60;
                 }else if(date >= 7 && date <=8 ){
                     this.form.medical_benifit = '70%';
-                    this.form.amount = this.form.reimbursment_type == 'Hospital'? 12000*0.70 : 7000*0.70;
+                    this.computationAmount = this.form.reimbursment_type == 'Hospital'? 12000*0.70 : 7000*0.70;
                 }else if(date >= 8 && date <=9 ){
                     this.form.medical_benifit = '80%';
-                    this.form.amount = this.form.reimbursment_type == 'Hospital'? 12000*0.80 : 7000*0.80;
+                    this.computationAmount = this.form.reimbursment_type == 'Hospital'? 12000*0.80 : 7000*0.80;
                 }else if(date >= 9 && date <=10 ){
                     this.form.medical_benifit = '90%';
-                    this.form.amount = this.form.reimbursment_type == 'Hospital'? 12000*0.90 : 7000*0.90;
+                    this.computationAmount = this.form.reimbursment_type == 'Hospital'? 12000*0.90 : 7000*0.90;
                 }else if(date >= 10){
                     this.form.medical_benifit = '100%';
-                    this.form.amount = this.form.reimbursment_type == 'Hospital'? 12000 : 7000;
+                    this.computationAmount = this.form.reimbursment_type == 'Hospital'? 12000 : 7000;
                 }
                 
             }
+            
             this.submitModal = true;
         },
         proceed(){
+            if(this.form.reimbursment_type == 'Hospital'){
+                if(this.computationAmount <= this.form.amount){
+                    this.form.amount = this.computationAmount 
+                }
+            }else{
+                 if(this.computationAmount <= this.form.amount){
+                    this.form.amount = this.computationAmount 
+                }
+            }
             this.form.post(route('ReimburstmentSubmit'),{
                  onStart:(visit)=>{
                         this.isSubmiting == true

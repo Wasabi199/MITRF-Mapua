@@ -12,14 +12,17 @@ class Approval{
             case 'Approved':
                 return 'Approved';
             break;
-            case 'Reviewing':
-                return 'Reviewing';
+            case 'For Approval':
+                return 'For Approval';
             break;
-            case 'Pending':
-                return 'Pending';
+            case 'Submitted':
+                return 'Submitted';
             break;
-            case 'Rejected':
-                return 'Rejected';
+            case 'Denied':
+                return 'Denied';
+            break;
+            case 'For Release':
+                return 'For Release';
             break;
             default:
                 return null;

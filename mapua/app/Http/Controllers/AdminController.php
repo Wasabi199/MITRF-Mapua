@@ -188,13 +188,13 @@ class AdminController extends Controller
         ]);
     }
 
-    public function loanDelete(deleteloanRequest $request){
-        $loan_to_delete = Loans::findOrFail($request->validated()['id']);
-        $loan_to_delete->delete();
-        return Redirect::back()->with('message',
-            [NotificationService::notificationItem('success', '', 'Sucessfully Deleted')]);
+    // public function loanDelete(deleteloanRequest $request){
+    //     $loan_to_delete = Loans::findOrFail($request->validated()['id']);
+    //     $loan_to_delete->delete();
+    //     return Redirect::back()->with('message',
+    //         [NotificationService::notificationItem('success', '', 'Sucessfully Deleted')]);
 
-    }
+    // }
 
     public function loanApprove(reviewloanRequest $request){
         $loans = loans::find($request->validated()['id']);
@@ -205,6 +205,21 @@ class AdminController extends Controller
             'universal_id'=>$request->validated()['id'],
             'onRead'=>false,
             'value'=>'Your application has been APPROVED',
+            'type'=>2,
+            'notification_type'=>3
+        ]);
+        return Redirect::back()->with('message',
+            [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
+    }
+    public function loanRelease(reviewloanRequest $request){
+        $loans = loans::find($request->validated()['id']);
+        $data = $request->validated();
+        $loans->update($data);
+        UserNotifications::create([
+            'user_id'=>$loans->user_id,
+            'universal_id'=>$request->validated()['id'],
+            'onRead'=>false,
+            'value'=>'Your application is Ready to Release',
             'type'=>2,
             'notification_type'=>3
         ]);
