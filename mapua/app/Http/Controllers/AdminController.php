@@ -282,6 +282,9 @@ class AdminController extends Controller
        
         $loan = Loans::find($id);
         $info = Admin::where('user_id',$loan->user_id)->get()->first();
+        $loan->update([
+            'approval'=>'For Approval',
+        ]);
         // dd($info);
         return Inertia::render('Admin/Printing',[
             'loan'=>$loan,
