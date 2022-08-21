@@ -61,6 +61,7 @@
                                         <th class="text-left px-16 bg-gray-100">Approval</th>
                                         <th class="text-left px-16 bg-gray-100">Duration</th>
                                         <th class="text-left px-16 bg-gray-100">Loan Status</th>
+                                        <th class="text-left px-16 bg-gray-100">Action</th>
 
                                         <tr v-for="loan in loans.data" v-bind:key="loan.id">
                                             
