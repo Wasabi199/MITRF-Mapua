@@ -145,7 +145,9 @@ class AdminController extends Controller
     }
 
     public function userUpload(Request $request){
-        
+        $request->validate([
+            'file' => 'required|max:10000|mimes:xlsx,xls',
+        ]);
         Excel::import(new UsersImport, $request->file);
       
         return Redirect::route('dashboard')->with('message',
@@ -153,6 +155,9 @@ class AdminController extends Controller
     }
     public function userContributions(Request $request){
         // dd($request);
+        $request->validate([
+            'file' => 'required|max:10000|mimes:xlsx,xls',
+        ]);
         Excel::import(new ContributionImport, $request->file);
       
         return Redirect::route('dashboard')->with('message',
