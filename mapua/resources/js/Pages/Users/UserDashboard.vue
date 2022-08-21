@@ -1,129 +1,66 @@
 <template>
     <AppLayout title="Dashboard">
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Dashboard
-            </h2>
-        </template>
-
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <div>
-                        <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
-                            <div class="h-20 w-20">
-                                <img alt="mu logo" src="/images/mu_logo.png">
-                            </div>
-
-
-                            <div class="mt-8 text-2xl text-red-600">
-                                Welcome to MITRF Member Dashboard!
-                            </div>
-
-                            <div class="mt-6 text-gray-500 text-justify">
-                                Mapúa University aims at the empowerment of the youth by providing education grounded on academic
-                                excellence and strength of character. Students are expected to develop the passion for mental knowledge
-                                and meritorious performance as well as the recognition of moral values as essential to growth of
-                                character. the integration of humanities and the social sciences into the technical curriculum has paved
-                                the way to the achievement of this goal.
-
-                                Mapúa upholds the reinforcement of time honored values learned in school and at home directed towards
-                                the development in the student of a strong moral fiber that will contribute to his/her personal
-                                well-being as well as that of oher members of society.
-
-                                <div class="mt-2">
-                                    <p class="text-center font-semibold">MAPÚA emphasizes the importance of the following core
-                                        values:</p>
-
-                                    <ol class="list-none text-center">
-                                        <li class="font-extrabold m-2">
-                                            DISCIPLINE <br>
-                                            EXCELLENCE <br>
-                                            COMMITMENT <br>
-                                            INTEGRITY <br>
-                                            RELEVANCE <br>
-                                        </li>
-                                    </ol>
-
-                                    By ensuring that these core values are learned in the classroom and outside, MAPÚA shall have done
-                                    its share in producing men and women who live fulfilled and meaningful lives.
-
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2">
-                            <div class="p-6">
-                                <div class="flex items-center">
-                                    <div class="ml-4 text-xl text-red-600 leading-7 font-semibold">
-                                        VISION
-                                    </div>
-                                </div>
-
-                                <div class="ml-12">
-                                    <div class="mt-2 text-md text-gray-500">
-                                        Mapua shall be among the best universities in the world.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="p-6 border-t border-gray-200 md:border-t-0 md:border-l">
-                                <div class="flex items-center">
-
-                                    <div class="ml-4 text-xl text-red-600 leading-7 font-semibold">
-                                        MISSION
-                                    </div>
-                                </div>
-
-                                <div class="ml-12">
-                                    <div class="mt-2 text-md text-gray-500">
-                                        <ol class="list-outside list-item text-justify">
-                                            <li class="m-4">
-                                                - The University shall provide a learning environment in order for its students to acquire the
-                                                attributes that will make them globally competitive.
-                                            </li>
-
-                                            <li class="m-4">
-                                                - The University shall engage in publishable and/or economically viable research, development, and
-                                                innovation.
-                                            </li>
-
-                                            <li class="m-4">
-                                                - The University shall provide state-of-the-art solutions to problems of industries and
-                                                communities.
-                                            </li>
-
-                                        </ol>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <!-- <div class="mx-6 shadow-xl rounded-lg bg-white my-10 text-center"> -->
+        <div class="text-center grid">
+            <JetNavLink :href="route('loansView')" :active="route().current('loansView')" class="w-fit block mx-auto my-4 mt-16">
+                <button
+                    class="bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 mx-auto inline-flex h-16 p-0 rounded-[5px] overflow-hidden text-lg font-semibold">
+                    <p class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full">Contributions</p>
+                    <div id="add" class="inline-flex py-0 h-full">
+                        <img class="h-1/2 my-auto mx-6" src="/images/contribution.png"/>
                     </div>
-                </div>
-            </div>
+                </button>
+            </JetNavLink>
+
+            <JetNavLink :href="route('userLoan')" :active="route().current('userLoan')" class="w-fit block mx-auto my-4">
+                <button
+                    class="bg-fuchsia-500 hover:bg-fuchsia-600 active:bg-fuchsia-700 mx-auto inline-flex h-16 p-0 rounded-[5px] overflow-hidden text-lg font-semibold">
+                    <p class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full">Apply For Loan</p>
+                    <div id="add" class="inline-flex py-0 h-full">
+                        <img class="h-1/2 my-auto mx-6" src="/images/apply.png"/>
+                    </div>
+                </button>  
+            </JetNavLink>
+
+            <JetNavLink :href="route('medicalView')" :active="route().current('medicalView')" class="w-fit block mx-auto my-4">
+                <button
+                    class="bg-sky-500 hover:bg-sky-600 active:bg-sky-700 mx-auto inline-flex h-16 p-0 rounded-[5px] overflow-hidden text-lg font-semibold">
+                    <p class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full">Medical Loan</p>
+                    <div id="add" class="inline-flex py-0 h-full">
+                        <img class="h-1/2 my-auto mx-6" src="/images/medical.png"/>
+                    </div>
+                </button>
+            </JetNavLink>
+
+            
+
         </div>
-
-
-
+        <!-- </div> -->
     </AppLayout>
 </template>
 
 <script>
-import JetApplicationLogo from '@/Jetstream/ApplicationLogo.vue';
-import AppLayout from '@/Layouts/AppLayout.vue';
+import JetApplicationLogo from "@/Jetstream/ApplicationLogo.vue";
+import AppLayout from "@/Layouts/AppLayout.vue";
+import JetNavLink from '@/Jetstream/NavLink.vue';
 
 export default {
-    components:{
+    components: {
         JetApplicationLogo,
+        JetNavLink,
         AppLayout,
     },
-    setup() {
-
+    setup() {},
+    props: {
+        notification: Object,
+        count: Number,
     },
-      props:{
-        notification:Object,
-        count:Number,
-    }
-}
+};
 </script>
+
+<style scoped>
+    #add {
+        background: rgba(0,0,0,0.08);
+    }
+</style>
+;
