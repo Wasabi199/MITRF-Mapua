@@ -26,11 +26,8 @@ class LoansFactory extends Factory
             'Emergency',
         ];
         $aproval=[
-            'Submitted',
-            'For Approval',
             'Approved',
-            'For Release',
-            'Denied',
+            'Pending',
             
         ];
         $loan_status=[

@@ -10,7 +10,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg> 
 
-    <h1 class="ont-extrabold text-xl text-gray-800 leading-tight">{{users.name}}</h1>
+    <h1>{{users.name}}</h1>
     </div>
 </div>
 

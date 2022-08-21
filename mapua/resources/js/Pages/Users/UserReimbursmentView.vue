@@ -28,6 +28,7 @@
                             class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 transition ease-in duration-150 rounded-md mb-10">
                             <option value="placeholder" disabled>Select Loan Type</option>
                             <option  v-for="type in reimbursment" v-bind:key="type" :value="type">{{type}}</option>
+
                         </select>
                     </div>
 
