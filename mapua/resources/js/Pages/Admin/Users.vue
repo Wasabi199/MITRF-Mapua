@@ -234,11 +234,11 @@
         <form  enctype="multipart/form-data" method="post" @submit.prevent="submit">
         <!-- {{ csrf_field() }} -->
 
-        <div class="text-rose-600">
+        <!-- <div class="text-rose-600">
             <ul>
                 <li v-for="error in $page.props.errors" v-bind:key="error">{{error}}</li>
             </ul>
-        </div>
+        </div> -->
         <JetValidationErrors class="mb-4" />
         
         <input @input="forms.file = $event.target.files[0]" name="file"  type="file" class="border border-yellow-500 hover:bg-yellow-300 rounded-md m-2 p-2 flex items-center ml-12" /> 

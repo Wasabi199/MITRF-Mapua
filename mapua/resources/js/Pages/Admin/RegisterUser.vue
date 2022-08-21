@@ -20,11 +20,11 @@
             <img src="/images/mu_logo.png" alt="mu logo" class="h-40 w-45">
         </template>
         
-        <div class="text-rose-600">
+        <!-- <div class="text-rose-600">
                     <ul>
                         <li v-for="error in $page.props.errors" v-bind:key="error">{{error}}</li>
                     </ul>
-                </div>
+                </div> -->
         <JetValidationErrors class="mb-4" />
 
         <form @submit.prevent="submit">

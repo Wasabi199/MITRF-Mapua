@@ -16,11 +16,11 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <div class="text-rose-600">
+                    <!-- <div class="text-rose-600">
                         <ul>
                             <li v-for="error in $page.props.errors" v-bind:key="error">{{error}}</li>
                         </ul>
-                    </div>
+                    </div> -->
                     <JetValidationErrors class="mb-4" />
                     <div class="ml-6 lg:ml-20 mt-10">
                         <p class="mb-1 mt-4 text-lg">Purpose of Loan</p>
