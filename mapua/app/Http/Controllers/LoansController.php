@@ -50,13 +50,14 @@ class LoansController extends Controller
     public function totalContribution(query $query){
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $userNotification->where('onRead',false)->count();
-        $user = Auth::user();
-        $loans = Loans::find($user);
-        $contributions = Contributions::where('loans_id','=',$loans)
+        $id = auth()->id();
+        //$loans = Loans::with('contributions')->find($id);
+        $loans = Loans::find($id);
+        $contributions = Contributions::where('loans_id','=',$loans->id)
         //->filterOwner($user->id)
         ->limit(5)
-        ->paginate(5)
-        ->appends($query::only(auth()->id()));
+        ->paginate(5);
+        //->appends($query::only(auth()->id()));
         
         return Inertia::render('Users/TotalContribution',[
             'loans' => $loans,

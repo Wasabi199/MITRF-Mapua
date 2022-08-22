@@ -62,7 +62,7 @@
                                         <tr v-for="contribution in contributions.data" v-bind:key="contribution.id">
                                             
 
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="text-center px-6 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
                                                     <div>
                                                         <!--
@@ -72,10 +72,10 @@
                                                             </div>
                                                         </Link>
                                                         -->
-                                                            <div class="text-sm font-medium text-gray-900">
-                                                                <p class="ml-2 underline">
+                                                            <div class="text-center text-sm font-medium text-gray-900">
+                                                                <p class="ml-2 ">
                                                                 {{ 
-                                                                    contribution.contribution_amount = null ? 'No Contribution' : 'Php '+contribution.contribution_amount + 'As of' +contribution.updated_at
+                                                                     'Php '+contribution.contribution_amount + ' As of ' +contribution.updated_at
                                                                 }}</p>
                                                             </div>
                                                     </div>
