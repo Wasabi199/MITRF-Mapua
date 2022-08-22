@@ -19,7 +19,7 @@
                 </button>  
             </JetNavLink>
 
-            <JetNavLink :href="route('medicalView')" :active="route().current('medicalView')" class="w-fit block mx-auto my-4">
+            <JetNavLink :href="route('ReimbursView')" :active="route().current('ReimbursView')" class="w-fit block mx-auto my-4">
                 <button class="bg-sky-500 hover:bg-sky-600 active:bg-sky-700 mx-auto inline-flex h-16 p-0 rounded-[5px] lg:w-96 text-lg font-semibold">
                     <p class="inline-flex py-0 px-4 text-white text-xl my-auto items-center h-full lg:px-[21px] lg:text-2xl">Medical Reimbursement</p>
                     <div id="add" class="inline-flex py-0 h-full">

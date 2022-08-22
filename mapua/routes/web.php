@@ -69,6 +69,7 @@ Route::prefix('Users')->middleware(['auth:sanctum','Users'])->group(function(){
     Route::get('Loan/Create/Reimburstment',[LoansController::class,'createReimburstment'])->name('createReimburstment');
     Route::post('Medical/MedicalReimburstment',[LoansController::class,'submitCreateReimburstment'])->name('ReimburstmentSubmit');
     Route::get('User/Loan/View/{id}',[LoansController::class,'UserLoanView'])->name('UserLoanView');
+    Route::get('User/MedicalButton',[LoansController::class,'ReimbursView'])->name('ReimbursView');
 
     Route::post('User/notification',[NotificationController::class,'notification'])->name('UserNotification');
 });
