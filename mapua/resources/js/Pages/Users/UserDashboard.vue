@@ -1,41 +1,60 @@
 <template>
     <AppLayout title="Dashboard">
-        <div class="mx-6 shadow-xl rounded-lg bg-white my-10 text-center">
+ <!-- <<<<<<< HEAD -->
+         <!-- <div class="mx-6 shadow-xl rounded-lg bg-white my-10 text-center"> -->
          <div class="text-center grid"> 
             <div class="w-fit block mx-auto my-4 mt-16">
-                <!-- <button @click="showModal = true" class="bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 inline-flex h-16 p-0 rounded-[5px] lg:w-92 text-lg font-semibold"> -->
+                 <!-- <button @click="showModal = true" class="bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 inline-flex h-16 p-0 rounded-[5px] lg:w-92 text-lg font-semibold"> -->
                     <!-- <p class="inline-flex py-0 px-16 text-white text-xl my-auto items-center h-full lg:px-20 lg:text-2xl">Contributions</p>  -->
 
-            <JetNavLink :href="route('totalContribution')" :active="route().current('totalContribution')" class="w-fit block mx-auto my-4 mt-16">
+            <!-- <JetNavLink :href="route('totalContribution')" :active="route().current('totalContribution')" class="w-fit block mx-auto my-4 mt-16">
+                <button
+                    class="bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 inline-flex h-16 p-0 rounded-[5px] lg:w-92 text-lg font-semibold">
+                    <p class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full lg:px-20 lg:text-2xl">Contributions</p> --> 
+
+<!-- ======= -->
+        <div class="mx-6 shadow-xl rounded-lg bg-white my-10 text-center">
+        <div class="text-center grid">
+            <JetNavLink @click="showModal = !showModal" class="w-fit block mx-auto my-4 mt-16">
                 <button
                     class="bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 inline-flex h-16 p-0 rounded-[5px] lg:w-92 text-lg font-semibold">
                     <p class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full lg:px-20 lg:text-2xl">Contributions</p>
-
+<!-- >>>>>>> parent of 1a42195 (loans, contribution modal) -->
                     <div id="add" class="inline-flex py-0 h-full">
                         <img class="h-1/2 my-auto mx-6" src="/images/contribution.png"/>
                     </div>
                 </button>
+<!-- <<<<<<< HEAD -->
                 </JetNavLink>
             </div>
+<!-- =======
+            </JetNavLink>
+>>>>>>> parent of 1a42195 (loans, contribution modal) -->
 
-            <JetNavLink :href="route('userLoanDashboard')" :active="route().current('userLoanDashboard')" class="w-fit block mx-auto my-4">
-                <button class="bg-fuchsia-500 hover:bg-fuchsia-600 active:bg-fuchsia-700 mx-auto inline-flex h-16 p-0 rounded-[5px] lg:w-96 text-lg font-semibold">
-                    <p class="inline-flex py-0 px-[100px] text-white text-xl my-auto items-center h-full lg:px-[120px] lg:text-2xl">Loans</p>
+            <JetNavLink :href="route('userLoanDashboard')" :active="route().current('userLoan')" class="w-fit block mx-auto my-4">
+                <button
+                    class="bg-fuchsia-500 hover:bg-fuchsia-600 active:bg-fuchsia-700 mx-auto inline-flex h-16 p-0 rounded-[5px] lg:w-96 text-lg font-semibold">
+                    <p class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full lg:px-[68px] lg:text-2xl">Apply For Loan</p>
                     <div id="add" class="inline-flex py-0 h-full">
-                        <img class="h-1/2 my-auto mx-6" src="/images/loan.png"/>
+                        <img class="h-1/2 my-auto mx-6" src="/images/apply.png"/>
                     </div>
                 </button>  
             </JetNavLink>
 
             <JetNavLink :href="route('medicalView')" :active="route().current('medicalView')" class="w-fit block mx-auto my-4">
-                <button class="bg-sky-500 hover:bg-sky-600 active:bg-sky-700 mx-auto inline-flex h-16 p-0 rounded-[5px] lg:w-96 text-lg font-semibold">
-                    <p class="inline-flex py-0 px-4 text-white text-xl my-auto items-center h-full lg:px-[21px] lg:text-2xl">Medical Reimbursement</p>
+                <button
+                    class="bg-sky-500 hover:bg-sky-600 active:bg-sky-700 mx-auto inline-flex h-16 p-0 rounded-[5px] lg:w-96 text-lg font-semibold">
+                    <p class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full lg:px-[79px] lg:text-2xl">Medical Loan</p>
                     <div id="add" class="inline-flex py-0 h-full">
                         <img class="h-1/2 my-auto mx-6" src="/images/medical.png"/>
                     </div>
                 </button>
             </JetNavLink>
+
+            
+
         </div>
+<!-- <<<<<<< HEAD -->
         </div>
 
         <Modal  :show="showModal" :closeable="true" @close="showModal = !showModal">
@@ -64,6 +83,9 @@
         </Modal>
 
 
+<!-- ======= -->
+        </div>
+<!-- >>>>>>> parent of 1a42195 (loans, contribution modal) -->
     </AppLayout>
 </template>
 
@@ -78,12 +100,10 @@ export default {
         JetApplicationLogo,
         JetNavLink,
         AppLayout,
-        Modal,
+        Modal
     },
-    setup() {
-
-    },
-    data() {
+    setup() {},
+       data() {
         return {
             showModal:false,
         }        
@@ -94,11 +114,7 @@ export default {
         count: Number,
         contribution:Object,
     },
-    data(){
-        return{
-            contributionModal:false,
-        }
-    }
+ 
 };
 </script>
 
@@ -107,3 +123,4 @@ export default {
         background: rgba(0,0,0,0.08);
     }
 </style>
+;

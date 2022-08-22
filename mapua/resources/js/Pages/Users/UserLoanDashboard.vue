@@ -1,25 +1,6 @@
 <template>
     <AppLayout title="Loan Dashboard">
-       <div class="text-center grid">
-            <JetNavLink :href="route('userLoan')" :active="route().current('userLoan')" class="w-fit block mx-auto my-4 mt-16">
-                <button class="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 inline-flex h-16 p-0 rounded-[5px] lg:w-92 text-lg font-semibold">
-                    <p class="inline-flex py-0 px-12 text-white text-xl my-auto items-center h-full lg:px-16 lg:text-2xl">Apply for a Loan</p>
-                    <div id="add" class="inline-flex py-0 h-full">
-                        <img class="h-1/2 my-auto mx-6" src="/images/apply.png"/>
-                    </div>
-                </button>
-            </JetNavLink>
-                    
-            <JetNavLink :href="route('loansView')" :active="route().current('loansView')" class="w-fit block mx-auto my-4">
-                <button class="bg-rose-500 hover:bg-rose-600 active:bg-rose-700 inline-flex h-16 p-0 rounded-[5px] lg:w-92 text-lg font-semibold">
-                    <p class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full lg:px-11 lg:text-2xl">View Existing Loans</p>
-                    <div id="add" class="inline-flex py-0 h-full">
-                        <img class="h-1/2 my-auto mx-6" src="/images/view.png"/>
-                    </div>
-                </button>
-            </JetNavLink>
-       </div> 
-
+        Loan Dashboard
     </AppLayout>
 </template>
 
@@ -41,9 +22,3 @@ export default {
     },
 };
 </script>
-
-<style scoped>
-    #add {
-        background: rgba(0,0,0,0.08);
-    }
-</style>
