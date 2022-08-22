@@ -24,9 +24,6 @@ class Approval{
             case 'For Release':
                 return 'For Release';
             break;
-            case 'Released':
-                return 'Released';
-            break;
             default:
                 return null;
             }

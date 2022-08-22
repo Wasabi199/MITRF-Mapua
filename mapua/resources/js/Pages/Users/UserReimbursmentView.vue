@@ -52,27 +52,27 @@
                         </div>
                         <p class="mb-1 text-lg">Upload Requirements</p>
 
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
                             <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
-                                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
+                                class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
                             <input @change="onChange2"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
-                                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
+                                class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
                             <input @change="onChange3"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
-                                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
+                                class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
                             <input @change="onChange4"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
-                                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
+                                class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>

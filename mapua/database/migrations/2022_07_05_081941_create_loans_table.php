@@ -19,7 +19,6 @@ return new class extends Migration
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('loan_type');
             $table->double('loan_amount');
-            $table->double('amount');
             // $table->string('department');
             $table->double('interest');
 

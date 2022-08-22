@@ -30,7 +30,6 @@ class LoansFactory extends Factory
             'For Approval',
             'Approved',
             'For Release',
-            'Released',
             'Denied',
             
         ];
@@ -41,8 +40,7 @@ class LoansFactory extends Factory
         return [
             //
             'loan_type'=>$this->faker->randomElement($loan_type),
-            'loan_amount'=>$this->faker->numberBetween($min = 1000, $max = 10000),
-            'amount'=>$this->faker->numberBetween($min = 1000, $max = 10000),
+            'loan_amount'=>$this->faker->numberBetween($min = 1000, $max = 1000000000),
             // 'department'=> $this->faker->randomElement($department),
             'interest'=>$this->faker->numberBetween($min = 1, $max=100),
             'approval'=>$this->faker->randomElement($aproval),

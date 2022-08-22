@@ -12,7 +12,7 @@ class Loans extends Model
 
         'loan_type',    
         'loan_amount',  
-        'amount',
+        // 'department',
         'interest',
         'approval',
         'duration',

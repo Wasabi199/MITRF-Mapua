@@ -7,7 +7,7 @@ use App\Http\Requests\LoanRequest as request;
 use App\Http\Requests\MedicalReimbursmentRequest as medicalRequest;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
-use App\Models\{Loans, Medical, User, Admin, UserNotifications, Contributions};
+use App\Models\{Loans, Medical, User, Admin, UserNotifications};
 use Illuminate\Support\Facades\Redirect;
 use Tightenco\Ziggy\Output\Script;
 use App\Services\Approval;
@@ -46,34 +46,12 @@ class LoansController extends Controller
             'count'=>$notificationCount
         ]);
     }
-// Total Contribution
-    public function totalContribution(query $query){
-        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
-        $notificationCount = $userNotification->where('onRead',false)->count();
-        $id = auth()->id();
-        //$loans = Loans::with('contributions')->find($id);
-        $loans = Loans::find($id);
-        $contributions = Contributions::where('loans_id','=',$loans->id)
-        //->filterOwner($user->id)
-        ->limit(5)
-        ->paginate(5);
-        //->appends($query::only(auth()->id()));
-        
-        return Inertia::render('Users/TotalContribution',[
-            'loans' => $loans,
-            'contributions' => $contributions,
-            'notification'=>$userNotification,
-            'count'=>$notificationCount
-        ]);
-    }
-
 
     public function createLoans(request $request){
         // dd($request);
         $validate_data = $request->validated();
-        // dd($validate_data);
+      
         if($request->hasFile('attachment1') && $request->hasFile('attachment2') && $request->hasFile('attachment3')){
-            
             $file1 = $request->file('attachment1');
             $file2 = $request->file('attachment2');
             $file3 = $request->file('attachment3');
@@ -95,10 +73,9 @@ class LoansController extends Controller
                 'attachment2'=>'../../../uploads/loans/'.$file_name2,
                 'attachment3'=>'../../../uploads/loans/'.$file_name3,
                 'loan_amount'=>$validate_data['loan_amount'],
-                'amount'=>$validate_data['amount'],
                 'interest'=>$validate_data['interest'],
                 'loan_status'=>'Ongoing',
-                'approval'=>'Submitted',
+                'approval'=>'Pending',
              
             ]);
             $user->userNotif()->create([
@@ -189,12 +166,10 @@ class LoansController extends Controller
         }
     }
     public function  UserLoanView($id){
-       
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $userNotification->where('onRead',false)->count();
-        
-        $loan = Loans::with('contributions')->find($id);
-        $user = User::with('AdminReg')->find($loan->user_id);
+        $user = User::with('AdminReg')->find($id);
+        $loan = Loans::with('contributions')->filterOwner($id)->get()->first();
         return Inertia::render('Users/UserLoanView',[
             'users'=>$user,
             'loans'=>$loan,

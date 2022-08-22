@@ -30,11 +30,12 @@ class Contributions extends Command
     public function handle()
     {
        foreach(Admin::all() as $users){
-        if($users->member_type == 'Teaching'){
+        if($users->member_type == 'Non-Teaching'){
             $users->update([
                  'total_contribution'=>$users->total_contribution + ($users->salary * 0.05)
              ]);
-        }
+         }
+
        }
         // $loans = Loans::all()->where('approval','Approved')->where('loan_status','Ongoing');
         // $loans = User::has('loans')->get();

@@ -421,7 +421,6 @@ export default {
                 'For Approval',
                 'Approved',
                 'For Release',
-                'Released',
                 'Denied',
             ],
 

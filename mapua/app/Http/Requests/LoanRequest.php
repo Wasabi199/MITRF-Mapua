@@ -29,7 +29,6 @@ class LoanRequest extends FormRequest
             
             'loan_type'=>'required',
             'loan_amount'=>'required',
-            'amount'=>'required',
             // 'department'=>'required',
             'interest'=>'required',
             // 'approval'=>'required',
