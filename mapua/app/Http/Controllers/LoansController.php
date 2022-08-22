@@ -7,7 +7,7 @@ use App\Http\Requests\LoanRequest as request;
 use App\Http\Requests\MedicalReimbursmentRequest as medicalRequest;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
-use App\Models\{Loans, Medical, User, Admin, UserNotifications};
+use App\Models\{Loans, Medical, User, Admin, UserNotifications, Contributions};
 use Illuminate\Support\Facades\Redirect;
 use Tightenco\Ziggy\Output\Script;
 use App\Services\Approval;
@@ -46,6 +46,27 @@ class LoansController extends Controller
             'count'=>$notificationCount
         ]);
     }
+// Total Contribution
+    public function totalContribution(query $query){
+        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $notificationCount = $userNotification->where('onRead',false)->count();
+        $id = auth()->id();
+        //$loans = Loans::with('contributions')->find($id);
+        $loans = Loans::find($id);
+        $contributions = Contributions::where('loans_id','=',$loans->id)
+        //->filterOwner($user->id)
+        ->limit(5)
+        ->paginate(5);
+        //->appends($query::only(auth()->id()));
+        
+        return Inertia::render('Users/TotalContribution',[
+            'loans' => $loans,
+            'contributions' => $contributions,
+            'notification'=>$userNotification,
+            'count'=>$notificationCount
+        ]);
+    }
+
 
     public function createLoans(request $request){
         // dd($request);
