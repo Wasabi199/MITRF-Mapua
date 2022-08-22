@@ -55,6 +55,11 @@ export default {
         notification: Object,
         count: Number,
     },
+    data(){
+        return{
+            contributionModal:false,
+        }
+    }
 };
 </script>
 

@@ -55,7 +55,7 @@
                                             ₱
                                         </span>
                                     </div>
-                                    <input v-model="amount" type="number" placeholder="0.00"
+                                    <input v-model="form.amount" type="number" placeholder="0.00"
                                         class="focus:ring-indigo-500 border-2 
                                     border-opacity-50 border-gray-400 hover:border-indigo-500 text-black block pl-7 pr-12 w-64 mb-5 font-lg rounded-md" />
                                 
@@ -112,7 +112,7 @@
                                         ₱
                                     </span>
                                 </div>
-                                <input v-model="amount" type="number" placeholder="0.00"
+                                <input v-model="form.amount" type="number" placeholder="0.00"
                                     class="focus:ring-indigo-500 border-2 
                                 border-opacity-50 border-gray-400 hover:border-indigo-500 text-black block pl-7 pr-12 w-64 mb-5 font-lg rounded-md" />
                             </div>
@@ -680,7 +680,7 @@ export default {
             isSubmiting: false,
             showModal: false,
             submitModal: false,
-            amount:'',
+            // amount:'',
             total_amount:0,
             membership: this.$props.users.admin_reg.membership,
             
@@ -694,6 +694,7 @@ export default {
             form: this.$inertia.form({
                 // user_loan: this.$attrs.user.id,
                 loan_type:'',
+                amount:'',
                 loan_amount:'',
                 duration:'',
                 interest:'',
@@ -733,12 +734,12 @@ export default {
              if(this.form.loan_type == 'Housing Loan'){
                 let interest = 0.09 ;
                 this.form.interest = (0.02+(interest * (this.form.duration/12))).toFixed(2);
-                this.form.loan_amount = this.amount + ((this.amount * interest) * (this.form.duration/12))+0.02;
+                this.form.loan_amount = this.form.amount + (this.form.amount * this.form.interest);
              }
             if(this.form.loan_type == 'Educational Loan'){
                 let interest = 0.09;
                 this.form.interest = (0.02+(interest * (this.form.duration/12))).toFixed(2) ;
-                this.form.loan_amount = this.amount + ((this.amount * interest) * (this.form.duration/12))+0.02;
+                this.form.loan_amount = this.form.amount + (this.form.amount * this.form.interest);
              }
             // if(this.form.loan_type == 'Medical Reimbursement'){
                 
@@ -749,13 +750,13 @@ export default {
             //     }
 
             //     // this.form.interest ='5%';
-            //     // this.total_amount = parseFloat(this.amount) * 0.05;
-            //     // this.form.loan_amount = this.amount + this.total_amount;
+            //     // this.total_amount = parseFloat(this.form.amount) * 0.05;
+            //     // this.form.loan_amount = this.form.amount + this.total_amount;
             //  }
             if(this.form.loan_type == 'Emergency Loan'){
                 let interest = 0.09 ;
                 this.form.interest =  (0.02+(interest * (this.form.duration/12))).toFixed(2);
-                this.form.loan_amount = this.amount + ((this.amount * interest) * (this.form.duration/12))+0.02;
+                this.form.loan_amount = this.form.amount + (this.form.amount * this.form.interest);
              }
         },
 

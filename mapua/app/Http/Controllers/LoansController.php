@@ -50,8 +50,9 @@ class LoansController extends Controller
     public function createLoans(request $request){
         // dd($request);
         $validate_data = $request->validated();
-      
+        // dd($validate_data);
         if($request->hasFile('attachment1') && $request->hasFile('attachment2') && $request->hasFile('attachment3')){
+            
             $file1 = $request->file('attachment1');
             $file2 = $request->file('attachment2');
             $file3 = $request->file('attachment3');
@@ -73,9 +74,10 @@ class LoansController extends Controller
                 'attachment2'=>'../../../uploads/loans/'.$file_name2,
                 'attachment3'=>'../../../uploads/loans/'.$file_name3,
                 'loan_amount'=>$validate_data['loan_amount'],
+                'amount'=>$validate_data['amount'],
                 'interest'=>$validate_data['interest'],
                 'loan_status'=>'Ongoing',
-                'approval'=>'Pending',
+                'approval'=>'Submitted',
              
             ]);
             $user->userNotif()->create([
@@ -166,10 +168,12 @@ class LoansController extends Controller
         }
     }
     public function  UserLoanView($id){
+       
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $userNotification->where('onRead',false)->count();
-        $user = User::with('AdminReg')->find($id);
-        $loan = Loans::with('contributions')->filterOwner($id)->get()->first();
+        
+        $loan = Loans::with('contributions')->find($id);
+        $user = User::with('AdminReg')->find($loan->user_id);
         return Inertia::render('Users/UserLoanView',[
             'users'=>$user,
             'loans'=>$loan,
