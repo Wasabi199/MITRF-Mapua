@@ -50,7 +50,7 @@
         <div class="flex flex-col ">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg hidden md:block">
+                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                 <table class="min-w-full divide-y divide-gray-200">
                                     <tbody class="bg-white divide-y divide-gray-200">
                                         
@@ -159,26 +159,6 @@
                                 <pagination :links="loans.links"/>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 gap-4 md:hidden" v-for="loan in loans.data" v-bind:key="loan.id">
-                    <div class="bg-white p-4 rounded-lg shadow"> 
-                        <div><b>Loan Type:</b> {{ loan.loan_type }}</div>
-                        <div><b>Loan Amount:</b> {{ loan.loan_amount }} PHP</div>
-                        <div><b>Interest:</b> {{ loan.interest }}%</div>
-                        <div><b>Approval:</b> {{ loan.approval }}</div>
-                        <div><b>Duration:</b> {{ loan.duration }} months</div>
-                        <div><b>Loan Status:</b> {{ loan.loan_status }}</div>
-                        <div class="flex items-center pl-12 py-1 border text-md text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-green-500 cursor-pointer">
-                                                    <Link :href="route('UserLoanView',loan.id)">
-                                                    <div>
-                                                        <button>VIEW EXISTING LOAN</button>
-                                                    </div>
-                                                    
-                                                    </Link>
-                                                </div>
-
                     </div>
                 </div>
                 
