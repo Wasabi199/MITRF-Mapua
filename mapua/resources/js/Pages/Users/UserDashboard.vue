@@ -4,7 +4,7 @@
         <div class="text-center grid">
             <JetNavLink :href="route('loansView')" :active="route().current('loansView')" class="w-fit block mx-auto my-4 mt-16">
                 <button
-                    class="bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 inline-flex h-16 p-0 rounded-[5px] lg:w-96 text-lg font-semibold">
+                    class="bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 inline-flex h-16 p-0 rounded-[5px] lg:w-92 text-lg font-semibold">
                     <p class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full lg:px-20 lg:text-2xl">Contributions</p>
                     <div id="add" class="inline-flex py-0 h-full">
                         <img class="h-1/2 my-auto mx-6" src="/images/contribution.png"/>
