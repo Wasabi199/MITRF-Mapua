@@ -24,18 +24,18 @@
                 <div class="grid grid-cols-6 gap-6">
                     <div class="col-span-6 sm:col-span-3">
                             <label class="block text-sm font-medium text-gray-700">Name of Borrower</label>
-                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="fname +' '+ lname" disabled>
+                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="$props.users.name" disabled>
                     </div>
 
-                    <div class="col-span-6 sm:col-span-2">
+                    <!-- <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Date of Birth</label>
                             <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="birthday" disabled>
-                    </div>
+                    </div> -->
 
-                    <div class="col-span-6 sm:col-span-2">
+                    <!-- <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Age</label>
                             <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="age" disabled>
-                    </div>
+                    </div> -->
 
                     <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Date of Employment</label>
@@ -47,14 +47,14 @@
                             <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="service" disabled>
                     </div>
 
-                    <div class="col-span-6 sm:col-span-4">
+                    <!-- <div class="col-span-6 sm:col-span-4">
                             <label class="block text-sm font-medium text-gray-700">If Administration Employee, state department</label>
                             <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="department" disabled>
-                    </div>
+                    </div> -->
 
                     <div class="col-span-6 sm:col-span-3">
                             <label class="block text-sm font-medium text-gray-700">Amount of Loan</label>
-                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="amount" disabled>
+                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="$props.loans.amount" disabled>
                     </div>
 
                     <div class="col-span-6 sm:col-span-2">
@@ -114,24 +114,6 @@
 
 </AppLayout>
 </template>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <script>
 import AppLayout from '@/Layouts/AppLayout.vue';
