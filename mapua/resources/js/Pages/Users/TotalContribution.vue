@@ -63,7 +63,7 @@
                                             
 
                                             <td class="text-center px-6 py-4 whitespace-nowrap">
-                                                <div class="flex items-center">
+                                                <div class="text-center">
                                                     <div>
                                                         <!--
                                                         <Link :href="route('UserLoanView',loan.id)">
