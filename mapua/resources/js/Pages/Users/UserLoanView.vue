@@ -4,7 +4,7 @@
  <div class="flex justify-between bg-white shadow">
     <div class="flex items-center max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8 ">
        
-            <h2 class="font-extrabold text-xl text-gray-800 leading-tight">Contributions</h2>
+            <h2 class="font-extrabold text-xl text-gray-800 leading-tight">Loans</h2>
       
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -24,42 +24,47 @@
                 <div class="grid grid-cols-6 gap-6">
                     <div class="col-span-6 sm:col-span-3">
                             <label class="block text-sm font-medium text-gray-700">Name of Borrower</label>
-                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="fname +' '+ lname" disabled>
+                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="$props.users.name" disabled>
                     </div>
 
-                    <div class="col-span-6 sm:col-span-2">
+                    <!-- <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Date of Birth</label>
                             <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="birthday" disabled>
-                    </div>
+                    </div> -->
 
-                    <div class="col-span-6 sm:col-span-2">
+                    <!-- <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Age</label>
                             <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="age" disabled>
-                    </div>
+                    </div> -->
 
                     <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Date of Employment</label>
-                            <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="employment" disabled>
+                            <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="$props.users.admin_reg.employment" disabled>
                     </div>
 
                     <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Years of Service</label>
-                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="service" disabled>
+                            <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="$props.users.admin_reg.membership" disabled>
                     </div>
 
-                    <div class="col-span-6 sm:col-span-4">
+                    <!-- <div class="col-span-6 sm:col-span-4">
                             <label class="block text-sm font-medium text-gray-700">If Administration Employee, state department</label>
                             <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="department" disabled>
-                    </div>
+                    </div> -->
 
                     <div class="col-span-6 sm:col-span-3">
                             <label class="block text-sm font-medium text-gray-700">Amount of Loan</label>
-                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="amount" disabled>
+                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="$props.loans.loan_amount" disabled>
                     </div>
 
                     <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Term of Payment &lpar;Months&rpar;</label>
-                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="duration" disabled>
+                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="$props.loans.duration"  disabled> 
+                    </div>
+
+                     <div class="col-span-6 sm:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700">Approval Status</label>
+                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="$props.loans.loan_status"  disabled> 
                     </div>
                     </div>
                     </div>
@@ -71,36 +76,17 @@
 
                     
 </div>
-<div  class="row-span-3">    
-   <div class="bg-white p-4 overflow-x-auto border-gray-300 shadow-xl rounded-lg lg:m-20 lg:max-w-[75%] shadow-lg max-width: 760px">
-  <table class="min-w-auto divide-y divide-gray-200 table-fixed">
-<thead class="inline-auto">
-<tr class="box-content h-10 w-20 p-4 border-10 bg-red-800 text-yellow-400">
-<th class="text-left px-16">Past Loan</th>
-<th class="text-left px-16">Amount</th>
-<th class="text-left px-16">Date of Completion</th>
-</tr> 
-</thead>
-<tbody class="bg-white divide-y divide-gray-200"> 
-<tr><td class="px-6 py-6 whitespace-nowrap"><div class="flex items-center">
-<div><div class="px-12 text-sm font-medium text-gray-900">5</div>
-</div></div></td>
-<td class="px-6 py-4 whitespace-nowrap">
-<div class="flex items-center">
-<div><div class="px-10 text-sm font-medium text-gray-900">104620</div></div></div></td>
-<td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center">
-<div><div class="px-5 text-sm font-medium text-gray-900">2022-08-18T04:41:56.000000Z</div>
+<div class="row-span-3">
+<div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
+<img src="http://3.bp.blogspot.com/_R-G_62JmanY/SCAB4RHj0_I/AAAAAAAAANQ/EGLQOelOyqo/s1600/Mapua_logo.jpg" class="w-auto h-auto">
+</div>
+<div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
+<img src="http://3.bp.blogspot.com/_R-G_62JmanY/SCAB4RHj0_I/AAAAAAAAANQ/EGLQOelOyqo/s1600/Mapua_logo.jpg" class="w-auto h-auto">
+</div>
+<div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
+<img src="http://3.bp.blogspot.com/_R-G_62JmanY/SCAB4RHj0_I/AAAAAAAAANQ/EGLQOelOyqo/s1600/Mapua_logo.jpg" class="w-auto h-auto">
 </div>
 </div>
-</td>
-</tr>
-
-</tbody>
-  </table>
-        </div>
-
-    </div>
-
 </div>
 <div class="flex justify-center">
         <div class="flex justify-between my-3">
@@ -114,24 +100,6 @@
 
 </AppLayout>
 </template>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <script>
 import AppLayout from '@/Layouts/AppLayout.vue';
