@@ -4,8 +4,8 @@
         <div class="text-center grid">
             <JetNavLink :href="route('loansView')" :active="route().current('loansView')" class="w-fit block mx-auto my-4 mt-16">
                 <button
-                    class="bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 mx-auto inline-flex h-16 p-0 rounded-[5px] overflow-hidden text-lg font-semibold">
-                    <p class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full">Contributions</p>
+                    class="bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 inline-flex h-16 p-0 rounded-[5px] lg:w-96 text-lg font-semibold">
+                    <p class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full lg:px-20 lg:text-2xl">Contributions</p>
                     <div id="add" class="inline-flex py-0 h-full">
                         <img class="h-1/2 my-auto mx-6" src="/images/contribution.png"/>
                     </div>
@@ -14,8 +14,8 @@
 
             <JetNavLink :href="route('userLoan')" :active="route().current('userLoan')" class="w-fit block mx-auto my-4">
                 <button
-                    class="bg-fuchsia-500 hover:bg-fuchsia-600 active:bg-fuchsia-700 mx-auto inline-flex h-16 p-0 rounded-[5px] overflow-hidden text-lg font-semibold">
-                    <p class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full">Apply For Loan</p>
+                    class="bg-fuchsia-500 hover:bg-fuchsia-600 active:bg-fuchsia-700 mx-auto inline-flex h-16 p-0 rounded-[5px] lg:w-96 text-lg font-semibold">
+                    <p class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full lg:px-[68px] lg:text-2xl">Apply For Loan</p>
                     <div id="add" class="inline-flex py-0 h-full">
                         <img class="h-1/2 my-auto mx-6" src="/images/apply.png"/>
                     </div>
@@ -24,8 +24,8 @@
 
             <JetNavLink :href="route('medicalView')" :active="route().current('medicalView')" class="w-fit block mx-auto my-4">
                 <button
-                    class="bg-sky-500 hover:bg-sky-600 active:bg-sky-700 mx-auto inline-flex h-16 p-0 rounded-[5px] overflow-hidden text-lg font-semibold">
-                    <p class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full">Medical Loan</p>
+                    class="bg-sky-500 hover:bg-sky-600 active:bg-sky-700 mx-auto inline-flex h-16 p-0 rounded-[5px] lg:w-96 text-lg font-semibold">
+                    <p class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full lg:px-[79px] lg:text-2xl">Medical Loan</p>
                     <div id="add" class="inline-flex py-0 h-full">
                         <img class="h-1/2 my-auto mx-6" src="/images/medical.png"/>
                     </div>
