@@ -115,7 +115,7 @@ export default {
                             <div v-if="$page.props.user.userType == 1" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <!-- Dashboard -->
                                 <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                    Home
                                 </JetNavLink>
                                 <!-- Users -->
                                 <JetNavLink :href="route('users')" :active="route().current('users')">

@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="flex justify-left text-m font-bold text-gray-900 my-3 mt-10">
-                    <span>Total Contribution: Php xxxxx as of "date"</span>
+                    <span>Total Contribution: Php {{$props.contribution.contribution_amount}} as of {{new Date($props.contribution.updated_at)}}</span>
                 </div>
 
                 <div class="flex justify-end text-xl font-bold dark:text-gray-200 my-3">               
@@ -85,6 +85,7 @@ export default {
     props: {
         notification: Object,
         count: Number,
+        contribution:Object,
     },
 };
 </script>
