@@ -230,35 +230,38 @@
 
 
         </div>
+        <JetValidationErrors class="mb-4 ml-12"  />
+    <div class="flex justify-between">
+            
+            <form  enctype="multipart/form-data" method="post" @submit.prevent="submit">
+                <h1 class="ml-12">Upload User Record</h1>
+               
+                <input @input="forms.file = $event.target.files[0]" name="file"  type="file" class="border border-yellow-500 hover:bg-yellow-300 rounded-md m-2 p-2 flex items-center ml-12" /> 
+                <button  type="submit" class="border border-yellow-500 hover:bg-yellow-300 rounded-md m-2 p-2 flex items-center ml-12" >
+                    <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" stroke-linecap="round"
+                            stroke-linejoin="round"/>
+                    </svg>
+                    Upload csv file
+                    </button>
+         </form>
+          <form  enctype="multipart/form-data" method="post" @submit.prevent="submitContri">
+            <h1 class="ml-12">Update Contribution</h1>
+    
+            
+            <input @input="formsContri.file = $event.target.files[0]" name="file"  type="file" class="border border-yellow-500 hover:bg-yellow-300 rounded-md m-2 p-2 flex items-center ml-12" /> 
+            <button  type="submit" class="border border-yellow-500 hover:bg-yellow-300 rounded-md m-2 p-2 flex items-center ml-12" >
+                <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" stroke-linecap="round"
+                        stroke-linejoin="round"/>
+                </svg>
+                Upload csv file
+                </button>
+        </form>
 
-        <form  enctype="multipart/form-data" method="post" @submit.prevent="submit">
-        <!-- {{ csrf_field() }} -->
-
-        <!-- <div class="text-rose-600">
-            <ul>
-                <li v-for="error in $page.props.errors" v-bind:key="error">{{error}}</li>
-            </ul>
-        </div> -->
-        <JetValidationErrors class="mb-4" />
-        
-        <input @input="forms.file = $event.target.files[0]" name="file"  type="file" class="border border-yellow-500 hover:bg-yellow-300 rounded-md m-2 p-2 flex items-center ml-12" /> 
-         <button  type="submit" class="border border-yellow-500 hover:bg-yellow-300 rounded-md m-2 p-2 flex items-center ml-12" >
-            <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" stroke-width="2"
-                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" stroke-linecap="round"
-                      stroke-linejoin="round"/>
-            </svg>
-            Upload csv file
-            </button>
-       </form>
-       <!-- <button @click="contri" type="submit" class="border border-yellow-500 hover:bg-yellow-300 rounded-md m-2 p-2 flex items-center ml-12" >
-            <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" stroke-width="2"
-                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" stroke-linecap="round"
-                      stroke-linejoin="round"/>
-            </svg>
-            Contribution
-            </button> -->
+    </div>
     </AppLayout>
 </template>
 
@@ -298,11 +301,17 @@ export default {
         const forms = useForm({
             file:null,
         })
+        const formsContri = useForm({
+            file:null,
+        })
 
         function submit(){
             forms.post(route('import'))
         }
-         return { forms, submit }
+         function submitContri(){
+            formsContri.post(route('userContriImport'))
+        }
+         return { forms, submit, formsContri, submitContri }
     },
     
     data() {

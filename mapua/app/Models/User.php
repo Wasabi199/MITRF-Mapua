@@ -65,6 +65,9 @@ class User extends Authenticatable
     ];
 
     protected static function booted(){
+        static::created(function($user){
+            $user->userContribution()->create();
+        });
         static::deleted(function ($user){
             $user->adminReg()->delete();
             $user->loans()->delete();
@@ -95,7 +98,9 @@ class User extends Authenticatable
     public function userNotif(){
         return $this->hasMany(UserNotifications::class)->latest();
     }
-
+    public function userContribution(){
+        return $this->hasOne(UserContribution::class);
+    }
 
     // Filters
 

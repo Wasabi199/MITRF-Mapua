@@ -38,7 +38,7 @@ return new class extends Migration
             $table->string('salary')->nullable();
             $table->date('membership');
             $table->date('employment');
-            $table->string('total_contribution')->default(0);
+            // $table->string('total_contribution')->default(0);
             $table->string('current_loan')->nullable();
             
             $table->timestamps();

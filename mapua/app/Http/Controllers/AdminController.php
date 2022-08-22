@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\{Auth};
 
 use App\Models\Admin;
 use Illuminate\Routing\Route;
-use App\Imports\{UsersImport, ContributionImport};
+use App\Imports\{UsersImport, ContributionImport, UserContribImport};
 use App\Services\Approval;
 use Illuminate\Support\Facades\{Hash, DB, Redirect };
 use Maatwebsite\Excel\Facades\Excel;
@@ -166,7 +166,17 @@ class AdminController extends Controller
         return Redirect::route('dashboard')->with('message',
             [NotificationService::notificationItem('success', '', 'Sucessfully Uploaded')]);
     }
-
+       
+    public function userContriImport(Request $request){
+        // dd($request);
+        $request->validate([
+            'file' => 'required|max:10000|mimes:xlsx,xls',
+        ]);
+        Excel::import(new UserContribImport, $request->file);
+      
+        return Redirect::route('dashboard')->with('message',
+            [NotificationService::notificationItem('success', '', 'Sucessfully Uploaded')]);
+    }
 
     
     public function adminLoansView(QueryRequest $query){

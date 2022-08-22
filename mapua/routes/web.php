@@ -43,6 +43,7 @@ Route::prefix('Admin')->middleware(['auth:sanctum','Admin'])->group(function(){
 
     Route::post('importUser',[AdminController::class, 'userUpload'])->name('import');
     Route::post('importContributions',[AdminController::class, 'userContributions'])->name('importContributions');
+    Route::post('userContributionImport',[AdminController::class, 'userContriImport'])->name('userContriImport');
 
     Route::get('loansView',[AdminController::class,'adminLoansView'])->name('adminLoansView');
     Route::get('contributions/{id}',[AdminController::class,'contributions'])->name('contributions');
