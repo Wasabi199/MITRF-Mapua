@@ -178,4 +178,16 @@ class LoansController extends Controller
         ]);
     }
 
+    public function loanDashboard(){
+        $id = auth()->id();
+        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $notificationCount = $userNotification->where('onRead',false)->count();
+        $user = User::with('adminReg')->find($id);
+        return Inertia::render('Users/UserLoanDashboard',[
+            'users' =>$user,
+            'notification'=>$userNotification,
+            'count'=>$notificationCount       
+        ]);
+    }
+
 }

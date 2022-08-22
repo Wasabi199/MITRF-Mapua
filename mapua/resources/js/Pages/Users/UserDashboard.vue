@@ -12,7 +12,7 @@
                 </button>
             </JetNavLink>
 
-            <JetNavLink :href="route('userLoan')" :active="route().current('userLoan')" class="w-fit block mx-auto my-4">
+            <JetNavLink :href="route('userLoanDashboard')" :active="route().current('userLoan')" class="w-fit block mx-auto my-4">
                 <button
                     class="bg-fuchsia-500 hover:bg-fuchsia-600 active:bg-fuchsia-700 mx-auto inline-flex h-16 p-0 rounded-[5px] lg:w-96 text-lg font-semibold">
                     <p class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full lg:px-[68px] lg:text-2xl">Apply For Loan</p>
