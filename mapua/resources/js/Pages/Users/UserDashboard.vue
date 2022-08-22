@@ -1,14 +1,21 @@
 <template>
     <AppLayout title="Dashboard">
-        <!-- <div class="mx-6 shadow-xl rounded-lg bg-white my-10 text-center"> -->
-        <div class="text-center grid">
+        <div class="mx-6 shadow-xl rounded-lg bg-white my-10 text-center">
+         <div class="text-center grid"> 
             <div class="w-fit block mx-auto my-4 mt-16">
-                <button @click="showModal = true" class="bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 inline-flex h-16 p-0 rounded-[5px] lg:w-92 text-lg font-semibold">
-                    <p class="inline-flex py-0 px-16 text-white text-xl my-auto items-center h-full lg:px-20 lg:text-2xl">Contributions</p>
+                <!-- <button @click="showModal = true" class="bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 inline-flex h-16 p-0 rounded-[5px] lg:w-92 text-lg font-semibold"> -->
+                    <!-- <p class="inline-flex py-0 px-16 text-white text-xl my-auto items-center h-full lg:px-20 lg:text-2xl">Contributions</p>  -->
+
+            <JetNavLink :href="route('totalContribution')" :active="route().current('totalContribution')" class="w-fit block mx-auto my-4 mt-16">
+                <button
+                    class="bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 inline-flex h-16 p-0 rounded-[5px] lg:w-92 text-lg font-semibold">
+                    <p class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full lg:px-20 lg:text-2xl">Contributions</p>
+
                     <div id="add" class="inline-flex py-0 h-full">
                         <img class="h-1/2 my-auto mx-6" src="/images/contribution.png"/>
                     </div>
                 </button>
+                </JetNavLink>
             </div>
 
             <JetNavLink :href="route('userLoanDashboard')" :active="route().current('userLoanDashboard')" class="w-fit block mx-auto my-4">
@@ -29,7 +36,7 @@
                 </button>
             </JetNavLink>
         </div>
-        <!-- </div> -->
+        </div>
 
         <Modal  :show="showModal" :closeable="true" @close="showModal = !showModal">
             <div  class="p-5">
@@ -87,6 +94,11 @@ export default {
         count: Number,
         contribution:Object,
     },
+    data(){
+        return{
+            contributionModal:false,
+        }
+    }
 };
 </script>
 

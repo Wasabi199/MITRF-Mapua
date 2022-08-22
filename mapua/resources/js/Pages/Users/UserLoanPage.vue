@@ -55,7 +55,7 @@
                                             ₱
                                         </span>
                                     </div>
-                                    <input v-model="amount" type="number" placeholder="0.00"
+                                    <input v-model="form.amount" type="number" placeholder="0.00"
                                         class="focus:ring-indigo-500 border-2 
                                     border-opacity-50 border-gray-400 hover:border-indigo-500 text-black block pl-7 pr-12 w-64 mb-5 font-lg rounded-md" />
                                 
@@ -64,23 +64,23 @@
                         </div>
                         <p class="mb-1 text-lg">Upload Application Form</p>
 
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
-                            <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
-                                class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
+                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                            <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx" 
+                                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
-                                multiple />
+                                multiple /> 
                         </div>
                          <p class="mb-1 text-lg">Upload Photo of you Including the Place to be Improved/Repaired</p>
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
+                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                             <input @change="onChange2"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
-                                class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
+                                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
                          <p class="mb-1 text-lg">Upload Laborer's Quotation</p>
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
+                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                             <input @change="onChange3"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
-                                class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
+                                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
@@ -112,30 +112,30 @@
                                         ₱
                                     </span>
                                 </div>
-                                <input v-model="amount" type="number" placeholder="0.00"
+                                <input v-model="form.amount" type="number" placeholder="0.00"
                                     class="focus:ring-indigo-500 border-2 
                                 border-opacity-50 border-gray-400 hover:border-indigo-500 text-black block pl-7 pr-12 w-64 mb-5 font-lg rounded-md" />
                             </div>
                         </div>
                         <p class="mb-1 text-lg">Upload Application Form</p>
 
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
+                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                             <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
-                                class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
+                                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
                          <p class="mb-1 text-lg">Upload Proof of Relation (Birth Certificate in Case of Relatives)</p>
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
+                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                             <input @change="onChange2"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
-                                class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
+                                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
                          <p class="mb-1 text-lg">Upload Certificate of Enrollment and Statement of Account from School</p>
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
+                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                             <input @change="onChange3"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
-                                class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
+                                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
@@ -212,23 +212,23 @@
                         </div>
                          <p class="mb-1 text-lg">Upload Application Form</p>
 
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
+                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                             <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
-                                class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
+                                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
                          <p class="mb-1 text-lg">Upload 4.5% interest for a 2-year term</p>
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
+                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                             <input @change="onChange2"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
-                                class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
+                                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
                          <p class="mb-1 text-lg">Upload 2.25% interest for a 1-year term</p>
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-5/12 rounded-md  mb-10">
+                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                             <input @change="onChange3"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
-                                class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
+                                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
                         </div>
@@ -680,7 +680,7 @@ export default {
             isSubmiting: false,
             showModal: false,
             submitModal: false,
-            amount:'',
+            // amount:'',
             total_amount:0,
             membership: this.$props.users.admin_reg.membership,
             
@@ -694,6 +694,7 @@ export default {
             form: this.$inertia.form({
                 // user_loan: this.$attrs.user.id,
                 loan_type:'',
+                amount:'',
                 loan_amount:'',
                 duration:'',
                 interest:'',
@@ -733,12 +734,12 @@ export default {
              if(this.form.loan_type == 'Housing Loan'){
                 let interest = 0.09 ;
                 this.form.interest = (0.02+(interest * (this.form.duration/12))).toFixed(2);
-                this.form.loan_amount = this.amount + ((this.amount * interest) * (this.form.duration/12))+0.02;
+                this.form.loan_amount = this.form.amount + (this.form.amount * this.form.interest);
              }
             if(this.form.loan_type == 'Educational Loan'){
                 let interest = 0.09;
                 this.form.interest = (0.02+(interest * (this.form.duration/12))).toFixed(2) ;
-                this.form.loan_amount = this.amount + ((this.amount * interest) * (this.form.duration/12))+0.02;
+                this.form.loan_amount = this.form.amount + (this.form.amount * this.form.interest);
              }
             // if(this.form.loan_type == 'Medical Reimbursement'){
                 
@@ -749,13 +750,13 @@ export default {
             //     }
 
             //     // this.form.interest ='5%';
-            //     // this.total_amount = parseFloat(this.amount) * 0.05;
-            //     // this.form.loan_amount = this.amount + this.total_amount;
+            //     // this.total_amount = parseFloat(this.form.amount) * 0.05;
+            //     // this.form.loan_amount = this.form.amount + this.total_amount;
             //  }
             if(this.form.loan_type == 'Emergency Loan'){
                 let interest = 0.09 ;
                 this.form.interest =  (0.02+(interest * (this.form.duration/12))).toFixed(2);
-                this.form.loan_amount = this.amount + ((this.amount * interest) * (this.form.duration/12))+0.02;
+                this.form.loan_amount = this.form.amount + (this.form.amount * this.form.interest);
              }
         },
 
