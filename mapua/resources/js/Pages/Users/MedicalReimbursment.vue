@@ -69,14 +69,14 @@
         <div class="flex flex-col ">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg hidden md:block">
                                 <table class="min-w-full divide-y divide-gray-200">
                                     <tbody class="bg-white divide-y divide-gray-200">
                                         
                                         <!-- <th class="text-left px-16 bg-gray-100">Name</th> -->
                                         <th class="text-left px-16 bg-gray-100">Loan Type</th>
                                         <th class="text-left px-16 bg-gray-100">Loan Amount</th>
-                                        <th class="text-left px-16 bg-gray-100">Interest</th>
+                                        <th class="text-left px-16 bg-gray-100">Medical Benefit</th>
                                         <th class="text-left px-16 bg-gray-100">Approval</th>
                                       
 
@@ -108,7 +108,7 @@
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            {{medical.medical_benifit }}%
+                                                            {{medical.medical_benifit }}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -133,6 +133,16 @@
 
                                 <pagination :links="medicals.links"/>
                             </div>
+
+                            <div class="grid grid-cols-1 gap-4 md:hidden" v-for="medical in medicals.data" v-bind:key="medical.id">
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <div><b>Loan Type:</b> {{medical.reimbursment_type}}</div>
+                                <div><b>Loan Amount:</b> {{ medical.amount}} PHP</div>
+                                <div><b>Medical Benefit:</b> {{medical.medical_benifit }}</div>
+                                <div><b>Approval:</b> {{ medical.status}}</div>
+                            </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
