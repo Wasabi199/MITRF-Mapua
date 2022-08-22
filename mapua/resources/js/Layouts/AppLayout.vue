@@ -378,8 +378,8 @@ export default {
                         <JetResponsiveNavLink :href="route('loansView')" :active="route().current('loansView')">
                             Current Loan
                         </JetResponsiveNavLink>
-                        <JetResponsiveNavLink :href="route('userLoan')" :active="route().current('userLoan')">
-                            Loan
+                        <JetResponsiveNavLink :href="route('medicalView')" :active="route().current('medicalView')">
+                            Medical
                         </JetResponsiveNavLink>
                     </div>
 
