@@ -82,13 +82,13 @@
 </div>
 <div class="row-span-3">
 <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
-<img src="http://3.bp.blogspot.com/_R-G_62JmanY/SCAB4RHj0_I/AAAAAAAAANQ/EGLQOelOyqo/s1600/Mapua_logo.jpg" class="w-auto h-auto">
+<img  :src="loans.attachment1 == null ? '' : '../'+loans.attachment1" class="w-auto h-auto">
 </div>
 <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
-<img src="http://3.bp.blogspot.com/_R-G_62JmanY/SCAB4RHj0_I/AAAAAAAAANQ/EGLQOelOyqo/s1600/Mapua_logo.jpg" class="w-auto h-auto">
+<img :src="loans.attachment2 == null ? '' : '../'+loans.attachment2" class="w-auto h-auto">
 </div>
 <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
-<img src="http://3.bp.blogspot.com/_R-G_62JmanY/SCAB4RHj0_I/AAAAAAAAANQ/EGLQOelOyqo/s1600/Mapua_logo.jpg" class="w-auto h-auto">
+<img :src="loans.attachment3 == null ? '' :'../'+loans.attachment3" class="w-auto h-auto">
 </div>
 </div>
 </div>

@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="flex justify-left text-m font-bold text-gray-900 my-3 mt-10">
-                    <span>Total Contribution: Php xxxxx as of "date"</span>
+                    <span>Total Contribution: Php {{contribution.contribution_amount.toLocaleString('en-US')}} as of {{new Date(contribution.updated_at)}}</span>
                 </div>
 
                 <div class="flex justify-end text-xl font-bold dark:text-gray-200 my-3">               

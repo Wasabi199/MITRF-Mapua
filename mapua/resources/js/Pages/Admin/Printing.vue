@@ -79,7 +79,7 @@
                         <!-- <label class="block text-sm font-medium text-gray-700">Amount of Loan</label>
                         <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled> -->
                         <p class="font-semibold">Amount of Loan</p>
-                        <p class="ml-2 underline">Php {{loan.loan_amount}}</p>
+                        <p class="ml-2 underline">Php {{loan.amount.toLocaleString('en-US')}}</p>
                     </div>
 
                     <!-- <div class="col-span-6 sm:col-span-4">

@@ -116,7 +116,7 @@
                             <p class="font-semibold">Current Contribution:</p>
                             <p class="ml-2 underline">
                                 {{
-                                    users.admin_reg.toal_contribution = null ? 'No Contribution' : 'Php '+users.admin_reg.total_contribution
+                                   'Php '+users.user_contribution.contribution_amount.toLocaleString('en-US')
                                 }}</p>
                         </div>
                     </div>

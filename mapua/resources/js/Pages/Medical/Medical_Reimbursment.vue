@@ -81,7 +81,7 @@
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            {{  med.amount}}
+                                                            {{  med.amount.toLocaleString('en-US')}}
                                                         </div>
                                                     </div>
                                                 </div>

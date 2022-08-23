@@ -116,7 +116,7 @@
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ loan.loan_amount }}
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ loan.loan_amount.toLocaleString('en-US') }}
                                                         </div>
                                                     </div>
                                                 </div>

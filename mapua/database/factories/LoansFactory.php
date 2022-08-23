@@ -20,10 +20,10 @@ class LoansFactory extends Factory
     {
      
         $loan_type =[
-            'Educational',
-            // 'Health',
-            'House',
-            'Emergency',
+            'Housing Loan',
+            'Educational Loan',
+            // 'Medical Reimbursement',
+            'Emergency Loan',
         ];
         $aproval=[
             'Submitted',

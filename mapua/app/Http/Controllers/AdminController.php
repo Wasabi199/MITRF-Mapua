@@ -60,7 +60,7 @@ class AdminController extends Controller
     public function userProfile($id){
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $notification->where('onRead',false)->count();
-        $userProfile = User::with('AdminReg')->find($id);
+        $userProfile = User::with('AdminReg', 'userContribution')->find($id);
         $userLoan = Loans::where('user_id','=',$id)->where('loan_status','=','Paid')->get();
         // dd($userLoan);
         return Inertia::render('Admin/UserProfile',[
