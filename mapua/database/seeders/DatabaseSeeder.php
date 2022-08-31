@@ -51,7 +51,12 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('password'),
             ]);
             $medical->adminReg()->create(Admin::factory(['user_id' => $admin->id])->make()->toArray());
-            
+            User::create([
+                'name' => "MITRF Chairman",
+                'usertype' => 4,
+                'email' => 'chairman@chairman.com',
+                'password' => Hash::make('password'),
+            ]);
             
 
 

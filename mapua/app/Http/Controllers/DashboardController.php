@@ -36,6 +36,11 @@ class DashboardController extends Controller
                 'count'=>$notificationCount
 
             ]);
+        }else if(Auth::user()->userType == 4){
+            return Inertia::render('Chairman/Dashboard',[
+                'notification'=>$notification,
+                'count'=>$notificationCount
+            ]);
         }
     }
     

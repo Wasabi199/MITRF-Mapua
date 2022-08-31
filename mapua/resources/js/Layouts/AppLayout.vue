@@ -154,11 +154,15 @@ export default {
                                 <JetNavLink :href="route('medicalList')" :active="route().current('medicalList')">
                                     Medical
                                 </JetNavLink>
-                              
-                               
-                               
                             </div>
-                         
+                            <div v-if="$page.props.user.userType == 4" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <!-- Dashboard -->
+                                <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                    Dashboard
+                                </JetNavLink>
+                                <!-- Medical Reimbursement List -->
+                             
+                            </div>
                            
                         </div>
 

@@ -85,4 +85,7 @@ Route::prefix('Medical')->middleware(['auth:sanctum','Medical'])->group(function
 
     Route::post('Medical/notification',[NotificationController::class,'notification'])->name('MedicalNotification');
 });
+Route::prefix('Chairman')->middleware(['auth:sanctum','Chairman'])->group(function(){
+    // Route::get('Chairman')
+});
 
