@@ -412,7 +412,7 @@ export default {
             
             form:{
                 // search: this.filters.search,
-                // approval: this.filters.approval == null ? 'All' : this.filters.approval,
+                approval: this.filters.approval == null ? 'All' : this.filters.approval,
             },
 
             statuses:[

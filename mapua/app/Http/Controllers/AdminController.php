@@ -182,6 +182,7 @@ class AdminController extends Controller
     public function adminLoansView(QueryRequest $query){
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $notification->where('onRead',false)->count();
+        
         $filters = $query::only('approval');
         isset($filters['approval']) ? $filters['approval'] = Approval::approval($filters['approval']) : $filters['approval'] = Approval::approval($filters['approval']='All');
         $loans = Loans::with('user')

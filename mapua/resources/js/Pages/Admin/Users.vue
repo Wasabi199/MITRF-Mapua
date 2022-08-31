@@ -321,7 +321,6 @@ export default {
 
             form: {
                 search: this.filters.search,
-                
             },
             
 

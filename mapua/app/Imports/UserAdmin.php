@@ -4,11 +4,12 @@ namespace App\Imports;
 
 use App\Models\Admin;
 use App\Models\User;
+use Maatwebsite\Excel\Concerns\SkipsEmptyRows;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 // use Maatwebsite\Excel\Imports\HeadingRowFormatter;
 
-class UserAdmin implements ToModel, WithHeadingRow
+class UserAdmin implements ToModel, WithHeadingRow,SkipsEmptyRows
 {
     /**
     * @param array $row

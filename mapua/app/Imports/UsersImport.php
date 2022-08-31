@@ -10,6 +10,7 @@ use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Imports\HeadingRowFormatter;
 use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Concerns\SkipsEmptyRows;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithValidation;
@@ -17,7 +18,7 @@ use PhpOffice\PhpSpreadsheet\Shared\Date;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 // use App\Imports\Date;
 
-class UsersImport implements   WithHeadingRow, ToCollection, WithValidation
+class UsersImport implements   WithHeadingRow, ToCollection, WithValidation, SkipsEmptyRows
 {
     /**
     * @param array $row
