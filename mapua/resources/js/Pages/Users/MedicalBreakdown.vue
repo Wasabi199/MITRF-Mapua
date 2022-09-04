@@ -24,22 +24,22 @@
 
     <div class="col-span-6 sm:col-span-3">
                             <label class="block text-sm font-medium text-gray-700">Name of Borrower</label>
-                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" >
+                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="info.first_name+' '+info.last_name">
                     </div>
 
     <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Date of Employment</label>
-                            <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" >
+                            <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="info.employment">
                     </div>
 
     <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Years of Service</label>
-                            <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="new Date().getUTCFullYear() - new Date(info.employment).getUTCFullYear()">
                     </div>
 
      <div class="col-span-6 sm:col-span-3">
                             <label class="block text-sm font-medium text-gray-700">Amount of Loan</label>
-                             <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                             <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="medical.amount">
                                   </div>
      <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Term of Payment &lpar;Months&rpar;</label>
@@ -47,7 +47,7 @@
                     </div>
       <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Approval Status</label>
-                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"> 
+                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="medical.status" disabled> 
                     </div>
 
  </div>
@@ -56,13 +56,16 @@
  </div>
 <div class="row-span-3">
 <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
-<p>sadsadsadsadasda</p>
+<img :src="medical.medical_record1 ==null ?'':medical.medical_record1 "/>
 </div>
 <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
-<p>sadsadsadsadasda</p>
+    <img :src="medical.medical_record2 ==null ?'':medical.medical_record1 "/>
 </div>
 <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
-<p>sadsadsadsadasda</p>
+    <img :src="medical.medical_record3 ==null ?'':medical.medical_record1 "/>
+</div>
+<div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
+    <img :src="medical.medical_record4 ==null ?'':medical.medical_record1 "/>
 </div>
 </div>
 
@@ -108,11 +111,10 @@ export default {
 
     },
     props: {
-        users:Object,
-        medicals: Object,
-        filters:Object,
+        medical: Object,
         notification:Object,
         count:Number,
+        info:Object,
     },
     
 

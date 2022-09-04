@@ -38,6 +38,7 @@ export default {
     props: {
         notification: Object,
         count: Number,
+       
     },
 };
 </script>
