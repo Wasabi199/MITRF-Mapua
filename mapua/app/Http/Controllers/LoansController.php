@@ -226,4 +226,14 @@ class LoansController extends Controller
         ]);
     }
 
+    public function MedicalBreakdown(){
+        
+        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $notificationCount = $userNotification->where('onRead',false)->count();
+        return Inertia::render('Users/MedicalBreakdown',[
+            'notification'=>$userNotification,
+            'count'=>$notificationCount   
+        ]);
+    }
+
 }

@@ -78,6 +78,7 @@
                                         <th class="text-left px-16 bg-gray-100">Loan Amount</th>
                                         <th class="text-left px-16 bg-gray-100">Medical Benefit</th>
                                         <th class="text-left px-16 bg-gray-100">Approval</th>
+                                        <th class="text-left px-16 bg-gray-100">Action</th>
                                       
 
                                         <tr v-for="medical in medicals.data" v-bind:key="medical.id">
@@ -126,6 +127,19 @@
 
                                             </td>
 
+                                         <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center pl-12 py-1 border text-md text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-green-500 cursor-pointer">
+                                                      <Link :href="route('MedicalBreakdown',medical.id)">
+                                                    <div>
+                                                        <button>VIEW MEDICAL BREAKDOWN</button>
+                                                    </div>
+                                                    
+                                                    </Link>
+                                                </div>
+
+                                            </td>
+                                            
+
                                  
                                         </tr>
                                     </tbody>
@@ -140,6 +154,15 @@
                                 <div><b>Loan Amount:</b> {{ medical.amount}} PHP</div>
                                 <div><b>Medical Benefit:</b> {{medical.medical_benifit }}</div>
                                 <div><b>Approval:</b> {{ medical.status}}</div>
+                                <div class="flex items-center pl-12 py-1 border text-md text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-green-500 cursor-pointer">
+                                                    <Link :href="route('MedicalBreakdown',medical.id)">
+                                                    <div>
+                                                        <button>VIEW MEDICAL BREAKDOWN</button>
+                                                    </div>
+                                                    
+                                                    </Link>
+                                                </div>
+                                
                             </div>
                             </div>
 
