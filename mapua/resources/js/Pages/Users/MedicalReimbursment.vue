@@ -7,11 +7,11 @@
                 </div>
             </div>
         </template>
-         <div class="p-2 px-6 leading-tight flex justify-between items-center">
+         <div class="p-2 px-3 leading-tight flex justify-between items-center ">
             <h1 class="text-xl text-gray-700 font-extrabold pl-8">Medical Reimbursment</h1>
-            <div class="flex-1">
-                <Link :href="route('createReimburstment')" class="text-blue-500 font-semibold text-sm hover:underline ml-4">
-                    Create New Reimbursment
+               <div class="px-1 py-4 whitespace-nowrap">
+                <Link :href="route('createReimburstment')" class="flex space-x-2 mr-5 px-1 py-1 border text-sm	 text-yellow-600 dark:text-yellow-600 dark:border-yellow-600 border-yellow-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-yellow-500 cursor-pointer">
+                    <button>APPLY NEW REIMBURSMENT</button>
                 </Link>
             </div>
                  <div class="flex px-3 py-1 gap-2">
@@ -154,7 +154,7 @@
                                 <div><b>Loan Amount:</b> {{ medical.amount}} PHP</div>
                                 <div><b>Medical Benefit:</b> {{medical.medical_benifit }}</div>
                                 <div><b>Approval:</b> {{ medical.status}}</div>
-                                <div class="flex items-center pl-12 py-1 border text-md text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-green-500 cursor-pointer">
+                                <div class="flex items-center pl-6 py-1 border text-md text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-green-500 cursor-pointer">
                                                     <Link :href="route('MedicalBreakdown',medical.id)">
                                                     <div>
                                                         <button>VIEW MEDICAL BREAKDOWN</button>
@@ -167,6 +167,16 @@
                             </div>
 
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center">
+                <div class="flex justify-between my-3">
+                    <div class="flex space-x-2 mr-5 px-4 py-1 border text-md text-red-600 dark:text-red-600 dark:border-red-600 border-red-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-red-500 cursor-pointer">
+                        <Link :href="route('dashboard')">
+                        <button>BACK TO HOME</button>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@
                 </div>
             </div>
         </template>
-            <div class="p-2 px-6 leading-tight flex justify-between items-center">
+            <div class="p-2 px-6 leading-tight flex justify-between items-center overflow-hidden ">
             <h1 class="text-xl text-gray-700 font-extrabold pl-8">Loans Management</h1>
 
             <div class="px-6 py-4 whitespace-nowrap">

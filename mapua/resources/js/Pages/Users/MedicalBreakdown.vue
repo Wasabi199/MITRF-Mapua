@@ -8,7 +8,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg> 
-
+    <h1 class="ont-extrabold text-xl text-gray-800 leading-tight">{{info.first_name+info.last_name}}</h1>
     </div>
 </div>
 
@@ -39,11 +39,11 @@
 
      <div class="col-span-6 sm:col-span-3">
                             <label class="block text-sm font-medium text-gray-700">Amount of Loan</label>
-                             <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="medical.amount">
+                             <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="medical.amount" disabled>
                                   </div>
      <div class="col-span-6 sm:col-span-2">
-                            <label class="block text-sm font-medium text-gray-700">Term of Payment &lpar;Months&rpar;</label>
-                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"> 
+                            <label class="block text-sm font-medium text-gray-700">Reimbursement Type</label>
+                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="medical.reimbursment_type" disabled> 
                     </div>
       <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Approval Status</label>
