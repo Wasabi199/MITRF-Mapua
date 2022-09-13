@@ -274,7 +274,7 @@ class AdminController extends Controller
         ]);
     }
     public function addContribution(){
-        $loans = Loans::all()->where('approval','Approved')->where('loan_status','Ongoing');
+        $loans = Loans::all()->where('approval','Processed')->where('loan_status','Ongoing');
         // $loans = User::has('loans')->get();
         // $info = Admin::all()->where($loans->user_id);
         // dd($loans);

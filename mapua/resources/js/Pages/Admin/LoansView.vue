@@ -418,8 +418,8 @@ export default {
             statuses:[
                 'All',
                 'Submitted',
-                'For Approval',
-                'Approved',
+                'For Processing',
+                'Processed',
                 'For Release',
                 'Released',
                 'Denied',

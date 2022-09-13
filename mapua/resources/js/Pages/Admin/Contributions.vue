@@ -84,7 +84,7 @@
                     </Link>
                 </div>
                 </div>
-                <div v-if="loan.approval == 'Approved'" class="bg-white p-4 overflow-hidden border-gray-300 shadow-xl sm:rounded-lg ">
+                <div v-if="loan.approval == 'Processed'" class="bg-white p-4 overflow-hidden border-gray-300 shadow-xl sm:rounded-lg ">
 
                         <!-- Contact -->
                         <div class="mb-8">
@@ -177,7 +177,7 @@
                         </div> -->
                         
                 </div>
-                <div v-if="loan.approval === 'For Approval'">
+                <div v-if="loan.approval === 'For Processing'">
                 <form>
                     <div class="px-2 py-5 bg-white sm:p-6">
                         <div class="grid grid-cols-6 gap-6">
@@ -286,7 +286,7 @@
                         transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="acceptLoan(loan)">Accept</button>
             </div> -->
         </div>
-          <div v-if="loan.approval == 'For Approval'" class="row-span-3">     
+          <div v-if="loan.approval == 'For Processing'" class="row-span-3">     
             
                 <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 "> 
                     <img :src="loan.attachment1 == null ? '' : loan.attachment1" class="w-auto h-auto" >
@@ -298,7 +298,7 @@
                     <img :src="loan.attachment3 == null ? '' : loan.attachment3" class="w-auto h-auto" >
                 </div>
             <br>
-            <div v-if="loan.approval == 'For Approval'" class="w-full p-0 m-0 flex items-center justify-center gap-20">
+            <div v-if="loan.approval == 'For Processing'" class="w-full p-0 m-0 flex items-center justify-center gap-20">
                     <button  type="button" class=" py-2 px-4 mb-5 bg-red-600 hover:bg-red-700 focus:ring focus:ring-red-300 text-white w-64 
                         transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="rejectLoan(loan)">Reject</button>
  
@@ -309,7 +309,7 @@
    
         </div>
         
-    <div v-else-if="loan.approval == 'Approved'" class="bg-white p-4 overflow-x-auto border-gray-300 shadow-xl rounded-lg lg:m-20 lg:max-w-[75%] shadow-lg max-width: 768px">
+    <div v-else-if="loan.approval == 'Processed'" class="bg-white p-4 overflow-x-auto border-gray-300 shadow-xl rounded-lg lg:m-20 lg:max-w-[75%] shadow-lg max-width: 768px">
                 <table class="min-w-auto divide-y divide-gray-200 table-fixed">
                     <thead class="inline-auto">
                         <tr class="box-content h-10 w-20 p-4 border-10  bg-red-800 text-yellow-400">
@@ -353,7 +353,7 @@
                 <pagination :links="contributions.links"/>
                 
     </div> 
-        <div v-if="loan.approval == 'Approved'" class=" w-full p-0 m-0 flex items-center justify-center gap-20">
+        <div v-if="loan.approval == 'Processed'" class=" w-full p-0 m-0 flex items-center justify-center gap-20">
             
             <button type="button" class=" py-2 px-4 mb-5 bg-green-600 hover:bg-green-700 focus:ring focus:ring-green-300 text-white w-64 
                 transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="releaseLoan(loan)">Release</button>
@@ -565,7 +565,7 @@ export default {
         },
         submitApproveLoan() {
             this.approveForm.id = this.loanToApprove.id;
-            this.approveForm.approval = 'Approved';
+            this.approveForm.approval = 'Processed';
             this.approveForm.post(route('loanApprove'), {
                 onSuccess: () => {
                     this.showApproveModal = false
