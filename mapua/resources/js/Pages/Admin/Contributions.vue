@@ -14,9 +14,9 @@
 
             </div>
         </template>
-    
-    <div class="grid grid-cols-1 m-8 gap-8 lg:m-10 lg:grid-cols-2">
-        <div class="bg-white p-4 overflow-hidden border-gray-300 shadow-xl rounded-lg">            
+     
+    <div class="grid grid-cols-1 m-8 gap-8 lg:m-10 lg:grid-cols-2   ">
+        <div class="bg-white overflow-hidden border-gray-300 shadow-xl rounded-lg">            
             <div v-if="loan.approval === 'Submitted'">
                 <form>
                     <div class="px-2 py-5 bg-white sm:p-6">
@@ -263,7 +263,7 @@
             </div>
         </div> -->
 
-        <div v-if="loan.approval == 'Submitted'" class="row-span-3">     
+        <div v-if="loan.approval == 'Submitted'" class="row-span-3  ">     
             
                 <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 "> 
                     <img :src="loan.attachment1 == null ? '' : loan.attachment1" class="w-auto h-auto" >
@@ -286,9 +286,32 @@
                         transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="acceptLoan(loan)">Accept</button>
             </div> -->
         </div>
+        <div v-if="loan.approval == 'Processed'" class="row-span-3 ">     
+            
+                <div class="bg-white shadow-xl rounded-lg  content-center lg:ml-20 w-80 h-auto "> 
+                    <img :src="loan.attachment1 == null ? '' : loan.attachment1" class="w-auto h-auto" >
+                </div>
+                   <div class="bg-white shadow-xl rounded-lg content-center lg:ml-20 w-80 p-4"> 
+                    <img :src="loan.attachment2 == null ? '' : loan.attachment2" class="w-auto h-auto" >
+                </div>
+                   <div class="bg-white shadow-xl rounded-lg content-center lg:ml-20 w-80 p-4"> 
+                    <img :src="loan.attachment3 == null ? '' : loan.attachment3" class="w-auto h-auto" >
+                </div>
+            <br>
+            <!-- <div v-if="loan.approval == 'For Approval'" class="w-full p-0 m-0 flex items-center justify-center gap-20">
+                    <button  type="button" class=" py-2 px-4 mb-5 bg-red-600 hover:bg-red-700 focus:ring focus:ring-red-300 text-white w-64 
+                        transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="rejectLoan(loan)">Reject</button>
+ 
+                    <button type="button" class=" py-2 px-4 mb-5 bg-green-600 hover:bg-green-700 focus:ring focus:ring-green-300 text-white w-64 
+                        transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="acceptLoan(loan)">Accept</button>
+
+                    <button type="button" class=" py-2 px-4 mb-5 bg-green-600 hover:bg-green-700 focus:ring focus:ring-green-300 text-white w-64 
+                        transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="acceptLoan(loan)">Accept</button>
+            </div> -->
+        </div>
           <div v-if="loan.approval == 'For Processing'" class="row-span-3">     
             
-                <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 "> 
+                <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50  "> 
                     <img :src="loan.attachment1 == null ? '' : loan.attachment1" class="w-auto h-auto" >
                 </div>
                    <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 "> 
@@ -308,55 +331,12 @@
             </div>
    
         </div>
-        
-    <div v-else-if="loan.approval == 'Processed'" class="bg-white p-4 overflow-x-auto border-gray-300 shadow-xl rounded-lg lg:m-20 lg:max-w-[75%] shadow-lg max-width: 768px">
-                <table class="min-w-auto divide-y divide-gray-200 table-fixed">
-                    <thead class="inline-auto">
-                        <tr class="box-content h-10 w-20 p-4 border-10  bg-red-800 text-yellow-400">
-                            <th class="text-left px-16">Past Loan</th>
-                            <th class="text-left px-16">Amount</th>
-                            <th class="text-left px-16">Date of Completion</th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
-                        <tr v-for="contribution in contributions.data" v-bind:key="contribution.id">
-                            <td class="px-6 py-6 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div>
-                                            <div class="px-12 text-sm font-medium text-gray-900">
-                                                   {{contribution.id}}
-                                            </div>
-                                        </div>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <div>
-                                        <div class="px-10 text-sm font-medium text-gray-900">
-                                            {{ contribution.contribution_amount}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <div>
-                                        <div class="px-5 text-sm font-medium text-gray-900">
-                                            {{ contribution.created_at}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <pagination :links="contributions.links"/>
-                
-    </div> 
+  
+
         <div v-if="loan.approval == 'Processed'" class=" w-full p-0 m-0 flex items-center justify-center gap-20">
             
             <button type="button" class=" py-2 px-4 mb-5 bg-green-600 hover:bg-green-700 focus:ring focus:ring-green-300 text-white w-64 
-                transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="releaseLoan(loan)">Release</button>
+                transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="releaseLoan(loan)">For Release</button>
         </div>
     <div v-else-if="loan.approval == 'Denied'" class="bg-white p-4 overflow-x-auto border-gray-300 shadow-xl rounded-lg lg:m-20 lg:max-w-[75%] shadow-lg max-width: 768px">
             <h1>Rejected Loan Application</h1>
