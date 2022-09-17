@@ -9,11 +9,11 @@ class Approval{
             case 'All':
                 return null;
             break;
-            case 'Approved':
-                return 'Approved';
+            case 'Processed':
+                return 'Processed';
             break;
-            case 'For Approval':
-                return 'For Approval';
+            case 'For Processing':
+                return 'For Processing';
             break;
             case 'Submitted':
                 return 'Submitted';

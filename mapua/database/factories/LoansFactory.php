@@ -27,8 +27,8 @@ class LoansFactory extends Factory
         ];
         $aproval=[
             'Submitted',
-            'For Approval',
-            'Approved',
+            'For Processing',
+            'Processed',
             'For Release',
             'Released',
             'Denied',
