@@ -24,7 +24,7 @@
                     <JetValidationErrors class="mb-4" />
                     <div class="ml-6 lg:ml-20 mt-10">
                         <p class="mb-1 mt-4 text-lg">Purpose of Loan</p>
-                        <select
+                    <select
                             v-model="form.loan_type" 
                             @change="showModal = !showModal"
                             class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 transition ease-in duration-150 rounded-md mb-10">
@@ -32,6 +32,13 @@
                             <option  v-for="type in loanTypes" v-bind:key="type" :value="type">{{type}}</option>
 
                         </select>
+                        <div class="flex justify-center px-6 py-4 whitespace-nowrap">
+                    <div class="flex space-x-2 mr-5 px-4 py-1 border text-md text-red-600 dark:text-red-600 dark:border-red-600 border-red-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-red-500 cursor-pointer">
+                        <Link :href="route('dashboard')">
+                        <button>BACK TO HOME</button>
+                        </Link>
+                    </div>
+                </div>
                     </div>
 
                     <!-- Loan For Home -->
@@ -627,6 +634,10 @@
     <div  class="p-5">
             <div class="flex justify-between text-xl font-bold text-gray-900 my-3 " >
                 <span>Agreement</span>
+                <div class="flex text-justify font-normal text-s text-gray-900 my-10">
+                <span>I hereby agree to submit my documents and to allow MITRFI and its authorized personnel to process my documents and personal information for specifically for purposes of ______________ (e.g. applying for a loan, etc.), in compliance with the Data Privacy Act of 2012 and MITRFI policies.  Acceptance of the document/s does not automatically guarantee approval as the application shall be subject to the evaluation and approval of the MITFRI based on its loan policies.
+                </span>
+                </div>
               <svg @click="submitModal = !submitModal" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>

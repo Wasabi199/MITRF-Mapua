@@ -11,9 +11,7 @@
             <h1 class="text-xl text-gray-700 font-extrabold pl-8">Loans Management</h1>
 
             <div class="px-6 py-4 whitespace-nowrap">
-                <Link :href="route('userLoan')" class="flex space-x-2 mr-5 px-4 py-1 border text-md text-yellow-600 dark:text-yellow-600 dark:border-yellow-600 border-yellow-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-yellow-500 cursor-pointer">
-                    <button>APPLY NEW LOAN</button>
-                </Link>
+                
             </div>
             
         </div>
@@ -140,7 +138,7 @@
 
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="flex items-center pl-12 py-1 border text-md text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-green-500 cursor-pointer">
+                                                <div class="flex items-center text-center px-4 py-1 border text-md text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-green-500 cursor-pointer">
                                                     <Link :href="route('UserLoanView',loan.id)">
                                                     <div>
                                                         <button>VIEW EXISTING LOAN</button>
@@ -181,10 +179,18 @@
 
                     </div>
                 </div>
-                
+
             </div>
-            <div class="flex justify-center">
-                <div class="flex justify-between my-3">
+            
+            <div class="flex-direction: column">
+
+                <div class="flex justify-center px-6 py-4 whitespace-nowrap">
+                <Link :href="route('userLoan')" class="flex space-x-2 mr-5 px-4 py-1 border text-md text-yellow-600 dark:text-yellow-600 dark:border-yellow-600 border-yellow-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-yellow-500 cursor-pointer">
+                    <button>APPLY NEW LOAN</button>
+                </Link>
+            </div>
+            
+                <div class="flex justify-center px-6 py-4 whitespace-nowrap">
                     <div class="flex space-x-2 mr-5 px-4 py-1 border text-md text-red-600 dark:text-red-600 dark:border-red-600 border-red-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-red-500 cursor-pointer">
                         <Link :href="route('dashboard')">
                         <button>BACK TO HOME</button>
