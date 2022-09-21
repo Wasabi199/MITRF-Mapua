@@ -24,7 +24,7 @@
                     <JetValidationErrors class="mb-4" />
                     <div class="ml-6 lg:ml-20 mt-10">
                         <p class="mb-1 mt-4 text-lg">Purpose of Loan</p>
-                    <select
+                        <select
                             v-model="form.loan_type" 
                             @change="showModal = !showModal"
                             class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 transition ease-in duration-150 rounded-md mb-10">
@@ -32,13 +32,7 @@
                             <option  v-for="type in loanTypes" v-bind:key="type" :value="type">{{type}}</option>
 
                         </select>
-                        <div class="flex justify-center px-6 py-4 whitespace-nowrap">
-                    <div class="flex space-x-2 mr-5 px-4 py-1 border text-md text-red-600 dark:text-red-600 dark:border-red-600 border-red-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-red-500 cursor-pointer">
-                        <Link :href="route('dashboard')">
-                        <button>BACK TO HOME</button>
-                        </Link>
-                    </div>
-                </div>
+                       
                     </div>
 
                     <!-- Loan For Home -->
@@ -212,7 +206,7 @@
                                         ₱
                                     </span>
                                 </div>
-                                <input v-model="amount" type="number" placeholder="0.00"
+                                <input v-model="form.amount" type="number" placeholder="0.00"
                                     class="focus:ring-indigo-500 border-2 
                                 border-opacity-50 border-gray-400 hover:border-indigo-500 text-black block pl-7 pr-12 w-64 mb-5 font-lg rounded-md" />
                             </div>
@@ -247,8 +241,14 @@
                     </form>
                 </div>
             </div>
-        </div>
-
+            <div class="flex justify-center px-6 py-4 whitespace-nowrap">
+                            <div class="flex space-x-2 mr-5 px-4 py-1 border text-md text-red-600 dark:text-red-600 dark:border-red-600 border-red-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-red-500 cursor-pointer">
+                                <Link :href="route('dashboard')">
+                                <button>BACK TO HOME</button>
+                                </Link>
+                            </div>
+                        </div>
+                </div>
 
         <!-- Guidelines -->
         <Modal  :show="showModal" :closeable="true" >
@@ -607,7 +607,7 @@
 
                 </span>
             </div>
-	    <div class="flex justify-left text-s text-gray-900 my-3">
+	        <div class="flex justify-left text-s text-gray-900 my-3">
                 <span>4. 45% threshold of net pay is not applicable but must not be zero or negative.
 
                 </span>
@@ -625,8 +625,7 @@
                 </div>
             </div>
         </div>
-
-
+    
         <!-- Submit modal -->
         
     </Modal>
