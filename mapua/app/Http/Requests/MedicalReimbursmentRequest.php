@@ -31,7 +31,7 @@ class MedicalReimbursmentRequest extends FormRequest
 
             'medical_record1'=>'file|mimes:jpg,png,jpeg,pdf',
             'medical_record2'=>'file|mimes:jpg,png,jpeg,pdf',
-            'medical_record3'=>'file|mimes:jpg,png,jpeg,pdf',
+            // 'medical_record3'=>'file|mimes:jpg,png,jpeg,pdf',
         ];
     }
 }

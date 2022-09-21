@@ -741,7 +741,7 @@ export default {
         },
         submitReleaseLoan() {
             this.releaseForm.id = this.loanToRelease.id;
-            this.releaseForm.approval = 'To Release';
+            this.releaseForm.approval = 'For Release';
             this.releaseForm.post(route('loanRelease'), {
                 onSuccess: () => {
                     this.showReleaseModal = false

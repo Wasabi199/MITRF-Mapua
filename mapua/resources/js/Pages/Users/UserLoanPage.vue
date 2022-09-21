@@ -632,21 +632,18 @@
     </Modal>
     <Modal  :show="submitModal" :closeable="true" @close="submitModal = !submitModal">
     <div  class="p-5">
-            <div class="flex justify-between text-xl font-bold text-gray-900 my-3 " >
+            <div class="flex justify-between text-xl font-bold text-gray-900 my-2 " >
                 <span>Agreement</span>
-                <div class="flex text-justify font-normal text-s text-gray-900 my-10">
-                <span>I hereby agree to submit my documents and to allow MITRFI and its authorized personnel to process my documents and personal information for specifically for purposes of ______________ (e.g. applying for a loan, etc.), in compliance with the Data Privacy Act of 2012 and MITRFI policies.  Acceptance of the document/s does not automatically guarantee approval as the application shall be subject to the evaluation and approval of the MITFRI based on its loan policies.
-                </span>
+                <div class="flex text-justify font-normal  text-gray-900 my-5">
                 </div>
               <svg @click="submitModal = !submitModal" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
             </div>
-            <div>
-
+            <div class="text-center">
+                <span>I hereby agree to submit my documents and to allow MITRFI and its authorized personnel to process my documents and personal information for specifically for purposes of <span class="font-bold">{{this.form.loan_type}}</span>, in compliance with the Data Privacy Act of 2012 and MITRFI policies.  Acceptance of the document/s does not automatically guarantee approval as the application shall be subject to the evaluation and approval of the MITFRI based on its loan policies.</span>
             </div>
             <div class="flex justify-end text-xl font-bold dark:text-gray-200 my-3">
-              
                 <div @click="proceed" class="flex space-x-2 px-4 py-1 border text-sm leading-snug font-semibold text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:bg-green-500 cursor-pointer">
                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-all" viewBox="0 0 16 16">
                         <path d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l7-7zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0z"/>

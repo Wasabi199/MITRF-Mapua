@@ -59,14 +59,14 @@
 <img :src="medical.medical_record1 ==null ?'':medical.medical_record1 "/>
 </div>
 <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
-    <img :src="medical.medical_record2 ==null ?'':medical.medical_record1 "/>
+    <img :src="medical.medical_record2 ==null ?'':medical.medical_record2 "/>
 </div>
 <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
-    <img :src="medical.medical_record3 ==null ?'':medical.medical_record1 "/>
+    <img :src="medical.medical_record3 ==null ?'':medical.medical_record3 "/>
 </div>
 <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
-    <img :src="medical.medical_record4 ==null ?'':medical.medical_record1 "/>
-</div>
+    <img :src="medical.medical_record4 ==null ?'':medical.medical_record4 "/>
+</div> 
 </div>
 
 

@@ -51,31 +51,76 @@
                               
                         </div>
                         <p class="mb-1 text-lg">Upload Requirements</p>
-
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                        <div v-if="this.form.reimbursment_type =='Dental Checkup' || this.form.reimbursment_type =='Eye Checkup'||this.form.reimbursment_type =='Medicines'">
+                            <p class="font-bold">Official Receipt</p>
+                            <div  class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                             <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
                                 class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
+                            </div>
+                            <p class="font-bold">Medical Certificate/Doctor's Prescription</p>
+                            <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                                <input @change="onChange2"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
+                                    class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
+                                file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
+                                    multiple />
+                            </div>
                         </div>
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
-                            <input @change="onChange2"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
+                        <div v-if="this.form.reimbursment_type =='Hospital'">
+                            <p class="font-bold">Official Receipt</p>
+                            <div  class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                            <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
                                 class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
+                            </div>
+                            <p class="font-bold">Medical Certificate/Doctor's Prescription</p>
+                            <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                                <input @change="onChange2"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
+                                    class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
+                                file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
+                                    multiple />
+                            </div>
+                            <p class="font-bold">Statement of Account</p>
+                            <div  class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                                    <input @change="onChange3"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
+                                        class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
+                                    file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
+                                        multiple />
+                                </div>
                         </div>
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
-                            <input @change="onChange3"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
-                                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
-                            file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
-                                multiple />
-                        </div>
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
-                            <input @change="onChange4"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
-                                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
-                            file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
-                                multiple />
-                        </div>
+                                <div v-if="this.form.reimbursment_type =='Health Checkup' ">
+                                    <p class="font-bold">Official Receipt</p>
+                                    <div  class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                                    <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
+                                        class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
+                                    file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
+                                        multiple />
+                                    </div>
+                                    <p class="font-bold">Medical Certificate/Doctor's Prescription</p>
+                                    <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                                        <input @change="onChange2"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
+                                            class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
+                                        file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
+                                            multiple />
+                                    </div>
+                                    <p class="font-bold">Doctor's Endorsement</p>
+                                    <div  class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                                    <input @change="onChange3"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
+                                        class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
+                                    file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
+                                        multiple />
+                                </div>
+                                <p class="font-bold">Lab Results</p>
+                                <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                                    <input @change="onChange4"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
+                                        class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
+                                    file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
+                                        multiple />
+                                </div>
+                            </div>
+
                         <div class="flex justify-center">
                             <button type="button"  @click="submit"
                                 class=" py-2 px-4 mb-5 bg-indigo-600 hover:bg-indigo-700 focus:ring focus:ring-indigo-300 text-white w-64 
@@ -224,8 +269,8 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                         </div>
-                        <div>
-
+                        <div class="text-center">
+                            <span>I hereby agree to submit my documents and to allow MITRFI and its authorized personnel to process my documents and personal information for specifically for purposes of <span class="font-bold">{{this.form.reimbursment_type}} Reimbursement</span>, in compliance with the Data Privacy Act of 2012 and MITRFI policies.  Acceptance of the document/s does not automatically guarantee approval as the application shall be subject to the evaluation and approval of the MITFRI based on its loan policies.</span>
                         </div>
                         <div class="flex justify-end text-xl font-bold dark:text-gray-200 my-3">
                         
@@ -287,7 +332,7 @@ export default {
                 'Hospital',
                 'Health Checkup',
                 'Dental Checkup',
-                'Mental Checkup',
+                'Medicines',
                 'Eye Checkup',
             ],
         }
@@ -373,6 +418,8 @@ export default {
                     this.form.amount = this.computationAmount 
                 }
             }
+            // this.form.medical_record3 == ''?null:this.form.medical_record3
+            // this.form.medical_record4 == ''?null:this.form.medical_record4
             this.form.post(route('ReimburstmentSubmit'),{
                  onStart:(visit)=>{
                         this.isSubmiting == true
