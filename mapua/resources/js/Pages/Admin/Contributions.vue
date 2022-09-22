@@ -437,7 +437,7 @@
                                 <div class="flex items-center">
                                     <div>
                                         <div class="px-10 text-sm font-medium text-gray-900">
-                                            {{ contribution.contribution_amount}}
+                                            PHP {{ contribution.contribution_amount}}
                                         </div>
                                     </div>
                                 </div>
