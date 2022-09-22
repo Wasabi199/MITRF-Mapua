@@ -396,13 +396,64 @@
             </div>
             
         <!-- Right Box -->
+            <div v-if="loan.approval == 'For Release'" class="bg-white shadow-xl rounded-lg content-center lg:mr-50 ">
+               <div class="justify-between flex m-4">
+                    <div class="text-lg">
+                        <p class="font-bold content-center">Good news!</p>
+                            <p>Your Personal Loan application has been processed. </p>
+                            <p>A representative will get in touch with you for updates on the release of your loan. Thank you.</p>
+                    </div>
+                </div>
+            </div>
+
             <div v-if="loan.approval == 'Released'" class="bg-white shadow-xl rounded-lg content-center lg:mr-50 ">
-               <div class="justify-between flex">
+               <div class="justify-between flex m-4">
                     <div class="flex text-lg">
                         <p class="font-semibold">Location to recieve: </p>
                         <p class="ml-2 underline">Test</p>
                     </div>
                 </div>
+
+                <table class="min-w-auto divide-y divide-gray-200 m-4">
+                    <thead class="inline-auto">
+                        <tr class="box-content h-10 w-20 p-4 border-10  bg-red-800 text-yellow-400">
+                            <th class="text-left px-16">ID</th>
+                            <th class="text-left px-16">Amount</th>
+                            <th class="text-left px-16">Date of Creation</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr v-for="contribution in contributions.data" v-bind:key="contribution.id">
+                            <td class="px-6 py-6 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div>
+                                            <div class="px-12 text-sm font-medium text-gray-900">
+                                                   {{contribution.id}}
+                                            </div>
+                                        </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div>
+                                        <div class="px-10 text-sm font-medium text-gray-900">
+                                            {{ contribution.contribution_amount}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div>
+                                        <div class="px-5 text-sm font-medium text-gray-900">
+                                            {{ contribution.created_at}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             <!-- <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 ">
@@ -417,7 +468,7 @@
                     <button type="button" class=" py-2 px-4 mb-5 bg-green-600 hover:bg-green-700 focus:ring focus:ring-green-300 text-white w-64 
                         transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="acceptLoan(loan)">Accept</button>
             </div> -->
-        </div> -->
+        </div>
 
         <div v-if="loan.approval == 'Submitted'" class="row-span-3  ">     
             
@@ -490,35 +541,12 @@
    
         </div>
 
-        <div v-if="loan.approval == 'For Release'" class="row-span-3">     
-            <div class="bg-white shadow-xl rounded-lg  content-center lg:ml-20 w-80 h-auto "> 
-                <img :src="loan.attachment1 == null ? '' : loan.attachment1" class="w-auto h-auto" >
-            </div>
-                <div class="bg-white shadow-xl rounded-lg content-center lg:ml-20 w-80 p-4"> 
-                <img :src="loan.attachment2 == null ? '' : loan.attachment2" class="w-auto h-auto" >
-            </div>
-                <div class="bg-white shadow-xl rounded-lg content-center lg:ml-20 w-80 p-4"> 
-                <img :src="loan.attachment3 == null ? '' : loan.attachment3" class="w-auto h-auto" >
-            </div>
-        <br>
         <div v-if="loan.approval == 'For Release'" class="w-full p-0 m-0 flex items-center justify-center gap-20">
                 <button  type="button" class=" py-2 px-4 mb-5 bg-red-600 hover:bg-red-700 focus:ring focus:ring-red-300 text-white w-64 
                     transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="releasedLoan(loan)">Released</button>
         </div>
-        </div>
         
-        <div v-if="loan.approval == 'Released'" class="row-span-3">     
-            <div class="bg-white shadow-xl rounded-lg  content-center lg:ml-20 w-80 h-auto "> 
-                <img :src="loan.attachment1 == null ? '' : loan.attachment1" class="w-auto h-auto" >
-            </div>
-                <div class="bg-white shadow-xl rounded-lg content-center lg:ml-20 w-80 p-4"> 
-                <img :src="loan.attachment2 == null ? '' : loan.attachment2" class="w-auto h-auto" >
-            </div>
-                <div class="bg-white shadow-xl rounded-lg content-center lg:ml-20 w-80 p-4"> 
-                <img :src="loan.attachment3 == null ? '' : loan.attachment3" class="w-auto h-auto" >
-            </div>
-
-        <br>
+        <div v-if="loan.approval == 'Released'" class="row-span-3">
         </div>
 
         <div v-if="loan.approval == 'Processed'" class=" w-full p-0 m-0 flex items-center justify-center gap-20">
@@ -589,6 +617,36 @@
             </div>
         </div>
     </Modal>
+    <Modal :closeable="true" :show="showReleasedModal"
+        @close="showReleasedModal = !showReleasedModal">
+        <div class="p-5">
+            <div class="flex justify-between text-xl font-bold text-gray-900 my-3">
+                <span></span>
+                <svg class="h-6 w-6 cursor-pointer"
+                    fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                    @click="showReleasedModal = !showReleasedModal">
+                    <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="flex flex-col items-center text-xl font-bold text-gray-900 my-3">
+                
+                <span class="text-center">Released {{ info.first_name }} {{info.last_name}} loan?</span>
+            </div>
+            <div class="flex justify-center">
+                <div class="flex justify-between text-xl font-bold dark:text-gray-200 my-3">
+                    <div
+                        class="flex space-x-2 mr-5 px-4 py-1 border text-md text-red-600 dark:text-red-600 dark:border-red-600 border-red-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-red-500 cursor-pointer"
+                        @click="submitReleasedLoan">
+                            
+                        <span>Released</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Modal>
 <Modal :closeable="true" :show="showRejectModal"
         @close="showRejectModal = !showRejectModal">
         <div class="p-5">
@@ -651,9 +709,11 @@ export default {
             loanToReject: Object,
             loanToApprove: Object,
             loanToRelease:Object,
+            loanReleased:Object,
             showRejectModal: false,
             showApproveModal: false,
             showReleaseModal:false,
+            showReleasedModal:false,
 
             fname:this.$props.info.first_name,
             lname:this.$props.info.last_name,
@@ -675,6 +735,10 @@ export default {
                 approval:'',
             }),
             releaseForm:this.$inertia.form({
+                id: Number, 
+                approval:'',
+            }),
+            releasedForm:this.$inertia.form({
                 id: Number, 
                 approval:'',
             }),
@@ -720,6 +784,10 @@ export default {
             this.loanToRelease = loan
             this.showReleaseModal = !this.showReleaseModal
         },
+        releasedLoan(loan){
+            this.loanReleased = loan
+            this.showReleasedModal = !this.showReleasedModal
+        },
 
         submitRejectLoan() {
             this.rejectForm.id = this.loanToReject.id;
@@ -745,6 +813,15 @@ export default {
             this.releaseForm.post(route('loanRelease'), {
                 onSuccess: () => {
                     this.showReleaseModal = false
+                }
+            });
+        },
+        submitReleasedLoan() {
+            this.releasedForm.id = this.loanReleased.id;
+            this.releasedForm.approval = 'Released';
+            this.releasedForm.post(route('loanReleased'), {
+                onSuccess: () => {
+                    this.showReleasedModal = false
                 }
             });
         },

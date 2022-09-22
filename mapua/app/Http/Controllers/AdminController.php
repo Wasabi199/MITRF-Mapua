@@ -238,6 +238,22 @@ class AdminController extends Controller
             [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
     }
 
+    public function loanReleased(reviewloanRequest $request){
+        $loans = loans::find($request->validated()['id']);
+        $data = $request->validated();
+        $loans->update($data);
+        UserNotifications::create([
+            'user_id'=>$loans->user_id,
+            'universal_id'=>$request->validated()['id'],
+            'onRead'=>false,
+            'value'=>'Your application is Released',
+            'type'=>2,
+            'notification_type'=>3
+        ]);
+        return Redirect::back()->with('message',
+            [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
+    }
+
     public function loanReject(reviewloanRequest $request){
         $loans = loans::find($request->validated()['id']);
         $data = $request->validated();
