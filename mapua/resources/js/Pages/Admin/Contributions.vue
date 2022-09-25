@@ -456,7 +456,7 @@
                 </table>
             </div>
 
-        <div v-if="loan.approval == 'Processed'" class="row-span-3 bg-white overflow-hidden border-gray-300 sm:rounded-lg ">     
+        <div v-if="loan.approval == 'Processed'" class="row-span-3 bg-white overflow-hidden border-gray-300 sm:rounded-lg max-w-lg place-self-center  ">     
                <div v-if="loan.loan_type =='Housing Loan'" >
                             <p class="font-semibold"> Application Form:</p>
                 </div>
