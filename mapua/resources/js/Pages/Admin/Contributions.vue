@@ -2,7 +2,7 @@
     <AppLayout>
         <template #header>
              <div class="flex justify-between">
-                <div class="flex items-center ">
+                <div class="flex items-center">
                     <Link :href="route('adminLoansView')" class="hover:underline">
                     <h1 class="font-extrabold text-xl text-gray-800 leading-tight">Loans</h1>
                     </Link>
@@ -14,7 +14,7 @@
 
             </div>
         </template>
-     
+    
     <div class="grid grid-cols-1 m-8 gap-8 lg:m-10 lg:grid-cols-2   ">
         <!-- Left Box -->
         <div class="bg-white overflow-hidden border-gray-300 shadow-xl rounded-lg">            
@@ -394,7 +394,7 @@
 
             </div>                  
             </div>
-            
+         
         <!-- Right Box -->
             <div v-if="loan.approval == 'For Release'" class="bg-white shadow-xl rounded-lg content-center lg:mr-50 ">
                <div class="justify-between flex m-4">
@@ -466,6 +466,7 @@
                 <div v-if="loan.loan_type =='Emergency Loan'" >
                             <p class="font-semibold"> Application Form:</p>
                 </div>        
+                <br>
 
 <!-- IMAGE 1-->
                 <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50  "> 
@@ -520,8 +521,7 @@
             <!-- <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 ">
                 <img :src="loan.attachment_path == null ? '' : loan.attachment_path" class="w-auto h-auto" >
             </div> -->
-
-            <br>
+            
             <!-- <div  class="w-full p-0 m-0 flex items-center justify-center gap-20">
                     <button  type="button" class=" py-2 px-4 mb-5 bg-red-600 hover:bg-red-700 focus:ring focus:ring-red-300 text-white w-64 
                         transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="rejectLoan(loan)">Reject</button>
@@ -529,19 +529,18 @@
                     <button type="button" class=" py-2 px-4 mb-5 bg-green-600 hover:bg-green-700 focus:ring focus:ring-green-300 text-white w-64 
                         transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="acceptLoan(loan)">Accept</button>
             </div> -->
-        </div>
 
-        <div v-if="loan.approval == 'Submitted'" class="row-span-3  ">     
-            
-                <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 "> 
-                    <img :src="loan.attachment1 == null ? '' : loan.attachment1" class="w-auto h-auto" >
+        <div v-if="loan.approval == 'Submitted'" class="row-span-3">     
+            <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50"> 
+                    <img :src="loan.attachment1 == null ? '' : loan.attachment1" class="w-auto h-auto">
                 </div>
-                   <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 "> 
-                    <img :src="loan.attachment2 == null ? '' : loan.attachment2" class="w-auto h-auto" >
+                   <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50"> 
+                    <img :src="loan.attachment2 == null ? '' : loan.attachment2" class="w-auto h-auto">
                 </div>
-                   <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 "> 
-                    <img :src="loan.attachment3 == null ? '' : loan.attachment3" class="w-auto h-auto" >
+                   <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50"> 
+                    <img :src="loan.attachment3 == null ? '' : loan.attachment3" class="w-auto h-auto">
                 </div>
+            </div>
             <br>
             <!-- <div v-if="loan.approval == 'For Approval'" class="w-full p-0 m-0 flex items-center justify-center gap-20">
                     <button  type="button" class=" py-2 px-4 mb-5 bg-red-600 hover:bg-red-700 focus:ring focus:ring-red-300 text-white w-64 
