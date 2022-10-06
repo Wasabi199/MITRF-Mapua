@@ -406,15 +406,9 @@
                 </div>
             </div>
 
-            <div v-if="loan.approval == 'Released'" class="bg-white shadow-xl rounded-lg content-center lg:mr-50 ">
-               <div class="justify-between flex m-4">
-                    <div class="flex text-lg">
-                        <p class="font-semibold">Location to recieve: </p>
-                        <p class="ml-2 underline">Test</p>
-                    </div>
-                </div>
-
-                <table class="min-w-auto divide-y divide-gray-200 m-4">
+            <div v-if="loan.approval == 'Released'" class="w-full bg-white shadow-xl rounded-lg content-center lg:mr-50 ">
+          
+                <table class="min-w-full divide-y divide-gray-200 mt-5 mx-auto">
                     <thead class="inline-auto">
                         <tr class="box-content h-10 w-20 p-4 border-10  bg-red-800 text-yellow-400">
                             <th class="text-left px-16">ID</th>
@@ -454,6 +448,8 @@
                         </tr>
                     </tbody>
                 </table>
+                <Pagination :links="contributions.links"></Pagination>
+
             </div>
 
         <div v-if="loan.approval == 'Processed'" class="row-span-3 bg-white overflow-hidden border-gray-300 sm:rounded-lg max-w-lg place-self-center  ">     
@@ -518,6 +514,76 @@
                         transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="acceptLoan(loan)">Accept</button>
             </div> -->
         </div>
+        <div v-if="loan.approval == 'For Processing'" class="row-span-3 bg-white overflow-hidden border-gray-300 sm:rounded-lg max-w-lg place-self-center ">     
+            
+            <div v-if="loan.loan_type =='Housing Loan'" >
+                            <p class="font-semibold"> Application Form:</p>
+                </div>
+                <div v-if="loan.loan_type =='Educational Loan'" >
+                            <p class="font-semibold"> Application Form:</p>
+                </div>
+                <div v-if="loan.loan_type =='Emergency Loan'" >
+                            <p class="font-semibold"> Application Form:</p>
+                </div>        
+                <br>
+
+<!-- IMAGE 1-->
+                <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50  "> 
+                    <img :src="loan.attachment1 == null ? '' : loan.attachment1" class="w-auto h-auto" >
+                </div>
+<!-- IMAGE 1-->
+   <br>
+            <div v-if="loan.loan_type =='Housing Loan'" >
+                            <p class="font-semibold"> Photo of you Including the Place to be Improved/Repaired:</p>
+                </div>
+            <div v-if="loan.loan_type =='Educational Loan'" >
+                            <p class="font-semibold"> Proof of Relation (Birth Certificate in Case of Relatives): </p>
+                </div>
+            <div v-if="loan.loan_type =='Emergency Loan'" >
+                            <p class="font-semibold"> 4.5% interest for a 2-year term: </p>
+                </div>  
+
+<!-- IMAGE 2-->
+                   <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 "> 
+                    <img :src="loan.attachment2 == null ? '' : loan.attachment2" class="w-auto h-auto" >
+                </div>
+<!-- IMAGE 2-->
+   <br>
+            <div v-if="loan.loan_type =='Housing Loan'" >
+                    <p class="font-semibold"> Laborer's Quotation:</p>
+            </div>
+            <div v-if="loan.loan_type =='Educational Loan'" >
+                    <p class="font-semibold"> Certificate of Enrollment and Statement of Account from School: </p>
+            </div>
+
+             <div v-if="loan.loan_type =='Emergency Loan'" >
+                            <p class="font-semibold">  2.25% interest for a 1-year term: </p>
+                </div>  
+
+ <!-- IMAGE 3-->                        
+                   <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 "> 
+                    <img :src="loan.attachment3 == null ? '' : loan.attachment3" class="w-auto h-auto" >
+                </div>
+                <!-- <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50  "> 
+                    <img :src="loan.attachment1 == null ? '' : loan.attachment1" class="w-auto h-auto" >
+                </div>
+                   <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 "> 
+                    <img :src="loan.attachment2 == null ? '' : loan.attachment2" class="w-auto h-auto" >
+                </div>
+                   <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 "> 
+                    <img :src="loan.attachment3 == null ? '' : loan.attachment3" class="w-auto h-auto" >
+                </div> -->
+            <br>
+            <div v-if="loan.approval == 'For Processing'" class="w-full p-0 m-0 flex items-center justify-center gap-20">
+                    <button  type="button" class=" py-2 px-4 mb-5 bg-red-600 hover:bg-red-700 focus:ring focus:ring-red-300 text-white w-64 
+                        transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="rejectLoan(loan)">Reject</button>
+ 
+                    <button type="button" class=" py-2 px-4 mb-5 bg-green-600 hover:bg-green-700 focus:ring focus:ring-green-300 text-white w-64 
+                        transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="acceptLoan(loan)">Accept</button>
+                    
+            </div>
+   
+        </div>
             <!-- <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 ">
                 <img :src="loan.attachment_path == null ? '' : loan.attachment_path" class="w-auto h-auto" >
             </div> -->
@@ -555,28 +621,7 @@
         </div>
 
 
-        <div v-if="loan.approval == 'For Processing'" class="row-span-3">     
-            
-                <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50  "> 
-                    <img :src="loan.attachment1 == null ? '' : loan.attachment1" class="w-auto h-auto" >
-                </div>
-                   <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 "> 
-                    <img :src="loan.attachment2 == null ? '' : loan.attachment2" class="w-auto h-auto" >
-                </div>
-                   <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50 "> 
-                    <img :src="loan.attachment3 == null ? '' : loan.attachment3" class="w-auto h-auto" >
-                </div>
-            <br>
-            <div v-if="loan.approval == 'For Processing'" class="w-full p-0 m-0 flex items-center justify-center gap-20">
-                    <button  type="button" class=" py-2 px-4 mb-5 bg-red-600 hover:bg-red-700 focus:ring focus:ring-red-300 text-white w-64 
-                        transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="rejectLoan(loan)">Reject</button>
- 
-                    <button type="button" class=" py-2 px-4 mb-5 bg-green-600 hover:bg-green-700 focus:ring focus:ring-green-300 text-white w-64 
-                        transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"  @click="acceptLoan(loan)">Accept</button>
-                    
-            </div>
    
-        </div>
 
         <div v-if="loan.approval == 'For Release'" class="w-full p-0 m-0 flex items-center justify-center gap-20">
                 <button  type="button" class=" py-2 px-4 mb-5 bg-red-600 hover:bg-red-700 focus:ring focus:ring-red-300 text-white w-64 
