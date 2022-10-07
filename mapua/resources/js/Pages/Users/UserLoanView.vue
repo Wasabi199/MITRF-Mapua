@@ -139,7 +139,7 @@
                     border-gray-300
                     rounded-md
                   "
-                  :value="$props.loans.duration"
+                  :value="loan_duration"
                   disabled
                 />
               </div>
@@ -329,6 +329,11 @@ export default {
     info: Object,
     contributions:Object
     
+  },
+  data(){
+    return{
+      loan_duration:this.loans.duration - this.contributions.total
+    }
   },
   setup() {},
 };

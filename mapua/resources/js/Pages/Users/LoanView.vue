@@ -85,13 +85,7 @@
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div>
-                          <!--
-                                                        <Link :href="route('UserLoanView',loan.id)">
-                                                            <div class="text-sm font-medium text-gray-900">
-                                                                {{ loan.loan_type }}
-                                                            </div>
-                                                        </Link>
-                                                        -->
+                      
                           <div class="text-sm font-medium text-gray-900">
                             {{ loan.loan_type }}
                           </div>

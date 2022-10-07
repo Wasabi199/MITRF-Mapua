@@ -34,7 +34,7 @@ class LoansController extends Controller
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $userNotification->where('onRead',false)->count();
         $user = Auth::user();
-        $loans = Loans::filterOwner($user->id)
+        $loans = Loans::with('contributions')->filterOwner($user->id)
         ->limit(5)
         ->paginate(5)
         ->appends($query::only(auth()->id()));
