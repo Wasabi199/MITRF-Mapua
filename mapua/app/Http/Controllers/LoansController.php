@@ -34,8 +34,7 @@ class LoansController extends Controller
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $userNotification->where('onRead',false)->count();
         $user = Auth::user();
-        $loans = Loans::with('contributions')
-        ->filterOwner($user->id)
+        $loans = Loans::filterOwner($user->id)
         ->limit(5)
         ->paginate(5)
         ->appends($query::only(auth()->id()));
@@ -43,7 +42,8 @@ class LoansController extends Controller
         return Inertia::render('Users/LoanView',[
             'loans' => $loans,
             'notification'=>$userNotification,
-            'count'=>$notificationCount
+            'count'=>$notificationCount,
+           
         ]);
     }
 // Total Contribution
@@ -233,7 +233,6 @@ class LoansController extends Controller
                 // $file4->move(public_path('uploads/reimburstment'),$file_name4);
             
                 $user = User::find(auth()->id());
-                // dd($validate_data);
                 $userMedical = $user->medicals()->create([
 
                     'reimbursment_type'=>$validate_data['reimbursment_type'],
@@ -241,8 +240,7 @@ class LoansController extends Controller
                     'medical_benifit'=>$validate_data['medical_benifit'],
                     'medical_record1'=>'../../../uploads/reimburstment/'.$file_name1,
                     'medical_record2'=>'../../../uploads/reimburstment/'.$file_name2,
-                    // 'medical_record3'=>'../../../uploads/reimburstment/'.$file_name3,
-                    // 'medical_record4'=>'../../../uploads/reimburstment/'.$file_name4,
+                   
 
                 ]);
         }
@@ -262,13 +260,15 @@ class LoansController extends Controller
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $userNotification->where('onRead',false)->count();
         
-        $loan = Loans::with('contributions')->find($id);
+        $loan = Loans::find($id);
+        $contribution = Contributions::where('loans_id',$loan->id)->limit(5)->paginate(5);
         $user = User::with('AdminReg')->find($loan->user_id);
         return Inertia::render('Users/UserLoanView',[
             'users'=>$user,
             'loans'=>$loan,
             'notification'=>$userNotification,
             'count'=>$notificationCount,
+            'contributions'=>$contribution
         ]);
     }
 

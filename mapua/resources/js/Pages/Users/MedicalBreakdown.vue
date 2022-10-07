@@ -24,17 +24,17 @@
 
     <div class="col-span-6 sm:col-span-3">
                             <label class="block text-sm font-medium text-gray-700">Name of Borrower</label>
-                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="info.first_name+' '+info.last_name">
+                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="info.first_name+' '+info.last_name" disabled>
                     </div>
 
     <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Date of Employment</label>
-                            <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="info.employment">
+                            <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="info.employment" disabled>
                     </div>
 
     <div class="col-span-6 sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700">Years of Service</label>
-                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="new Date().getUTCFullYear() - new Date(info.employment).getUTCFullYear()">
+                            <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="new Date().getUTCFullYear() - new Date(info.employment).getUTCFullYear()" disabled>
                     </div>
 
      <div class="col-span-6 sm:col-span-3">

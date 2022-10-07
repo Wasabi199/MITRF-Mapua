@@ -160,8 +160,9 @@
                                                 </div>
                                 
                             </div>
+                            
                             </div>
-
+                            <pagination class="md:hidden" :links="medicals.links"/>
                         </div>
                     </div>
                 </div>

@@ -188,6 +188,7 @@ class AdminController extends Controller
         $loans = Loans::with('user')
         ->filter($filters)
         ->limit(5)
+        ->orderByRaw('created_at DESC')
         ->paginate(5)
         ->appends($query::only(['approval']));
         
