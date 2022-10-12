@@ -123,10 +123,29 @@
                   disabled
                 />
               </div>
+              <div class="col-span-6 sm:col-span-3">
+                <label class="block text-sm font-medium text-gray-700"
+                  >Amount of Loan</label
+                >
 
+                <input
+                  type="number"
+                  class="
+                    mt-1
+                    block
+                    w-full
+                    shadow-sm
+                    sm:text-sm
+                    border-gray-300
+                    rounded-md
+                  "
+                  :value="$props.loans.loan_amount"
+                  disabled
+                />
+              </div>
               <div class="col-span-6 sm:col-span-2">
                 <label class="block text-sm font-medium text-gray-700"
-                  >Term of Payment &lpar;Months&rpar;</label
+                  >Remaining Term of Payments &lpar;Months&rpar;</label
                 >
                 <input
                   type="number"
@@ -159,7 +178,7 @@
                     border-gray-300
                     rounded-md
                   "
-                  :value="$props.loans.loan_status"
+                  :value="$props.loans.approval"
                   disabled
                 />
               </div>
