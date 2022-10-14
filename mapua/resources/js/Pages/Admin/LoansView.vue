@@ -120,10 +120,10 @@
                   <th class="text-left px-16 bg-gray-100">Name</th>
                   <th class="text-left px-16 bg-gray-100">Loan Type</th>
                   <th class="text-left px-16 bg-gray-100">Loan Amount</th>
-                  <th class="text-left px-16 bg-gray-100">Interest</th>
+                  <!-- <th class="text-left px-16 bg-gray-100">Interest</th> -->
                   <th class="text-left px-16 bg-gray-100">Approval</th>
                   <th class="text-left px-16 bg-gray-100">Duration</th>
-                  <th class="text-left px-16 bg-gray-100">Loan Status</th>
+                  <th class="text-left px-16 bg-gray-100">Last Updated Loan Payment</th>
                   <th class="text-left px-16 bg-gray-100">Action</th>
 
                   <tr v-for="loan in loans.data" v-bind:key="loan.id">
@@ -163,7 +163,7 @@
                       </div>
                     </td>
 
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <!-- <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div>
                           <div class="text-sm font-medium text-gray-900">
@@ -173,7 +173,7 @@
                           </div>
                         </div>
                       </div>
-                    </td>
+                    </td> -->
 
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
@@ -204,7 +204,7 @@
                         <div>
                           <div class="text-sm font-medium text-gray-900">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
-                              loan.loan_status
+                              new Date(loan.contributions[loan.contributions.length-1].created_at)
                             }}
                           </div>
                         </div>

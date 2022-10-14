@@ -75,10 +75,10 @@
                   <!-- <th class="text-left px-16 bg-gray-100">Name</th> -->
                   <th class="text-left px-16 bg-gray-100">Loan Type</th>
                   <th class="text-left px-16 bg-gray-100">Loan Amount</th>
-                  <th class="text-left px-16 bg-gray-100">Interest</th>
-                  <th class="text-left px-16 bg-gray-100">Approval</th>
+                  <!-- <th class="text-left px-16 bg-gray-100">Interest</th> -->
+                  <!-- <th class="text-left px-16 bg-gray-100">Approval</th> -->
                   <th class="text-left px-16 bg-gray-100">Duration</th>
-                  <th class="text-left px-16 bg-gray-100">Loan Status</th>
+                  <!-- <th class="text-left px-16 bg-gray-100">Loan Status</th> -->
                   <th class="text-left px-16 bg-gray-100">Action</th>
 
                   <tr v-for="loan in loans.data" v-bind:key="loan.id">
@@ -103,7 +103,7 @@
                       </div>
                     </td>
 
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <!-- <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div>
                           <div class="text-sm font-medium text-gray-900">
@@ -111,8 +111,8 @@
                           </div>
                         </div>
                       </div>
-                    </td>
-
+                    </td> -->
+<!-- 
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div>
@@ -121,7 +121,7 @@
                           </div>
                         </div>
                       </div>
-                    </td>
+                    </td> -->
 
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
@@ -131,9 +131,9 @@
                           </div>
                         </div>
                       </div>
-                    </td>
+                    </td> 
 
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <!-- <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div>
                           <div class="text-sm font-medium text-gray-900">
@@ -141,12 +141,11 @@
                           </div>
                         </div>
                       </div>
-                    </td>
+                    </td> -->
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div
                         class="
-                          flex
-                          items-center
+                          w-fit
                           text-center
                           px-4
                           py-1
@@ -162,8 +161,8 @@
                         "
                       >
                         <Link :href="route('UserLoanView', loan.id)">
-                          <div>
-                            <button>VIEW EXISTING LOAN</button>
+                          <div class="text-center">
+                            VIEW EXISTING LOAN
                           </div>
                         </Link>
                       </div>
@@ -185,10 +184,10 @@
         <div class="bg-white p-4 rounded-lg shadow">
           <div><b>Loan Type:</b> {{ loan.loan_type }}</div>
           <div><b>Loan Amount:</b> {{ loan.loan_amount }} PHP</div>
-          <div><b>Interest:</b> {{ loan.interest }}%</div>
-          <div><b>Approval:</b> {{ loan.approval }}</div>
-          <div><b>Duration:</b> {{ loan.duration }} months</div>
-          <div><b>Loan Status:</b> {{ loan.loan_status }}</div>
+          <!-- <div><b>Interest:</b> {{ loan.interest }}%</div>
+          <div><b>Approval:</b> {{ loan.approval }}</div> -->
+           <div><b>Duration:</b> {{ loan.duration }} months</div>
+          <!-- <div><b>Loan Status:</b> {{ loan.loan_status }}</div> --> -->
           <div
             class="
               flex

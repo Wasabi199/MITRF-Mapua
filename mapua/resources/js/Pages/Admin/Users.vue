@@ -55,7 +55,8 @@
                                 <th class="text-left px-9 bg-gray-100">Contact No.</th>
                                 <th class="text-left px-20 bg-gray-100">E-mail</th>
                                 <th class="text-left px-20 bg-gray-100">Department</th>
-
+                                <th class="text-left px-20 bg-gray-100">Last Updated Contribution</th>
+                                
                             <tbody class="bg-white divide-y divide-gray-200">
 
                                 <tr v-for="user in users.data" v-bind:key="user.id">
@@ -105,6 +106,16 @@
                                             <div>
                                                 <div class="text-sm font-medium text-gray-900">
                                                     {{ user.admin_reg.department }}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div>
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    {{ new Date(user.user_contribution.updated_at) }}
                                                 </div>
                                             </div>
                                         </div>

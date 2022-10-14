@@ -31,7 +31,7 @@ class AdminController extends Controller
     public function users(QueryRequest $query){
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $notification->where('onRead',false)->count();
-        $users = User::with('adminReg')
+        $users = User::with('adminReg','userContribution')
         ->orderBy('name')
         ->filter($query::only('search'))
         ->limit(5)
@@ -185,7 +185,7 @@ class AdminController extends Controller
         
         $filters = $query::only('approval');
         isset($filters['approval']) ? $filters['approval'] = Approval::approval($filters['approval']) : $filters['approval'] = Approval::approval($filters['approval']='All');
-        $loans = Loans::with('user')
+        $loans = Loans::with('user')->with('contributions')->orderByRaw('created_at DESC')
         ->filter($filters)
         ->limit(5)
         ->orderByRaw('created_at DESC')

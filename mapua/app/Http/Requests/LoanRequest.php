@@ -35,7 +35,7 @@ class LoanRequest extends FormRequest
             // 'approval'=>'required',
             'duration'=>'required',
             // 'loan_status'=>'required',
-            'attachment1'=>'file|mimes:jpg,png,jpeg,pdf',
+            // 'attachment1'=>'file|mimes:jpg,png,jpeg,pdf',
             'attachment2'=>'file|mimes:jpg,png,jpeg,pdf',
             'attachment3'=>'file|mimes:jpg,png,jpeg,pdf',
             // 'total_contribution'=>'required',

@@ -72,17 +72,17 @@ class LoansController extends Controller
         // dd($request);
         $validate_data = $request->validated();
         // dd($validate_data);
-        if($request->hasFile('attachment1') && $request->hasFile('attachment2') && $request->hasFile('attachment3')){
+        if($request->hasFile('attachment2') && $request->hasFile('attachment3')){
             
-            $file1 = $request->file('attachment1');
+            // $file1 = $request->file('attachment1');
             $file2 = $request->file('attachment2');
             $file3 = $request->file('attachment3');
            
-            $file_name1 = time().'.'.$file1->getClientOriginalName();
+            // $file_name1 = time().'.'.$file1->getClientOriginalName();
             $file_name2 = time().'.'.$file2->getClientOriginalName();
             $file_name3 = time().'.'.$file3->getClientOriginalName();
 
-            $file1->move(public_path('uploads/loans'),$file_name1);
+            // $file1->move(public_path('uploads/loans'),$file_name1);
             $file2->move(public_path('uploads/loans'),$file_name2);
             $file3->move(public_path('uploads/loans'),$file_name3);
             $user = User::find(auth()->id());
@@ -91,7 +91,7 @@ class LoansController extends Controller
              
                 'loan_type'=>$validate_data['loan_type'],
                 'duration'=>$validate_data['duration'],
-                'attachment1'=>'../../../uploads/loans/'.$file_name1,
+                // 'attachment1'=>'../../../uploads/loans/'.$file_name1,
                 'attachment2'=>'../../../uploads/loans/'.$file_name2,
                 'attachment3'=>'../../../uploads/loans/'.$file_name3,
                 'loan_amount'=>$validate_data['loan_amount'],
@@ -110,7 +110,7 @@ class LoansController extends Controller
             ]);
             // dd($user_loans->id);
 
-            return Redirect::route('loansView')->with('message',
+            return Redirect::route('userLoanDashboard')->with('message',
                 [NotificationService::notificationItem('Sucess', '', 'Sucessfully '.$validate_data['loan_type'])]);
         
         }

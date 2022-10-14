@@ -65,12 +65,12 @@
                         </div>
                         <p class="mb-1 text-lg">Upload Application Form</p>
 
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                        <!-- <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                             <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx" 
                                 class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple /> 
-                        </div>
+                        </div> -->
                          <p class="mb-1 text-lg">Upload Photo of you Including the Place to be Improved/Repaired</p>
                         <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                             <input @change="onChange2"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
@@ -120,12 +120,12 @@
                         </div>
                         <p class="mb-1 text-lg">Upload Application Form</p>
 
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                        <!-- <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                             <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
                                 class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
-                        </div>
+                        </div> -->
                          <p class="mb-1 text-lg">Upload Proof of Relation (Birth Certificate in Case of Relatives)</p>
                         <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                             <input @change="onChange2"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
@@ -149,7 +149,7 @@
                     </form>
 
                     <!-- Loan For Medical -->
-                     <form v-if="form.loan_type == 'Medical Reimbursement'" class="p-6 sm:px-20 bg-white border-b border-gray-200 mt-[-40px]">
+                     <!-- <form v-if="form.loan_type == 'Medical Reimbursement'" class="p-6 sm:px-20 bg-white border-b border-gray-200 mt-[-40px]">
                         <p class="mb-1 text-lg">Terms (Months)</p>
                         <select v-model="form.duration"
                             class="mb-5 border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 transition ease-in duration-150 rounded-md">
@@ -179,13 +179,13 @@
                                 class="block w-full text-[1rem] text-slate-500 file:mr-4 file:py-2 file:px-4
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
-                        </div>
-                        <div class="flex justify-center">
+                        </div> -->
+                        <!-- <div class="flex justify-center">
                             <button type="button" @click="submit"
                                 class=" py-2 px-4 mb-5 bg-red-800 hover:bg-red-700 focus:ring focus:ring-indigo-300 text-yellow-500 w-64 
                                 transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg">Submit</button>
                         </div>
-                    </form>
+                    </form> -->
 
                     <!-- Loan For Emergencies -->
                      <form v-if="form.loan_type == 'Emergency Loan'" class="p-6 sm:px-20 bg-white borsder-b border-gray-200 mt-[-40px]">
@@ -213,12 +213,12 @@
                         </div>
                          <p class="mb-1 text-lg">Upload Application Form</p>
 
-                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                        <!-- <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                             <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
                                 class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
                             file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300"
                                 multiple />
-                        </div>
+                        </div> -->
                          <p class="mb-1 text-lg">Upload 4.5% interest for a 2-year term</p>
                         <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                             <input @change="onChange2"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
@@ -632,7 +632,7 @@
     <Modal  :show="submitModal" :closeable="true" @close="submitModal = !submitModal">
     <div  class="p-5">
             <div class="flex justify-between text-xl font-bold text-gray-900 my-2 " >
-                <span>Agreement</span>
+                <span>Data Privacy Compliance</span>
                 <div class="flex text-justify font-normal  text-gray-900 my-5">
                 </div>
               <svg @click="submitModal = !submitModal" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -705,7 +705,7 @@ export default {
                 loan_amount:'',
                 duration:'',
                 interest:'',
-                attachment1:'',
+                // attachment1:'',
                 attachment2:'',
                 attachment3:'',
     
@@ -719,10 +719,10 @@ export default {
             console.log('clicked_accept')
             this.showModal = false
         },
-        onChange1(e){
-            console.log("Selected File 1", e.target.files[0])
-            this.form.attachment1 = e.target.files[0]
-        },
+        // onChange1(e){
+        //     console.log("Selected File 1", e.target.files[0])
+        //     this.form.attachment1 = e.target.files[0]
+        // },
          onChange2(e){
             console.log("Selected File 2", e.target.files[0])
             this.form.attachment2 = e.target.files[0]

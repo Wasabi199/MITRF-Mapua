@@ -1153,7 +1153,7 @@
             "
             @click="acceptLoan(loan)"
           >
-            Approve
+            Accept
           </button>
         </div>
       </div>

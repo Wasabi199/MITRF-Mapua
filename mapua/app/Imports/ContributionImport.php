@@ -23,26 +23,29 @@ class ContributionImport implements ToCollection, WithHeadingRow, WithValidation
                 $loan = Loans::filterOwner($user->id)->get();
                 foreach($loan as $loanUpdate){
                     if($loanUpdate->loan_type == $row['loan_type']){
-                        if(!$loanUpdate->loan_amount >= 0){
+                        if($loanUpdate->loan_status != 'Paid'){
+                            if(!$loanUpdate->loan_amount >= 0){
                             
-                            $loanUpdate->update([
-                                'loan_amount'=>$loanUpdate->loan_amount - $row['contribution'],
-                            ]); 
-                            $loanUpdate->contributions()->create([
-                                'contribution_amount'=>$row['contribution']
-                            ]);
-
-                            if($loanUpdate->loan_amount <= 0){
+                                $loanUpdate->update([
+                                    'loan_amount'=>$loanUpdate->loan_amount - $row['contribution'],
+                                ]); 
+                                $loanUpdate->contributions()->create([
+                                    'contribution_amount'=>$row['contribution']
+                                ]);
+    
+                                if($loanUpdate->loan_amount <= 0){
+                                    $loanUpdate->update([
+                                        'loan_status'=>'Paid'
+                                    ]);
+                                }
+    
+                             }else{
                                 $loanUpdate->update([
                                     'loan_status'=>'Paid'
                                 ]);
                             }
-
-                         }else{
-                            $loanUpdate->update([
-                                'loan_status'=>'Paid'
-                            ]);
                         }
+                       
                     }
                     
                 }

@@ -23,7 +23,7 @@ return new class extends Migration
             // $table->string('department');
             $table->double('interest');
 
-            $table->string('attachment1')->nullable();
+            // $table->string('attachment1')->nullable();
             $table->string('attachment2')->nullable();
             $table->string('attachment3')->nullable();
             $table->string('attachment4')->nullable();
