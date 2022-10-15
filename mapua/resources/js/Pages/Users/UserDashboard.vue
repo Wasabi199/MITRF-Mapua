@@ -53,26 +53,7 @@
                 </div>
             </div>
         </Modal>
-        <Modal :show="dataPrivacyModal" :closeable="false">
-            <div class="p-5">
-                <div class="text-center text-xl font-bold text-gray-900 my-3 " >
-                    <span class="text-center">Data Privacy Compliance</span>
-                </div>
-                <!-- Content -->
-                <div class="py-10 text-xl text-justify">I hereby agree to submit my documents and to allow MITRFI and its authorized personnel to process my documents and personal information in compliance with the Data Privacy Act of 2012 and MITRFI policies. Acceptance of the
-document/s does not automatically guarantee approval as the application shall be subject to the evaluation and approval of the MITFRI based on its loan policies.</div>
-                <div class="flex justify-between 2xl:px-20">
-                    <div class=" bg-red-500 w-fit text-center text-white px-10 py-2 rounded-full text-xl font-semibold ">
-                        <form @submit.prevent="logout">
-                            <button>I do not Agree</button>
-                        </form>
-                    </div>
-                    <div @click="dataPrivacyModal = !dataPrivacyModal" class="bg-green-500 w-fit text-center  px-10 py-2 rounded-full text-white text-xl font-semibold">
-                        <div>I Agree</div>
-                    </div>
-                </div>
-            </div>
-        </Modal>
+      
     </AppLayout>
 </template>
 
@@ -96,7 +77,7 @@ export default {
        data() {
         return {
             showModal:false,
-            dataPrivacyModal:true,
+            
         }        
     },
 
@@ -105,11 +86,7 @@ export default {
         count: Number,
         contribution:Object,
     },
-    methods:{
-        logout(){
-            this.$inertia.post(route('logout'))
-        }
-    }
+    
  
 };
 </script>

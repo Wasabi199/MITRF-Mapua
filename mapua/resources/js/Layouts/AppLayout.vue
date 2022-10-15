@@ -130,7 +130,7 @@ export default {
                             <!-- User Navigation -->
                             <div v-if="$page.props.user.userType == 2" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <!-- Dashboard -->
-                                <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                <JetNavLink :href="route('userDashboard')" :active="route().current('userDashboard')">
                                     Dashboard
                                 </JetNavLink>
                                 <!-- Current Loans -->

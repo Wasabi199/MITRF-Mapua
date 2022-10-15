@@ -12,6 +12,17 @@ use Illuminate\Support\Facades\Request as QueryRequest;
 class DashboardController extends Controller
 {
     //
+    public function userLandingPage(){
+        $contribution = UserContribution::find(Auth::user()->id);
+        $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $userNotificationCount = $userNotification->where('onRead',false)->count();
+        return Inertia::render('Users/UserDashboard',[
+            'notification'=>$userNotification,
+            'count'=>$userNotificationCount,
+            'contribution'=>$contribution,
+        ]);
+    }
+
     public function index(QueryRequest $request){
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $notification->where('onRead',false)->count();
@@ -25,10 +36,8 @@ class DashboardController extends Controller
             ]);
         }
         else if(Auth::user()->userType == 2){
-            return Inertia::render('Users/UserDashboard',[
-                'notification'=>$userNotification,
-                'count'=>$userNotificationCount,
-                'contribution'=>$contribution,
+            return Inertia::render('Users/UserLandingPage',[
+           
             ]);
         }else if(Auth::user()->userType ==3){
             return Inertia::render('Medical/Dashboard',[
