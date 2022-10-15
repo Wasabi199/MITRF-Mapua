@@ -260,7 +260,7 @@
             cursor-pointer
           "
         >
-          <Link :href="route('dashboard')">
+          <Link :href="route('userDashboard')">
             <button>BACK TO HOME</button>
           </Link>
         </div>

@@ -176,7 +176,7 @@
 
                 <div class="flex justify-center px-6 py-4 whitespace-nowrap">
                     <div class="flex space-x-2 mr-5 px-4 py-1 border text-md text-red-600 dark:text-red-600 dark:border-red-600 border-red-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-red-500 cursor-pointer">
-                        <Link :href="route('dashboard')">
+                        <Link :href="route('userDashboard')">
                         <button>BACK TO HOME</button>
                         </Link>
                     </div>
