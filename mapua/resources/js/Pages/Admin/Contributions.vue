@@ -967,9 +967,9 @@
         <div v-if="loan.loan_type == 'Educational Loan'">
           <p class="font-semibold">Application Form:</p>
         </div>
-        <div v-if="loan.loan_type == 'Emergency Loan'">
+        <!-- <div v-if="loan.loan_type == 'Emergency Loan'">
           <p class="font-semibold">Application Form:</p>
-        </div>
+        </div> -->
         <br />
 
         <!-- IMAGE 1-->
@@ -991,9 +991,9 @@
             Proof of Relation (Birth Certificate in Case of Relatives):
           </p>
         </div>
-        <div v-if="loan.loan_type == 'Emergency Loan'">
+        <!-- <div v-if="loan.loan_type == 'Emergency Loan'">
           <p class="font-semibold">4.5% interest for a 2-year term:</p>
-        </div>
+        </div> -->
 
         <!-- IMAGE 2-->
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
@@ -1013,9 +1013,9 @@
           </p>
         </div>
 
-        <div v-if="loan.loan_type == 'Emergency Loan'">
+        <!-- <div v-if="loan.loan_type == 'Emergency Loan'">
           <p class="font-semibold">2.25% interest for a 1-year term:</p>
-        </div>
+        </div> -->
 
         <!-- IMAGE 3-->
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
@@ -1035,7 +1035,7 @@
           overflow-hidden
           border-gray-300
           sm:rounded-lg
-          max-w-lg
+          w-full
           place-self-center
         "
       >
@@ -1045,9 +1045,9 @@
         <div v-if="loan.loan_type == 'Educational Loan'">
           <p class="font-semibold">Application Form:</p>
         </div>
-        <div v-if="loan.loan_type == 'Emergency Loan'">
+        <!-- <div v-if="loan.loan_type == 'Emergency Loan'">
           <p class="font-semibold">Application Form:</p>
-        </div>
+        </div> -->
         <br />
 
         <!-- IMAGE 1-->
@@ -1069,9 +1069,9 @@
             Proof of Relation (Birth Certificate in Case of Relatives):
           </p>
         </div>
-        <div v-if="loan.loan_type == 'Emergency Loan'">
+        <!-- <div v-if="loan.loan_type == 'Emergency Loan'">
           <p class="font-semibold">4.5% interest for a 2-year term:</p>
-        </div>
+        </div> -->
 
         <!-- IMAGE 2-->
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
@@ -1091,9 +1091,9 @@
           </p>
         </div>
 
-        <div v-if="loan.loan_type == 'Emergency Loan'">
+        <!-- <div v-if="loan.loan_type == 'Emergency Loan'">
           <p class="font-semibold">2.25% interest for a 1-year term:</p>
-        </div>
+        </div> -->
 
         <!-- IMAGE 3-->
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
@@ -1180,9 +1180,9 @@
         <div v-if="loan.loan_type == 'Educational Loan'">
           <p class="font-semibold">Application Form:</p>
         </div>
-        <div v-if="loan.loan_type == 'Emergency Loan'">
+        <!-- <div v-if="loan.loan_type == 'Emergency Loan'">
           <p class="font-semibold">Application Form:</p>
-        </div>
+        </div> -->
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
           <img
             :src="loan.attachment1 == null ? '' : loan.attachment1"
@@ -1199,9 +1199,9 @@
             Proof of Relation (Birth Certificate in Case of Relatives):
           </p>
         </div>
-        <div v-if="loan.loan_type == 'Emergency Loan'">
+        <!-- <div v-if="loan.loan_type == 'Emergency Loan'">
           <p class="font-semibold">4.5% interest for a 2-year term:</p>
-        </div>
+        </div> -->
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
           <img
             :src="loan.attachment2 == null ? '' : loan.attachment2"
@@ -1217,9 +1217,9 @@
           </p>
         </div>
 
-        <div v-if="loan.loan_type == 'Emergency Loan'">
+        <!-- <div v-if="loan.loan_type == 'Emergency Loan'">
           <p class="font-semibold">2.25% interest for a 1-year term:</p>
-        </div>
+        </div> -->
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
           <img
             :src="loan.attachment3 == null ? '' : loan.attachment3"

@@ -204,7 +204,7 @@
                         <div>
                           <div class="text-sm font-medium text-gray-900">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
-                              new Date(loan.contributions[loan.contributions.length-1].created_at)
+                              loan.contributions[loan.contributions.length-1] != null? new Date(loan.contributions[loan.contributions.length-1].created_at):'No Contribution Yet'
                             }}
                           </div>
                         </div>

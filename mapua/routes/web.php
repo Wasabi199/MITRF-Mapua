@@ -77,6 +77,7 @@ Route::prefix('Users')->middleware(['auth:sanctum','Users'])->group(function(){
     Route::get('User/MedicalButton',[LoansController::class,'ReimbursView'])->name('ReimbursView');
     Route::get('User/MedicalBreakdown/{id}',[LoansController::class,'MedicalBreakdown'])->name('MedicalBreakdown');
 
+    Route::post('Loan/Emergency',[LoansController::class,'createEmergencyLoan'])->name('emergency');
 
     Route::post('User/notification',[NotificationController::class,'notification'])->name('UserNotification');
 });
@@ -85,8 +86,10 @@ Route::prefix('Medical')->middleware(['auth:sanctum','Medical'])->group(function
     Route::get('Medical/{id}',[MedicalController::class,'medicalProfile'])->name('medicalProfile');
     Route::post('Medical/Approve',[MedicalController::class,'medicalApprove'])->name('medicalApprove');
     Route::post('Medical/Reject',[MedicalController::class,'medicalReject'])->name('medicalReject');
-
+    
     Route::post('Medical/notification',[NotificationController::class,'notification'])->name('MedicalNotification');
+
+    
 });
 Route::prefix('Chairman')->middleware(['auth:sanctum','Chairman'])->group(function(){
     // Route::get('Chairman')
