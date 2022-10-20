@@ -952,6 +952,7 @@
       <div
         v-if="loan.approval == 'Processed'"
         class="
+        min-w-full
           row-span-3
           bg-white
           overflow-hidden
@@ -967,9 +968,9 @@
         <div v-if="loan.loan_type == 'Educational Loan'">
           <p class="font-semibold">Application Form:</p>
         </div>
-        <!-- <div v-if="loan.loan_type == 'Emergency Loan'">
-          <p class="font-semibold">Application Form:</p>
-        </div> -->
+        <div v-if="loan.loan_type == 'Emergency Loan'">
+          <p class="font-semibold">Member's Payslip for Validation:</p>
+        </div>
         <br />
 
         <!-- IMAGE 1-->
@@ -1045,9 +1046,9 @@
         <div v-if="loan.loan_type == 'Educational Loan'">
           <p class="font-semibold">Application Form:</p>
         </div>
-        <!-- <div v-if="loan.loan_type == 'Emergency Loan'">
-          <p class="font-semibold">Application Form:</p>
-        </div> -->
+        <div v-if="loan.loan_type == 'Emergency Loan'">
+          <p class="font-semibold">Member's Payslip for Validation:</p>
+        </div>
         <br />
 
         <!-- IMAGE 1-->
@@ -1180,9 +1181,9 @@
         <div v-if="loan.loan_type == 'Educational Loan'">
           <p class="font-semibold">Application Form:</p>
         </div>
-        <!-- <div v-if="loan.loan_type == 'Emergency Loan'">
-          <p class="font-semibold">Application Form:</p>
-        </div> -->
+        <div v-if="loan.loan_type == 'Emergency Loan'">
+          <p class="font-semibold">Member's Payslip for Validation:</p>
+        </div>
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
           <img
             :src="loan.attachment1 == null ? '' : loan.attachment1"

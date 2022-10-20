@@ -101,7 +101,7 @@
                             </div>
                             <span v-show="amountValidation" class="text-red-500"><li>Maximum of 30,000</li></span>
                         </div>
-                        <p class="mb-1 text-lg">Upload Application Form</p>
+                        <!-- <p class="mb-1 text-lg">Upload Application Form</p> -->
 
                       
                          <p class="mb-1 text-lg">Upload Proof of Relation (Birth Certificate in Case of Relatives)</p>
@@ -148,6 +148,13 @@
                                 border-opacity-50 border-gray-400 hover:border-indigo-500 text-black block pl-7 pr-12 w-64  font-lg rounded-md" />
                             </div>
                             <span v-show="amountValidation" class="text-red-500"><li>Maximum of 30,000</li></span>
+                        </div>
+
+                        <p class="mb-1 text-lg">Member's Payslip for Validation</p>
+                        <div class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
+                            <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
+                                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1
+                            file:border-0 file:text-md file:font-semibold file:bg-gray-200   file:text-gray-500 hover:file:bg-gray-300" />
                         </div>
                        
                         <div class="flex justify-center">
@@ -498,7 +505,7 @@ export default {
                 loan_amount:'',
                 duration:'',
                 interest:'',
-                
+                attachment1:'',                
     
             }),
           
@@ -510,10 +517,10 @@ export default {
             console.log('clicked_accept')
             this.showModal = false
         },
-        // onChange1(e){
-        //     console.log("Selected File 1", e.target.files[0])
-        //     this.form.attachment1 = e.target.files[0]
-        // },
+        onChange1(e){
+            console.log("Selected File 1", e.target.files[0])
+            this.emergencyForm.attachment1 = e.target.files[0]
+        },
          onChange2(e){
             console.log("Selected File 2", e.target.files[0])
             this.form.attachment2 = e.target.files[0]

@@ -117,27 +117,34 @@ class LoansController extends Controller
 
     public function createEmergencyLoan(emergencyReqest $request){
        $validate_data = $request->validated();
+    //    dd($validate_data);
        $user = User::find(auth()->id());
-       $user_loans = $user->loans()->create([
+
+       if($request->hasFile('attachment1')){
+
+        $file1 = $request->file('attachment1');
+        $file_name1 = time().'.'.$file1->getClientOriginalName();
+        $file1->move(public_path('uploads/loans'),$file_name1);
+        $user_loans = $user->loans()->create([
             
-        'loan_type'=>$validate_data['loan_type'],
-        'duration'=>$validate_data['duration'],
-        'attachment2'=>null,
-        'attachment3'=>null,
-        'loan_amount'=>$validate_data['loan_amount'],
-        'amount'=>$validate_data['amount'],
-        'interest'=>$validate_data['interest'],
-        'loan_status'=>'Ongoing',
-        'approval'=>'Submitted',
-    
-    ]);
-    $user->userNotif()->create([
-        'universal_id'=>$user_loans->id,
-        'onRead'=>false,
-        'value'=>$user->name.' Applying for '.$validate_data['loan_type'],
-        'type'=>1,
-        'notification_type'=>1
-    ]);
+            'loan_type'=>$validate_data['loan_type'],
+            'duration'=>$validate_data['duration'],
+            'attachment1'=>'../../../uploads/loans/'.$file_name1,
+            'loan_amount'=>$validate_data['loan_amount'],
+            'amount'=>$validate_data['amount'],
+            'interest'=>$validate_data['interest'],
+            'loan_status'=>'Ongoing',
+            'approval'=>'Submitted',
+        ]);
+        $user->userNotif()->create([
+            'universal_id'=>$user_loans->id,
+            'onRead'=>false,
+            'value'=>$user->name.' Applying for '.$validate_data['loan_type'],
+            'type'=>1,
+            'notification_type'=>1
+        ]);
+       }
+      
 
     return Redirect::route('userLoanDashboard')->with('message',
         [NotificationService::notificationItem('Sucess', '', 'Sucessfully '.$validate_data['loan_type'])]);
