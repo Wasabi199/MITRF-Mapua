@@ -42,7 +42,7 @@
                             
                         </select>
                         <div class="mb-5">
-                            <label class="mb-1 text-lg text-gray-700" for="amount">Amount</label><br>
+                            <label class="mb-1 text-lg text-gray-700" for="amount">Amount(Minimum of 30,000 and maximum of 100,000)</label><br>
                             
                                 <div class="mt-1 relative w-64 rounded-md">
                                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -58,7 +58,7 @@
                                 <span v-show="amountValidation" class="text-red-500"><li>Minimum of 30,000 and maximum of 100,000</li></span>
                               
                         </div>
-                        <p class="mb-1 text-lg">Upload Application Form</p>
+                        <!-- <p class="mb-1 text-lg">Upload Application Form</p> -->
 
                     
                          <p class="mb-1 text-lg">Upload Photo of you Including the Place to be Improved/Repaired</p>
@@ -88,7 +88,7 @@
                         
                 
                         <div class="mb-5">
-                            <label class="mb-1 text-lg text-gray-700" for="amount">Amount</label><br>
+                            <label class="mb-1 text-lg text-gray-700" for="amount">Amount(Maximum of 30,000)</label><br>
                             <div class="mt-1 relative w-64 rounded-md">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <span  class="text-gray-500 text-lg" >
@@ -136,7 +136,7 @@
                            
                         </select>
                         <div class="mb-5">
-                            <label class="mb-1 text-lg" for="amount">Amount</label><br>
+                            <label class="mb-1 text-lg" for="amount">Amount(Maximum of 30,000)</label><br>
                             <div class="mt-1 relative w-64 rounded-md">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <span class="text-gray-500 text-lg">

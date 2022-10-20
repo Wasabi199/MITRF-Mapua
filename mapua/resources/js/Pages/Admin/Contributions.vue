@@ -861,14 +861,7 @@
             <p class="font-semibold">Loan Duration:</p>
             <p class="ml-2 underline">{{ loan.duration -contributions.total }} months</p>
           </div>
-          <!-- Contribution -->
-          <!-- <div class="flex text-lg">
-                    <p class="font-semibold">Current Contribution:</p>
-                <p class="ml-2 underline"> 
-                        {{
-                            user.admin_reg.contribution != null ? user.admin_reg.contribution : 'No Contribution'
-                        }}</p> 
-                </div> -->
+     
         </div>
       </div>
 
