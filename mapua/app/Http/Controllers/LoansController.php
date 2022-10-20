@@ -111,7 +111,7 @@ class LoansController extends Controller
             ]);
 
             return Redirect::route('userLoanDashboard')->with('message',
-                [NotificationService::notificationItem('Sucess', '', 'Sucessfully Submitted'.$validate_data['loan_type'])]);
+                [NotificationService::notificationItem('Sucess', '', 'Sucessfully submitted '.$validate_data['loan_type'])]);
         }
     }
 
@@ -147,7 +147,7 @@ class LoansController extends Controller
       
 
     return Redirect::route('userLoanDashboard')->with('message',
-        [NotificationService::notificationItem('Sucess', '', 'Sucessfully '.$validate_data['loan_type'])]);
+        [NotificationService::notificationItem('Sucess', '', 'Sucessfully submitted '.$validate_data['loan_type'])]);
     }
 
     public function medicalReimbursment(query $query){
@@ -287,7 +287,7 @@ class LoansController extends Controller
             'notification_type'=>2
         ]);
         return Redirect::route('medicalView')->with('message',
-            [NotificationService::notificationItem('Sucess', '', 'Sucessfully Submitted Medical Reimburstment '.$validate_data['reimbursment_type'])]);
+            [NotificationService::notificationItem('Sucess', '', 'Sucessfully submitted Medical Reimburstment '.$validate_data['reimbursment_type'])]);
     }
     public function  UserLoanView($id){
        

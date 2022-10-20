@@ -105,8 +105,13 @@ export default {
                     <div class="flex justify-between h-16">
                         <div class="flex">
                             <!-- Logo -->
-                            <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
+                            <div v-if="$page.props.user.userType != 2" class="shrink-0 flex items-center">
+                                <Link  :href="route('dashboard')">
+                                    <JetApplicationMark class="block h-9 w-auto" />
+                                </Link>
+                            </div>
+                            <div v-if="$page.props.user.userType == 2" class="shrink-0 flex items-center">
+                                <Link  :href="route('userDashboard')">
                                     <JetApplicationMark class="block h-9 w-auto" />
                                 </Link>
                             </div>
