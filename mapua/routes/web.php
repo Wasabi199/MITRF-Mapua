@@ -78,7 +78,7 @@ Route::prefix('Users')->middleware(['auth:sanctum','Users'])->group(function(){
     Route::get('User/MedicalBreakdown/{id}',[LoansController::class,'MedicalBreakdown'])->name('MedicalBreakdown');
 
     Route::post('Loan/Emergency',[LoansController::class,'createEmergencyLoan'])->name('emergency');
-
+    Route::post('Loan/Educational',[LoansController::class,'createEducationalLoan'])->name('educational');
     Route::post('User/notification',[NotificationController::class,'notification'])->name('UserNotification');
 });
 Route::prefix('Medical')->middleware(['auth:sanctum','Medical'])->group(function(){

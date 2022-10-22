@@ -10,6 +10,7 @@ use App\Http\Requests\UserDeleteRequest as deleteRequest;
 use App\Http\Requests\LoanDeleteRequest as deleteloanRequest;
 use App\Http\Requests\UserUpdateRequest as updateRequest;
 use App\Http\Requests\LoanReviewRequest as reviewloanRequest;
+use App\Http\Requests\LoanRejectRequest as rejectLoanRequest;
 use App\Http\Requests\Admin as RegiterUserRequest;
 use App\Imports\UserAdmin;
 use Carbon\Carbon;
@@ -255,9 +256,10 @@ class AdminController extends Controller
             [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
     }
 
-    public function loanReject(reviewloanRequest $request){
+    public function loanReject(rejectLoanRequest $request){
         $loans = loans::find($request->validated()['id']);
         $data = $request->validated();
+       
         $loans->update($data);
         UserNotifications::create([
             'user_id'=>$loans->user_id,

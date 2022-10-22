@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoanRequest extends FormRequest
+class EducationalLoanRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,21 +24,13 @@ class LoanRequest extends FormRequest
     public function rules()
     {
         return [
-            //
-            // 'user_loan'=>'required|exists:users,id',
-            
             'loan_type'=>'required',
             'loan_amount'=>'required',
             'amount'=>'required',
-            // 'department'=>'required',
             'interest'=>'required',
-            // 'approval'=>'required',
             'duration'=>'required',
-            // 'loan_status'=>'required',
             'attachment1'=>'file|mimes:jpg,png,jpeg,pdf',
-            // 'attachment2'=>'file|mimes:jpg,png,jpeg,pdf',
             'attachment3'=>'file|mimes:jpg,png,jpeg,pdf',
-            // 'total_contribution'=>'required',
         ];
     }
 }

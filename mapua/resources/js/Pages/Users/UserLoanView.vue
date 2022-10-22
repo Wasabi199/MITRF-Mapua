@@ -105,7 +105,7 @@
 
               <div class="col-span-6 sm:col-span-3">
                 <label class="block text-sm font-medium text-gray-700"
-                  >Amount of Loan</label
+                  >Principal Amount</label
                 >
 
                 <input
@@ -296,6 +296,7 @@
       "
     >
       <h1>Rejected Loan Application</h1>
+      <div class="font-semibold">{{loans.reason}}</div>
     </div>
     </div>
     <div class="flex justify-center">

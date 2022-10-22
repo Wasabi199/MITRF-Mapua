@@ -22,7 +22,7 @@ class Loans extends Model
         'attachment2',
         'attachment3',
         'attachment4',
-        // 'total_contribution',
+        'reason',
         
     ];
     public function user(){

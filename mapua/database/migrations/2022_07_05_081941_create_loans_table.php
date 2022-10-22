@@ -30,7 +30,8 @@ return new class extends Migration
             
             // $table->integer('total_contribution');
             $table->integer('duration');
-          
+
+            $table->longText('reason')->nullable();
 
             $table->string('loan_status');
             $table->string('approval');

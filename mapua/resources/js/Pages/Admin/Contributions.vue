@@ -956,10 +956,10 @@
         "
       >
         <div v-if="loan.loan_type == 'Housing Loan'">
-          <p class="font-semibold">Application Form:</p>
+          <p class="font-semibold">Member's Payslip for Validation:</p>
         </div>
         <div v-if="loan.loan_type == 'Educational Loan'">
-          <p class="font-semibold">Application Form:</p>
+          <p class="font-semibold">Member's Payslip for Validation:</p>
         </div>
         <div v-if="loan.loan_type == 'Emergency Loan'">
           <p class="font-semibold">Member's Payslip for Validation:</p>
@@ -980,7 +980,7 @@
             Photo of you Including the Place to be Improved/Repaired:
           </p>
         </div>
-        <div v-if="loan.loan_type == 'Educational Loan'">
+        <div v-if="loan.loan_type == 'Educational Loan' && loan.attachment2 != null">
           <p class="font-semibold">
             Proof of Relation (Birth Certificate in Case of Relatives):
           </p>
@@ -1034,10 +1034,10 @@
         "
       >
         <div v-if="loan.loan_type == 'Housing Loan'">
-          <p class="font-semibold">Application Form:</p>
+          <p class="font-semibold">Member's Payslip for Validation:</p>
         </div>
         <div v-if="loan.loan_type == 'Educational Loan'">
-          <p class="font-semibold">Application Form:</p>
+          <p class="font-semibold">Member's Payslip for Validation:</p>
         </div>
         <div v-if="loan.loan_type == 'Emergency Loan'">
           <p class="font-semibold">Member's Payslip for Validation:</p>
@@ -1058,7 +1058,7 @@
             Photo of you Including the Place to be Improved/Repaired:
           </p>
         </div>
-        <div v-if="loan.loan_type == 'Educational Loan'">
+        <div v-if="loan.loan_type == 'Educational Loan' && loan.attachment2 != null">
           <p class="font-semibold">
             Proof of Relation (Birth Certificate in Case of Relatives):
           </p>
@@ -1166,13 +1166,14 @@
       "
     >
       <h1>Rejected Loan Application</h1>
+      <div class="font-semibold">{{loan.reason}}</div>
     </div>
       <div v-if="loan.approval == 'Submitted'" class="row-span-3">
         <div v-if="loan.loan_type == 'Housing Loan'">
-          <p class="font-semibold">Application Form:</p>
+          <p class="font-semibold">Member's Payslip for Validation:</p>
         </div>
         <div v-if="loan.loan_type == 'Educational Loan'">
-          <p class="font-semibold">Application Form:</p>
+          <p class="font-semibold">Member's Payslip for Validation:</p>
         </div>
         <div v-if="loan.loan_type == 'Emergency Loan'">
           <p class="font-semibold">Member's Payslip for Validation:</p>
@@ -1188,7 +1189,7 @@
             Photo of you Including the Place to be Improved/Repaired:
           </p>
         </div>
-        <div v-if="loan.loan_type == 'Educational Loan'">
+        <div v-if="loan.loan_type == 'Educational Loan' && loan.attachment2 != null">
           <p class="font-semibold">
             Proof of Relation (Birth Certificate in Case of Relatives):
           </p>
@@ -1513,7 +1514,7 @@
     >
       <div class="p-5">
         <div class="flex justify-between text-xl font-bold text-gray-900 my-3">
-          <span></span>
+          
           <svg
             class="h-6 w-6 cursor-pointer"
             fill="none"
@@ -1543,6 +1544,16 @@
           <span class="text-center"
             >Reject {{ info.first_name }} {{ info.last_name }} loan?</span
           >
+        </div>
+        <div>
+          <select class="w-full rounded-lg" v-model="selectedReason">
+            <option disabled>Select Reason</option>
+            <option v-for="reason in rejectReason" v-bind:key="reason.id">{{reason}}</option>
+          </select>
+          
+        </div>
+        <div class="w-full mt-2" v-if="this.selectedReason == 'Other'" >
+          <textarea class="w-full" v-model="this.rejectForm.reason"></textarea>
         </div>
         <div class="flex justify-center">
           <div class="flex text-xl font-bold dark:text-gray-200 my-3">
@@ -1604,6 +1615,9 @@ export default {
       showReleaseModal: false,
       showReleasedModal: false,
 
+      selectedReason:'',
+
+
       fname: this.$props.info.first_name,
       lname: this.$props.info.last_name,
       loan_type: this.$props.loan.loan_type,
@@ -1619,6 +1633,7 @@ export default {
       rejectForm: this.$inertia.form({
         id: Number,
         approval: "",
+        reason:'',
       }),
 
       approveForm: this.$inertia.form({
@@ -1633,6 +1648,14 @@ export default {
         id: Number,
         approval: "",
       }),
+
+      rejectReason:[
+        'Preferred loan amount is not within 45% threshold of members takehome net pay.',
+        'Not enough contributions and earnings to apply a loan.',
+        'Uploaded requirements not clear/readable',
+        'Other',
+
+      ]
     };
   },
   watch: {
@@ -1667,11 +1690,16 @@ export default {
     submitRejectLoan() {
       this.rejectForm.id = this.loanToReject.id;
       this.rejectForm.approval = "Denied";
+      if(this.selectedReason != 'Other'){
+        this.rejectForm.reason = this.selectedReason
+        console.log(this.rejectForm.reason);
+      }
       this.rejectForm.post(route("loanReject"), {
         onSuccess: () => {
           this.showRejectModal = false;
         },
       });
+     
     },
     submitApproveLoan() {
       this.approveForm.id = this.loanToApprove.id;
