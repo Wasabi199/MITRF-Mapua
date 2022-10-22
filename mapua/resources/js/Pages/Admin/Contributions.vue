@@ -308,7 +308,7 @@
                 </div>
 
                 <div class="col-span-6 sm:col-span-4">
-                  <label class="block text-sm font-medium text-gray-700"
+                  <label class="w-full block text-sm font-medium text-gray-700"
                     >If Administration Employee, state department</label
                   >
                   <input
@@ -329,6 +329,25 @@
 
                 <div class="col-span-6 sm:col-span-3">
                   <label class="block text-sm font-medium text-gray-700"
+                    >Principal Amount</label
+                  >
+                  <input
+                    type="number"
+                    class="
+                      mt-1
+                      block
+                      w-full
+                      shadow-sm
+                      sm:text-sm
+                      border-gray-300
+                      rounded-md
+                    "
+                    :value="loan.amount"
+                    disabled
+                  />
+                </div>
+                <div class="col-span-6 sm:col-span-3">
+                  <label class="block text-sm font-medium text-gray-700"
                     >Amount of Loan</label
                   >
                   <input
@@ -346,7 +365,6 @@
                     disabled
                   />
                 </div>
-
 
                 <div class="col-span-6 sm:col-span-2">
                   <label class="block text-sm font-medium text-gray-700"
@@ -614,9 +632,25 @@
                     disabled
                   />
                 </div>
-
-           
-
+                <div class="col-span-6 sm:col-span-3">
+                  <label class="block text-sm font-medium text-gray-700"
+                    >Principal Amount</label
+                  >
+                  <input
+                    type="number"
+                    class="
+                      mt-1
+                      block
+                      w-full
+                      shadow-sm
+                      sm:text-sm
+                      border-gray-300
+                      rounded-md
+                    "
+                    :value="loan.amount"
+                    disabled
+                  />
+                </div>
                 <div class="col-span-6 sm:col-span-3">
                   <label class="block text-sm font-medium text-gray-700"
                     >Amount of Loan</label

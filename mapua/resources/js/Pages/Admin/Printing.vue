@@ -103,7 +103,7 @@
 
                     <div class="col-span-2 mt-8">
                         <br><br>
-                        <div class="border-b-2"></div>
+                        <div class="border-b-2 text-center">{{info.first_name+' '+info.middle_name+' '+info.last_name}}</div>
                         <p class="text-center italic">&lpar;Signature of Applicant&rpar;</p>
                     </div>
 
@@ -118,10 +118,10 @@
                     </div>
                     <div class="flex col-span-6 pl-5">
                         <ol>
-                            <li>1. Amount of Loan &lpar;₱___________&rpar;</li>
+                            <li class="flex">1. Amount of Loan &lpar;₱<p class="underline">{{loan.amount}}</p>&rpar;</li>
                             <li>2. Balance of Previous Loan &lpar;₱___________&rpar;</li>
-                            <li>3. Net Amount due to Borrower &lpar;₱___________&rpar;</li>
-                            <li>4. Monthly Amortization for &lpar;_________&rpar; months</li>
+                            <li class="flex">3. Net Amount due to Borrower &lpar;₱<p class="underline">{{loan.loan_amount}}</p>&rpar;</li>
+                            <li class="flex">4. Monthly Amortization for &lpar;<p class="underline">{{loan.duration}}</p>&rpar; months</li>
                             <li>5. Payment of Amortization to start on the _____ day of _____________, and to end
                                 on the _____ day of _____________.
                             </li>
@@ -146,12 +146,6 @@
                         <div class="border-b-2 mx-10"></div>
                         <p class="text-center">Member</p>
                     </div><br>
-
-
-
-
-
-
 
                 </div>
             </div>
