@@ -213,7 +213,7 @@
                     </div>
 
                     <div class="col-span-3 col-start-4">
-                        <div class="border-b-2 mx-10"></div>
+                        <div class="border-b-2 mx-10 text-center">{{info.first_name+' '+info.middle_name+' '+info.last_name}}</div>
                         <p class="text-center">&lpar;Borrower&rpar;</p>
                         <p class="text-center">&lpar;Print Name and Sign Above&rpar;</p>
                     </div>
@@ -258,7 +258,7 @@
                     </div>
 
                     <div class="col-span-3 col-start-4">
-                        <div class="border-b-2 mx-10"></div>
+                        <div class="border-b-2 mx-10 text-center">{{info.first_name+' '+info.middle_name+' '+info.last_name}}</div>
                         <p class="text-center">&lpar;Borrower&rpar;</p>
                         <p class="text-center">&lpar;Print Name and Sign Above&rpar;</p><br><br>
                     </div>
