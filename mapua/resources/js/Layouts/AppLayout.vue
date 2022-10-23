@@ -82,9 +82,10 @@ export default {
                 console.log(notification_type, universal_id);
                 if(notification_type == 1){
                     this.$inertia.get(route('contributions',universal_id));
-
                 }else if(notification_type == 2){
                     this.$inertia.get(route('medicalProfile',universal_id));
+                }else if(notification_type == 3){
+                    this.$inertia.get(route('UserLoanView',universal_id));
                 }
             },
     }

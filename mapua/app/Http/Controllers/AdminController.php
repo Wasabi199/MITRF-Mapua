@@ -224,6 +224,7 @@ class AdminController extends Controller
         return Redirect::back()->with('message',
             [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
     }
+    
     public function loanRelease(reviewloanRequest $request){
         $loans = loans::find($request->validated()['id']);
         $data = $request->validated();
@@ -232,7 +233,7 @@ class AdminController extends Controller
             'user_id'=>$loans->user_id,
             'universal_id'=>$request->validated()['id'],
             'onRead'=>false,
-            'value'=>'Your application is Ready to Release',
+            'value'=>'Your application is Ready to RELEASE',
             'type'=>2,
             'notification_type'=>3
         ]);
@@ -248,7 +249,7 @@ class AdminController extends Controller
             'user_id'=>$loans->user_id,
             'universal_id'=>$request->validated()['id'],
             'onRead'=>false,
-            'value'=>'Your application is Released',
+            'value'=>'Your application is RELEASED',
             'type'=>2,
             'notification_type'=>3
         ]);

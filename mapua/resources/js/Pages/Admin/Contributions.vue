@@ -1576,7 +1576,7 @@
           "
         >
           <span class="text-center"
-            >Reject {{ info.first_name }} {{ info.last_name }} loan?</span
+            >Reject {{ info.first_name }} {{ info.last_name }}'s loan?</span
           >
         </div>
         <div>

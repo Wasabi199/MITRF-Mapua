@@ -24,7 +24,7 @@ class NotificationController extends Controller
             return Redirect::route('medicalProfile',$notification->universal_id);
         }
         else{
-            return Redirect::route('dashboard');
+            return Redirect::route('UserLoanView',$notification->universal_id);
         }
     }
 }
