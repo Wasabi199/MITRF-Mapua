@@ -22,6 +22,7 @@ class MedicalController extends Controller
         // ->filter($query::only('search'))
         // ->get()
         ->limit(5)
+        ->orderByRaw('created_at DESC')
         ->paginate(5);
         // ->appends($query::only('search'));
         // $filters = $query::all('search');

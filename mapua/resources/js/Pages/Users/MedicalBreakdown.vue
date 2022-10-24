@@ -38,7 +38,7 @@
                     </div>
 
      <div class="col-span-6 sm:col-span-3">
-                            <label class="block text-sm font-medium text-gray-700">Amount of Loan</label>
+                            <label class="block text-sm font-medium text-gray-700">Amount</label>
                              <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" :value="medical.amount" disabled>
                                   </div>
      <div class="col-span-6 sm:col-span-2">

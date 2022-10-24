@@ -4,12 +4,12 @@
               <div class="flex items-center ">
 
                     <Link :href="route('medicalView')" class="hover:underline">
-                        <h1 class="font-extrabold text-xl text-gray-800 leading-tight">Medical Reimbursment</h1>
+                        <h1 class="font-extrabold text-xl text-gray-800 leading-tight">Medical Reimbursement</h1>
                     </Link>
                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">Create Medical Reimbursment</h1>
+                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">Create Medical Reimbursement</h1>
                 </div>
         </template>
         
@@ -23,7 +23,7 @@
                     </div> -->
                     <JetValidationErrors class="mb-4" />
                     <div class="ml-6 lg:ml-20 mt-10">
-                        <p class="mb-1 mt-4 text-lg">Purpose of Imbursment</p>
+                        <p class="mb-1 mt-4 text-lg">Purpose of Reimbursement</p>
                         <select v-model="form.reimbursment_type"
                             class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 transition ease-in duration-150 rounded-md mb-10">
                             <option value="placeholder" disabled>Select Loan Type</option>
@@ -50,8 +50,9 @@
                                 </div>
                               
                         </div>
-                        <p class="mb-1 text-lg">Upload Requirements</p>
+                        
                         <div v-if="this.form.reimbursment_type =='Dental Checkup' || this.form.reimbursment_type =='Eye Checkup'||this.form.reimbursment_type =='Medicines'">
+                            <p class="mb-1 text-lg">Upload Requirements</p>
                             <p class="font-bold">Official Receipt</p>
                             <div  class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                             <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
@@ -68,6 +69,7 @@
                             </div>
                         </div>
                         <div v-if="this.form.reimbursment_type =='Hospital'">
+                            <p class="mb-1 text-lg">Upload Requirements</p>
                             <p class="font-bold">Official Receipt</p>
                             <div  class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                             <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"
@@ -91,6 +93,7 @@
                                 </div>
                         </div>
                                 <div v-if="this.form.reimbursment_type =='Health Checkup' ">
+                                    <p class="mb-1 text-lg">Upload Requirements</p>
                                     <p class="font-bold">Official Receipt</p>
                                     <div  class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md  mb-5">
                                     <input @change="onChange1"  type="file" accept=".png, .jpg, .jpeg, .pdf, .docx"

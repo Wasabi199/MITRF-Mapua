@@ -187,18 +187,45 @@
         </form>
       </div>
 
-      <div v-if="loans.approval != 'Released' && loans.approval != 'Denied'" class="row-span-3">
+      <div v-if="loans.approval != 'Released' && loans.approval != 'Denied' && loans.approval !='For Release'" class="row-span-3">
+        <div v-if="loans.loan_type == 'Housing Loan'">
+          <p class="font-semibold">Member's Payslip for Validation:</p>
+        </div>
+        <div v-if="loans.loan_type == 'Educational Loan'">
+          <p class="font-semibold">Member's Payslip for Validation:</p>
+        </div>
+        <div v-if="loans.loan_type == 'Emergency Loan'">
+          <p class="font-semibold">Member's Payslip for Validation:</p>
+        </div>
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
           <img
             :src="loans.attachment1 == null ? '' : '../' + loans.attachment1"
             class="w-auto h-auto"
           />
         </div>
+        <div v-if="loans.loan_type == 'Housing Loan'">
+          <p class="font-semibold">
+            Photo of you Including the Place to be Improved/Repaired:
+          </p>
+        </div>
+        <div v-if="loans.loan_type == 'Educational Loan' && loans.attachment2 != null">
+          <p class="font-semibold">
+            Proof of Relation (Birth Certificate in Case of Relatives):
+          </p>
+        </div>
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
           <img
             :src="loans.attachment2 == null ? '' : '../' + loans.attachment2"
             class="w-auto h-auto"
           />
+        </div>
+        <div v-if="loans.loan_type == 'Housing Loan'">
+          <p class="font-semibold">Laborer's Quotation:</p>
+        </div>
+        <div v-if="loans.loan_type == 'Educational Loan'">
+          <p class="font-semibold">
+            Certificate of Enrollment and Statement of Account from School:
+          </p>
         </div>
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
           <img
@@ -207,6 +234,23 @@
           />
         </div>
       </div>
+
+      <div
+        v-if="loans.approval == 'For Release'"
+        class="bg-white shadow-xl rounded-lg content-center lg:mr-50"
+      >
+        <div class="justify-between flex m-4">
+          <div class="text-lg">
+            <p class="font-bold content-center">Good news!</p>
+            <p>Your Personal Loan application has been processed.</p>
+            <p>
+              A representative will get in touch with you for updates on the
+              release of your loan. Thank you.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div
         v-if="loans.approval == 'Released'"
         class="w-full bg-white shadow-xl rounded-lg content-center lg:mr-50 hidden md:block"
@@ -226,7 +270,7 @@
             >
               <th class="text-left px-16">ID</th>
               <th class="text-left px-16">Amount</th>
-              <th class="text-left px-16">Date of Creation</th>
+              <th class="text-left px-16">Date of Payment</th>
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">

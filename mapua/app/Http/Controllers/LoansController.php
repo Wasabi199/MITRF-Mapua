@@ -39,6 +39,7 @@ class LoansController extends Controller
         $user = Auth::user();
         $loans = Loans::with('contributions')->filterOwner($user->id)
         ->limit(5)
+        ->orderByRaw('created_at DESC')
         ->paginate(5)
         ->appends($query::only(auth()->id()));
         
