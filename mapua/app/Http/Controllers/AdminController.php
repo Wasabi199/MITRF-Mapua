@@ -120,12 +120,7 @@ class AdminController extends Controller
                 'department'=>$validated_data['department'],
                 'salary'=>$validated_data['salary'],
 
-                // 'region'=>$validated_data['address_information']['region'],
-                // 'province'=>$validated_data['address_information']['province'],
-                // 'municipality'=>$validated_data['address_information']['municipality'],
-                // 'barangay'=>$validated_data['address_information']['barangay'],
-                // 'current_address'=>$validated_data['address_information']['current_address'],
-
+            
             ]);
         });
         return Redirect::route('users')->with('message',
@@ -148,35 +143,56 @@ class AdminController extends Controller
     public function userUpload(Request $request){
         $request->validate([
             'file' => 'required|max:10000|mimes:xlsx,xls',
+            'password'=>'required'
         ]);
-        Excel::import(new UsersImport, $request->file);
+        if(Hash::check($request->password,Auth::user()->password)){
+            Excel::import(new UsersImport, $request->file);
       
-        return Redirect::route('dashboard')->with('message',
-            [NotificationService::notificationItem('success', '', 'Sucessfully Uploaded')]);;
+            return Redirect::route('dashboard')->with('message',
+                [NotificationService::notificationItem('success', '', 'Sucessfully Uploaded')]);
+        }else{
+            return Redirect::back()->with('message',
+                [NotificationService::notificationItem('failed', '', 'Password Not Match')]);
+        }
+
     }
 
 
     
     public function userContributions(Request $request){
-        // dd($request);
+        
         $request->validate([
             'file' => 'required|max:10000|mimes:xlsx,xls',
+            'password'=>'required'
         ]);
-        Excel::import(new ContributionImport, $request->file);
+        if(Hash::check($request->password,Auth::user()->password)){
+            Excel::import(new ContributionImport, $request->file);
       
-        return Redirect::route('dashboard')->with('message',
-            [NotificationService::notificationItem('success', '', 'Sucessfully Uploaded')]);
+            return Redirect::route('dashboard')->with('message',
+                [NotificationService::notificationItem('success', '', 'Sucessfully Uploaded')]);
+        }else{
+            return Redirect::back()->with('message',
+                [NotificationService::notificationItem('failed', '', 'Password Not Match')]);
+        }
+       
     }
        
     public function userContriImport(Request $request){
         // dd($request);
         $request->validate([
             'file' => 'required|max:10000|mimes:xlsx,xls',
+            'password'=>'required'
         ]);
-        Excel::import(new UserContribImport, $request->file);
+        if(Hash::check($request->password,Auth::user()->password)){
+            Excel::import(new UserContribImport, $request->file);
       
         return Redirect::route('dashboard')->with('message',
             [NotificationService::notificationItem('success', '', 'Sucessfully Uploaded')]);
+        }else{
+            return Redirect::back()->with('message',
+                [NotificationService::notificationItem('failed', '', 'Password Not Match')]);
+        }
+        
     }
 
     

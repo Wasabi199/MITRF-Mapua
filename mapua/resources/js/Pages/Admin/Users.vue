@@ -244,7 +244,7 @@
         <JetValidationErrors class="mb-4 ml-12"  />
     <div class="flex justify-between">
             
-            <form  enctype="multipart/form-data" method="post" @submit.prevent="submit">
+            <form  enctype="multipart/form-data" method="post" @submit.prevent="verifyUserPasswordFunc">
                 <h1 class="ml-12">Upload User Record</h1>
                
                 <input @input="forms.file = $event.target.files[0]" name="file"  type="file" class="border border-yellow-500 hover:bg-yellow-300 rounded-md m-2 p-2 flex items-center ml-12" /> 
@@ -257,7 +257,7 @@
                     Upload csv file
                     </button>
          </form>
-          <form  enctype="multipart/form-data" method="post" @submit.prevent="submitContri">
+          <form  enctype="multipart/form-data" method="post" @submit.prevent="verifyContriPasswordFunc">
             <h1 class="ml-12">Update Contribution</h1>
     
             
@@ -273,6 +273,75 @@
         </form>
 
     </div>
+
+    <Modal :closeable="true" :show="verifyUserPassword" @close="verifyUserPassword = !verifyUserPassword">
+      <div class="p-5">
+      <div class="flex justify-between ">
+        <div class="text-2xl font-semibold">Password</div>
+        <div class="">
+          <svg
+            class="h-6 w-6 cursor-pointer"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            @click="verifyUserPassword = !verifyUserPassword"
+          >
+            <path
+              d="M6 18L18 6M6 6l12 12"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </div>
+       
+      </div>
+      <div class="text-center text-2xl py-5">Please Enter Password for Validation</div>
+      <div class="pt-5">
+        <JetLabel class="text-lg">Password</JetLabel>
+        <JetInput v-model="this.forms.password" class="w-full" type="password"/>
+      </div>
+      <div class="m-auto w-fit">
+        <button @click="submit" class="border-2 border-green-400 py-3 px-10 mt-5 rounded-lg font-semibold text-lg hover:bg-green-500 hover:text-white">Verify</button>
+      </div>
+    </div>
+    </Modal>
+
+
+    <Modal :closeable="true" :show="verifyContriPassword" @close="verifyContriPassword = !verifyContriPassword">
+      <div class="p-5">
+      <div class="flex justify-between ">
+        <div class="text-2xl font-semibold">Password</div>
+        <div class="">
+          <svg
+            class="h-6 w-6 cursor-pointer"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            @click="verifyContriPassword = !verifyContriPassword"
+          >
+            <path
+              d="M6 18L18 6M6 6l12 12"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </div>
+       
+      </div>
+      <div class="text-center text-2xl py-5">Please Enter Password for Validation</div>
+      <div class="pt-5">
+        <JetLabel class="text-lg">Password</JetLabel>
+        <JetInput v-model="this.formsContri.password" class="w-full" type="password"/>
+      </div>
+      <div class="m-auto w-fit">
+        <button @click="submitContri" class="border-2 border-green-400 py-3 px-10 mt-5 rounded-lg font-semibold text-lg hover:bg-green-500 hover:text-white">Verify</button>
+      </div>
+    </div>
+    </Modal>
     </AppLayout>
 </template>
 
@@ -283,12 +352,11 @@ import JetApplicationLogo from '@/Jetstream/ApplicationLogo.vue';
 import {Link} from '@inertiajs/inertia-vue3';
 import Modal from '@/Jetstream/Modal';
 import {pickBy, throttle} from 'lodash';
+import JetInput from '@/Jetstream/Input.vue';
+import JetLabel from '@/Jetstream/Label.vue';
 import route from '../../../../vendor/tightenco/ziggy/src/js';
 import { useForm } from '@inertiajs/inertia-vue3';
 import JetValidationErrors from '@/Jetstream/ValidationErrors.vue';
-//pagination
-// import Pagination from "../../Shared/Pagination";
-
 
 export default {
     components: {
@@ -297,7 +365,9 @@ export default {
         JetApplicationLogo,
         Link,
         Modal,
-        JetValidationErrors
+        JetValidationErrors,
+        JetInput,
+        JetLabel
 
     },
     props: {
@@ -311,15 +381,19 @@ export default {
     setup() {
         const forms = useForm({
             file:null,
+            password:'',
         })
         const formsContri = useForm({
             file:null,
+            password:'',
         })
 
         function submit(){
+            this.verifyUserPassword = !this.verifyUserPassword
             forms.post(route('import'))
         }
          function submitContri(){
+            this.verifyContriPassword = !this.verifyContriPassword
             formsContri.post(route('userContriImport'))
         }
          return { forms, submit, formsContri, submitContri }
@@ -328,6 +402,8 @@ export default {
     data() {
         return {
             userToDelete: Object,
+            verifyUserPassword:false,
+            verifyContriPassword:false,
             showDeleteModal: false,
 
             form: {
@@ -371,16 +447,12 @@ export default {
                 }
             });
         },
-        // contri(){
-        //     console.log('click');
-        //     route('addContri');
-        // }
-    //  importing(){
-    //     this.$inertia.post(route('import'),{
-            
-    //         _token: this.$page.props.csrf_token
-    //     })
-    //  }
+        verifyUserPasswordFunc(){
+            this.verifyUserPassword = !this.verifyUserPassword
+        },
+        verifyContriPasswordFunc(){
+            this.verifyContriPassword = !this.verifyContriPassword
+        }
     }
 
 }

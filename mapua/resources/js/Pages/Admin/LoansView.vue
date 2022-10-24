@@ -120,7 +120,6 @@
                   <th class="text-left px-16 bg-gray-100">Name</th>
                   <th class="text-left px-16 bg-gray-100">Loan Type</th>
                   <th class="text-left px-16 bg-gray-100">Loan Amount</th>
-                  <!-- <th class="text-left px-16 bg-gray-100">Interest</th> -->
                   <th class="text-left px-16 bg-gray-100">Status</th>
                   <th class="text-left px-16 bg-gray-100">Duration</th>
                   <th class="text-left px-16 bg-gray-100">Last Updated Loan Payment</th>
@@ -162,19 +161,6 @@
                         </div>
                       </div>
                     </td>
-
-                    <!-- <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
-                        <div>
-                          <div class="text-sm font-medium text-gray-900">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
-                              loan.interest
-                            }}%
-                          </div>
-                        </div>
-                      </div>
-                    </td> -->
-
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div>
@@ -410,60 +396,14 @@
                   </div>
                 </div>
               </Modal>
-
-              <!--<Modal :closeable="true" :show="showReviewModal"
-                                        @close="showReviewModal = !showReviewModal">
-                                        <div class="p-5">
-                                            <div class="flex justify-between text-xl font-bold text-gray-900 my-3">
-                                                <span></span>
-                                                <svg class="h-6 w-6 cursor-pointer"
-                                                    fill="none" stroke="currentColor"
-                                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                                    @click="showReviewModal = !showReviewModal">
-                                                    <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        stroke-width="2"/>
-                                                </svg>
-                                            </div>
-                                            <div class="flex flex-col items-center text-xl font-bold text-gray-900 my-3">
-                                                
-                                                <span class="text-center">Approve/Reject {{ loanToReview.user.name }}'s {{loanToReview.loan_type}} loan?</span>
-                                            </div>
-                                            <div class="flex justify-center">
-                                                <div class="flex justify-between text-xl font-bold dark:text-gray-200 my-3">
-                                                    <div
-                                                        class="flex space-x-2 mr-5 px-4 py-1 border text-md text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-green-500 cursor-pointer"
-                                                        @click="submitApproveLoan">
-                                                         
-                                                        <span>Approve</span>
-                                                    </div>
-                                                </div>
-                                                <div class="flex text-xl font-bold dark:text-gray-200 my-3">
-                                                    <div
-                                                        class="flex space-x-2 px-4 py-1 border text-md text-red-600 dark:text-red-600 dark:border-red-600 border-red-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-red-500 cursor-pointer"
-                                                        @click="submitRejectLoan">
-                                                        
-                                                        <span>Reject</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Modal>-->
             </div>
           </div>
         </div>
       </div>
     </div>
-    <form enctype="multipart/form-data" method="post" @submit.prevent="submit">
-      <!-- {{ csrf_field() }} -->
-
-      <!-- <div class="text-rose-600">
-            <ul>
-                <li v-for="error in $page.props.errors" v-bind:key="error">{{error}}</li>
-            </ul>
-        </div> -->
+    <form enctype="multipart/form-data" @submit.prevent="verify">
+      <div class="pl-12">Update Loan Payment/s</div>
       <JetValidationErrors class="mb-4" />
-
       <input
         @input="forms.file = $event.target.files[0]"
         name="file"
@@ -480,6 +420,7 @@
         "
       />
       <button
+      
         type="submit"
         class="
           border border-yellow-500
@@ -509,6 +450,39 @@
         Upload csv file
       </button>
     </form>
+    <Modal :closeable="true" :show="showPasswordModal" @close="showPasswordModal = !showPasswordModal">
+      <div class="p-5">
+      <div class="flex justify-between ">
+        <div class="text-2xl font-semibold">Password</div>
+        <div class="">
+          <svg
+            class="h-6 w-6 cursor-pointer"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            @click="showPasswordModal = !showPasswordModal"
+          >
+            <path
+              d="M6 18L18 6M6 6l12 12"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </div>
+       
+      </div>
+      <div class="text-center text-2xl py-5">Please Enter Password for Validation</div>
+      <div class="pt-5">
+        <JetLabel class="text-lg">Password</JetLabel>
+        <JetInput v-model="this.forms.password" class="w-full" type="password"/>
+      </div>
+      <div class="m-auto w-fit">
+        <button @click="submit" class="border-2 border-green-400 py-3 px-10 mt-5 rounded-lg font-semibold text-lg hover:bg-green-500 hover:text-white">Verify</button>
+      </div>
+    </div>
+    </Modal>
   </AppLayout>
 </template>
 <script>
@@ -518,6 +492,8 @@ import JetApplicationLogo from "@/Jetstream/ApplicationLogo.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import Modal from "@/Jetstream/Modal";
 import { pickBy, throttle } from "lodash";
+import JetInput from '@/Jetstream/Input.vue';
+import JetLabel from '@/Jetstream/Label.vue';
 import route from "../../../../vendor/tightenco/ziggy/src/js";
 import { useForm } from "@inertiajs/inertia-vue3";
 import JetValidationErrors from "@/Jetstream/ValidationErrors.vue";
@@ -541,6 +517,8 @@ export default {
     ListboxOption,
     JetValidationErrors,
     // SelectorIcon
+    JetInput,
+    JetLabel
   },
   props: {
     loans: Object,
@@ -552,9 +530,11 @@ export default {
   setup() {
     const forms = useForm({
       file: null,
+      password:'',
     });
 
     function submit() {
+      this.showPasswordModal = !this.showPasswordModal
       forms.post(route("importContributions"));
     }
     return { forms, submit };
@@ -563,12 +543,11 @@ export default {
   data() {
     return {
       loanToDelete: Object,
-      //loanToReview: Object,
       showDeleteModal: false,
-      //showReviewModal: false,
+      showPasswordModal:false,
 
       form: {
-        // search: this.filters.search,
+    
         approval: this.filters.approval == null ? "All" : this.filters.approval,
       },
 
@@ -586,15 +565,7 @@ export default {
         id: Number,
       }),
 
-      /*    approveForm: this.$inertia.form({
-                id: Number, 
-                approval:'',
-            }),
 
-            rejectForm: this.$inertia.form({
-                id: Number,
-                approval:'',
-            }),*/
     };
   },
 
@@ -623,37 +594,9 @@ export default {
         },
       });
     },
-
-    /*    reviewLoan(loan) {
-            this.loanToReview = loan
-            this.showReviewModal = !this.showReviewModal
-        },
-
-        submitApproveLoan() {
-            this.approveForm.id = this.loanToReview.id;
-            this.approveForm.approval = 'Approved';
-            this.approveForm.post(route('loanApprove'), {
-                onSuccess: () => {
-                    this.showReviewModal = false
-                }
-            });
-        },
-
-        submitRejectLoan() {
-            this.rejectForm.id = this.loanToReview.id;
-            this.rejectForm.approval = 'Rejected';
-            this.rejectForm.post(route('loanReject'), {
-                onSuccess: () => {
-                    this.showReviewModal = false
-                }
-            });
-        },*/
-    //  importing(){
-    //     this.$inertia.post(route('import'),{
-
-    //         _token: this.$page.props.csrf_token
-    //     })
-    //  }
+    verify(){
+      this.showPasswordModal = !this.showPasswordModal
+    }
   },
 };
 </script>

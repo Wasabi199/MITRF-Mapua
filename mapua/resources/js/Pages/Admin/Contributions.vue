@@ -348,7 +348,7 @@
                 </div>
                 <div class="col-span-6 sm:col-span-3">
                   <label class="block text-sm font-medium text-gray-700"
-                    >Amount of Loan</label
+                    >Net Amount due to Borrower</label
                   >
                   <input
                     type="number"
@@ -498,10 +498,13 @@
             <p class="ml-2 underline">{{ info.department }}</p>
           </div>
           <!-- membership date -->
-
           <div class="flex text-lg">
-            <p class="font-semibold">Loan Amount:</p>
+            <p class="font-semibold">Principal Amount:</p>
             <p class="ml-2 underline">{{ loan.amount }}</p>
+          </div>
+          <div class="flex text-lg">
+            <p class="font-semibold">Net Amount due to Borrower:</p>
+            <p class="ml-2 underline">{{ loan.loan_amount }}</p>
           </div>
           <div class="flex text-lg">
             <p class="font-semibold">Loan Duration:</p>
@@ -653,7 +656,7 @@
                 </div>
                 <div class="col-span-6 sm:col-span-3">
                   <label class="block text-sm font-medium text-gray-700"
-                    >Amount of Loan</label
+                    >Net Amount due to Borrower</label
                   >
                   <input
                     type="number"
@@ -1354,7 +1357,7 @@
           "
         >
           <span class="text-center"
-            >Approve {{ info.first_name }} {{ info.last_name }}'s loan?</span
+            >Accept {{ info.first_name }} {{ info.last_name }}'s loan?</span
           >
         </div>
         <div class="flex justify-center">
@@ -1387,7 +1390,7 @@
               "
               @click="submitApproveLoan"
             >
-              <span>Approve</span>
+              <span>Accept</span>
             </div>
           </div>
         </div>

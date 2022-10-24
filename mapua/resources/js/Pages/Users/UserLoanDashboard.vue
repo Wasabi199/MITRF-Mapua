@@ -34,7 +34,7 @@
                     <p
                         class="inline-flex py-0 px-8 text-white text-xl my-auto items-center h-full lg:px-11 lg:text-2xl"
                     >
-                        View Existing Loans
+                        View Loan History
                     </p>
                     <div id="add" class="inline-flex py-0 h-full">
                         <img
