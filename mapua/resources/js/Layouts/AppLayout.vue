@@ -381,7 +381,7 @@ export default {
 
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
-                    <div class="pt-2 pb-3 space-y-1">
+                    <div v-if="$page.props.user.userType == 2" class="pt-2 pb-3 space-y-1">
                         <JetResponsiveNavLink :href="route('userDashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </JetResponsiveNavLink>
