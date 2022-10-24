@@ -382,7 +382,7 @@ export default {
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                        <JetResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                        <JetResponsiveNavLink :href="route('userDashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </JetResponsiveNavLink>
                         <JetResponsiveNavLink :href="route('loansView')" :active="route().current('loansView')">
