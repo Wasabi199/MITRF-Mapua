@@ -207,7 +207,7 @@
           >
             <Link :href="route('UserLoanView', loan.id)">
               <div>
-                <button>VIEW EXISTING LOAN</button>
+                <button>VIEW LOAN RECORD</button>
               </div>
             </Link>
           </div>
