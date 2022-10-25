@@ -78,7 +78,7 @@
                   <!-- <th class="text-left px-16 bg-gray-100">Interest</th> -->
                   <!-- <th class="text-left px-16 bg-gray-100">Approval</th> -->
                   <th class="text-left px-16 bg-gray-100">Duration</th>
-                  <!-- <th class="text-left px-16 bg-gray-100">Loan Status</th> -->
+                  <th class="text-left px-16 bg-gray-100">Date of Loan Application</th>
                   <th class="text-left px-16 bg-gray-100">Action</th>
 
                   <tr v-for="loan in loans.data" v-bind:key="loan.id">
@@ -133,15 +133,15 @@
                       </div>
                     </td> 
 
-                    <!-- <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div>
                           <div class="text-sm font-medium text-gray-900">
-                            {{ loan.loan_status }}
+                            {{ new Date(loan.created_at) }}
                           </div>
                         </div>
                       </div>
-                    </td> -->
+                    </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div
                         class="
@@ -162,7 +162,7 @@
                       >
                         <Link :href="route('UserLoanView', loan.id)">
                           <div class="text-center">
-                            VIEW LOAN RECORD
+                            VIEW LOAN APPLICATION
                           </div>
                         </Link>
                       </div>
@@ -184,10 +184,8 @@
         <div class="bg-white p-4 rounded-lg shadow">
           <div><b>Loan Type:</b> {{ loan.loan_type }}</div>
           <div><b>Loan Amount:</b> {{ loan.loan_amount }} PHP</div>
-          <!-- <div><b>Interest:</b> {{ loan.interest }}%</div>
-          <div><b>Approval:</b> {{ loan.approval }}</div> -->
-           <div><b>Duration:</b> {{ loan.duration }} months</div>
-          <!-- <div><b>Loan Status:</b> {{ loan.loan_status }}</div> --> -->
+          <div><b>Duration:</b> {{ loan.duration }} months</div>
+          <div><b>Date of Loan Application:</b> {{ new Date(loan.created_at) }} months</div>
           <div
             class="
               flex
@@ -207,7 +205,7 @@
           >
             <Link :href="route('UserLoanView', loan.id)">
               <div>
-                <button>VIEW LOAN RECORD</button>
+                <button>VIEW LOAN APPLICATION</button>
               </div>
             </Link>
           </div>

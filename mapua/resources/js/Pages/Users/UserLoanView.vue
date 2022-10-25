@@ -182,7 +182,28 @@
                   disabled
                 />
               </div>
+              
             </div>
+            <div class="col-span-6 sm:col-span-2 mt-2">
+                <label class="block text-sm font-medium text-gray-700"
+                  >Date of Loan Application</label
+                >
+                <input
+                  type="text"
+                  class="
+                  
+                    mt-1
+                    block
+                    w-full
+                    shadow-sm
+                    sm:text-sm
+                    border-gray-300
+                    rounded-md
+                  "
+                  :value="new Date($props.loans.created_at)"
+                  disabled
+                />
+              </div>
           </div>
         </form>
       </div>
