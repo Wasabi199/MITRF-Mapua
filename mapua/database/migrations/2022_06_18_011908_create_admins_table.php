@@ -24,7 +24,6 @@ return new class extends Migration
             $table->date('birth_date');
             $table->string('birth_place');
             $table->string('civil_status');
-            $table->string('member_type');
 
 
             

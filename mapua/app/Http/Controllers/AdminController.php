@@ -93,6 +93,7 @@ class AdminController extends Controller
 
     public function userRegisterSubmit(RegiterUserRequest $request){
         $validated_data = $request->validated();
+        // dd($validated_data);
         $user = null;
         $role = $this->roleToInt($validated_data['account_information']['role']);
 
@@ -105,6 +106,7 @@ class AdminController extends Controller
                 'password'=>Hash::make($validated_data['account_information']['password']),
                 'email_verified_at'=>Carbon::now(),
                 'userType'=>$role,
+                'school_id'=>$validated_data['account_information']['school_id'],
             ]);
             $user->adminReg()->create([
                 'first_name'=>$validated_data['first_name'],
@@ -113,7 +115,7 @@ class AdminController extends Controller
                 'birth_date'=>$validated_data['birth_date'],
                 'birth_place'=>$validated_data['birth_place'],
                 'civil_status'=>$validated_data['civil_status'],
-                'member_type'=>$validated_data['member_type'],
+                
                 'employment'=>$validated_data['employment'],
                 'membership'=>$validated_data['membership'],
                 'mobile_number'=>$validated_data['mobile_number'],

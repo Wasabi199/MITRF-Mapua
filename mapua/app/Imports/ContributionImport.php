@@ -18,7 +18,7 @@ class ContributionImport implements ToCollection, WithHeadingRow, WithValidation
     {
         //
         foreach($rows as $row){
-            $user = User::where('email',$row['email'])->has('loans')->first();
+            $user = User::where('school_id',$row['school_id'])->has('loans')->first();
             if(User::find($user->id)->has('loans')){
                 $loan = Loans::filterOwner($user->id)->get();
                 foreach($loan as $loanUpdate){

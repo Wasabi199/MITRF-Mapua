@@ -17,7 +17,7 @@ class Admin extends Model
         'birth_date',
         'birth_place',
         'civil_status',
-        'member_type',
+        
 
         // 'region',
         // 'province',
