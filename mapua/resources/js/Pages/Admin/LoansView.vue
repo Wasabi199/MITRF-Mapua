@@ -451,6 +451,7 @@
       </button>
     </form>
     <Modal :closeable="true" :show="showPasswordModal" @close="showPasswordModal = !showPasswordModal">
+      <JetValidationErrors class="mb-4 ml-12"  />
       <div class="p-5">
       <div class="flex justify-between ">
         <div class="text-2xl font-semibold">Password</div>
@@ -474,7 +475,9 @@
        
       </div>
       <div class="text-center text-2xl py-5">Please Enter Password for Validation</div>
+      <JetValidationErrors class="mb-4 ml-12"  />
       <div class="pt-5">
+
         <JetLabel class="text-lg">Password</JetLabel>
         <JetInput v-model="this.forms.password" class="w-full" type="password"/>
       </div>

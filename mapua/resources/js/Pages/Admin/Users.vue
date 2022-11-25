@@ -22,29 +22,7 @@
         </div>
 
         <div class="mx-12 my-6 shadow-md">
-            <!--
-            <div class="flex flex-col">
-                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                            <table class="min-w-full divide-y divide-gray-200 table-auto">
-                                <thead class="inline-flex">
-                                <tr class="m-2">
-                                    <th class="text-left px-16">Name</th>
-                                    <th class="text-left px-28">Contact No.</th>
-                                    <th class="text-left px-12">E-mail</th>
-                                    <th class="text-left px-32">Department</th>
-                                    
-                                </tr>
-                                </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            -->
+           
 
             <div class="flex flex-col ">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -80,17 +58,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <!-- <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div>
-                                                <div class="text-sm font-medium text-gray-900">
-                                                    {{ user.admin_reg.current_address }} {{ user.admin_reg.barangay }}
-                                                    {{ user.admin_reg.municipality }}
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </td> -->
+                             
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div>
@@ -333,6 +301,7 @@
        
       </div>
       <div class="text-center text-2xl py-5">Please Enter Password for Validation</div>
+      <JetValidationErrors class="mb-4 ml-12"  />
       <div class="pt-5">
         <JetLabel class="text-lg">Password</JetLabel>
         <JetInput v-model="this.formsContri.password" class="w-full" type="password"/>
