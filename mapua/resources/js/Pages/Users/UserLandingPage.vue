@@ -7,15 +7,15 @@
                 <!-- Content -->
                 <div class="py-10 text-xl text-justify">I hereby agree to submit my documents and to allow MITRFI and its authorized personnel to process my documents and personal information in compliance with the Data Privacy Act of 2012 and MITRFI policies. Acceptance of the
 document/s does not automatically guarantee approval as the application shall be subject to the evaluation and approval of the MITFRI based on its loan policies.</div>
-                <div class="flex justify-between 2xl:px-20">
-                    <div class=" bg-red-500 w-fit text-center text-white px-10 py-2 rounded-full text-xl font-semibold ">
+                <div class="flex justify-between gap-x-2 2xl:px-20">
+                    <div class=" bg-red-500 w-fit text-center text-white px-10 py-4 rounded-full text-lg font-semibold ">
                         <form @submit.prevent="logout">
-                            <button>I do not Agree</button>
+                            <button>Disagree</button>
                         </form>
                     </div>
                     <Link :href="route('userDashboard')">
-                        <div  class="bg-green-500 w-fit text-center  px-10 py-2 rounded-full text-white text-xl font-semibold">
-                            <div>I Agree</div>
+                        <div  class="bg-green-500 w-fit text-center  px-10 py-4 rounded-full text-white text-xl font-semibold">
+                            <div>Agree</div>
                         </div>
                     </Link>
                 </div>

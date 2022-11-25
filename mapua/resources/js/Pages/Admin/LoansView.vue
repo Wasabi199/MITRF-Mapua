@@ -451,7 +451,6 @@
       </button>
     </form>
     <Modal :closeable="true" :show="showPasswordModal" @close="showPasswordModal = !showPasswordModal">
-      <JetValidationErrors class="mb-4 ml-12"  />
       <div class="p-5">
       <div class="flex justify-between ">
         <div class="text-2xl font-semibold">Password</div>

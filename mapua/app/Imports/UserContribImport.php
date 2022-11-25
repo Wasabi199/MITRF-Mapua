@@ -17,7 +17,7 @@ class UserContribImport implements ToCollection, WithHeadingRow, WithValidation,
     {
         //
         foreach($rows as $row){
-            $user = User::where('school_id',$row['school_id'])->get()->first();
+            $user = User::where('member_id',$row['member_id'])->get()->first();
             $user->userContribution->update([
                 'contribution_amount'=> $user->userContribution->contribution_amount + $row['contribution_amount']
             ]);
@@ -27,7 +27,7 @@ class UserContribImport implements ToCollection, WithHeadingRow, WithValidation,
     public function rules(): array
     {
         return[
-            'school_id'=>'required',
+            'member_id'=>'required',
             'contribution_amount'=>'required',
       ];
     }

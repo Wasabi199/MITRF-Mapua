@@ -157,10 +157,10 @@
 
           <div class="">
             <div class="mt-4">
-              <jet-label for="school_id" value="School ID" />
+              <jet-label for="member_id" value="School ID" />
               <JetInput
                 id="number"
-                v-model="form.account_information.school_id"
+                v-model="form.account_information.member_id"
                 type="text"
                 class="mt-1 block w-full"
                 placeholder="XX-XXXX-XX"
@@ -399,7 +399,7 @@ export default {
           password: "",
           password_confirmation: "",
           role: "",
-          school_id: "",
+          member_id: "",
         },
       }),
       member_type: ["Teaching", "Non-Teaching"],

@@ -121,7 +121,7 @@
 
                   <tr v-for="medical in medicals.data" v-bind:key="medical.id">
                     <!-- <tr> -->
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-16 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div>
                           <div class="text-sm font-medium text-gray-900">
@@ -131,7 +131,7 @@
                       </div>
                     </td>
 
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-16 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div>
                           <div class="text-sm font-medium text-gray-900">
@@ -141,7 +141,7 @@
                       </div>
                     </td>
 
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-16 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div>
                           <div class="text-sm font-medium text-gray-900">
@@ -151,7 +151,7 @@
                       </div>
                     </td>
 
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-16 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div>
                           <div class="text-sm font-medium text-gray-900">
@@ -161,13 +161,14 @@
                       </div>
                     </td>
 
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class=" py-4 whitespace-nowrap">
                       <div
                         class="
                           flex
+                          w-fit
                           items-center
-                          pl-12
-                          py-1
+                          text-center
+                          px-5
                           border
                           text-md text-green-600
                           dark:text-green-600 dark:border-green-600

@@ -1,5 +1,5 @@
 <template>
-    <AppLayout title="Dashboard">
+    <AppLayout title="MITRF APP">
         <div class="text-center grid"> 
             <div class="w-fit block mx-auto my-4 mt-16">
                 <button @click="showModal = true" class="bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 inline-flex h-16 p-0 rounded-[5px] lg:w-92 text-lg font-semibold">

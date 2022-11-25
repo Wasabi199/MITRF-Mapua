@@ -40,12 +40,6 @@ class UserAdmin implements ToModel, WithHeadingRow,SkipsEmptyRows
             'birth_place'   =>$row['Birthplace'],
             'civil_status'  =>$row['Civil Status'],
 
-            // 'region'        =>$row['Region'],
-            // 'province'      =>$row['Province'],
-            // 'municipality'  =>$row['Municipality'],
-            // 'barangay'      =>$row['Barangay'],
-            // 'current_address'=>$row['Current Address'],
-
             'department'    =>$row['Department'],
             'salary'        =>$row['Salary'],
             'membership'    =>$row['Membership'],

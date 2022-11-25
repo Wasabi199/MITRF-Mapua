@@ -39,7 +39,8 @@ class UsersImport implements   WithHeadingRow, ToCollection, WithValidation, Ski
                             'name'      =>$row['first_name'].' '.$row['middle_name'].' '.$row['last_name'],
                             'email'     =>$row['email'],
                             'userType'  =>2,
-                            'password'  =>Hash::make('password')
+                            'password'  =>Hash::make('password'),
+                            'member_id'=>$row['member_id']
                         ]);
                         $userNew->adminReg()->create([
                             'first_name'    =>$row['first_name'],

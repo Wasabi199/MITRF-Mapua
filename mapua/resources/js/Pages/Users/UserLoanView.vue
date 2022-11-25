@@ -125,7 +125,7 @@
               </div>
               <div class="col-span-6 sm:col-span-3">
                 <label class="block text-sm font-medium text-gray-700"
-                  >Amount of Loan</label
+                  >Net Amount Due to Borrower</label
                 >
 
                 <input

@@ -43,7 +43,7 @@ class Admin extends FormRequest
             'account_information.email'=>'required|email|unique:users,email',
             'account_information.password' => $this->passwordRules(),
             'account_information.role' => 'required',
-            'account_information.school_id'=>'required',
+            'account_information.member_id'=>'required',
         ];
     }
 }

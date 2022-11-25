@@ -962,7 +962,7 @@
             />
           </svg>
         </div>
-        <div class="text-center">
+        <div class=" text-justify">
           <span
             >I hereby agree to submit my documents and to allow MITRFI and its
             authorized personnel to process my documents and personal
@@ -975,7 +975,7 @@
             policies.</span
           >
         </div>
-        <div class="flex justify-end text-xl font-bold dark:text-gray-200 my-3">
+        <div class="flex justify-center text-xl font-bold dark:text-gray-200 my-3">
           <div
             @click="proceed"
             class="

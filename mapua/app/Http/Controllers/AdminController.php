@@ -106,7 +106,7 @@ class AdminController extends Controller
                 'password'=>Hash::make($validated_data['account_information']['password']),
                 'email_verified_at'=>Carbon::now(),
                 'userType'=>$role,
-                'school_id'=>$validated_data['account_information']['school_id'],
+                'member_id'=>$validated_data['account_information']['member_id'],
             ]);
             $user->adminReg()->create([
                 'first_name'=>$validated_data['first_name'],
@@ -219,13 +219,7 @@ class AdminController extends Controller
         ]);
     }
 
-    // public function loanDelete(deleteloanRequest $request){
-    //     $loan_to_delete = Loans::findOrFail($request->validated()['id']);
-    //     $loan_to_delete->delete();
-    //     return Redirect::back()->with('message',
-    //         [NotificationService::notificationItem('success', '', 'Sucessfully Deleted')]);
 
-    // }
 
     public function loanApprove(reviewloanRequest $request){
         $loans = loans::find($request->validated()['id']);
@@ -297,11 +291,13 @@ class AdminController extends Controller
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $notification->where('onRead',false)->count();
         $loanProfile = Loans::find($id);
-        $info = Admin::find($loanProfile->user_id);
+        $info = Admin::where('user_id',$loanProfile->user_id)->get()->first();
         $contribution = Contributions::where('loans_id','=',$loanProfile->id)
+        
         ->limit(5)
         ->paginate(5);
-        // dd($contribution);
+        // dd($info);
+        
         return Inertia::render('Admin/Contributions',[
             'notification'=>$notification,
             'loan' => $loanProfile,

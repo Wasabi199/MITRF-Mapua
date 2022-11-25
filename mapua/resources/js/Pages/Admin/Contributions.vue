@@ -470,12 +470,7 @@
             </div>
           </div>
 
-          <!-- Civil status -->
-
-          <div class="flex text-lg">
-            <p class="font-semibold">Civil Status:</p>
-            <p class="ml-2 underline">{{ info.civil_status }}</p>
-          </div>
+        
 
           <!-- birth date -->
 
@@ -776,11 +771,7 @@
             </div>
           </div>
 
-          <!-- Civil status -->
-          <div class="flex text-lg">
-            <p class="font-semibold">Civil Status:</p>
-            <p class="ml-2 underline">{{ info.civil_status }}</p>
-          </div>
+          
 
           <!-- birth date -->
           <div class="flex text-lg">
@@ -809,6 +800,14 @@
             <p class="font-semibold">Loan Amount:</p>
             <p class="ml-2 underline">{{ loan.amount }}</p>
           </div>
+
+           <!-- LOAN AMOUNT-->
+
+           <div class="flex text-lg">
+            <p class="font-semibold">Net Amount Due to Borrower:</p>
+            <p class="ml-2 underline">{{ loan.loan_amount }}</p>
+          </div>
+
           <div class="flex text-lg">
             <p class="font-semibold">Loan Duration:</p>
             <p class="ml-2 underline">{{ loan.duration }} months</p>
@@ -857,11 +856,7 @@
             </div>
           </div>
 
-          <!-- Civil status -->
-          <div class="flex text-lg">
-            <p class="font-semibold">Civil Status:</p>
-            <p class="ml-2 underline">{{ info.civil_status }}</p>
-          </div>
+         
 
           <!-- birth date -->
           <div class="flex text-lg">
@@ -874,13 +869,7 @@
             <p class="font-semibold">Loan Status:</p>
             <p class="ml-2 underline">{{ loan.approval }}</p>
           </div>
-          <!-- address -->
-
-          <!-- <div class="flex text-lg">
-                    <p class="font-semibold">Address:</p>
-                    <p class="ml-2 underline">{{ user.admin_reg.current_address }} {{ user.admin_reg.barangay }}
-                        {{ user.admin_reg.municipality }}</p>
-                </div> -->
+         
 
           <!-- department -->
 
@@ -888,12 +877,21 @@
             <p class="font-semibold">Department:</p>
             <p class="ml-2 underline">{{ info.department }}</p>
           </div>
-          <!-- membership date -->
+          <!-- LOAN AMOUNT-->
 
           <div class="flex text-lg">
             <p class="font-semibold">Loan Amount:</p>
+            <p class="ml-2 underline">{{ loan.amount }}</p>
+          </div>
+
+          <!-- LOAN AMOUNT-->
+
+          <div class="flex text-lg">
+            <p class="font-semibold">Net Amount Due to Borrower:</p>
             <p class="ml-2 underline">{{ loan.loan_amount }}</p>
           </div>
+
+
           <div class="flex text-lg">
             <p class="font-semibold">Loan Duration:</p>
             <p class="ml-2 underline">{{ loan.duration -contributions.total }} months</p>
