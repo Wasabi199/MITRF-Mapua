@@ -13,7 +13,7 @@
 
             <div class="flex-1">
                 <Link :href="route('registerUser')" class="text-blue-500 font-semibold text-sm hover:underline ml-4">
-                    Register new user
+                    Register New Member
                 </Link>
             </div>
 
