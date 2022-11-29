@@ -32,7 +32,7 @@
 
                                         <tr v-for="med in medical.data" v-bind:key="med.id">
                                         <!-- <tr> -->
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-16 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
                                                     <div>
                                                         <Link :href="route('medicalProfile',med.id)">
@@ -55,7 +55,7 @@
 
                                             </td>
 
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-24 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">
@@ -66,7 +66,7 @@
 
                                             </td>
 
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-16 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">
@@ -77,7 +77,7 @@
 
                                             </td>
 
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-16 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
                                                     <div>
                                                         <div class="text-sm font-medium text-gray-900">

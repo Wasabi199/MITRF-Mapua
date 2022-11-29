@@ -66,7 +66,7 @@ class AdminController extends Controller
         // dd($userLoan);
         return Inertia::render('Admin/UserProfile',[
             'notification'=>$notification,
-            'users' => $userProfile,
+            'info' => $userProfile,
             'loans'=>$userLoan,
             'count'=>$notificationCount
 
@@ -132,6 +132,7 @@ class AdminController extends Controller
     public function userUpdate(updateRequest $request){
         // dd($request);
         $admin = Admin::find($request->validated()['id']);
+        
         $user = $admin->user;
         $data = $request->validated();
         $user->update([

@@ -5,13 +5,13 @@
             <div class="flex justify-between">
                 <div class="flex items-center ">
                     <Link :href="route('users')" class="hover:underline">
-                        <h1 class="font-extrabold text-xl text-gray-800 leading-tight">Users</h1>
+                        <h1 class="font-extrabold text-xl text-gray-800 leading-tight">Members</h1>
                     </Link>
                     <svg class="h-6 w-6" fill="none" stroke="blue" viewBox="0 0 24 24"
                          xmlns="http://www.w3.org/2000/svg">
                         <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                     </svg>
-                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">{{users.name}}'s Profile</h1>
+                    <h1 class="font-extrabold text-xl text-gray-800 leading-tight">{{info.name}}'s Profile</h1>
                 </div>
 
             </div>
@@ -33,7 +33,7 @@
                                         stroke-linejoin="round"/>
                                 </svg>
 
-                                <p class="pl-2 font-semibold">{{ users.email }}</p>
+                                <p class="pl-2 font-semibold">{{ info.email }}</p>
 
                             </div>
 
@@ -47,16 +47,22 @@
                                         stroke-linejoin="round"/>
                                 </svg>
 
-                                <p class="pl-2 font-semibold">{{ users.admin_reg.mobile_number }}</p>
+                                <p class="pl-2 font-semibold">{{ info.admin_reg.mobile_number }}</p>
 
                             </div>
+                        
                         </div>
 
+                        <div class="flex text-lg">
+                            <p class="font-semibold">Member ID:</p>
+                            <p class="ml-2 underline">{{info.member_id}}</p>
+                        </div>
                         <!-- Name -->
                         <div class="justify-between flex">
+                          
                             <div class="flex text-lg">
                                 <p class="font-semibold">Name: </p>
-                                <p class="ml-2 underline">{{ users.name }}</p>
+                                <p class="ml-2 underline">{{ info.name }}</p>
                             </div>
 
 
@@ -74,41 +80,41 @@
 
                         <div class="flex text-lg">
                             <p class="font-semibold">Civil Status:</p>
-                            <p class="ml-2 underline">{{users.admin_reg.civil_status}}</p>
+                            <p class="ml-2 underline">{{info.admin_reg.civil_status}}</p>
                         </div>
 
                         <!-- birth date -->
 
                         <div class="flex text-lg">
                             <p class="font-semibold">Birthdate:</p>
-                            <p class="ml-2 underline">{{users.admin_reg.birth_date}}</p>
+                            <p class="ml-2 underline">{{info.admin_reg.birth_date}}</p>
                         </div>
 
                         <!-- place of birth -->
                         <div class="flex text-lg">
                             <p class="font-semibold">Place of Birth:</p>
-                            <p class="ml-2 underline">{{users.admin_reg.birth_place}}</p>
+                            <p class="ml-2 underline">{{info.admin_reg.birth_place}}</p>
                         </div>
                         <!-- address -->
 
                         <!-- <div class="flex text-lg">
                             <p class="font-semibold">Address:</p>
-                            <p class="ml-2 underline">{{ user.admin_reg.current_address }} {{ user.admin_reg.barangay }}
-                                {{ user.admin_reg.municipality }}</p>
+                            <p class="ml-2 underline">{{ info.admin_reg.current_address }} {{ info.admin_reg.barangay }}
+                                {{ info.admin_reg.municipality }}</p>
                         </div> -->
 
                         <!-- department -->
 
                         <div class="flex text-lg">
                             <p class="font-semibold">Department:</p>
-                            <p class="ml-2 underline">{{ users.admin_reg.department }}</p>
+                            <p class="ml-2 underline">{{ info.admin_reg.department }}</p>
 
                         </div>
                         <!-- membership date -->
 
                         <div class="flex text-lg">
                             <p class="font-semibold">Member Since:</p>
-                            <p class="ml-2 underline">{{ users.admin_reg.membership }}</p>
+                            <p class="ml-2 underline">{{ info.admin_reg.membership }}</p>
 
                         </div>
                         <!-- Contribution -->
@@ -116,8 +122,9 @@
                             <p class="font-semibold">Current Contribution:</p>
                             <p class="ml-2 underline">
                                 {{
-                                   'Php '+users.user_contribution.contribution_amount.toLocaleString('en-US')
-                                }}</p>
+                                   'Php '+info.user_contribution.contribution_amount.toLocaleString('en-US')
+                                }}
+                                </p>
                         </div>
                     </div>
                 </div>
@@ -180,7 +187,7 @@
     <Modal :show="showModal" :closeable="true" @close="showModal = !showModal">
         <div class="p-5">
             <div class="flex justify-between text-xl font-bold text-gray-900 my-3">
-                <span>Update User Information</span>
+                <span>Update info Information</span>
                 <svg @click="showModal = !showModal" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -193,76 +200,43 @@
                 <!-- First Name -->
                 <div class="flex flex-col">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">First Name</span>
-                    <jet-input v-model="form.first_name" :placeholder="users.admin_reg.first_name" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
+                    <jet-input v-model="form.first_name" :placeholder="info.admin_reg.first_name" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
                 </div>
                 <!-- Middle Name -->
                 <div class="flex flex-col">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Middle Name</span>
-                    <jet-input v-model="form.middle_name" :placeholder="users.admin_reg.middle_name" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
+                    <jet-input v-model="form.middle_name" :placeholder="info.admin_reg.middle_name" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
                 </div>
                 <!-- Last Name -->
                 <div class="flex flex-col">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Last Name</span>
-                    <jet-input v-model="form.last_name" :placeholder="users.admin_reg.last_name" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
+                    <jet-input v-model="form.last_name" :placeholder="info.admin_reg.last_name" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
                 </div>
                    <!-- Mobile Number -->
                 <div class="flex flex-col">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Mobile Number</span>
-                    <jet-input v-model="form.mobile_number" :placeholder="users.admin_reg.mobile_number" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
+                    <jet-input v-model="form.mobile_number" :placeholder="info.admin_reg.mobile_number" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
                 </div>
                 <!-- Birth Date -->
                  <div class="flex flex-col ">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Date of Birth</span>
-                    <jet-input v-model="form.birth_date" :placeholder="users.admin_reg.birth_date" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" type="text" onfocus="(this.type='date')"/>
+                    <jet-input v-model="form.birth_date" :placeholder="info.admin_reg.birth_date" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" type="text" onfocus="(this.type='date')"/>
                 </div>
                 <!-- Civil Status -->
                  <div class="flex flex-col ">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Civil Status</span>
-                    <select v-model="form.civil_status" :placeholder="users.admin_reg.civil_status"
+                    <select v-model="form.civil_status" :placeholder="info.admin_reg.civil_status"
                                      class="mt-1 block w-full dark  text-gray-900 border-gray-300   focus:ring-opacity-50 rounded-md shadow-sm"
                                      required>
                                  <option disabled value="placeholder">Select Status</option>
                                  <option v-for="status in civil_status" v-bind:key="status" :value="status">{{ status }}</option>
                              </select>
                 </div>
-                <!-- <div class="flex flex-col col-span-2">
-                    <span class="text-sm leading-snug font-bold  text-gray-900">Update Address Information</span>
-
-                </div>
-                    Region
-                <div class="flex flex-col">
-                    <span class="text-sm leading-snug font-semibold text-gray-900 ">Region</span>
-                    <jet-input  v-model="form.region" :placeholder="user.admin_reg.region" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
-                </div>
-                Province
-                <div class="flex flex-col">
-                    <span class="text-sm leading-snug font-semibold text-gray-900 ">Province</span>
-                    <jet-input v-model="form.province" :placeholder="user.admin_reg.province" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
-                </div>
-                Municipality
-                <div class="flex flex-col">
-                    <span class="text-sm leading-snug font-semibold text-gray-900 ">Municipality</span>
-                    <jet-input v-model="form.municipality" :placeholder="user.admin_reg.municipality" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
-                </div>
-                Barangay
-                <div class="flex flex-col">
-                    <span class="text-sm leading-snug font-semibold text-gray-900 ">Barangay</span>
-                    <jet-input v-model="form.barangay" :placeholder="user.admin_reg.barangay" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
-                </div>
-                Current Address
-                <div class="flex flex-col col-span-2">
-                    <span class="text-sm leading-snug font-semibold text-gray-900 ">Current Address</span>
-                    <jet-input v-model="form.current_address" :placeholder="user.admin_reg.current_address" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
-                </div> -->
-
-                  <!-- <div class="flex flex-col col-span-2">
-                    <span class="text-sm leading-snug font-bold  text-gray-900">Update Loan Information</span>
-
-                </div> -->
+              
                       <!-- Department -->
                 <div class="flex flex-col col-span-2">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Department</span>
-                    <select v-model="form.department" :placeholder="users.admin_reg.department"
+                    <select v-model="form.department" :placeholder="info.admin_reg.department"
                                      class="mt-1 block w-full dark  text-gray-900 border-gray-300   focus:ring-opacity-50 rounded-md shadow-sm"
                                      required>
                                  <option disabled value="placeholder">Select Department</option>
@@ -272,18 +246,15 @@
                 <!-- Employment -->
                 <div class="flex flex-col">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Date of Employment</span>
-                    <jet-input v-model="form.employment" :placeholder="users.admin_reg.employment" type="text" onfocus="(this.type='date')" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
+                    <jet-input v-model="form.employment" :placeholder="info.admin_reg.employment" type="text" onfocus="(this.type='date')" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
                 </div>
                 <!-- Membership -->
                 <div class="flex flex-col">
                     <span class="text-sm leading-snug font-semibold text-gray-900 ">Date of Membership</span>
-                    <jet-input v-model="form.membership" :placeholder="users.admin_reg.membership" type="text" onfocus="(this.type='date')" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
+                    <jet-input v-model="form.membership" :placeholder="info.admin_reg.membership" type="text" onfocus="(this.type='date')" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
                 </div>
                 <!-- Total Contribution -->
-                <!-- <div class="flex flex-col col-span-2">
-                    <span class="text-sm leading-snug font-semibold text-gray-900 ">Total Contribution</span>
-                    <jet-input v-model="form.total_contribution" :placeholder="users.admin_reg.total_contribution != null ? users.admin_reg.total_contribution:'No Contribution'" class="px-3 py-1 mt-2 text-lg text-gray-900 font-bold" />
-                </div> -->
+              
 
             </div>
             <div class="flex justify-end text-xl font-bold dark:text-gray-200 my-3">
@@ -339,17 +310,10 @@ export default {
             mobile_number:'',
             birth_date:'',
             civil_status:'',
-
-            // region:'',
-            // province:'',
-            // municipality:'',
-            // barangay:'',
-            // current_address:'',
-
             department:'',
             employment:'',
             membership:'',
-            total_contribution:'',
+            
         }),
          departments:[
                 "School of Architecture, Industrial Design, and the Built Environment",
@@ -392,7 +356,7 @@ export default {
         }
     },
     props: {
-        users: Object,
+        info: Object,
         loans:Object,
         notification:Object,
         count:Number,
@@ -402,26 +366,20 @@ export default {
         submit(){
             console.log('submitting..')
             // Personal Information
-            this.form.id = this.users.id
+            this.form.id = this.info.admin_reg.id
+            this.form.first_name ==''? this.form.first_name = this.info.admin_reg.first_name : this.form.first_name
+            this.form.middle_name == ''? this.form.middle_name = this.info.admin_reg.middle_name : this.form.middle_name
+            this.form.last_name == ''? this.form.last_name = this.info.admin_reg.last_name : this.form.last_name
+            this.form.mobile_number == ''? this.form.mobile_number = this.info.admin_reg.mobile_number : this.form.mobile_number
+            this.form.birth_date == ''? this.form.birth_date = this.info.admin_reg.birth_date : this.form.birth_date
+            this.form.civil_status == ''? this.form.civil_status = this.info.admin_reg.civil_status : this.form.civil_status
+      
+            this.form.department == ''? this.form.department = this.info.admin_reg.department : this.form.department
+            this.form.employment == ''? this.form.employment = this.info.admin_reg.employment : this.form.employment
+            this.form.membership == ''? this.form.membership = this.info.admin_reg.membership : this.form.membership
 
-            this.form.first_name ==''? this.form.first_name = this.users.admin_reg.first_name : this.form.first_name
-            this.form.middle_name == ''? this.form.middle_name = this.users.admin_reg.middle_name : this.form.middle_name
-            this.form.last_name == ''? this.form.last_name = this.users.admin_reg.last_name : this.form.last_name
-            this.form.mobile_number == ''? this.form.mobile_number = this.users.admin_reg.mobile_number : this.form.mobile_number
-            this.form.birth_date == ''? this.form.birth_date = this.users.admin_reg.birth_date : this.form.birth_date
-            this.form.civil_status == ''? this.form.civil_status = this.users.admin_reg.civil_status : this.form.civil_status
-            // Address Information
-            // this.form.region == ''? this.form.region = this.users.admin_reg.region : this.form.region
-            // this.form.province == ''? this.form.province = this.users.admin_reg.province : this.form.province
-            // this.form.municipality == ''? this.form.municipality = this.users.admin_reg.municipality : this.form.municipality
-            // this.form.barangay == ''? this.form.barangay = this.users.admin_reg.barangay : this.form.barangay
-            // this.form.current_address == ''? this.form.current_address = this.users.admin_reg.current_address : this.form.current_address
-            // loan information
-            this.form.department == ''? this.form.department = this.users.admin_reg.department : this.form.department
-            this.form.employment == ''? this.form.employment = this.users.admin_reg.employment : this.form.employment
-            this.form.membership == ''? this.form.membership = this.users.admin_reg.membership : this.form.membership
-            // this.form.total_contribution == ''? this.form.total_contribution = 'No Contribution' : this.form.total_contribution
 
+            console.log(this.info.id)
             this.form.post(route('userUpdate'),{
                 onSuccess:()=>{
                      console.log('success..')

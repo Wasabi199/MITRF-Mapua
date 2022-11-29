@@ -32,14 +32,13 @@ class UsersImport implements   WithHeadingRow, ToCollection, WithValidation, Ski
             foreach ($rows as $row) {
                 # code...
                 
-                // foreach(User::all() as $user){
-                //     if($user->email != $row['email']){
-                        // $userExist= User::find($user->id); 
+                $pass = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",];
+            
                         $userNew = User::create([
                             'name'      =>$row['first_name'].' '.$row['middle_name'].' '.$row['last_name'],
                             'email'     =>$row['email'],
                             'userType'  =>2,
-                            'password'  =>Hash::make('password'),
+                            'password'  =>Hash::make($pass[(int)\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('m')].\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('d').\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('Y')),
                             'member_id'=>$row['member_id']
                         ]);
                         $userNew->adminReg()->create([
@@ -48,48 +47,15 @@ class UsersImport implements   WithHeadingRow, ToCollection, WithValidation, Ski
                             'last_name'     =>$row['last_name'],
                             'mobile_number' =>'+63-'.$row['mobile'],
                             'birth_date'    =>\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('Y-m-d'),
-                            'birth_place'   =>$row['birthplace'],
+                            // 'birth_place'   =>"",
                             'civil_status'  =>$row['civil_status'],
-        
-                            // 'region'        =>$row['region'],
-                            // 'province'      =>$row['province'],
-                            // 'municipality'  =>$row['municipality'],
-                            // 'barangay'      =>$row['barangay'],
-                            // 'current_address'=>$row['current_address'],
         
                             'department'    =>$row['department'],
                             'salary'        =>$row['salary'],
                             'membership'    =>\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['membership'])->format('Y-m-d'),
                             'employment'    =>\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['employment'])->format('Y-m-d'),
                         ]);
-                    // }else{
-                    //     $user = User::find('ID',$user->id)->update([
-                    //         'name'      =>$row['first_name'].' '.$row['middle_name'].' '.$row['last_name'],
-                    //         'email'     =>$row['email'],
-                    //         'userType'  =>1,
-                    //         // 'password'  =>Hash::make('password')
-                    //     ]);
-                    //     $user->adminReg()->update([
-                    //         'first_name'    =>$row['first_name'],
-                    //         'middle_name'   =>$row['middle_name'],
-                    //         'last_name'     =>$row['last_name'],
-                    //         'mobile_number' =>'+63-'.$row['mobile'],
-                    //         // 'birth_date'    =>new Date('Y-m-d',$row['birthdate']),
-                    //         'birth_date'    =>\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('Y-m-d'),
-                    //         'birth_place'   =>$row['birthplace'],
-                    //         'civil_status'  =>$row['civil_status'],
-        
-                            // 'region'        =>$row['region'],
-                            // 'province'      =>$row['province'],
-                            // 'municipality'  =>$row['municipality'],
-                            // 'barangay'      =>$row['barangay'],
-                            // 'current_address'=>$row['current_address'],
-        
-                        //     'department'    =>$row['department'],
-                        //     'salary'        =>$row['salary'],
-                        //     'membership'    =>\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['membership'])->format('Y-m-d'),
-                        //     'employment'    =>\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['employment'])->format('Y-m-d'),
-                        // ]);
+                    
                     }
                 // }
             // }
@@ -106,14 +72,10 @@ class UsersImport implements   WithHeadingRow, ToCollection, WithValidation, Ski
             
             'mobile'=>'required',
             'birthdate'=>'required',
-            // 'birth_place'=>'required',
+           
             'civil_status'=>'required',
 
-            // 'region'=>'required',
-            // 'province'=>'required',
-            // 'municipality'=>'required',
-            // 'barangay'=>'required',
-            // 'current_address'=>'required',
+           
 
             'department'=>'required',
             'salary'=>'required',

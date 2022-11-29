@@ -936,7 +936,7 @@
             >
               <th class="text-left px-16">ID</th>
               <th class="text-left px-16">Amount</th>
-              <th class="text-left px-16">Date of Creation</th>
+              <th class="text-left px-16">Date of Payment</th>
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
@@ -947,7 +947,7 @@
               <td class="px-6 py-6 whitespace-nowrap">
                 <div class="flex items-center">
                   <div>
-                    <div class="px-12 text-sm font-medium text-gray-900">
+                    <div class="px-10 text-sm font-medium text-gray-900">
                       {{ contribution.id }}
                     </div>
                   </div>
@@ -965,8 +965,8 @@
               <td class="px-6 py-4 whitespace-nowrap">
                 <div class="flex items-center">
                   <div>
-                    <div class="px-5 text-sm font-medium text-gray-900">
-                      {{ contribution.created_at }}
+                    <div class="px-8 text-sm font-medium text-gray-900">
+                      {{ new Date(contribution.created_at).toLocaleDateString() +" "+ new Date(contribution.created_at).toLocaleTimeString()}}
                     </div>
                   </div>
                 </div>

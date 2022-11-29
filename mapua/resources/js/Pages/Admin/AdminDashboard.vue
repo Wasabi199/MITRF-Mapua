@@ -11,8 +11,8 @@
              <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                  <div>
                      <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
-                         <div class="h-20 w-20">
-                             <img alt="mu logo" src="/images/mu_logo.png">
+                         <div class="w-64">
+                             <img alt="mu logo" src="/images/MITRF2.png">
                          </div>
 
 

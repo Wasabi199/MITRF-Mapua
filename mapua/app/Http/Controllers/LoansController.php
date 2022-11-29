@@ -213,11 +213,25 @@ class LoansController extends Controller
     public function createReimburstment(){
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $userNotification->where('onRead',false)->count();
-        $info = Admin::find(auth()->id());
+        $info = Admin::where('user_id',auth()->id())->get()->first();
+        $reimbursement_balance_in = 12000;
+        $reimbursement_balance_out = 7000;
+        
+        foreach(Medical::where('user_id',auth()->id())->get() as $medical){
+            if($medical->reimbursment_type =="Hospital"){
+                $reimbursement_balance_in = $reimbursement_balance_in - $medical->amount;
+            }else{
+                $reimbursement_balance_out = $reimbursement_balance_out - $medical->amount;
+            }
+            
+        }
+
         return Inertia::render('Users/UserReimbursmentView',[
             'info' =>$info,
             'notification'=>$userNotification,
-            'count'=>$notificationCount
+            'count'=>$notificationCount,
+            'reimbursement_balance_in'=>$reimbursement_balance_in,
+            'reimbursement_balance_out'=>$reimbursement_balance_out
         ]);
     }
     public function submitCreateReimburstment(medicalRequest $request){
@@ -374,7 +388,7 @@ class LoansController extends Controller
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $userNotification->where('onRead',false)->count();
         $medical = Medical::find($id);
-        $info = Admin::find($medical->user_id);
+        $info = Admin::where('user_id',$medical->user_id)->get()->first();
   
         return Inertia::render('Users/MedicalBreakdown',[
             'notification'=>$userNotification,

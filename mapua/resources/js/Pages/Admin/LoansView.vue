@@ -119,7 +119,7 @@
                 >
                   <th class="text-left px-16 bg-gray-100">Name</th>
                   <th class="text-left px-16 bg-gray-100">Loan Type</th>
-                  <th class="text-left px-16 bg-gray-100">Loan Amount</th>
+                  <th class="text-left px-16 bg-gray-100">Loan Balance</th>
                   <th class="text-left px-16 bg-gray-100">Status</th>
                   <th class="text-left px-16 bg-gray-100">Duration</th>
                   <th class="text-left px-16 bg-gray-100">Last Updated Loan Payment</th>
@@ -150,7 +150,7 @@
                       </div>
                     </td>
 
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-8 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div>
                           <div class="text-sm font-medium text-gray-900">
@@ -161,7 +161,7 @@
                         </div>
                       </div>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-4 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div>
                           <div class="text-sm font-medium text-gray-900">
@@ -190,7 +190,7 @@
                         <div>
                           <div class="text-sm font-medium text-gray-900">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
-                              loan.contributions[loan.contributions.length-1] != null? new Date(loan.contributions[loan.contributions.length-1].created_at):'No Loan Payment Yet'
+                              loan.contributions[loan.contributions.length-1] != null? new Date(loan.contributions[loan.contributions.length-1].created_at).toLocaleDateString()+" "+new Date(loan.contributions[loan.contributions.length-1].created_at).toLocaleTimeString():'No Loan Payment Yet'
                             }}
                           </div>
                         </div>

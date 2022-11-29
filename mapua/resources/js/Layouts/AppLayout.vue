@@ -57,10 +57,7 @@ export default {
             logout() {
                 this.$inertia.post(route('logout'));
             },
-            // notificationClick(notif){
-            //     this.notifToClick = notif;
-            //     this.submit();
-            // },
+       
             submit(notif){
                 // console.log(notif);
                 this.notif.id = notif.id;
@@ -87,6 +84,16 @@ export default {
                 }else if(notification_type == 3){
                     this.$inertia.get(route('UserLoanView',universal_id));
                 }
+                else if(notification_type == 4){
+                    this.$inertia.get(route('UserLoanView',universal_id));
+                }
+                else if(notification_type == 5){
+                    this.$inertia.get(route('MedicalBreakdown',universal_id));
+                }
+                else if(notification_type == 6){
+                    this.$inertia.get(route('MedicalBreakdown',universal_id));
+                }
+              
             },
     }
 }
@@ -276,6 +283,7 @@ export default {
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 5?'Medical Update':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 6?'Denied Medical':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis h-10">{{notif.value}}</span>
+                                                        <span class="text-sm">{{new Date(notif.created_at).toLocaleDateString()+" "+ new Date(notif.created_at).toLocaleTimeString("en-US")}}</span>
                                                     </div>
                                                      <div v-if="notif.onRead == 1" class="flex flex-col p-1" @click="revisit(notif.notification_type, notif.universal_id)">
                                                         <span  class="font-semibold">{{notif.type == 1? 'Loan':''}}</span>
@@ -288,6 +296,7 @@ export default {
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 5?'Medical Update':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 6?'Denied Medical':''}}</span>
                                                         <span class="text-sm overflow-hidden text-ellipsis h-10">{{notif.value}}</span>
+                                                        <span class="text-sm">{{new Date(notif.created_at).toLocaleDateString()+" "+ new Date(notif.created_at).toLocaleTimeString("en-US")}}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -384,6 +393,7 @@ export default {
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 5?'Medical Update':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 6?'Denied Medical':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis h-10">{{notif.value}}</span>
+                                                        <span class="text-sm">{{new Date(notif.created_at).toLocaleDateString()+" "+ new Date(notif.created_at).toLocaleTimeString("en-US")}}</span>
                                                     </div>
                                                      <div v-if="notif.onRead == 1" class="flex flex-col p-1" @click="revisit(notif.notification_type, notif.universal_id)">
                                                         <span  class="font-semibold">{{notif.type == 1? 'Loan':''}}</span>
@@ -395,7 +405,8 @@ export default {
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 4?'Denied Loan':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 5?'Medical Update':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 6?'Denied Medical':''}}</span>
-                                                        <span class="text-sm overflow-hidden text-ellipsis h-10">{{notif.value}}</span>
+                                                        <span  class="text-sm overflow-hidden text-ellipsis h-10">{{notif.value}}</span>
+                                                        <span class="text-sm">{{new Date(notif.created_at).toLocaleDateString()+" "+ new Date(notif.created_at).toLocaleTimeString("en-US")}}</span>
                                                     </div>
                                                 </div>
                                             </div>

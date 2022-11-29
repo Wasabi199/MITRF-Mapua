@@ -37,6 +37,8 @@
                 focus-visible:ring-offset-2
                 focus-visible:border-indigo-500
                 sm:text-sm
+                hidden
+                
               "
             >
               Sort By: {{ form.status }}
@@ -255,7 +257,7 @@
           cursor-pointer
         "
       >
-        <button>APPLY NEW REIMBURSMENT</button>
+        <button>APPLY NEW REIMBURSEMENT</button>
       </Link>
     </div>
 

@@ -34,16 +34,10 @@ class UserUpdateRequest extends FormRequest
             'birth_date'=>'required',
             'civil_status'=>'required',
 
-            'region'=>'required',
-            'province'=>'required',
-            'municipality'=>'required',
-            'barangay'=>'required',
-            'current_address'=>'required',
-
             'department'=>'required',
             'membership'=>'required',
             'employment'=>'required',
-            'total_contribution'=>'required',
+          
             
         ];
     }

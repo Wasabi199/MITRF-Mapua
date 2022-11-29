@@ -14,82 +14,57 @@
         <form class>
             <div class="px-2 py-5 sm:p-6">
                 <div class="grid grid-cols-6 gap-6">
-<!-- 
-                    <div class="col-span-3">
-                            <label class="block text-sm font-medium text-gray-700">Application No.</label>
-                            <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
-                    </div>
-                    <div class="col-span-3">
-                            <label class="block text-sm font-medium text-gray-700">Date and Time Received</label>
-                            <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
-                    </div> -->
+
 
 
                     <div class="outline-double outline-4 mx-1 my-2 col-span-6"></div>
 
                     <div class="flex col-span-3">
-                        <!-- <label class="block text-sm font-medium text-gray-700">Name of Borrower</label>
-                        <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled> -->
+                      
                         <p class="font-semibold">Name of Borrower</p>
                         <p class="ml-2 underline">{{info.first_name}} {{info.middle_name}} {{info.last_name}}</p>
                     </div>
 
                     <div class="flex col-span-2">
-                        <!-- <label class="block text-sm font-medium text-gray-700">Date of Birth</label>
-                        <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled> -->
+                       
                         <p class="font-semibold">Date of Birth</p>
                         <p class="ml-2 underline">{{info.birth_date}}</p>
                     </div>
 
                     <div class="flex col-span-1">
-                        <!-- <label class="block text-sm font-medium text-gray-700">Age</label>
-                        <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled> -->
+                       
                         <p class="font-semibold">Age:</p>
                         <p class="ml-2 underline">{{new Date().getUTCFullYear() - new Date(info.birth_date).getUTCFullYear()}}</p>
                     </div>
 
                     <div class="flex col-span-3">
-                        <!-- <label class="block text-sm font-medium text-gray-700">Date of Employment</label>
-                        <input type="date" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled> -->
+                        
                         <p class="font-semibold">Date of Employment:</p>
                         <p class="ml-2 underline">{{info.employment}}</p>
                     </div>
 
                     <div class="flex col-span-3">
-                        <!-- <label class="block text-sm font-medium text-gray-700">Years of Service</label>
-                        <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled> -->
+                        
                             <p class="font-semibold">Years of Service:</p>
                             <p class="ml-2 underline">{{new Date().getUTCFullYear() - new Date(info.employment).getUTCFullYear()}} Years</p>
                     </div>
 
                     <div class="flex col-span-6">
-                        <!-- <label class="block text-sm font-medium text-gray-700">If Administration Employee, state department</label>
                         
-                        <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled> -->
                             <p class="font-semibold">Department:</p>
                             <p class="ml-2 underline">{{info.department}}</p>
                     </div>
 
-                    <!-- <div class="col-span-6 sm:col-span-4">
-                        <label class="block text-sm font-medium text-gray-700">If Faculty, state school or department</label>
-                        <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
-                    </div> -->
+                   
 
                     <div class="flex col-span-3">
-                        <!-- <label class="block text-sm font-medium text-gray-700">Amount of Loan</label>
-                        <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled> -->
+                        
                         <p class="font-semibold">Amount of Loan</p>
                         <p class="ml-2 underline">Php {{loan.amount.toLocaleString('en-US')}}</p>
                     </div>
 
-                    <!-- <div class="col-span-6 sm:col-span-4">
-                        <label class="block text-sm font-medium text-gray-700">Purpose of Loan</label>
-                        <input type="text" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>
-                    </div> -->
-
                     <div class="flex col-span-3">
-                        <!-- <label class="block text-sm font-medium text-gray-700">Term of Payment &lpar;Months&rpar;</label>
-                        <input type="number" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled> -->
+                        
                         <p class="font-semibold">Term of Payment &lpar;Months&rpar;</p>
                         <p class="ml-2 underline">{{loan.duration}}</p>
                     </div>
@@ -103,7 +78,7 @@
 
                     <div class="col-span-2 mt-8">
                         <br><br>
-                        <div class="border-b-2 text-center">{{info.first_name+' '+info.middle_name+' '+info.last_name}}</div>
+                        <div class="border-b-2 text-center font-bold">{{info.first_name+' '+info.middle_name+' '+info.last_name}}</div>
                         <p class="text-center italic">&lpar;Signature of Applicant&rpar;</p>
                     </div>
 
@@ -189,8 +164,8 @@
                     <div class="col-span-6">
                         <p class="indent-10 text-justify"><span class="font-semibold"> NOB VALUE RECEIVED, </span>I hereby promise to pay M.I.T. RETIREMENT
                         FUND, INC at its office at Muralla St., Intramuros, Manila, the sum of _____________________________________________ 
-                        PESOS &lpar;₱___________&rpar;, Philippine currency, plus interest and service charge at the rate of ___________% and __________________,
-                        respectively in equal semi-monthly installments of __________________ &lpar;₱___________&rpar; commencing on ____________________________,
+                        PESOS &lpar;₱ <span class="italic">{{loan.loan_amount}}</span> &rpar;, Philippine currency, plus interest and service charge at the rate of <span class="italic">{{loan.interest * 100}}</span>% and __________________,
+                        respectively in equal semi-monthly installments of __________________ &lpar;₱ <span class="italic">{{loan.amount}}</span> &rpar; commencing on ____________________________,
                         ________ to ____________________, ________ and subject further to the following terms and conditions.</p><br>
 
                         <p class="indent-10 text-justify italic">The interest charge herein shall be subject in increase or reduction, depending on whatever policy
@@ -213,7 +188,7 @@
                     </div>
 
                     <div class="col-span-3 col-start-4">
-                        <div class="border-b-2 mx-10 text-center">{{info.first_name+' '+info.middle_name+' '+info.last_name}}</div>
+                        <div class="border-b-2 mx-10 text-center font-bold ">{{info.first_name+' '+info.middle_name+' '+info.last_name}}</div>
                         <p class="text-center">&lpar;Borrower&rpar;</p>
                         <p class="text-center">&lpar;Print Name and Sign Above&rpar;</p>
                     </div>
@@ -244,8 +219,10 @@
                 <div class="grid grid-cols-6 gap-6">
                     <div class="col-span-6">
                         <p class="font-extrabold text-center">ASSIGNMENT</p><br>
-                        <p class="indent-10 text-justify">I,____________________________________,____________________________________,</p>
-                        <p class="text-center">&lpar;Name&rpar; <span class="ml-60">&lpar;Designation&rpar;</span></p>
+
+                        <p class="indent-10 text-justify ">I, <span class="underline italic  ">{{info.first_name +" "+ info.middle_name+" "+info.last_name}} </span>, ____________________________________________</p>
+
+                        <p class="text-center flex"><span class="mx-24">&lpar;Name&rpar; </span> <span class="mx-40">&lpar;Designation&rpar;</span></p>
                         <p class="text-justify">of _______________________________, a member of M.I.T. RETIREMENT FUND, INC. in the principal amount of PESOS 
                         _______________________________________________________, covered by Promissory Note No. ________________________________ granted on 
                         ________________________, ____________, hereby authorized MAPUA INSTITUTE OF TECHNOLOGY &lpar;MIT&rpar; to deduct from the 
@@ -258,7 +235,7 @@
                     </div>
 
                     <div class="col-span-3 col-start-4">
-                        <div class="border-b-2 mx-10 text-center">{{info.first_name+' '+info.middle_name+' '+info.last_name}}</div>
+                        <div class="border-b-2 mx-10 text-center font-bold">{{info.first_name+' '+info.middle_name+' '+info.last_name}}</div>
                         <p class="text-center">&lpar;Borrower&rpar;</p>
                         <p class="text-center">&lpar;Print Name and Sign Above&rpar;</p><br><br>
                     </div>

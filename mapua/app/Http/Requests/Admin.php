@@ -41,7 +41,7 @@ class Admin extends FormRequest
             'employment' => 'required',
 
             'account_information.email'=>'required|email|unique:users,email',
-            'account_information.password' => $this->passwordRules(),
+            'account_information.password' => 'required',
             'account_information.role' => 'required',
             'account_information.member_id'=>'required',
         ];

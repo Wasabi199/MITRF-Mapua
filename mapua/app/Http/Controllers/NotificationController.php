@@ -23,8 +23,17 @@ class NotificationController extends Controller
         else if($notification->notification_type == 2){
             return Redirect::route('medicalProfile',$notification->universal_id);
         }
-        else{
+        else if($notification->notification_type == 3){
             return Redirect::route('UserLoanView',$notification->universal_id);
+        }
+        else if($notification->notification_type == 4){
+            return Redirect::route('UserLoanView',$notification->universal_id);
+        }
+        else if($notification->notification_type == 5){
+            return Redirect::route('MedicalBreakdown',$notification->universal_id);
+        }
+        else if($notification->notification_type == 6){
+            return Redirect::route('MedicalBreakdown',$notification->universal_id);
         }
     }
 }

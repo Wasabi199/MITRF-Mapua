@@ -275,7 +275,7 @@
             />
           </div>
 
-          <div class="flex space-x-8">
+          <!-- <div class="flex space-x-8">
             <div class="mt-4">
               <JetLabel for="password" value="Password" />
               <JetInput
@@ -299,7 +299,7 @@
                 autocomplete="new-password"
               />
             </div>
-          </div>
+          </div> -->
         </div>
 
         <div
@@ -387,17 +387,11 @@ export default {
         department: "",
         salary: "",
 
-        // address_information:{
-        //     region:'',
-        //     province:'',
-        //     municipality:'',
-        //     barangay:'',
-        //     current_address:'',
-        //     },
+      
         account_information: {
           email: "",
           password: "",
-          password_confirmation: "",
+          // password_confirmation: "",
           role: "",
           member_id: "",
         },
@@ -441,6 +435,9 @@ export default {
   },
   methods: {
     submit() {
+      const pass = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",]
+      this.form.account_information.password = pass[new Date(this.form.birth_date).getMonth()]+new Date(this.form.birth_date).getUTCDay()+new Date(this.form.birth_date).getUTCFullYear()
+
       this.form.post(route("registerUserSubmit"), {
         onStart: (visit) => {
           this.isSubmiting == true;

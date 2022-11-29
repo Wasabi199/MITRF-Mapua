@@ -565,7 +565,7 @@
       <!-- Housing Loan Guidelines -->
       <div v-if="form.loan_type == 'Housing Loan'" class="p-5">
         <div class="flex justify-center text-xl font-bold text-gray-900 my-3">
-          <span>Guideline : {{ form.loan_type }}</span>
+          <span>Guidelines : {{ form.loan_type }}</span>
         </div>
         <br />
         <div class="flex justify-left text-l font-bold text-gray-900 my-3">
@@ -695,7 +695,7 @@
       <!-- Educational Loan Guidelines -->
       <div v-if="form.loan_type == 'Educational Loan'" class="p-5">
         <div class="flex justify-center text-xl font-bold text-gray-900 my-3">
-          <span>Guideline : {{ form.loan_type }}</span>
+          <span>Guidelines : {{ form.loan_type }}</span>
         </div>
         <br />
         <div class="flex justify-left text-l font-bold text-gray-900 my-3">
@@ -819,7 +819,7 @@
       <!-- Emergency Loan Guidelines -->
       <div v-if="form.loan_type == 'Emergency Loan'" class="p-5">
         <div class="flex justify-center text-xl font-bold text-gray-900 my-3">
-          <span>Guideline : {{ form.loan_type }}</span>
+          <span>Guidelines : {{ form.loan_type }}</span>
         </div>
         <br />
         <div class="flex justify-left text-l font-bold text-gray-900 my-3">

@@ -38,10 +38,8 @@ class MedicalController extends Controller
         $notificationCount = $notification->where('onRead',false)->count();
 
         $medical = Medical::find($id);
-        $info = Admin::find($medical->user_id);
-        // dd($info);
-        // $user_medical = Medical::where('user_id','==',$user_profile->id);
-        // dd($user_medical);
+        $info = Admin::where('user_id',$medical->user_id)->get()->first();
+        
         return Inertia::render('Medical/MedicalAppliedView',[
             'userProfile'=> $info,
             'userMedical'=> $medical,

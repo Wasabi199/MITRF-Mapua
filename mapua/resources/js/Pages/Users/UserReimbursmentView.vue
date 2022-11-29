@@ -30,16 +30,13 @@
     <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-          <!-- <div class="text-rose-600">
-                        <ul>
-                            <li v-for="error in $page.props.errors" v-bind:key="error">{{error}}</li>
-                        </ul>
-                    </div> -->
+        
           <JetValidationErrors class="mb-4" />
           <div class="ml-6 lg:ml-20 mt-10">
             <p class="mb-1 mt-4 text-lg">Purpose of Reimbursement</p>
             <select
               v-model="form.reimbursment_type"
+              v-on:change="reimbursement(form.reimbursment_type)"
               class="
                 border-2 border-gray-400 border-opacity-50
                 hover:border-indigo-500
@@ -50,7 +47,7 @@
                 mb-10
               "
             >
-              <option value="placeholder" disabled>Select Loan Type</option>
+              <option value="placeholder" disabled>Select Reimbursement Type</option>
               <option
                 v-for="type in reimbursment"
                 v-bind:key="type"
@@ -66,7 +63,7 @@
             class="p-6 sm:px-20 bg-white border-b border-gray-200 mt-[-40px]"
             enctype="multipart/form-data"
           >
-            <div>
+            <div v-if="this.form.reimbursment_type !=''">
               <label class="mb-1 text-lg text-gray-700" for="amount"
                 >Amount</label
               ><br />
@@ -440,7 +437,7 @@
                   mb-12
                 "
               >
-                <span>Guideline : Medical Reimburstment</span>
+                <span>Guidelines : Medical Reimburstment</span>
               </div>
               <div
                 class="
@@ -765,7 +762,7 @@
                   />
                 </svg>
               </div>
-              <div class="text-center">
+              <div class="text-justify">
                 <span
                   >I hereby agree to submit my documents and to allow MITRFI and
                   its authorized personnel to process my documents and personal
@@ -782,7 +779,7 @@
               <div
                 class="
                   flex
-                  justify-end
+                  justify-center
                   text-xl
                   font-bold
                   dark:text-gray-200
@@ -830,6 +827,81 @@
               </div>
             </div>
           </Modal>
+          <Modal
+            :show="reimbursment_balance_modal"
+            :closeable="false"
+            @close="reimbursment_balance_modal = !reimbursment_balance_modal"
+          >
+            <div class="p-5">
+              <div
+                class="
+                  flex
+                  justify-between
+                  text-xl
+                  font-bold
+                  text-gray-900
+                  my-3
+                "
+              >
+                <span>Note:</span>
+                
+              </div>
+              <div class="text-justify">
+                <span
+                  >You already reached your limit</span
+                >
+              </div>
+              <div
+                class="
+                  flex
+                  justify-center
+                  text-xl
+                  font-bold
+                  dark:text-gray-200
+                  my-3
+                "
+              >
+                <div
+                  @click="reroute()"
+                  class="
+                    flex
+                    space-x-2
+                    px-4
+                    py-1
+                    border
+                    text-sm
+                    leading-snug
+                    font-semibold
+                    text-green-600
+                    dark:text-green-600 dark:border-green-600
+                    border-green-600
+                    uppercase
+                    rounded-full
+                    dark:hover:text-gray-200
+                    hover:bg-green-500
+                    cursor-pointer
+                  "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-check2-all"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l7-7zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0z"
+                    />
+                    <path
+                      d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708z"
+                    />
+                  </svg>
+                  <span>Okay</span>
+                </div>
+              </div>
+            </div>
+          </Modal>
         </div>
       </div>
     </div>
@@ -852,6 +924,8 @@ export default {
     info: Object,
     notification: Object,
     count: Number,
+    reimbursement_balance_in:Number,
+    reimbursement_balance_out:Number
   },
   setup() {},
   data() {
@@ -860,8 +934,10 @@ export default {
       submitModal: false,
       isSubmiting: false,
       computationAmount: "",
+      reimbursment_balance_modal:false,
       // membership: this.props.info.membership,
       form: this.$inertia.form({
+
         reimbursment_type: "",
         amount: "",
         medical_benifit: "",
@@ -896,8 +972,19 @@ export default {
       console.log("Selected File", e.target.files[0]);
       this.form.medical_record4 = e.target.files[0];
     },
+    reimbursement(value){
+      if(value =="Hospital"){
+        if(this.$props.reimbursement_balance_in <=0){
+          this.reimbursment_balance_modal = true
+        }
+      }else{
+        if(this.$props.reimbursement_balance_out <=0){
+          this.reimbursment_balance_modal = true
+        }
+      }
+    },
     submit() {
-      console.log(this.$props.info.membership);
+      // console.log(this.$props.info.membership);
       if (2021 > new Date(this.$props.info.membership).getUTCFullYear()) {
         let date =
           new Date().getFullYear() -
@@ -921,6 +1008,10 @@ export default {
             this.form.reimbursment_type == "Hospital" ? 12000 : 7000;
         }
       } else {
+        let date =
+          new Date().getFullYear() -
+          new Date(this.$props.info.membership).getUTCFullYear();
+          console.log(date)
         if (date >= 1 && date <= 2) {
           this.form.medical_benifit = "10%";
           this.computationAmount =
@@ -987,7 +1078,7 @@ export default {
     proceed() {
       if (this.form.reimbursment_type == "Hospital") {
         if (this.computationAmount <= this.form.amount) {
-          this.form.amount = this.computationAmount;
+            this.form.amount = this.computationAmount;
         }
       } else {
         if (this.computationAmount <= this.form.amount) {
@@ -1007,6 +1098,9 @@ export default {
       this.submitModal = false;
       console.log("Clicked");
     },
+    reroute(){
+      this.$inertia.get(route('ReimbursView'))
+    }
   },
 };
 </script>
