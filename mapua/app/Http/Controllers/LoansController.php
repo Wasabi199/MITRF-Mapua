@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Redirect;
 use Tightenco\Ziggy\Output\Script;
 use App\Services\Approval;
 use App\Services\NotificationService;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Request as query;
 
 
@@ -216,14 +217,15 @@ class LoansController extends Controller
         $info = Admin::where('user_id',auth()->id())->get()->first();
         $reimbursement_balance_in = 12000;
         $reimbursement_balance_out = 7000;
-        
+       
         foreach(Medical::where('user_id',auth()->id())->get() as $medical){
-            if($medical->reimbursment_type =="Hospital"){
-                $reimbursement_balance_in = $reimbursement_balance_in - $medical->amount;
-            }else{
-                $reimbursement_balance_out = $reimbursement_balance_out - $medical->amount;
+            if(date_format($medical->created_at,'Y')==Carbon::now()->format('Y')){
+                if($medical->reimbursment_type =="Hospital"){
+                    $reimbursement_balance_in = $reimbursement_balance_in - $medical->amount;
+                }else{
+                    $reimbursement_balance_out = $reimbursement_balance_out - $medical->amount;
+                }
             }
-            
         }
 
         return Inertia::render('Users/UserReimbursmentView',[
@@ -342,7 +344,7 @@ class LoansController extends Controller
             'notification_type'=>2
         ]);
         return Redirect::route('medicalView')->with('message',
-            [NotificationService::notificationItem('Sucess', '', 'Sucessfully submitted Medical Reimburstment '.$validate_data['reimbursment_type'])]);
+            [NotificationService::notificationItem('Sucess', '', 'Sucessfully submitted Medical Reimbursement '.$validate_data['reimbursment_type'])]);
     }
     public function  UserLoanView($id){
        
