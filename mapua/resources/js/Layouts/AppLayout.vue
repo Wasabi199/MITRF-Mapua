@@ -161,7 +161,7 @@ export default {
                                  <div v-if="$page.props.user.userType == 3" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <!-- Dashboard -->
                                 <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                    Home
                                 </JetNavLink>
                                 <!-- Medical Reimbursement List -->
                                 <JetNavLink :href="route('medicalList')" :active="route().current('medicalList')">
@@ -171,7 +171,7 @@ export default {
                             <div v-if="$page.props.user.userType == 4" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <!-- Dashboard -->
                                 <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                    Home
                                 </JetNavLink>
                                 <!-- Medical Reimbursement List -->
                              

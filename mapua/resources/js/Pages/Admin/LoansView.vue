@@ -10,8 +10,8 @@
       </div>
     </template>
 
-    <div class="p-2 px-6 leading-tight flex justify-between items-center">
-      <h1 class="text-xl text-gray-700 font-extrabold pl-8">Approved Loans</h1>
+    <div class="p-2 px-6 leading-tight flex justify-end items-center">
+      <!-- <h1 class="text-xl text-gray-700 font-extrabold pl-8">Loans</h1> -->
 
       <div class="flex px-3 py-1 gap-2">
         <Listbox class="w-80" v-model="form.approval">
@@ -150,7 +150,7 @@
                       </div>
                     </td>
 
-                    <td class="px-8 py-4 whitespace-nowrap">
+                    <td class="px-14 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div>
                           <div class="text-sm font-medium text-gray-900">
@@ -161,10 +161,10 @@
                         </div>
                       </div>
                     </td>
-                    <td class="px-4 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
-                        <div>
-                          <div class="text-sm font-medium text-gray-900">
+                    <td class=" py-4 whitespace-nowrap">
+                      <div class="flex text-center items-center">
+                        <div class="text-center">
+                          <div class="text-sm  font-medium text-gray-900">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
                               loan.approval
                             }}
@@ -173,19 +173,19 @@
                       </div>
                     </td>
 
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class=" py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div>
                           <div class="text-sm font-medium text-gray-900">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
                               loan.duration
-                            }}
+                            }} month/s
                           </div>
                         </div>
                       </div>
                     </td>
 
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-10 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div>
                           <div class="text-sm font-medium text-gray-900">
@@ -197,15 +197,15 @@
                       </div>
                     </td>
 
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-20 py-4 whitespace-nowrap">
                       <div class="flex items-center">
-                        <div class="m-auto">
+                        <div class="">
                           <div class="text-sm font-medium text-green-700">
                             <Link :href="route('contributions', loan.id)">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
+                                width="20"
+                                height="20"
                                 fill="currentColor"
                                 class="bi bi-eye"
                                 viewBox="0 0 16 16"

@@ -30,7 +30,7 @@
     </template>
     <JetAuthenticationCard>
       <template #logo>
-        <img src="/images/mu_logo.png" alt="mu logo" class="h-40 w-45" />
+        <img src="/images/MITRF2.png" alt="mu logo" class="w-96 mt-10" />
       </template>
 
       <!-- <div class="text-rose-600">
