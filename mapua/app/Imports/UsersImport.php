@@ -32,13 +32,13 @@ class UsersImport implements   WithHeadingRow, ToCollection, WithValidation, Ski
             foreach ($rows as $row) {
                 # code...
                 
-                $pass = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",];
+                $pass = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
             
                         $userNew = User::create([
                             'name'      =>$row['first_name'].' '.$row['middle_name'].' '.$row['last_name'],
                             'email'     =>$row['email'],
                             'userType'  =>2,
-                            'password'  =>Hash::make($pass[(int)\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('m')].\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('d').\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('Y')),
+                            'password'  =>Hash::make($pass[(int)\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('m')-1].\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('d').\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('Y')),
                             'member_id'=>$row['member_id']
                         ]);
                         $userNew->adminReg()->create([

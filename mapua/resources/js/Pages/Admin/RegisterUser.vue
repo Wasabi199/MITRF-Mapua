@@ -435,8 +435,8 @@ export default {
   },
   methods: {
     submit() {
-      const pass = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",]
-      this.form.account_information.password = pass[new Date(this.form.birth_date).getMonth()]+new Date(this.form.birth_date).getUTCDay()+new Date(this.form.birth_date).getUTCFullYear()
+      const pass = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+      this.form.account_information.password = pass[new Date(this.form.birth_date).getMonth()-1]+new Date(this.form.birth_date).getUTCDay()+new Date(this.form.birth_date).getUTCFullYear()
 
       this.form.post(route("registerUserSubmit"), {
         onStart: (visit) => {
