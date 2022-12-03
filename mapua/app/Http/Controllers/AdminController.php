@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{User, AddressInformation, Contributions, UserNotifications, Loans};
+use App\Models\{User, AddressInformation, Contributions, UserNotifications, Loans, Medical};
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Request as QueryRequest;
@@ -11,6 +11,7 @@ use App\Http\Requests\LoanDeleteRequest as deleteloanRequest;
 use App\Http\Requests\UserUpdateRequest as updateRequest;
 use App\Http\Requests\LoanReviewRequest as reviewloanRequest;
 use App\Http\Requests\LoanRejectRequest as rejectLoanRequest;
+use App\Http\Requests\AdminReimbursementUpdateRequest as reimbursementRequest;
 use App\Http\Requests\Admin as RegiterUserRequest;
 use App\Imports\UserAdmin;
 use Carbon\Carbon;
@@ -230,7 +231,7 @@ class AdminController extends Controller
             'user_id'=>$loans->user_id,
             'universal_id'=>$request->validated()['id'],
             'onRead'=>false,
-            'value'=>'Your application has been APPROVED',
+            'value'=>'Your application has been PROCESSED',
             'type'=>2,
             'notification_type'=>3
         ]);
@@ -352,6 +353,50 @@ class AdminController extends Controller
             'info'=>$info,
         ]);
     }
- 
+
+    public function reimbursementView(){
+        $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $notificationCount = $notification->where('onRead',false)->count();
+
+        $medical = Medical::with('user')->where('status','!=','Pending')->limit(5)->orderByRaw('created_at DESC')->paginate(5);
+        
+        return Inertia::render('Admin/Reimbursement',[
+            'notification'=>$notification,
+            'count'=>$notificationCount,
+
+            'medicals'=>$medical,
+        ]);
+    }
+    public function reimbursementProfileView($id){
+        $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $notificationCount = $notification->where('onRead',false)->count();
+
+        $medical = Medical::where('id',$id)->get()->first();
+        $info = Admin::where('user_id',$medical->user_id)->get()->first();
+        return Inertia::render('Admin/ReimbursementProfile',[
+            'notification'=>$notification,
+            'count'=>$notificationCount,
+
+            'medical'=>$medical,
+            'info'=>$info
+        ]);
+    }
+    
+    public function updateReimbursement(reimbursementRequest $request){
+        $validated_data = $request->validated();
+        $medical = Medical::where('id',$validated_data['id'])->get()->first();
+        $medical->update($validated_data);
+        UserNotifications::create([
+            'user_id'=>$medical->user_id,
+            'universal_id'=>$request->validated()['id'],
+            'onRead'=>false,
+            'value'=>'Your application has been Updated',
+            'type'=>2,
+            'notification_type'=>5
+        ]);
+        return Redirect::back()->with('message',
+            [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
+        
+    }
 
 }

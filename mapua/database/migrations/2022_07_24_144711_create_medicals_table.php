@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('reimbursment_type');
+            $table->string('clinic_name');
+            $table->date('appointment_date');
             $table->string('medical_record1')->nullable();
             $table->string('medical_record2')->nullable();
             $table->string('medical_record3')->nullable();

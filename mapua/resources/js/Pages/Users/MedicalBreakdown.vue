@@ -166,10 +166,10 @@
           </div>
         </form>
       </div>
-      <div class="row-span-3">
+      <div v-if="medical.status == 'Approved'" class="row-span-3" >
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
           <div>
-            <span>Official Reciept</span>
+            <span>Official Receipt</span>
           </div>
           <img
             :src="
@@ -210,6 +210,27 @@
             "
           />
         </div>
+      </div>
+      <div v-if="medical.status == 'For Release'" class="row-span-3">
+        <div class=" w-full bg-white shadow-xl rounded-lg p-5">
+          <p class="font-semibold">Good News!</p>
+          <p>Your Medical Reimbursement has been processed.</p>
+          <p>A representative will get in touch with you for updates on the release of your reimbursement. Thank you.</p>
+        </div>
+      
+      </div>
+      <div v-if="medical.status == 'Released'" class="row-span-3">
+        <div class=" w-full bg-white shadow-xl rounded-lg p-5">
+          <div class="flex gap-x-2 m-auto w-fit">
+          <p class="font-semibold">Amount:</p>
+          <p>{{medical.amount}}</p>
+        </div>
+        <div class="flex gap-x-2 m-auto w-fit">
+          <p class="font-semibold">Date Released:</p>
+          <p>{{new Date(medical.updated_at)}}</p>
+        </div>
+        </div>
+      
       </div>
     </div>
 

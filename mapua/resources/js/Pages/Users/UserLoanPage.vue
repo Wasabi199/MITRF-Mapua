@@ -97,6 +97,7 @@
                 </div>
                 <input
                   v-model="form.amount"
+                  @change="onChangeAmount"
                   type="number"
                   placeholder="0.00"
                   class="
@@ -261,6 +262,7 @@
                 </div>
                 <input
                   v-model="form.amount"
+                  @change="onChangeAmount"
                   type="number"
                   placeholder="0.00"
                   class="
@@ -454,6 +456,7 @@
                 </div>
                 <input
                   v-model="emergencyForm.amount"
+                  @change="onChangeAmount"
                   type="number"
                   placeholder="0.00"
                   class="
@@ -1126,6 +1129,8 @@ export default {
       console.log("Selected File 4", e.target.files[0]);
       this.form.attachment4 = e.target.files[0];
     },
+
+   
     submit() {
       this.submitModal = true;
       if (this.form.loan_type == "Housing Loan") {
@@ -1172,7 +1177,37 @@ export default {
           this.emergencyForm.amount * this.emergencyForm.interest;
       }
     },
-
+    onChangeAmount(){
+      console.log(this.emergencyForm.amount)
+      console.log(this.form.loan_type)
+      if(this.form.loan_type != "Emergency Loan"){
+        if (this.form.loan_type == "Housing Loan") {
+          if (this.form.amount >= 30000 && this.form.amount <= 100000) {
+            this.amountValidation = false;
+            console.log(true)
+          }else{
+            this.amountValidation = true;
+            console.log(false)
+          }
+        }else if(this.form.loan_type == "Educational Loan"){
+          
+          if (this.form.amount <= 30000) {
+            this.amountValidation = false;
+            
+          }else{
+            this.amountValidation = true;
+            console.log(false)
+          }
+        }
+    }else{
+        if (this.emergencyForm.amount <= 30000) {
+              this.amountValidation = false;
+            }else{
+              this.amountValidation = true;
+              console.log(false)
+          }
+      }
+    },
     proceed() {
       if (this.form.loan_type != "Emergency Loan") {
         if (this.form.loan_type == "Housing Loan") {

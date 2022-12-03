@@ -111,6 +111,14 @@
               "
             >
               <p class="mb-1 text-lg">Upload Requirements</p>
+              <div class="pt-5">
+                <p class="text-md font-bold">Clinic / Hospital Name:</p>
+                <input class="w-6/12 rounded-lg" type="text" v-model="this.form.clinic_name"/>
+              </div>
+              <div class="py-5">
+                <p class="text-md font-bold">Appointment Date:</p>
+                <input class="w-6/12 rounded-lg" type="date" v-model="this.form.appointment_date"/>
+              </div>
               <p class="font-bold">Official Receipt</p>
               <div
                 class="
@@ -176,7 +184,15 @@
             </div>
             <div v-if="this.form.reimbursment_type == 'Hospital'">
               <p class="mb-1 text-lg">Upload Requirements</p>
-              <p class="font-bold">Official Receipt</p>
+              <div class="pt-5">
+                <p class="text-md font-bold">Clinic / Hospital Name:</p>
+                <input class="w-6/12 rounded-lg" type="text" v-model="this.form.clinic_name"/>
+              </div>
+              <div class="pt-5">
+                <p class="text-md font-bold">Appointment Date:</p>
+                <input class="w-6/12 rounded-lg" type="date" v-model="this.form.appointment_date"/>
+              </div>
+              <p class="font-bold pt-5">Official Receipt</p>
               <div
                 class="
                   border-2 border-gray-400 border-opacity-50
@@ -272,6 +288,14 @@
             </div>
             <div v-if="this.form.reimbursment_type == 'Health Checkup'">
               <p class="mb-1 text-lg">Upload Requirements</p>
+              <div class="pt-5">
+                <p class="text-md font-bold">Clinic / Hospital Name:</p>
+                <input class="w-6/12 rounded-lg" type="text" v-model="this.form.clinic_name"/>
+              </div>
+              <div class="py-5">
+                <p class="text-md font-bold">Appointment Date:</p>
+                <input class="w-6/12 rounded-lg" type="date" v-model="this.form.appointment_date"/>
+              </div>
               <p class="font-bold">Official Receipt</p>
               <div
                 class="
@@ -940,6 +964,8 @@ export default {
 
         reimbursment_type: "",
         amount: "",
+        clinic_name:'',
+        appointment_date:'',
         medical_benifit: "",
         medical_record1: "",
         medical_record2: "",
@@ -994,18 +1020,18 @@ export default {
           this.form.medical_benifit = "50%";
           this.computationAmount =
             this.form.reimbursment_type == "Hospital"
-              ? 12000 * 0.5
+              ? 5000 * 0.5
               : 7000 * 0.5;
         } else if (date >= 3 && date <= 5) {
           this.form.medical_benifit = "70%";
           this.computationAmount =
             this.form.reimbursment_type == "Hospital"
-              ? 12000 * 0.7
+              ? 5000 * 0.7
               : 7000 * 0.7;
         } else if (date >= 5) {
           this.form.medical_benifit = "100%";
           this.computationAmount =
-            this.form.reimbursment_type == "Hospital" ? 12000 : 7000;
+            this.form.reimbursment_type == "Hospital" ? 5000 : 7000;
         }
       } else {
         let date =
@@ -1016,60 +1042,60 @@ export default {
           this.form.medical_benifit = "10%";
           this.computationAmount =
             this.form.reimbursment_type == "Hospital"
-              ? 12000 * 0.1
+              ? 5000 * 0.1
               : 7000 * 0.1;
         } else if (date >= 2 && date <= 3) {
           this.form.medical_benifit = "20%";
           this.computationAmount =
             this.form.reimbursment_type == "Hospital"
-              ? 12000 * 0.2
+              ? 5000 * 0.2
               : 7000 * 0.2;
         } else if (date >= 3 && date <= 4) {
           this.form.medical_benifit = "30%";
           this.computationAmount =
             this.form.reimbursment_type == "Hospital"
-              ? 12000 * 0.3
+              ? 5000 * 0.3
               : 7000 * 0.3;
         } else if (date >= 4 && date <= 5) {
           this.form.medical_benifit = "40%";
           this.computationAmount =
             this.form.reimbursment_type == "Hospital"
-              ? 12000 * 0.4
+              ? 5000 * 0.4
               : 7000 * 0.4;
         } else if (date >= 5 && date <= 6) {
           this.form.medical_benifit = "50%";
           this.computationAmount =
             this.form.reimbursment_type == "Hospital"
-              ? 12000 * 0.5
+              ? 5000 * 0.5
               : 7000 * 0.5;
         } else if (date >= 6 && date <= 7) {
           this.form.medical_benifit = "60%";
           this.computationAmount =
             this.form.reimbursment_type == "Hospital"
-              ? 12000 * 0.6
+              ? 5000 * 0.6
               : 7000 * 0.6;
         } else if (date >= 7 && date <= 8) {
           this.form.medical_benifit = "70%";
           this.computationAmount =
             this.form.reimbursment_type == "Hospital"
-              ? 12000 * 0.7
+              ? 5000 * 0.7
               : 7000 * 0.7;
         } else if (date >= 8 && date <= 9) {
           this.form.medical_benifit = "80%";
           this.computationAmount =
             this.form.reimbursment_type == "Hospital"
-              ? 12000 * 0.8
+              ? 5000 * 0.8
               : 7000 * 0.8;
         } else if (date >= 9 && date <= 10) {
           this.form.medical_benifit = "90%";
           this.computationAmount =
             this.form.reimbursment_type == "Hospital"
-              ? 12000 * 0.9
+              ? 5000 * 0.9
               : 7000 * 0.9;
         } else if (date >= 10) {
           this.form.medical_benifit = "100%";
           this.computationAmount =
-            this.form.reimbursment_type == "Hospital" ? 12000 : 7000;
+            this.form.reimbursment_type == "Hospital" ? 5000 : 7000;
         }
       }
 
@@ -1077,16 +1103,32 @@ export default {
     },
     proceed() {
       if (this.form.reimbursment_type == "Hospital") {
-        if (this.computationAmount <= this.form.amount) {
-            this.form.amount = this.computationAmount;
+        
+        if (this.form.amount <= this.computationAmount) {
+       
+          if(this.form.amount <= this.$props.reimbursement_balance_in){
+            this.form.amount = this.form.amount
+            console.log("checkedasdasd");
+          }else{
+            this.form.amount = this.$props.reimbursement_balance_in;
+            console.log("checked");
+          }
+        }else{
+          this.form.amount = this.$props.reimbursement_balance_in;
         }
       } else {
-        if (this.computationAmount <= this.form.amount) {
-          this.form.amount = this.computationAmount;
+        if (this.form.amount <= this.computationAmount) {
+          if(this.form.amount < this.$props.reimbursement_balance_out){
+            this.form.amount =  this.form.amount
+          }else{
+            this.form.amount = this.$props.reimbursement_balance_out;
+          }
+        }else{
+          this.form.amount = this.$props.reimbursement_balance_out;
         }
       }
-      // this.form.medical_record3 == ''?null:this.form.medical_record3
-      // this.form.medical_record4 == ''?null:this.form.medical_record4
+
+
       this.form.post(route("ReimburstmentSubmit"), {
         onStart: (visit) => {
           this.isSubmiting == true;
@@ -1098,6 +1140,7 @@ export default {
       this.submitModal = false;
       console.log("Clicked");
     },
+
     reroute(){
       this.$inertia.get(route('ReimbursView'))
     }

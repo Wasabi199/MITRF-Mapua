@@ -186,6 +186,11 @@
             </div>
           </div>
         </form>
+        <div>
+          <Link :href="route('ReimburstmentPrintng',userMedical.id)">
+            <div class="w-fit m-auto font-semibold py-2 px-10 text-green-500 border-2 border-green-500 rounded-lg hover:bg-green-500 hover:text-white">Print</div>
+          </Link>
+        </div>
       </div>
       <div class="row-span-3">
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">

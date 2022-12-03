@@ -20,18 +20,21 @@ class MedicalFactory extends Factory
             'Hospital',
             'Health Checkup',
             'Dental Checkup',
-            'Mental Checkup',
+            'Medicines',
             'Eye Checkup',
 
         ];
         $status = [
             'Pending',
-            'Aprroved',
-            // 'Processing',
+            'Approved',
+            'For Release',
+            'Released',
         ];
         return [
             //
             'reimbursment_type' =>$this->faker->randomElement($reimbursment),
+            'clinic_name'=>$this->faker->company(),
+            'appointment_date'=>$this->faker->date($format = 'Y-m-d', $max = 'now'),
             'medical_record1'=>'http://3.bp.blogspot.com/_R-G_62JmanY/SCAB4RHj0_I/AAAAAAAAANQ/EGLQOelOyqo/s1600/Mapua_logo.jpg',
             'medical_record2'=>'http://3.bp.blogspot.com/_R-G_62JmanY/SCAB4RHj0_I/AAAAAAAAANQ/EGLQOelOyqo/s1600/Mapua_logo.jpg',
             'medical_record3'=>'http://3.bp.blogspot.com/_R-G_62JmanY/SCAB4RHj0_I/AAAAAAAAANQ/EGLQOelOyqo/s1600/Mapua_logo.jpg',

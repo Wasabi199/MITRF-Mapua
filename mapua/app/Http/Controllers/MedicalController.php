@@ -84,4 +84,13 @@ class MedicalController extends Controller
             [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
     }
 
+    public function reimbursemetPrint($id){
+        $medical = Medical::where('id',$id)->get()->first();
+        $info = Admin::where('user_id',$medical->user_id)->get()->first();
+        return Inertia::render('Medical/ReimburstmentPrint',[
+            'medical'=>$medical,
+            'info'=>$info,
+        ]);
+    }
+
 }

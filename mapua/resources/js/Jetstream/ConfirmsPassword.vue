@@ -93,7 +93,7 @@ const closeModal = () => {
                         placeholder="Password"
                         @keyup.enter="confirmPassword"
                     />
-
+                   
                     <JetInputError :message="form.error" class="mt-2" />
                 </div>
             </template>

@@ -15,6 +15,7 @@ use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use PhpOffice\PhpSpreadsheet\Shared\Date;
+use Illuminate\Support\Facades\DB;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 // use App\Imports\Date;
 
@@ -32,29 +33,31 @@ class UsersImport implements   WithHeadingRow, ToCollection, WithValidation, Ski
             foreach ($rows as $row) {
                 # code...
                 
-                $pass = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+                        $pass = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+                        $userNew = null;
+                        DB::transaction(function () use ($userNew,$row, $pass) {
+                            $userNew = User::create([
+                                'name'      =>$row['first_name'].' '.$row['middle_name'].' '.$row['last_name'],
+                                'email'     =>$row['email'],
+                                'userType'  =>2,
+                                'password'  =>Hash::make($pass[(int)\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('m')].\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('d').\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('Y')),
+                                'member_id'=>$row['member_id']
+                            ]);
+                            $userNew->adminReg()->create([
+                                'first_name'    =>$row['first_name'],
+                                'middle_name'   =>$row['middle_name'],
+                                'last_name'     =>$row['last_name'],
+                                'mobile_number' =>'+63-'.$row['mobile'],
+                                'birth_date'    =>\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('Y-m-d'),
+                                // 'birth_place'   =>"",
+                                'civil_status'  =>$row['civil_status'],
             
-                        $userNew = User::create([
-                            'name'      =>$row['first_name'].' '.$row['middle_name'].' '.$row['last_name'],
-                            'email'     =>$row['email'],
-                            'userType'  =>2,
-                            'password'  =>Hash::make($pass[(int)\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('m')].\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('d').\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('Y')),
-                            'member_id'=>$row['member_id']
-                        ]);
-                        $userNew->adminReg()->create([
-                            'first_name'    =>$row['first_name'],
-                            'middle_name'   =>$row['middle_name'],
-                            'last_name'     =>$row['last_name'],
-                            'mobile_number' =>'+63-'.$row['mobile'],
-                            'birth_date'    =>\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('Y-m-d'),
-                            // 'birth_place'   =>"",
-                            'civil_status'  =>$row['civil_status'],
-        
-                            'department'    =>$row['department'],
-                            'salary'        =>$row['salary'],
-                            'membership'    =>\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['membership'])->format('Y-m-d'),
-                            'employment'    =>\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['employment'])->format('Y-m-d'),
-                        ]);
+                                'department'    =>$row['department'],
+                                'salary'        =>$row['salary'],
+                                'membership'    =>\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['membership'])->format('Y-m-d'),
+                                'employment'    =>\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['employment'])->format('Y-m-d'),
+                            ]);
+                        });
                     
                     }
                 // }

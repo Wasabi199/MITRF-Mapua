@@ -137,6 +137,9 @@ export default {
                                  <JetNavLink :href="route('adminLoansView')" :active="route().current('adminLoansView')">
                                     Loans
                                 </JetNavLink>
+                                <JetNavLink :href="route('ReimbursementView')" :active="route().current('ReimbursementView')">
+                                    Reimbursement
+                                </JetNavLink>
                             </div>
 
 

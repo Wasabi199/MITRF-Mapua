@@ -19,6 +19,8 @@ class Medical extends Model
         'amount',
         'status',
         'medical_benifit',
+        'clinic_name',
+        'appointment_date',
     ];
     
     public function user(){

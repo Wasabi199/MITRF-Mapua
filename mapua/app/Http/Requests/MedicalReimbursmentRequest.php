@@ -28,7 +28,8 @@ class MedicalReimbursmentRequest extends FormRequest
             'reimbursment_type'=>'required',
             'amount'=>'required',
             'medical_benifit'=>'required',
-
+            'appointment_date'=>'required',
+            'clinic_name'=>'required',
             'medical_record1'=>'file|mimes:jpg,png,jpeg,pdf',
             'medical_record2'=>'file|mimes:jpg,png,jpeg,pdf',
             // 'medical_record3'=>'file|mimes:jpg,png,jpeg,pdf',

@@ -215,7 +215,7 @@ class LoansController extends Controller
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $userNotification->where('onRead',false)->count();
         $info = Admin::where('user_id',auth()->id())->get()->first();
-        $reimbursement_balance_in = 12000;
+        $reimbursement_balance_in = 5000;
         $reimbursement_balance_out = 7000;
        
         foreach(Medical::where('user_id',auth()->id())->where('status','Approved')->get() as $medical){
@@ -239,7 +239,7 @@ class LoansController extends Controller
     public function submitCreateReimburstment(medicalRequest $request){
         // dd($request);
         $validate_data = $request->validated();
-        // dd($validate_data['reimbursment_type']);
+        // dd($validate_data);
         if($validate_data['reimbursment_type'] == 'Hospital'){
             if($request->hasFile('medical_record1') || $request->hasFile('medical_record2') || $request->hasFile('medical_record3')){
                 $file1 = $request->file('medical_record1');
@@ -264,6 +264,8 @@ class LoansController extends Controller
                     'reimbursment_type'=>$validate_data['reimbursment_type'],
                     'amount'=>$validate_data['amount'],
                     'medical_benifit'=>$validate_data['medical_benifit'],
+                    'clinic_name'=>$validate_data['clinic_name'],
+                    'appointment_date'=>$validate_data['appointment_date'],
                     'medical_record1'=>'../../../uploads/reimburstment/'.$file_name1,
                     'medical_record2'=>'../../../uploads/reimburstment/'.$file_name2,
                     'medical_record3'=>'../../../uploads/reimburstment/'.$file_name3,
@@ -296,6 +298,8 @@ class LoansController extends Controller
                     'reimbursment_type'=>$validate_data['reimbursment_type'],
                     'amount'=>$validate_data['amount'],
                     'medical_benifit'=>$validate_data['medical_benifit'],
+                    'clinic_name'=>$validate_data['clinic_name'],
+                    'appointment_date'=>$validate_data['appointment_date'],
                     'medical_record1'=>'../../../uploads/reimburstment/'.$file_name1,
                     'medical_record2'=>'../../../uploads/reimburstment/'.$file_name2,
                     'medical_record3'=>'../../../uploads/reimburstment/'.$file_name3,
@@ -328,6 +332,8 @@ class LoansController extends Controller
 
                     'reimbursment_type'=>$validate_data['reimbursment_type'],
                     'amount'=>$validate_data['amount'],
+                    'clinic_name'=>$validate_data['clinic_name'],
+                    'appointment_date'=>$validate_data['appointment_date'],
                     'medical_benifit'=>$validate_data['medical_benifit'],
                     'medical_record1'=>'../../../uploads/reimburstment/'.$file_name1,
                     'medical_record2'=>'../../../uploads/reimburstment/'.$file_name2,
