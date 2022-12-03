@@ -68,20 +68,20 @@ class UsersImport implements   WithHeadingRow, ToCollection, WithValidation, Ski
     {
         return[
             'email'=>'required|email|unique:users,email',
-
+            'member_id'=>'required',
             'first_name'=>'required',
-            'middle_name'=>'required',
+            // 'middle_name'=>'required',
             'last_name'=>'required',
             
-            'mobile'=>'required',
+            // 'mobile'=>'required',
             'birthdate'=>'required',
            
-            'civil_status'=>'required',
+            // 'civil_status'=>'required',
 
            
 
             'department'=>'required',
-            'salary'=>'required',
+            // 'salary'=>'required',
             'membership'=>'required',
             'employment'=>'required',
 
