@@ -100,7 +100,7 @@
 
                 <div class="col-span-6 sm:col-span-2">
                   <label class="block text-sm font-medium text-gray-700"
-                    >Date of Employment</label
+                    >Membership Date</label
                   >
                   <input
                     type="date"
@@ -120,7 +120,7 @@
 
                 <div class="col-span-6 sm:col-span-2">
                   <label class="block text-sm font-medium text-gray-700"
-                    >Years of Service</label
+                    >Years of Membership</label
                   >
                   <input
                     type="number"
@@ -269,7 +269,7 @@
 
                 <div class="col-span-6 sm:col-span-2">
                   <label class="block text-sm font-medium text-gray-700"
-                    >Date of Employment</label
+                    >Membership Date</label
                   >
                   <input
                     type="date"
@@ -289,7 +289,7 @@
 
                 <div class="col-span-6 sm:col-span-2">
                   <label class="block text-sm font-medium text-gray-700"
-                    >Years of Service</label
+                    >Years of Membership</label
                   >
                   <input
                     type="number"
@@ -573,7 +573,7 @@
 
                 <div class="col-span-6 sm:col-span-2">
                   <label class="block text-sm font-medium text-gray-700"
-                    >Date of Employment</label
+                    >Membership Date</label
                   >
                   <input
                     type="date"
@@ -593,7 +593,7 @@
 
                 <div class="col-span-6 sm:col-span-2">
                   <label class="block text-sm font-medium text-gray-700"
-                    >Years of Service</label
+                    >Years of Membership</label
                   >
                   <input
                     type="number"
@@ -1657,10 +1657,10 @@ export default {
       lname: this.$props.info.last_name,
       loan_type: this.$props.loan.loan_type,
       loan_status:this.$props.loan.approval,
-      employment: this.$props.info.employment,
+      employment: this.$props.info.membership,
       service:
         new Date().getUTCFullYear() -
-        new Date(this.$props.info.employment).getUTCFullYear(),
+        new Date(this.$props.info.membership).getUTCFullYear(),
       department: this.$props.info.department,
       amount: this.$props.loan.loan_amount,
       duration: this.$props.loan.duration,
