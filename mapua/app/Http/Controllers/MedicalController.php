@@ -61,6 +61,14 @@ class MedicalController extends Controller
             'type'=>2,
             'notification_type'=>5
         ]);
+        UserNotifications::create([
+            'user_id'=>$medical->user_id,
+            'universal_id'=>$request->validated()['id'],
+            'onRead'=>false,
+            'value'=>'Medical Reimbursement has been APPROVED',
+            'type'=>1,
+            'notification_type'=>7
+        ]);
         return Redirect::back()->with('message',
             [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
     }

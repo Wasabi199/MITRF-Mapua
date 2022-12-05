@@ -93,6 +93,9 @@ export default {
                 else if(notification_type == 6){
                     this.$inertia.get(route('MedicalBreakdown',universal_id));
                 }
+                else if(notification_type == 7){
+                    this.$inertia.get(route('ReimbursementProfile',universal_id));
+                }
               
             },
     }
@@ -279,12 +282,14 @@ export default {
                                                         <span  class="font-semibold">{{notif.type == 1? 'Loan':''}}</span>
                                                         <span  class="font-semibold">{{notif.type == 2? 'Applying':''}}</span>
                                                         <span  class="font-semibold">{{notif.type == 3? 'Medical':''}}</span>
+                                                        <span  class="font-semibold">{{notif.type == 4? 'Medical':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 1?'Loan Register':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 2?'Medical Register':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 3?'Loan Update':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 4?'Denied Loan':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 5?'Medical Update':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 6?'Denied Medical':''}}</span>
+                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 7?'Approved Medical':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis h-10">{{notif.value}}</span>
                                                         <span class="text-sm">{{new Date(notif.created_at).toLocaleDateString()+" "+ new Date(notif.created_at).toLocaleTimeString("en-US")}}</span>
                                                     </div>
@@ -292,12 +297,15 @@ export default {
                                                         <span  class="font-semibold">{{notif.type == 1? 'Loan':''}}</span>
                                                         <span  class="font-semibold">{{notif.type == 2? 'Applying':''}}</span>
                                                         <span  class="font-semibold">{{notif.type == 3? 'Medical':''}}</span>
+                                                        <span  class="font-semibold">{{notif.type == 4? 'Medical':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 1?'Loan Register':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 2?'Medical Register':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 3?'Loan Update':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 4?'Denied Loan':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 5?'Medical Update':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 6?'Denied Medical':''}}</span>
+                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 7?'Approved Medical':''}}</span>
+
                                                         <span class="text-sm overflow-hidden text-ellipsis h-10">{{notif.value}}</span>
                                                         <span class="text-sm">{{new Date(notif.created_at).toLocaleDateString()+" "+ new Date(notif.created_at).toLocaleTimeString("en-US")}}</span>
                                                     </div>
@@ -389,12 +397,15 @@ export default {
                                                         <span  class="font-semibold">{{notif.type == 1? 'Loan':''}}</span>
                                                         <span  class="font-semibold">{{notif.type == 2? 'Applying':''}}</span>
                                                         <span  class="font-semibold">{{notif.type == 3? 'Medical':''}}</span>
+                                                        <!-- <span  class="font-semibold">{{notif.type == 4? 'Medical':''}}</span> -->
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 1?'Loan Register':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 2?'Medical Register':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 3?'Loan Update':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 4?'Denied Loan':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 5?'Medical Update':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 6?'Denied Medical':''}}</span>
+                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 7?'Approved Medical':''}}</span>
+
                                                         <span  class="text-sm overflow-hidden text-ellipsis h-10">{{notif.value}}</span>
                                                         <span class="text-sm">{{new Date(notif.created_at).toLocaleDateString()+" "+ new Date(notif.created_at).toLocaleTimeString("en-US")}}</span>
                                                     </div>
@@ -402,12 +413,15 @@ export default {
                                                         <span  class="font-semibold">{{notif.type == 1? 'Loan':''}}</span>
                                                         <span  class="font-semibold">{{notif.type == 2? 'Applying':''}}</span>
                                                         <span  class="font-semibold">{{notif.type == 3? 'Medical':''}}</span>
+                                                        <!-- <span  class="font-semibold">{{notif.type == 4? 'Medical':''}}</span> -->
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 1?'Loan Register':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 2?'Medical Register':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 3?'Loan Update':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 4?'Denied Loan':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 5?'Medical Update':''}}</span>
                                                         <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 6?'Denied Medical':''}}</span>
+                                                        <span  class="text-sm overflow-hidden text-ellipsis font-semibold">{{notif.notification_type == 7?'Approved Medical':''}}</span>
+
                                                         <span  class="text-sm overflow-hidden text-ellipsis h-10">{{notif.value}}</span>
                                                         <span class="text-sm">{{new Date(notif.created_at).toLocaleDateString()+" "+ new Date(notif.created_at).toLocaleTimeString("en-US")}}</span>
                                                     </div>
