@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class BoardMembers extends Model
+{
+    use HasFactory;
+    protected $fillable =[
+        'chairman',
+        'vice_chairman',
+        'corporate_secretary',
+        'tresurer',
+        'internal_auditor',
+        'external_auditor',
+        'accountant'
+    ];
+}
