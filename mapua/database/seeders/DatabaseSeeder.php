@@ -51,21 +51,22 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('password'),
             ]);
             $medical->adminReg()->create(Admin::factory(['user_id' => $admin->id])->make()->toArray());
-            User::create([
-                'name' => "MITRF Chairman",
-                'usertype' => 4,
-                'email' => 'chairman@chairman.com',
-                'password' => Hash::make('password'),
-            ]);
+            
+            // User::create([
+            //     'name' => "MITRF Chairman",
+            //     'usertype' => 4,
+            //     'email' => 'chairman@chairman.com',
+            //     'password' => Hash::make('password'),
+            // ]);
             
 
 
-            User::factory(50)
-            ->has(Loans::factory(),'loans')
-            ->has(Medical::factory(),'medicals')
-            // ->has(UserContribution::factory())
-            // ->has(UserNotifications::factory(5),'userNotif')
-            ->create();
+            // User::factory(50)
+            // ->has(Loans::factory(),'loans')
+            // ->has(Medical::factory(),'medicals')
+            // // ->has(UserContribution::factory())
+            // // ->has(UserNotifications::factory(5),'userNotif')
+            // ->create();
             
             
 
