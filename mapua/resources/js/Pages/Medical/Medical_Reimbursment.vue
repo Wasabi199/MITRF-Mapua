@@ -29,7 +29,7 @@
                   <!-- <th class="text-left px-16 bg-gray-100">Name</th> -->
                   <th class="text-left px-16 bg-gray-100">Medical Type</th>
                   <th class="text-left px-16 bg-gray-100">Name</th>
-                  <th class="text-left px-16 bg-gray-100">Medical Benifit</th>
+                  <th class="text-left px-16 bg-gray-100">Medical Benefit</th>
                   <th class="text-left px-16 bg-gray-100">Status</th>
                   <th class="text-left px-16 bg-gray-100">Amount</th>
                   <th class="text-left px-16 bg-gray-100">Action</th>

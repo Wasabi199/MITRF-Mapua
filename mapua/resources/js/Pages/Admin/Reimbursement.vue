@@ -10,6 +10,48 @@
       </div>
     </template>
     <!-- <h1>Reimbursement Page</h1> -->
+    <div class="p-2 px-6 leading-tight flex justify-end items-center">
+      <!-- <h1 class="text-xl text-gray-700 font-extrabold pl-8">Loans</h1> -->
+
+      <div class="flex px-3 py-1 gap-2">
+        <Listbox class="w-80" v-model="form.status">
+          <div class="relative">
+            <ListboxButton
+              class="elative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm"
+            >
+              View By: {{ form.status }}
+              <span
+                class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
+              >
+                <SelectorIcon
+                  class="w-5 h-5 text-gray-400"
+                  aria-hidden="true"
+                />
+              </span>
+            </ListboxButton>
+            <transition
+              leave-active-class="transition duration-100 ease-in"
+              leave-from-class="opacity-100"
+              leave-to-class="opacity-0"
+            >
+              <ListboxOptions
+                class="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+              >
+                <ListboxOption
+                  v-for="status in statuses"
+                  :key="status"
+                  :value="status"
+                  as="template"
+                  ><li class="px-3 py-2 hover:bg-gray-200 cursor-pointer">
+                    {{ status }}
+                  </li></ListboxOption
+                >
+              </ListboxOptions>
+            </transition>
+          </div>
+        </Listbox>
+      </div>
+    </div>
     <div class="mx-12 my-6 shadow-md">
       <table class="min-w-fit w-full divide-y divide-gray-200 table-fixed">
         <th class="text-center py-3 bg-gray-100">Medical Type</th>
@@ -36,7 +78,7 @@
               {{ medical.amount.toLocaleString("en-US") }}
             </td>
             <td class="flex justify-center py-5">
-              <Link :href="route('ReimbursementProfile',medical.id)">
+              <Link :href="route('ReimbursementProfile', medical.id)">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="26"
@@ -65,15 +107,55 @@
 import AppLayout from "@/Layouts/AppLayout.vue";
 import Pagination from "@/Components/Pagination.vue";
 import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
+import { pickBy, throttle } from "lodash";
+
+import {
+  Listbox,
+  ListboxButton,
+  ListboxOptions,
+  ListboxOption,
+} from "@headlessui/vue";
 export default {
   setup() {},
   components: {
     AppLayout,
     Pagination,
-    Link
+    Link,
+    Listbox,
+    ListboxButton,
+    ListboxOptions,
+    ListboxOption,
   },
   props: {
     medicals: Object,
+    filter:Object
   },
+  data() {
+    return {
+      form: {
+        status:this.filter.status
+      },
+      statuses: [
+        "All",
+        "Pending",
+        "Approved",
+        "For Release",
+        "Released",
+        "Denied",
+      ],
+    };
+  },
+  watch: {
+    form: {
+      deep: true,
+      handler: throttle(function () {
+        this.$inertia.get(route("ReimbursementView"), pickBy(this.form), {
+          preserveState: true,
+          preserveScroll: true,
+        });
+      }, 600),
+    },
+  },
+
 };
 </script>

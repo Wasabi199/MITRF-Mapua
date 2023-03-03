@@ -22,326 +22,330 @@ use Illuminate\Support\Facades\Request as query;
 class LoansController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         $id = auth()->id();
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
-        $notificationCount = $userNotification->where('onRead',false)->count();
+        $notificationCount = $userNotification->where('onRead', false)->count();
         $user = User::with('adminReg')->find($id);
-        return Inertia::render('Users/UserLoanPage',[
-           'users' =>$user,
-           'notification'=>$userNotification,
-           'count'=>$notificationCount           
+        return Inertia::render('Users/UserLoanPage', [
+            'users' => $user,
+            'notification' => $userNotification,
+            'count' => $notificationCount
         ]);
     }
-// Loans View
-    public function loansView(query $query){
+    // Loans View
+    public function loansView(query $query)
+    {
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
-        $notificationCount = $userNotification->where('onRead',false)->count();
+        $notificationCount = $userNotification->where('onRead', false)->count();
         $user = Auth::user();
         $loans = Loans::with('contributions')->filterOwner($user->id)
-        ->limit(5)
-        ->orderByRaw('created_at DESC')
-        ->paginate(5)
-        ->appends($query::only(auth()->id()));
-        
-        return Inertia::render('Users/LoanView',[
+            ->limit(5)
+            ->orderByRaw('created_at DESC')
+            ->paginate(5)
+            ->appends($query::only(auth()->id()));
+
+        return Inertia::render('Users/LoanView', [
             'loans' => $loans,
-            'notification'=>$userNotification,
-            'count'=>$notificationCount,
-           
+            'notification' => $userNotification,
+            'count' => $notificationCount,
+
         ]);
     }
-// Total Contribution
-    public function totalContribution(query $query){
+    // Total Contribution
+    public function totalContribution(query $query)
+    {
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
-        $notificationCount = $userNotification->where('onRead',false)->count();
+        $notificationCount = $userNotification->where('onRead', false)->count();
         $id = auth()->id();
         //$loans = Loans::with('contributions')->find($id);
         $loans = Loans::find($id);
-        $contributions = Contributions::where('loans_id','=',$loans->id)
-        //->filterOwner($user->id)
-        ->limit(5)
-        ->paginate(5);
+        $contributions = Contributions::where('loans_id', '=', $loans->id)
+            //->filterOwner($user->id)
+            ->limit(5)
+            ->paginate(5);
         //->appends($query::only(auth()->id()));
-        
-        return Inertia::render('Users/TotalContribution',[
+
+        return Inertia::render('Users/TotalContribution', [
             'loans' => $loans,
             'contributions' => $contributions,
-            'notification'=>$userNotification,
-            'count'=>$notificationCount
+            'notification' => $userNotification,
+            'count' => $notificationCount
         ]);
     }
 
 
-    public function createLoans(request $request){
+    public function createLoans(request $request)
+    {
         $validate_data = $request->validated();
         $user = User::find(auth()->id());
-        
-        if($request->hasFile('attachment1') || $request->hasFile('attachment2') || $request->hasFile('attachment3')){
-            
+        // dd($request);
+
+        if ($request->hasFile('attachment1') || $request->hasFile('attachment2') || $request->hasFile('attachment3')) {
+
             $file1 = $request->file('attachment1');
             $file2 = $request->file('attachment2');
             $file3 = $request->file('attachment3');
-        
-            $file_name1 = time().'.'.$file1->getClientOriginalName();
-            $file_name2 = time().'.'.$file2->getClientOriginalName();
-            $file_name3 = time().'.'.$file3->getClientOriginalName();
 
-            $file1->move(public_path('uploads/loans'),$file_name1);
-            $file2->move(public_path('uploads/loans'),$file_name2);
-            $file3->move(public_path('uploads/loans'),$file_name3);
-            
-        
+            $file_name1 = time() . '.' . $file1->getClientOriginalName();
+            $file_name2 = time() . '.' . $file2->getClientOriginalName();
+            $file_name3 = time() . '.' . $file3->getClientOriginalName();
+
+            $file1->move(public_path('uploads/loans'), $file_name1);
+            $file2->move(public_path('uploads/loans'), $file_name2);
+            $file3->move(public_path('uploads/loans'), $file_name3);
+
+
             $user_loans = $user->loans()->create([
-            
-                'loan_type'=>$validate_data['loan_type'],
-                'duration'=>$validate_data['duration'],
-                'attachment1'=>'../../../uploads/loans/'.$file_name1,
-                'attachment2'=>'../../../uploads/loans/'.$file_name2,
-                'attachment3'=>'../../../uploads/loans/'.$file_name3,
-                'loan_amount'=>$validate_data['loan_amount'],
-                'amount'=>$validate_data['amount'],
-                'interest'=>$validate_data['interest'],
-                'loan_status'=>'Ongoing',
-                'approval'=>'Submitted',
-            
-            ]);
-            $user->userNotif()->create([
-                'universal_id'=>$user_loans->id,
-                'onRead'=>false,
-                'value'=>$user->name.' Applying for '.$validate_data['loan_type'],
-                'type'=>1,
-                'notification_type'=>1
+
+                'loan_type' => $validate_data['loan_type'],
+                'duration' => $validate_data['duration'],
+                'attachment1' => '../../../uploads/loans/' . $file_name1,
+                'attachment2' => '../../../uploads/loans/' . $file_name2,
+                'attachment3' => '../../../uploads/loans/' . $file_name3,
+                'loan_amount' => $validate_data['loan_amount'],
+                'amount' => $validate_data['amount'],
+                'interest' => $validate_data['interest'],
+                'loan_status' => 'Ongoing',
+                'approval' => 'Submitted',
+
             ]);
 
-            return Redirect::route('userLoanDashboard')->with('message',
-                [NotificationService::notificationItem('Sucess', '', 'Sucessfully submitted '.$validate_data['loan_type'])]);
+
+            $user->userNotif()->create([
+                'universal_id' => $user_loans->id,
+                'onRead' => false,
+                'value' => $user->name . ' Applying for ' . $validate_data['loan_type'],
+                'type' => 1,
+                'notification_type' => 1
+            ]);
+
+            return Redirect::route('userLoanDashboard')->with(
+                'message',
+                [NotificationService::notificationItem('Sucess', '', 'Sucessfully submitted ' . $validate_data['loan_type'])]
+            );
         }
     }
 
-    public function createEmergencyLoan(emergencyReqest $request){
-       $validate_data = $request->validated();
-    //    dd($validate_data);
-       $user = User::find(auth()->id());
+    public function createEmergencyLoan(emergencyReqest $request)
+    {
+        $validate_data = $request->validated();
+        //    dd($validate_data);
+        $user = User::find(auth()->id());
 
-       if($request->hasFile('attachment1')){
+        if ($request->hasFile('attachment1')) {
 
-        $file1 = $request->file('attachment1');
-        $file_name1 = time().'.'.$file1->getClientOriginalName();
-        $file1->move(public_path('uploads/loans'),$file_name1);
-        $user_loans = $user->loans()->create([
-            
-            'loan_type'=>$validate_data['loan_type'],
-            'duration'=>$validate_data['duration'],
-            'attachment1'=>'../../../uploads/loans/'.$file_name1,
-            'loan_amount'=>$validate_data['loan_amount'],
-            'amount'=>$validate_data['amount'],
-            'interest'=>$validate_data['interest'],
-            'loan_status'=>'Ongoing',
-            'approval'=>'Submitted',
-        ]);
-        $user->userNotif()->create([
-            'universal_id'=>$user_loans->id,
-            'onRead'=>false,
-            'value'=>$user->name.' Applying for '.$validate_data['loan_type'],
-            'type'=>1,
-            'notification_type'=>1
-        ]);
-       }
-      
+            $file1 = $request->file('attachment1');
+            $file_name1 = time() . '.' . $file1->getClientOriginalName();
+            $file1->move(public_path('uploads/loans'), $file_name1);
+            $user_loans = $user->loans()->create([
 
-    return Redirect::route('userLoanDashboard')->with('message',
-        [NotificationService::notificationItem('Sucess', '', 'Sucessfully submitted '.$validate_data['loan_type'])]);
+                'loan_type' => $validate_data['loan_type'],
+                'duration' => $validate_data['duration'],
+                'attachment1' => '../../../uploads/loans/' . $file_name1,
+                'loan_amount' => $validate_data['loan_amount'],
+                'amount' => $validate_data['amount'],
+                'interest' => $validate_data['interest'],
+                'loan_status' => 'Ongoing',
+                'approval' => 'Submitted',
+            ]);
+            $user->userNotif()->create([
+                'universal_id' => $user_loans->id,
+                'onRead' => false,
+                'value' => $user->name . ' Applying for ' . $validate_data['loan_type'],
+                'type' => 1,
+                'notification_type' => 1
+            ]);
+        }
+
+
+        return Redirect::route('userLoanDashboard')->with(
+            'message',
+            [NotificationService::notificationItem('Sucess', '', 'Sucessfully submitted ' . $validate_data['loan_type'])]
+        );
     }
-    public function createEducationalLoan(educationalRequest $request){
+    public function createEducationalLoan(educationalRequest $request)
+    {
         $validate_data = $request->validated();
         $user = User::find(auth()->id());
-        if($request->hasFile('attachment1') && $request->hasFile('attachment3')){
+        if ($request->hasFile('attachment1') && $request->hasFile('attachment3')) {
             $file1 = $request->file('attachment1');
             $file3 = $request->file('attachment3');
-            
-            $file_name1 = time().'.'.$file1->getClientOriginalName();
-            $file_name3 = time().'.'.$file3->getClientOriginalName();
-            
-            $file1->move(public_path('uploads/loans'),$file_name1);
-            $file3->move(public_path('uploads/loans'),$file_name3);
-            
-            $user_loans = $user->loans()->create([           
-            'loan_type'=>$validate_data['loan_type'],
-            'duration'=>$validate_data['duration'],
-            'attachment1'=>'../../../uploads/loans/'.$file_name1,
-        //    'attachment2'=>'../../../uploads/loans/'.$file_name2,
-            'attachment3'=>'../../../uploads/loans/'.$file_name3,
-            'loan_amount'=>$validate_data['loan_amount'],
-            'amount'=>$validate_data['amount'],
-            'interest'=>$validate_data['interest'],
-            'loan_status'=>'Ongoing',
-            'approval'=>'Submitted',
-        
+
+            $file_name1 = time() . '.' . $file1->getClientOriginalName();
+            $file_name3 = time() . '.' . $file3->getClientOriginalName();
+
+            $file1->move(public_path('uploads/loans'), $file_name1);
+            $file3->move(public_path('uploads/loans'), $file_name3);
+
+            $user_loans = $user->loans()->create([
+                'loan_type' => $validate_data['loan_type'],
+                'duration' => $validate_data['duration'],
+                'attachment1' => '../../../uploads/loans/' . $file_name1,
+                //    'attachment2'=>'../../../uploads/loans/'.$file_name2,
+                'attachment3' => '../../../uploads/loans/' . $file_name3,
+                'loan_amount' => $validate_data['loan_amount'],
+                'amount' => $validate_data['amount'],
+                'interest' => $validate_data['interest'],
+                'loan_status' => 'Ongoing',
+                'approval' => 'Submitted',
+
             ]);
             $user->userNotif()->create([
-                'universal_id'=>$user_loans->id,
-                'onRead'=>false,
-                'value'=>$user->name.' Applying for '.$validate_data['loan_type'],
-                'type'=>1,
-                'notification_type'=>1
+                'universal_id' => $user_loans->id,
+                'onRead' => false,
+                'value' => $user->name . ' Applying for ' . $validate_data['loan_type'],
+                'type' => 1,
+                'notification_type' => 1
             ]);
-            return Redirect::route('userLoanDashboard')->with('message',
-            [NotificationService::notificationItem('Sucess', '', 'Sucessfully submitted '.$validate_data['loan_type'])]);
-            
+            return Redirect::route('userLoanDashboard')->with(
+                'message',
+                [NotificationService::notificationItem('Sucess', '', 'Sucessfully submitted ' . $validate_data['loan_type'])]
+            );
         }
     }
 
-    public function medicalReimbursment(query $query){
+    public function medicalReimbursment(query $query)
+    {
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
-        $notificationCount = $userNotification->where('onRead',false)->count();
+        $notificationCount = $userNotification->where('onRead', false)->count();
         $filters = $query::only('status');
-        isset($filters['status']) ? $filters['status'] = Approval::status($filters['status']) : $filters['status'] = Approval::status($filters['status']='All');
-        
+        isset($filters['status']) ? $filters['status'] = Approval::status($filters['status']) : $filters['status'] = Approval::status($filters['status'] = 'All');
+
         $medical = Medical::with('user')
-        ->filter($filters)
-        ->limit(5)
-        ->paginate(5)
-        ->appends($query::only(['status']));
-        return Inertia::render('Users/MedicalReimbursment',[
-            'medicals'=>$medical,
-            'filter'=>$filters,
-            'notification'=>$userNotification,
-            'count'=>$notificationCount,
+            ->filter($filters)
+            ->limit(5)
+            ->paginate(5)
+            ->appends($query::only(['status']));
+        return Inertia::render('Users/MedicalReimbursment', [
+            'medicals' => $medical,
+            'filter' => $filters,
+            'notification' => $userNotification,
+            'count' => $notificationCount,
         ]);
     }
 
-    public function createReimburstment(){
+    public function createReimburstment()
+    {
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
-        $notificationCount = $userNotification->where('onRead',false)->count();
-        $info = Admin::where('user_id',auth()->id())->get()->first();
+        $notificationCount = $userNotification->where('onRead', false)->count();
+        $info = Admin::where('user_id', auth()->id())->get()->first();
         $reimbursement_balance_in = 5000;
         $reimbursement_balance_out = 7000;
-       
-        foreach(Medical::where('user_id',auth()->id())->where('status','!=','Pending')->where('status','!=','Rejected')->get() as $medical){
-            if(date_format($medical->created_at,'Y')==Carbon::now()->format('Y')){
-                if($medical->reimbursment_type =="Hospital"){
+
+        foreach (Medical::where('user_id', auth()->id())->where('status', '!=', 'Pending')->where('status', '!=', 'Rejected')->get() as $medical) {
+            if (date_format($medical->created_at, 'Y') == Carbon::now()->format('Y')) {
+                if ($medical->reimbursment_type == "Hospital") {
                     $reimbursement_balance_in = $reimbursement_balance_in - $medical->amount;
-                }else{
+                } else {
                     $reimbursement_balance_out = $reimbursement_balance_out - $medical->amount;
                 }
             }
         }
 
-        return Inertia::render('Users/UserReimbursmentView',[
-            'info' =>$info,
-            'notification'=>$userNotification,
-            'count'=>$notificationCount,
-            'reimbursement_balance_in'=>$reimbursement_balance_in,
-            'reimbursement_balance_out'=>$reimbursement_balance_out
+        return Inertia::render('Users/UserReimbursmentView', [
+            'info' => $info,
+            'notification' => $userNotification,
+            'count' => $notificationCount,
+            'reimbursement_balance_in' => $reimbursement_balance_in,
+            'reimbursement_balance_out' => $reimbursement_balance_out
         ]);
     }
-    public function submitCreateReimburstment(medicalRequest $request){
-        // dd($request);
+    public function submitCreateReimburstment(medicalRequest $request)
+    {
         $validate_data = $request->validated();
-        // dd($validate_data);
-        if($validate_data['reimbursment_type'] == 'Hospital'){
-            if($request->hasFile('medical_record1') || $request->hasFile('medical_record2') || $request->hasFile('medical_record3')){
-                $file1 = $request->file('medical_record1');
-                $file2 = $request->file('medical_record2');
-                $file3 = $request->file('medical_record3');
-                // $file4 = $request->file('medical_record4');
-            
-                $file_name1 = time().'.'.$file1->getClientOriginalName();
-                $file_name2 = time().'.'.$file2->getClientOriginalName();
-                $file_name3 = time().'.'.$file3->getClientOriginalName();
-                // $file_name4 = time().'.'.$file4->getClientOriginalName();
+        // dd($request);
+        $user = User::find(auth()->id());
+        // if ($validate_data['reimbursment_type'] == 'Hospital') {
+            $userMedical = $user->medicals()->create([
+                'reimbursment_type' => $validate_data['reimbursment_type'],
+                'amount' => $validate_data['amount'],
+                'medical_benifit' => $validate_data['medical_benifit'],
+                'clinic_name' => $validate_data['clinic_name'],
+                'appointment_date' => $validate_data['appointment_date'],
+                'hospital'=>$validate_data['hospital'],
+                'health'=>$validate_data['health'],
+                'eye'=>$validate_data['eye'],
+                'dental'=>$validate_data['dental'],
+                'mental'=>$validate_data['mental'],
+            ]);
+            if(isset($request->medical_record1)){
+                if(is_array($request->medical_record1)){
+                    foreach($request->medical_record1 as $image){
+                        $image_path = 'storage/' .$image->storePublicly('ReimbursementImages',  ['disk' => 'public']);
+                        $userMedical->attachments()->create([
+                            'image'=>$image_path,
+                            'type'=>1
+                        ]);
+                    }
+                }else{
+                    $image_path = 'storage/' .$request->medical_record1->storePublicly('ReimbursementImages',  ['disk' => 'public']);
+                    $userMedical->attachments()->create([
+                        'image'=>$image_path,
+                        'type'=>1
+                    ]);
+                }
+            }
 
-                $file1->move(public_path('uploads/reimburstment'),$file_name1);
-                $file2->move(public_path('uploads/reimburstment'),$file_name2);
-                $file3->move(public_path('uploads/reimburstment'),$file_name3);
-                // $file4->move(public_path('uploads/reimburstment'),$file_name4);
-            
-                $user = User::find(auth()->id());
-                // dd($validate_data);
-                $userMedical = $user->medicals()->create([
 
-                    'reimbursment_type'=>$validate_data['reimbursment_type'],
-                    'amount'=>$validate_data['amount'],
-                    'medical_benifit'=>$validate_data['medical_benifit'],
-                    'clinic_name'=>$validate_data['clinic_name'],
-                    'appointment_date'=>$validate_data['appointment_date'],
-                    'medical_record1'=>'../../../uploads/reimburstment/'.$file_name1,
-                    'medical_record2'=>'../../../uploads/reimburstment/'.$file_name2,
-                    'medical_record3'=>'../../../uploads/reimburstment/'.$file_name3,
-                    // 'medical_record4'=>'../../../uploads/reimburstment/'.$file_name4,
+            if(isset($request->medical_record2)){
+                if(is_array($request->medical_record2)){
+                    foreach($request->medical_record2 as $image){
+                        $image_path = 'storage/' .$image->storePublicly('ReimbursementImages',  ['disk' => 'public']);
+                        $userMedical->attachments()->create([
+                            'image'=>$image_path,
+                            'type'=>2
+                        ]);
+                    }
+                }else{
+                    $image_path = 'storage/' .$request->medical_record2->storePublicly('ReimbursementImages',  ['disk' => 'public']);
+                    $userMedical->attachments()->create([
+                        'image'=>$image_path,
+                        'type'=>2
+                    ]);
+                }
+            }
 
-                ]);
-        }
-        }
-        if($validate_data['reimbursment_type'] == 'Health Checkup'){
-            if($request->hasFile('medical_record1') || $request->hasFile('medical_record2') || $request->hasFile('medical_record3')||$request->hasFile('medical_record4')){
-                $file1 = $request->file('medical_record1');
-                $file2 = $request->file('medical_record2');
-                $file3 = $request->file('medical_record3');
-                $file4 = $request->file('medical_record4');
-            
-                $file_name1 = time().'.'.$file1->getClientOriginalName();
-                $file_name2 = time().'.'.$file2->getClientOriginalName();
-                $file_name3 = time().'.'.$file3->getClientOriginalName();
-                $file_name4 = time().'.'.$file4->getClientOriginalName();
 
-                $file1->move(public_path('uploads/reimburstment'),$file_name1);
-                $file2->move(public_path('uploads/reimburstment'),$file_name2);
-                $file3->move(public_path('uploads/reimburstment'),$file_name3);
-                $file4->move(public_path('uploads/reimburstment'),$file_name4);
-            
-                $user = User::find(auth()->id());
-                // dd($validate_data);
-                $userMedical = $user->medicals()->create([
+            if(isset($request->medical_record3)){
+                if(is_array($request->medical_record3)){
+                    foreach($request->medical_record3 as $image){
+                        $image_path = 'storage/' .$image->storePublicly('ReimbursementImages',  ['disk' => 'public']);
+                        $userMedical->attachments()->create([
+                            'image'=>$image_path,
+                            'type'=>3
+                        ]);
+                    }
+                }else{
+                    $image_path = 'storage/' .$request->medical_record3->storePublicly('ReimbursementImages',  ['disk' => 'public']);
+                    $userMedical->attachments()->create([
+                        'image'=>$image_path,
+                        'type'=>3
+                    ]);
+                }
+            }
 
-                    'reimbursment_type'=>$validate_data['reimbursment_type'],
-                    'amount'=>$validate_data['amount'],
-                    'medical_benifit'=>$validate_data['medical_benifit'],
-                    'clinic_name'=>$validate_data['clinic_name'],
-                    'appointment_date'=>$validate_data['appointment_date'],
-                    'medical_record1'=>'../../../uploads/reimburstment/'.$file_name1,
-                    'medical_record2'=>'../../../uploads/reimburstment/'.$file_name2,
-                    'medical_record3'=>'../../../uploads/reimburstment/'.$file_name3,
-                    'medical_record4'=>'../../../uploads/reimburstment/'.$file_name4,
+            if(isset($request->medical_record4)){
+                if(is_array($request->medical_record4)){
+                    foreach($request->medical_record4 as $image){
+                        $image_path = 'storage/' .$image->storePublicly('ReimbursementImages',  ['disk' => 'public']);
+                        $userMedical->attachments()->create([
+                            'image'=>$image_path,
+                            'type'=>4
+                        ]);
+                    }
+                }else{
+                    $image_path = 'storage/' .$request->medical_record4->storePublicly('ReimbursementImages',  ['disk' => 'public']);
+                    $userMedical->attachments()->create([
+                        'image'=>$image_path,
+                        'type'=>4
+                    ]);
+                }
+            }
+        // }else{
 
-                ]);
-        }
-        }
-       
-        if($validate_data['reimbursment_type'] == 'Dental Checkup'||$validate_data['reimbursment_type'] == 'Medicines'||$validate_data['reimbursment_type'] == 'Eye Checkup'){
-            ;
-            if($request->hasFile('medical_record1') || $request->hasFile('medical_record2') ){
-                $file1 = $request->file('medical_record1');
-                $file2 = $request->file('medical_record2');
-                // $file3 = $request->file('medical_record3');
-                // $file4 = $request->file('medical_record4');
-            
-                $file_name1 = time().'.'.$file1->getClientOriginalName();
-                $file_name2 = time().'.'.$file2->getClientOriginalName();
-                // $file_name3 = time().'.'.$file3->getClientOriginalName();
-                // $file_name4 = time().'.'.$file4->getClientOriginalName();
-
-                $file1->move(public_path('uploads/reimburstment'),$file_name1);
-                $file2->move(public_path('uploads/reimburstment'),$file_name2);
-                // $file3->move(public_path('uploads/reimburstment'),$file_name3);
-                // $file4->move(public_path('uploads/reimburstment'),$file_name4);
-            
-                $user = User::find(auth()->id());
-                $userMedical = $user->medicals()->create([
-
-                    'reimbursment_type'=>$validate_data['reimbursment_type'],
-                    'amount'=>$validate_data['amount'],
-                    'clinic_name'=>$validate_data['clinic_name'],
-                    'appointment_date'=>$validate_data['appointment_date'],
-                    'medical_benifit'=>$validate_data['medical_benifit'],
-                    'medical_record1'=>'../../../uploads/reimburstment/'.$file_name1,
-                    'medical_record2'=>'../../../uploads/reimburstment/'.$file_name2,
-                   
-
-                ]);
-        }
-        }
+        // }
         $user->userNotif()->create([
             'universal_id'=>$userMedical->id,
             'onRead'=>false,
@@ -352,60 +356,62 @@ class LoansController extends Controller
         return Redirect::route('medicalView')->with('message',
             [NotificationService::notificationItem('Sucess', '', 'Sucessfully submitted Medical Reimbursement '.$validate_data['reimbursment_type'])]);
     }
-    public function  UserLoanView($id){
-       
+
+    public function  UserLoanView($id)
+    {
+
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
-        $notificationCount = $userNotification->where('onRead',false)->count();
-        
+        $notificationCount = $userNotification->where('onRead', false)->count();
+
         $loan = Loans::find($id);
-        $contribution = Contributions::where('loans_id',$loan->id)->limit(5)->paginate(5);
+        $contribution = Contributions::where('loans_id', $loan->id)->limit(5)->paginate(5);
         $user = User::with('AdminReg')->find($loan->user_id);
-        return Inertia::render('Users/UserLoanView',[
-            'users'=>$user,
-            'loans'=>$loan,
-            'notification'=>$userNotification,
-            'count'=>$notificationCount,
-            'contributions'=>$contribution
+        return Inertia::render('Users/UserLoanView', [
+            'users' => $user,
+            'loans' => $loan,
+            'notification' => $userNotification,
+            'count' => $notificationCount,
+            'contributions' => $contribution
         ]);
     }
 
-    public function loanDashboard(){
+    public function loanDashboard()
+    {
         $id = auth()->id();
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
-        $notificationCount = $userNotification->where('onRead',false)->count();
+        $notificationCount = $userNotification->where('onRead', false)->count();
         $user = User::with('adminReg')->find($id);
-        return Inertia::render('Users/UserLoanDashboard',[
-            'users' =>$user,
-            'notification'=>$userNotification,
-            'count'=>$notificationCount       
+        return Inertia::render('Users/UserLoanDashboard', [
+            'users' => $user,
+            'notification' => $userNotification,
+            'count' => $notificationCount
         ]);
     }
 
-   
 
-    public function ReimbursView(){
+
+    public function ReimbursView()
+    {
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
-        $notificationCount = $userNotification->where('onRead',false)->count();
-        return Inertia::render('Users/medicalreimbursView',[
-            'notification'=>$userNotification,
-            'count'=>$notificationCount   
+        $notificationCount = $userNotification->where('onRead', false)->count();
+        return Inertia::render('Users/medicalreimbursView', [
+            'notification' => $userNotification,
+            'count' => $notificationCount
         ]);
     }
 
-    public function MedicalBreakdown($id){
+    public function MedicalBreakdown($id)
+    {
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
-        $notificationCount = $userNotification->where('onRead',false)->count();
-        $medical = Medical::find($id);
-        $info = Admin::where('user_id',$medical->user_id)->get()->first();
-  
-        return Inertia::render('Users/MedicalBreakdown',[
-            'notification'=>$userNotification,
-            'count'=>$notificationCount,
-            'medical'=>$medical,
-            'info'=>$info   
+        $notificationCount = $userNotification->where('onRead', false)->count();
+        $medical = Medical::with('attachments')->find($id);
+        $info = Admin::where('user_id', $medical->user_id)->get()->first();
+
+        return Inertia::render('Users/MedicalBreakdown', [
+            'notification' => $userNotification,
+            'count' => $notificationCount,
+            'medical' => $medical,
+            'info' => $info
         ]);
     }
-
-   
-
 }

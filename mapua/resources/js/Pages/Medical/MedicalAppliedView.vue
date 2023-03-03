@@ -194,63 +194,75 @@
       </div>
       <div class="row-span-3">
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
-          <div>
-            <span>Official Reciept</span>
+          <span>Official Reciept</span>
+          <div
+            v-for="attachment in userMedical.attachments"
+            v-bind:key="attachment.id"
+          >
+            <img
+              class="w-64 h-64"
+              v-if="attachment.type == 1"
+              :src="
+                attachment.image == null ? '' : '../../../' + attachment.image
+              "
+            />
           </div>
-          <img
-            :src="
-              userMedical.medical_record1 == null
-                ? ''
-                : userMedical.medical_record1
-            "
-            class="w-auto h-auto"
-          />
+        </div>
+        <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
+          <span>Medical Certificate/Doctor's Prescription</span>
+          <div
+            v-for="attachment in userMedical.attachments"
+            v-bind:key="attachment.id"
+          >
+            <img
+              class="w-64 h-64"
+              v-if="attachment.type == 2"
+              :src="
+                attachment.image == null ? '' : '../../../' + attachment.image
+              "
+            />
+          </div>
         </div>
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
           <div>
-            <span>Medical Certificate/Doctor's Prescription</span>
-          </div>
-          <img
-            :src="
-              userMedical.medical_record2 == null
-                ? ''
-                : userMedical.medical_record2
-            "
-            class="w-auto h-auto"
-          />
-        </div>
-        <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
-          <div>
-            <span v-if="userMedical.reimbursment_type == 'Hospital'"
+            <span v-if="userMedical.hospital == true"
               >Statement of Account</span
             >
-            <span v-if="userMedical.reimbursment_type == 'Health Checkup'"
+            <span v-if="userMedical.health == true"
               >Doctor's Endorsement</span
             >
           </div>
-          <img
-            :src="
-              userMedical.medical_record3 == null
-                ? ''
-                : userMedical.medical_record3
-            "
-            class="w-auto h-auto"
-          />
+          <div
+            v-for="attachment in userMedical.attachments"
+            v-bind:key="attachment.id"
+          >
+            <img
+              class="w-64 h-64"
+              v-if="attachment.type == 3"
+              :src="
+                attachment.image == null ? '' : '../../../' + attachment.image
+              "
+            />
+          </div>
         </div>
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
           <div>
-            <span v-if="userMedical.reimbursment_type == 'Health Checkup'"
+            <span v-if="userMedical.health ==true"
               >Lab Results</span
             >
           </div>
-          <img
-            :src="
-              userMedical.medical_record4 == null
-                ? ''
-                : userMedical.medical_record3
-            "
-            class="w-auto h-auto"
-          />
+          <div
+            v-for="attachment in userMedical.attachments"
+            v-bind:key="attachment.id"
+          >
+            <img
+              class="w-64 h-64"
+              v-if="attachment.type == 4"
+              :src="
+                attachment.image == null ? '' : '../../../' + attachment.image
+              "
+            />
+          </div>
         </div>
         <br />
         <div

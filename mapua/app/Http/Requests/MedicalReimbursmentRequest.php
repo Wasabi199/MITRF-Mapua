@@ -25,14 +25,21 @@ class MedicalReimbursmentRequest extends FormRequest
     {
         return [
             //
-            'reimbursment_type'=>'required',
-            'amount'=>'required',
-            'medical_benifit'=>'required',
-            'appointment_date'=>'required',
-            'clinic_name'=>'required',
-            'medical_record1'=>'file|mimes:jpg,png,jpeg,pdf',
-            'medical_record2'=>'file|mimes:jpg,png,jpeg,pdf',
-            // 'medical_record3'=>'file|mimes:jpg,png,jpeg,pdf',
+            'reimbursment_type' => 'required',
+            'amount' => 'required',
+            'medical_benifit' => 'required',
+            'appointment_date' => 'required',
+            'clinic_name' => 'required',
+
+            'medical_record1' => 'required',
+            'medical_record2' => 'required',
+            // 'medical_record3'=>'required',
+            // 'medical_record4'=>'required',
+            'hospital' => 'required',
+            'health' => 'required',
+            'eye' => 'required',
+            'dental' => 'required',
+            'mental' => 'required',
         ];
     }
 }

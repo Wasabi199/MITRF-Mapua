@@ -31,20 +31,26 @@ class Approval{
                 return null;
             }
         }
-        public static function status(String $approval){
+        public static function status(String $status){
 
-            switch($approval){
+            switch($status){
                 case 'All':
                     return null;
                 break;
-                case 'Approved':
-                    return 'Aprrove';
-                break;
-                case 'Processing':
-                    return 'Processing';
-                break;
                 case 'Pending':
                     return 'Pending';
+                break;
+                case 'Approved':
+                    return 'Approved';
+                break;
+                case 'For Release':
+                    return 'For Release';
+                break;
+                case 'Released':
+                    return 'Released';
+                break;
+                case 'Denied':
+                    return 'Denied';
                 break;
                 default:
                     return null;

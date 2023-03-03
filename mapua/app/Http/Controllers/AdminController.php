@@ -206,10 +206,10 @@ class AdminController extends Controller
         
         $filters = $query::only('approval');
         isset($filters['approval']) ? $filters['approval'] = Approval::approval($filters['approval']) : $filters['approval'] = Approval::approval($filters['approval']='All');
-        $loans = Loans::with('user')->with('contributions')->orderByRaw('created_at DESC')
+        $loans = Loans::with('user')->with('contributions')
         ->filter($filters)
         ->limit(5)
-        ->orderByRaw('created_at DESC')
+        ->orderByRaw('updated_at DESC')
         ->paginate(5)
         ->appends($query::only(['approval']));
         
@@ -354,16 +354,20 @@ class AdminController extends Controller
         ]);
     }
 
-    public function reimbursementView(){
+    public function reimbursementView(QueryRequest $query){
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $notification->where('onRead',false)->count();
 
-        $medical = Medical::with('user')->where('status','!=','Pending')->limit(5)->orderByRaw('created_at DESC')->paginate(5);
+
+        $filters = $query::only('status');
+        isset($filters['status']) ? $filters['status'] = Approval::status($filters['status']) : $filters['status'] = Approval::status($filters['status']='All');
+
+        $medical = Medical::with('user')->where('status','!=','Pending')->filterAdmin($filters)->limit(5)->orderByRaw('created_at DESC')->paginate(5);
         
         return Inertia::render('Admin/Reimbursement',[
             'notification'=>$notification,
             'count'=>$notificationCount,
-
+            'filter'=>$filters,
             'medicals'=>$medical,
         ]);
     }
@@ -371,7 +375,7 @@ class AdminController extends Controller
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $notification->where('onRead',false)->count();
 
-        $medical = Medical::where('id',$id)->get()->first();
+        $medical = Medical::with('attachments')->where('id',$id)->get()->first();
         $info = Admin::where('user_id',$medical->user_id)->get()->first();
         return Inertia::render('Admin/ReimbursementProfile',[
             'notification'=>$notification,

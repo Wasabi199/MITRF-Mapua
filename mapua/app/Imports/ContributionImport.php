@@ -24,7 +24,7 @@ class ContributionImport implements ToCollection, WithHeadingRow, WithValidation
                 $loan = Loans::filterOwner($user->id)->get();
                 foreach($loan as $loanUpdate){
                     if($loanUpdate->loan_type == $row['loan_type']){
-                        if($loanUpdate->loan_status != 'Paid'){
+                        if($loanUpdate->loan_status != 'Denied'){
                             if(!$loanUpdate->loan_amount >= 0){
                             
                                 $loanUpdate->update([

@@ -66,72 +66,84 @@
         class="bg-white h-fit w-full p-5 rounded-lg shadow-xl "
       >
         <div class="rounded-lg content-center mb-5 lg:mr-50">
-          <div>
-            <span>Official Reciept:</span>
+          <span>Official Reciept:</span>
+          <div
+            v-for="attachment in medical.attachments"
+            v-bind:key="attachment.id"
+          >
+            <img
+              class="w-64 h-64"
+              v-if="attachment.type == 1"
+              :src="
+                attachment.image == null ? '' : '../../../' + attachment.image
+              "
+            />
           </div>
-          <img
-            :src="
-              this.medical.medical_record1 == null
-                ? ''
-                : this.medical.medical_record1
-            "
-            class="w-auto h-auto"
-          />
         </div>
         <div class="rounded-lg content-center lg:mr-50">
-          <div>
-            <span>Medical Certificate/Doctor's Prescription:</span>
+          <span>Medical Certificate/Doctor's Prescription:</span>
+          <div
+            v-for="attachment in medical.attachments"
+            v-bind:key="attachment.id"
+          >
+            <img
+              class="w-64 h-64"
+              v-if="attachment.type == 2"
+              :src="
+                attachment.image == null ? '' : '../../../' + attachment.image
+              "
+            />
           </div>
-          <img
-            :src="
-              this.medical.medical_record2 == null
-                ? ''
-                : this.medical.medical_record2
-            "
-            class="w-auto h-auto"
-          />
         </div>
         <div
           v-if="
-            this.medical.reimbursment_type == 'Hospital' ||
-            this.medical.reimbursment_type == 'Health Checkup'
+            this.medical.hospital == true ||
+            this.medical.health == true
           "
           class="rounded-lg content-center lg:mr-50"
         >
           <div>
-            <span v-if="this.medical.reimbursment_type == 'Hospital'"
+            <span v-if="this.medical.hospital == true"
               >Statement of Account</span
             >
-            <span v-if="this.medical.reimbursment_type == 'Health Checkup'"
+            <span v-if="this.medical.health == true"
               >Doctor's Endorsement</span
             >
           </div>
-          <img
-            :src="
-              this.medical.medical_record3 == null
-                ? ''
-                : this.medical.medical_record3
-            "
-            class="w-auto h-auto"
-          />
+          <div
+            v-for="attachment in medical.attachments"
+            v-bind:key="attachment.id"
+          >
+            <img
+              class="w-64 h-64"
+              v-if="attachment.type == 3"
+              :src="
+                attachment.image == null ? '' : '../../../' + attachment.image
+              "
+            />
+          </div>
         </div>
         <div
-          v-if="this.medical.reimbursment_type == 'Health Checkup'"
+          v-if="this.medical.health == true"
           class=" rounded-lg content-center lg:mr-50"
         >
           <div>
-            <span v-if="medical.reimbursment_type == 'Health Checkup'"
+            <span v-if="medical.health == true"
               >Lab Results</span
             >
           </div>
-          <img
-            :src="
-              this.medical.medical_record4 == null
-                ? ''
-                : this.medical.medical_record4
-            "
-            class="w-auto h-auto"
-          />
+          <div
+            v-for="attachment in medical.attachments"
+            v-bind:key="attachment.id"
+          >
+            <img
+              class="w-64 h-64"
+              v-if="attachment.type == 4"
+              :src="
+                attachment.image == null ? '' : '../../../' + attachment.image
+              "
+            />
+          </div>
         </div>
       </div>
       <div
@@ -141,8 +153,7 @@
         <p class="font-semibold">Good News!</p>
         <p>Your Medical Reimbursement has been processed.</p>
         <p>
-          A representative will get in touch with you for updates on the release
-          of your reimbursement. Thank you.
+          A representative will send you an email for updates on the release of your loan.
         </p>
       </div>
       <div

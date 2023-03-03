@@ -30,14 +30,7 @@
 
     <div class="grid grid-cols-1 m-8 gap-8 lg:m-10 lg:grid-cols-2">
       <div
-        class="
-          bg-white
-          p-4
-          overflow-hidden
-          border-gray-300
-          shadow-xl
-          rounded-lg
-        "
+        class="bg-white p-4 overflow-hidden border-gray-300 shadow-xl rounded-lg"
       >
         <form>
           <div class="px-2 py-5 bg-white sm:p-6">
@@ -48,15 +41,7 @@
                 >
                 <input
                   type="text"
-                  class="
-                    mt-1
-                    block
-                    w-full
-                    shadow-sm
-                    sm:text-sm
-                    border-gray-300
-                    rounded-md
-                  "
+                  class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   :value="info.first_name + ' ' + info.last_name"
                   disabled
                 />
@@ -68,15 +53,7 @@
                 >
                 <input
                   type="date"
-                  class="
-                    mt-1
-                    block
-                    w-full
-                    shadow-sm
-                    sm:text-sm
-                    border-gray-300
-                    rounded-md
-                  "
+                  class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   :value="info.employment"
                   disabled
                 />
@@ -88,15 +65,7 @@
                 >
                 <input
                   type="text"
-                  class="
-                    mt-1
-                    block
-                    w-full
-                    shadow-sm
-                    sm:text-sm
-                    border-gray-300
-                    rounded-md
-                  "
+                  class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   :value="
                     new Date().getUTCFullYear() -
                     new Date(info.membership).getUTCFullYear()
@@ -111,15 +80,7 @@
                 >
                 <input
                   type="number"
-                  class="
-                    mt-1
-                    block
-                    w-full
-                    shadow-sm
-                    sm:text-sm
-                    border-gray-300
-                    rounded-md
-                  "
+                  class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   :value="medical.amount"
                   disabled
                 />
@@ -130,15 +91,7 @@
                 >
                 <input
                   type="text"
-                  class="
-                    mt-1
-                    block
-                    w-full
-                    shadow-sm
-                    sm:text-sm
-                    border-gray-300
-                    rounded-md
-                  "
+                  class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   :value="medical.reimbursment_type"
                   disabled
                 />
@@ -149,15 +102,7 @@
                 >
                 <input
                   type="text"
-                  class="
-                    mt-1
-                    block
-                    w-full
-                    shadow-sm
-                    sm:text-sm
-                    border-gray-300
-                    rounded-md
-                  "
+                  class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   :value="medical.status"
                   disabled
                 />
@@ -166,93 +111,100 @@
           </div>
         </form>
       </div>
-      <div v-if="medical.status == 'Approved'" class="row-span-3" >
+      <div v-if="medical.status == 'Approved'" class="row-span-3">
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
-          <div>
-            <span>Official Receipt</span>
+          <span>Official Receipt</span>
+          <div
+            v-for="attachment in medical.attachments"
+            v-bind:key="attachment.id"
+          >
+            <img
+              class="w-64 h-64"
+              v-if="attachment.type == 1"
+              :src="
+                attachment.image == null ? '' : '../../../' + attachment.image
+              "
+            />
           </div>
-          <img
-            :src="
-              medical.medical_record1 == null ? '' : medical.medical_record1
-            "
-          />
+        </div>
+        <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
+          <span>Medical Certificate/Doctor's Prescription</span>
+          <div
+            v-for="attachment in medical.attachments"
+            v-bind:key="attachment.id"
+          >
+            <img
+              class="w-64 h-64"
+              v-if="attachment.type == 1"
+              :src="
+                attachment.image == null ? '' : '../../../' + attachment.image
+              "
+            />
+          </div>
         </div>
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
           <div>
-            <span>Medical Certificate/Doctor's Prescription</span>
-            
+            <span v-if="medical.hospital == true">Statement of Account</span>
+            <span v-if="medical.health == true">Doctor's Endorsement</span>
           </div>
-          <img
-            :src="
-              medical.medical_record2 == null ? '' : medical.medical_record2
-            "
-          />
+          <div
+            v-for="attachment in medical.attachments"
+            v-bind:key="attachment.id"
+          >
+            <img
+              class="w-64 h-64"
+              v-if="attachment.type == 3"
+              :src="
+                attachment.image == null ? '' : '../../../' + attachment.image
+              "
+            />
+          </div>
         </div>
         <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
           <div>
-            <span v-if="medical.reimbursment_type =='Hospital'">Statement of Account</span>
-            <span v-if="medical.reimbursment_type =='Health Checkup'">Doctor's Endorsement</span>
+            <span v-if="medical.health == true">Lab Results</span>
           </div>
-          <img
-            :src="
-              medical.medical_record3 == null ? '' : medical.medical_record3
-            "
-          />
-        </div>
-        <div class="bg-white shadow-xl rounded-lg content-center lg:mr-50">
-          <div>
-            
-            <span v-if="medical.reimbursment_type =='Health Checkup'">Lab Results</span>
+          <div
+            v-for="attachment in medical.attachments"
+            v-bind:key="attachment.id"
+          >
+            <img
+              class="w-64 h-64"
+              v-if="attachment.type == 1"
+              :src="
+                attachment.image == null ? '' : '../../../' + attachment.image
+              "
+            />
           </div>
-          <img
-            :src="
-              medical.medical_record4 == null ? '' : medical.medical_record4
-            "
-          />
         </div>
       </div>
       <div v-if="medical.status == 'For Release'" class="row-span-3">
-        <div class=" w-full bg-white shadow-xl rounded-lg p-5">
+        <div class="w-full bg-white shadow-xl rounded-lg p-5">
           <p class="font-semibold">Good News!</p>
           <p>Your Medical Reimbursement has been processed.</p>
-          <p>A representative will get in touch with you for updates on the release of your reimbursement. Thank you.</p>
+          <p>
+            A representative will send you an email for updates on the release of your loan.
+          </p>
         </div>
-      
       </div>
       <div v-if="medical.status == 'Released'" class="row-span-3">
-        <div class=" w-full bg-white shadow-xl rounded-lg p-5">
+        <div class="w-full bg-white shadow-xl rounded-lg p-5">
           <div class="flex gap-x-2 m-auto w-fit">
-          <p class="font-semibold">Amount:</p>
-          <p>{{medical.amount}}</p>
+            <p class="font-semibold">Amount:</p>
+            <p>{{ medical.amount }}</p>
+          </div>
+          <div class="flex gap-x-2 m-auto w-fit">
+            <p class="font-semibold">Date Released:</p>
+            <p>{{ new Date(medical.updated_at) }}</p>
+          </div>
         </div>
-        <div class="flex gap-x-2 m-auto w-fit">
-          <p class="font-semibold">Date Released:</p>
-          <p>{{new Date(medical.updated_at)}}</p>
-        </div>
-        </div>
-      
       </div>
     </div>
 
     <div class="flex justify-center">
       <div class="flex justify-between my-3">
         <div
-          class="
-            flex
-            space-x-2
-            mr-5
-            px-4
-            py-1
-            border
-            text-md text-red-600
-            dark:text-red-600 dark:border-red-600
-            border-red-600
-            uppercase
-            rounded-full
-            dark:hover:text-gray-200
-            hover:text-white hover:border-none hover:bg-red-500
-            cursor-pointer
-          "
+          class="flex space-x-2 mr-5 px-4 py-1 border text-md text-red-600 dark:text-red-600 dark:border-red-600 border-red-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-red-500 cursor-pointer"
         >
           <Link :href="route('userDashboard')">
             <button>BACK TO HOME</button>

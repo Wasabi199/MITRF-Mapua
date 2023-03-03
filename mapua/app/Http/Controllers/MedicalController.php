@@ -37,7 +37,7 @@ class MedicalController extends Controller
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $notification->where('onRead',false)->count();
 
-        $medical = Medical::find($id);
+        $medical = Medical::with('attachments')->find($id);
         $info = Admin::where('user_id',$medical->user_id)->get()->first();
         
         return Inertia::render('Medical/MedicalAppliedView',[

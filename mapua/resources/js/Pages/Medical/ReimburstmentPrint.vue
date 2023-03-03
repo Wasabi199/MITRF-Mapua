@@ -13,16 +13,16 @@
       </p>
       <p>Attached herewith are the following:</p>
       <div class="flex gap-x-14">
-        <p>__________Official Reciepts</p>
-        <p>__________Hospital Bill/Statement of Account</p>
+        <p><input type="checkbox" checked>Official Reciepts</p>
+        <p><input type="checkbox" checked>Hospital Bill/Statement of Account</p>
       </div>
       <div class="flex gap-x-10">
-        <p>__________Medical Certificate</p>
-        <p>__________Laboratory Exam Results</p>
+        <!-- <p><input type="checkbox" :checked="medical.hospital == true">Medical Certificate</p> -->
+        <p><input type="checkbox"  :checked="medical.health == true">Doctor's Prescription/Medical Certificate</p>
+        <p><input type="checkbox" :checked="medical.health == true">Laboratory Exam Results</p>
       </div>
       <div class="flex gap-x-6">
-        <p>__________Doctor's Prescription</p>
-        <p>__________Others</p>
+        <p><input type="checkbox">Others</p>
       </div>
       <div class="mt-5 flex gap-x-52">
         <p>Respectfully yours,</p>

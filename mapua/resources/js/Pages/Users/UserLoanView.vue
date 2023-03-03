@@ -265,8 +265,7 @@
             <p class="font-bold content-center">Good news!</p>
             <p>Your Personal Loan application has been processed.</p>
             <p>
-              A representative will get in touch with you for updates on the
-              release of your loan. Thank you.
+              A representative will send you an email for updates on the release of your loan.
             </p>
           </div>
         </div>
