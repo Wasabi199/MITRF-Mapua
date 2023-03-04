@@ -72,7 +72,7 @@
                       <div class="">
                         <div>
                           <div class="text-sm text-center font-medium text-gray-900">
-                            {{ loan.duration }} months
+                            {{ loan.duration }} month/s
                           </div>
                         </div>
                       </div>
