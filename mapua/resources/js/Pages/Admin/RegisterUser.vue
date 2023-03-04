@@ -30,7 +30,7 @@
     </template>
     <JetAuthenticationCard>
       <template #logo>
-        <img src="/images/MITRF2.png" alt="mu logo" class="w-96 mt-10" />
+        <img src="/images/mu_white.png" alt="mu logo" class="w-64 mt-6" />
       </template>
 
       <!-- <div class="text-rose-600">
@@ -380,14 +380,14 @@ export default {
         birth_date: "",
         birth_place: "",
         civil_status: "",
-        
+
         employment: "",
         membership: "",
         mobile_number: "",
         department: "",
         salary: "",
 
-      
+
         account_information: {
           email: "",
           password: "",

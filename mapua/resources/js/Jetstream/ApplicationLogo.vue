@@ -1,3 +1,3 @@
 <template>
-    <img src="/images/MITRF2.png" alt="mu logo">
+    <img src="/images/mu_white.png" alt="mu logo">
 </template>

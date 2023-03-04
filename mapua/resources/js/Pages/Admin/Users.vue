@@ -47,22 +47,20 @@
               "
             >
               <table class="min-w-full divide-y divide-gray-200">
-                <th class="text-left px-16 bg-gray-100">Name</th>
-                <th class="text-left px-9 bg-gray-100">Contact No.</th>
-                <th class="text-left px-20 bg-gray-100">E-mail</th>
-                <th class="text-left px-20 bg-gray-100">Department</th>
-                <th class="text-left px-20 bg-gray-100">
-                  Last Updated Contribution
-                </th>
-               
+                <th class="text-center px-8 bg-gray-100">Name</th>
+                <th class="text-center px-9  bg-gray-100">Contact No.</th>
+                <th class="text-center px-16 bg-gray-100">E-mail</th>
+                <th class="text-center px-16 bg-gray-100">Department</th>
+                <th class="text-center px-14 bg-gray-100">Last Updated Contribution</th>
+
 
                 <tbody class="bg-white divide-y divide-gray-200">
                   <tr v-for="user in users.data" v-bind:key="user.id">
                     <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <Link :href="route('userProfile', user.id)">
                           <div>
-                            <div class="text-sm font-medium text-gray-900">
+                            <div class="text-sm text-center font-medium text-gray-900">
                               {{ user.name }}
                             </div>
                           </div>
@@ -70,9 +68,9 @@
                       </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
+                          <div class="text-sm text-center font-medium text-gray-900">
                             {{ user.admin_reg.mobile_number }}
                           </div>
                         </div>
@@ -80,27 +78,27 @@
                     </td>
 
                     <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
+                          <div class="text-sm text-center font-medium text-gray-900">
                             {{ user.email }}
                           </div>
                         </div>
                       </div>
                     </td>
                     <td class="px-20 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
+                          <div class="text-sm text-center font-medium text-gray-900">
                             {{ user.admin_reg.department }}
                           </div>
                         </div>
                       </div>
                     </td>
                     <td class="px-20 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
+                          <div class="text-sm text-center font-medium text-gray-900">
                             {{
                               new Date(
                                 user.user_contribution.updated_at

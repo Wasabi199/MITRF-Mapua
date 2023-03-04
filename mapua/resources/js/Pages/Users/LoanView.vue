@@ -44,45 +44,43 @@
             >
               <table class="min-w-full divide-y divide-gray-200">
                 <tbody class="bg-white divide-y divide-gray-200">
-                  <th class="text-left px-16 bg-gray-100">Loan Type</th>
-                  <th class="text-left px-16 bg-gray-100">Loan Amount</th>
-                  <th class="text-left px-16 bg-gray-100">Duration</th>
-                  <th class="text-left px-16 bg-gray-100">
-                    Date of Loan Application
-                  </th>
-                  <th class="text-left px-16 bg-gray-100">Action</th>
+                  <th class="text-center px-16 bg-gray-100">Loan Type</th>
+                  <th class="text-center px-16 bg-gray-100">Loan Amount</th>
+                  <th class="text-center px-16 bg-gray-100">Duration</th>
+                  <th class="text-center px-16 bg-gray-100">Date of Loan Application</th>
+                  <th class="text-left px-24 bg-gray-100">Action</th>
                   <tr v-for="loan in loans.data" v-bind:key="loan.id">
                     <td class="px-16 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm  font-medium text-gray-900">
+                          <div class="text-sm text-center font-medium text-gray-900">
                             {{ loan.loan_type }}
                           </div>
                         </div>
                       </div>
                     </td>
                     <td class="px-16 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
+                          <div class="text-sm text-center font-medium text-gray-900">
                             {{ loan.loan_amount }} PHP
                           </div>
                         </div>
                       </div>
                     </td>
                     <td class="px-16 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
+                          <div class="text-sm text-center font-medium text-gray-900">
                             {{ loan.duration }} months
                           </div>
                         </div>
                       </div>
                     </td>
                     <td class="px-16 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
+                          <div class="text-sm text-center font-medium text-gray-900">
                             {{ new Date(loan.created_at) }}
                           </div>
                         </div>

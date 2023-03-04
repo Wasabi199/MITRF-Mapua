@@ -14,7 +14,7 @@ import NotificationArea from '@/Components/NotificationArea';
 import { data } from 'browserslist';
 export default {
     setup() {
-        
+
     },
     props:{
         title: String,
@@ -57,7 +57,7 @@ export default {
             logout() {
                 this.$inertia.post(route('logout'));
             },
-       
+
             submit(notif){
                 // console.log(notif);
                 this.notif.id = notif.id;
@@ -72,7 +72,7 @@ export default {
                      this.notif.post(route('MedicalNotification'),[
                 ]);
                 }
-              
+
             },
 
             revisit(notification_type, universal_id){
@@ -96,7 +96,7 @@ export default {
                 else if(notification_type == 7){
                     this.$inertia.get(route('ReimbursementProfile',universal_id));
                 }
-              
+
             },
     }
 }
@@ -118,12 +118,12 @@ export default {
                             <!-- Logo -->
                             <div v-if="$page.props.user.userType != 2" class="shrink-0 flex items-center">
                                 <Link  :href="route('dashboard')">
-                                    <JetApplicationMark class="block h-9 w-auto" />
+                                    <JetApplicationMark class="block w-16" />
                                 </Link>
                             </div>
                             <div v-if="$page.props.user.userType == 2" class="shrink-0 flex items-center">
                                 <Link  :href="route('userDashboard')">
-                                    <JetApplicationMark class="block h-9 w-auto" />
+                                    <JetApplicationMark class="block w-16" />
                                 </Link>
                             </div>
 
@@ -157,11 +157,11 @@ export default {
                                     Current Loan
                                 </JetNavLink>
                                 <!-- Users Loan -->
-                             
+
                                  <JetNavLink :href="route('medicalView')" :active="route().current('medicalView')">
                                     Medical
                                 </JetNavLink>
-                               
+
                                <!-- Medical Dashboard -->
                             </div>
                                  <div v-if="$page.props.user.userType == 3" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -180,9 +180,9 @@ export default {
                                     Home
                                 </JetNavLink>
                                 <!-- Medical Reimbursement List -->
-                             
+
                             </div>
-                           
+
                         </div>
 
                         <div class="hidden sm:flex sm:items-center  sm:ml-6">
@@ -311,13 +311,13 @@ export default {
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                             <div v-else class="flex flex-col space-y-2 p-1 mt-2 text-base text-slate-500">
                                                 You dont have any notifications at the moment. 😢
                                             </div>
-                                           
+
                                         </div>
-                                        
+
 
                                     </PopoverPanel>
                                 </Popover>
@@ -427,13 +427,13 @@ export default {
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                             <div v-else class="flex flex-col space-y-2 p-1 mt-2 text-base text-slate-500">
                                                 You dont have any notifications at the moment. 😢
                                             </div>
-                                           
+
                                         </div>
-                                        
+
 
                                     </PopoverPanel>
                                 </Popover>

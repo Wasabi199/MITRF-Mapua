@@ -38,7 +38,7 @@
                 focus-visible:border-indigo-500
                 sm:text-sm
                 hidden
-                
+
               "
             >
               Sort By: {{ form.status }}
@@ -115,18 +115,18 @@
               <table class="min-w-full divide-y divide-gray-200">
                 <tbody class="bg-white divide-y divide-gray-200">
                   <!-- <th class="text-left px-16 bg-gray-100">Name</th> -->
-                  <th class="text-left px-16 bg-gray-100">Reimbursement Type</th>
-                  <th class="text-left px-16 bg-gray-100">Amount</th>
-                  <th class="text-left px-16 bg-gray-100">Medical Benefit</th>
-                  <th class="text-left px-16 bg-gray-100">Approval</th>
-                  <th class="text-left px-16 bg-gray-100">Action</th>
+                  <th class="text-center px-16 bg-gray-100">Reimbursement Type</th>
+                  <th class="text-center px-16 bg-gray-100">Amount</th>
+                  <th class="text-center px-16 bg-gray-100">Medical Benefit</th>
+                  <th class="text-center px-16 bg-gray-100">Approval</th>
+                  <th class="text-left px-24 bg-gray-100">Action</th>
 
                   <tr v-for="medical in medicals.data" v-bind:key="medical.id">
                     <!-- <tr> -->
                     <td class="px-16 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
+                          <div class="text-sm text-center font-medium text-gray-900">
                             {{ medical.reimbursment_type }}
                           </div>
                         </div>
@@ -134,9 +134,9 @@
                     </td>
 
                     <td class="px-16 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
+                          <div class="text-sm text-center font-medium text-gray-900">
                             {{ medical.amount }} PHP
                           </div>
                         </div>
@@ -144,9 +144,9 @@
                     </td>
 
                     <td class="px-16 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
+                          <div class="text-sm text-center font-medium text-gray-900">
                             {{ medical.medical_benifit }}
                           </div>
                         </div>
@@ -154,9 +154,9 @@
                     </td>
 
                     <td class="px-16 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
+                          <div class="text-sm text-center font-medium text-gray-900">
                             {{ medical.status }}
                           </div>
                         </div>
@@ -166,11 +166,10 @@
                     <td class=" py-4 whitespace-nowrap">
                       <div
                         class="
-                          flex
                           w-fit
-                          items-center
                           text-center
-                          px-5
+                          px-4
+                          py-1
                           border
                           text-md text-green-600
                           dark:text-green-600 dark:border-green-600

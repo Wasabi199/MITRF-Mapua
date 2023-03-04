@@ -248,7 +248,7 @@
               <!-- <p>Must be Image File(max 10MB)</p> -->
             </div>
             <center>
-              <button class="py-2 px-4  mb-5 bg-red-800 hover:bg-red-600 focus:ring focus:ring-red-300 text-white w-64 transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg">SUBMIT</button>
+              <button class="py-2 px-4 mb-5 bg-red-800 hover:bg-red-700 focus:ring focus:ring-indigo-300 text-yellow-500 w-64 transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg">Submit</button>
             </center>
           </form>
           <Modal :show="showModal" :closeable="true">
@@ -256,13 +256,9 @@
               <div
                 class="flex justify-center text-xl font-bold text-gray-900 my-3 mb-12"
               >
-                <span>Guidelines : Medical Reimburstment</span>
+                <span>Guidelines : Medical Reimbursement</span>
               </div>
-              <div
-                class="flex justify-left text-l font-bold text-gray-900 my-3 mb-12"
-              >
-                <span><u>MITRF LOAN TERMS AND CONDITIONS</u></span>
-              </div>
+
               <div
                 class="flex justify-left text-m font-bold text-gray-900 my-3"
               >

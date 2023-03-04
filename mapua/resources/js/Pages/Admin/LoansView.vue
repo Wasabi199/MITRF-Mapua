@@ -117,20 +117,20 @@
                     sm:rounded-lg
                   "
                 >
-                  <th class="text-left px-16 bg-gray-100">Name</th>
-                  <th class="text-left px-16 bg-gray-100">Loan Type</th>
-                  <th class="text-left px-16 bg-gray-100">Loan Balance</th>
-                  <th class="text-left px-16 bg-gray-100">Status</th>
-                  <th class="text-left px-16 bg-gray-100">Duration</th>
-                  <th class="text-left px-16 bg-gray-100">Last Updated Loan Payment</th>
+                  <th class="text-center px-16 bg-gray-100">Name</th>
+                  <th class="text-center px-16 bg-gray-100">Loan Type</th>
+                  <th class="text-center px-16 bg-gray-100">Loan Balance</th>
+                  <th class="text-center px-16 bg-gray-100">Status</th>
+                  <th class="text-center px-16 bg-gray-100">Duration</th>
+                  <th class="text-center px-16 bg-gray-100">Last Updated Loan Payment</th>
                   <th class="text-left px-16 bg-gray-100">Action</th>
 
                   <tr v-for="loan in loans.data" v-bind:key="loan.id">
                     <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
                           <Link :href="route('contributions', loan.id)">
-                            <div class="text-sm font-medium text-gray-900">
+                            <div class="text-sm text-center font-medium text-gray-900">
                               {{ loan.user.name }}
                             </div>
                           </Link>
@@ -139,10 +139,10 @@
                     </td>
 
                     <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+                          <div class="text-sm text-center font-medium text-gray-900">
+                            {{
                               loan.loan_type
                             }}
                           </div>
@@ -151,10 +151,10 @@
                     </td>
 
                     <td class="px-14 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+                          <div class="text-sm text-center font-medium text-gray-900">
+                           {{
                               loan.loan_amount.toLocaleString("en-US")
                             }}
                           </div>
@@ -162,10 +162,10 @@
                       </div>
                     </td>
                     <td class=" py-4 whitespace-nowrap">
-                      <div class="flex text-center items-center">
-                        <div class="text-center">
-                          <div class="text-sm  font-medium text-gray-900">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+                      <div class="">
+                        <div class="">
+                          <div class="text-sm text-center font-medium text-gray-900">
+                            {{
                               loan.approval
                             }}
                           </div>
@@ -174,10 +174,10 @@
                     </td>
 
                     <td class=" py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+                          <div class="text-sm text-center font-medium text-gray-900">
+                            {{
                               loan.duration
                             }} month/s
                           </div>
@@ -186,10 +186,10 @@
                     </td>
 
                     <td class="px-10 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+                          <div class="text-sm text-center font-medium text-gray-900">
+                           {{
                               loan.contributions[loan.contributions.length-1] != null? new Date(loan.contributions[loan.contributions.length-1].created_at).toLocaleDateString()+" "+new Date(loan.contributions[loan.contributions.length-1].created_at).toLocaleTimeString():'No Loan Payment Yet'
                             }}
                           </div>
@@ -198,7 +198,7 @@
                     </td>
 
                     <td class="px-20 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div class="">
                           <div class="text-sm font-medium text-green-700">
                             <Link :href="route('contributions', loan.id)">
@@ -420,7 +420,7 @@
         "
       />
       <button
-      
+
         type="submit"
         class="
           border border-yellow-500
@@ -471,7 +471,7 @@
             />
           </svg>
         </div>
-       
+
       </div>
       <div class="text-center text-2xl py-5">Please Enter Password for Validation</div>
       <JetValidationErrors class="mb-4 ml-12"  />
@@ -549,7 +549,7 @@ export default {
       showPasswordModal:false,
 
       form: {
-    
+
         approval: this.filters.approval == null ? "All" : this.filters.approval,
       },
 
