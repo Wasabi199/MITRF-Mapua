@@ -12,7 +12,7 @@ class BoardMembers extends Model
         'chairman',
         'vice_chairman',
         'corporate_secretary',
-        'tresurer',
+        'treasurer',
         'internal_auditor',
         'external_auditor',
         'accountant'

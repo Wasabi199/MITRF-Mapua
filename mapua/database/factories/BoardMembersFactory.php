@@ -21,7 +21,7 @@ class BoardMembersFactory extends Factory
             'chairman'=>$this->faker->name($gender = null|'male'|'female'),
             'vice_chairman'=>$this->faker->name($gender = null|'male'|'female'),
             'corporate_secretary'=>$this->faker->name($gender = null|'male'|'female'),
-            'tresurer'=>$this->faker->name($gender = null|'male'|'female'),
+            'treasurer'=>$this->faker->name($gender = null|'male'|'female'),
             'internal_auditor'=>$this->faker->name($gender = null|'male'|'female'),
             'external_auditor'=>$this->faker->name($gender = null|'male'|'female'),
             'accountant'=>$this->faker->name($gender = null|'male'|'female'),

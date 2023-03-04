@@ -439,6 +439,7 @@ export default {
       this.form.account_information.password = pass[new Date(this.form.birth_date).getMonth()]+new Date(this.form.birth_date).getUTCDate
       ()+new Date(this.form.birth_date).getUTCFullYear()
       console.log(this.form.account_information.password);
+      
       this.form.post(route("registerUserSubmit"), {
         onStart: (visit) => {
           this.isSubmiting == true;

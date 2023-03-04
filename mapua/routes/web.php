@@ -23,21 +23,21 @@ use Inertia\Inertia;
 
 // Route::get('/', function () {
 //    return Inertia::render('Welcome', [
-//        'canLogin' => Route::has('login'),
-//        'canRegister' => Route::has('register'),
-//        'laravelVersion' => Application::VERSION,
-//        'phpVersion' => PHP_VERSION,
+    //        'canLogin' => Route::has('login'),
+    //        'canRegister' => Route::has('register'),
+    //        'laravelVersion' => Application::VERSION,
+    //        'phpVersion' => PHP_VERSION,
 //    ]);
 // });
 Route::get('/', function () {
-       return Inertia::render('Auth/Login', [
-       ]);
-    });
+    return Inertia::render('Auth/Login', [
+    ]);
+});
 
 Route::middleware(['auth:sanctum'])->get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
 
 Route::prefix('Admin')->middleware(['auth:sanctum','Admin'])->group(function(){
-
+    
     Route::get('users',[AdminController::class, 'users'])->name('users');
     Route::get('user/register',[AdminController::class,'userRegister'])->name('registerUser');
     Route::get('user/{id}',[AdminController::class,'userProfile'])->name('userProfile');
@@ -56,18 +56,21 @@ Route::prefix('Admin')->middleware(['auth:sanctum','Admin'])->group(function(){
     Route::post('loan/reject',[AdminController::class,'loanReject'])->name('loanReject');
     Route::post('loan/release',[AdminController::class,'loanRelease'])->name('loanRelease');
     Route::post('loan/released',[AdminController::class,'loanReleased'])->name('loanReleased');
-
+    
     Route::get('Admin/ReimbursementView',[AdminController::class,'reimbursementView'])->name('ReimbursementView');
     Route::get('Admin/Reimbursement/{id}',[AdminController::class,'reimbursementProfileView'])->name('ReimbursementProfile');
     Route::post('Admin/Reimbursement/Update',[AdminController::class,'updateReimbursement'])->name('updateReimbursement');
-
-    // Route::get('contribution/add',[AdminController::class,'addContribution'])->name('addContri');
-    Route::get('loan/print/{id}',[AdminController::class,'loanPrint'])->name('printingLoan');
-
-    Route::post('Admin/notification',[NotificationController::class,'notification'])->name('AdminNotification');
-
     
+    // Route::get('contribution/add',[AdminController::class,'addContribution'])->name('addContri');
+    
+    Route::post('UpdateBoard',[AdminController::class,'updateBoards'])->name('updateBoards');
+    
+    Route::get('loan/print/{id}',[AdminController::class,'loanPrint'])->name('printingLoan');
+    
+    Route::post('Admin/notification',[NotificationController::class,'notification'])->name('AdminNotification');
 });
+
+
 Route::prefix('Users')->middleware(['auth:sanctum','Users'])->group(function(){
     Route::get('User/Dashboard',[DashboardController::class,'userLandingPage'])->name('userDashboard');
     Route::get('User/Loan',[LoansController::class,'index'])->name('userLoan');

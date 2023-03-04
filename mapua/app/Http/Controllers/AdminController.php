@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{User, AddressInformation, Contributions, UserNotifications, Loans, Medical};
+use App\Models\{User, AddressInformation, BoardMembers, Contributions, UserNotifications, Loans, Medical};
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Request as QueryRequest;
@@ -13,6 +13,7 @@ use App\Http\Requests\LoanReviewRequest as reviewloanRequest;
 use App\Http\Requests\LoanRejectRequest as rejectLoanRequest;
 use App\Http\Requests\AdminReimbursementUpdateRequest as reimbursementRequest;
 use App\Http\Requests\Admin as RegiterUserRequest;
+use App\Http\Requests\BoardsUpdate;
 use App\Imports\UserAdmin;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\{Auth};
@@ -401,6 +402,24 @@ class AdminController extends Controller
         return Redirect::back()->with('message',
             [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
         
+    }
+
+    public function updateBoards(BoardsUpdate $request){
+        $validated_data = $request->validated();
+        // dd($validated_data);
+        $board = BoardMembers::findOrFail(1);
+        $board->update([
+            'chairman'=>$validated_data['chairman'],
+            'vice_chairman'=>$validated_data['vice_chairman'],
+            'corporate_secretary'=>$validated_data['corporate_secretary'],
+            'treasurer'=>$validated_data['treasurer'],
+            'internal_auditor'=>$validated_data['internal_auditor'],
+            'external_auditor'=>$validated_data['external_auditor'],
+            'accountant'=>$validated_data['accountant'],
+        ]);
+
+        return Redirect::route('dashboard')->with('message',
+            [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
     }
 
 }

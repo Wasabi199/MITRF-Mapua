@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\{User, Admin, Contributions, Loans, Medical, UserContribution, UserNotifications};
+use App\Models\{User, Admin, BoardMembers, Contributions, Loans, Medical, UserContribution, UserNotifications};
 use Database\Factories\NotificationsFactory;
 use Illuminate\Support\Facades\Hash;
 
@@ -51,6 +51,8 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('password'),
             ]);
             $medical->adminReg()->create(Admin::factory(['user_id' => $admin->id])->make()->toArray());
+
+            BoardMembers::create();
             
             // User::create([
             //     'name' => "MITRF Chairman",

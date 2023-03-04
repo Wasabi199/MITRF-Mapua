@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\BoardsUpdate;
 use Illuminate\Support\Facades\{Auth};
-use App\Models\{UserNotifications, User, UserContribution};
+use App\Models\{BoardMembers, UserNotifications, User, UserContribution};
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Request as QueryRequest;
@@ -29,10 +31,13 @@ class DashboardController extends Controller
         $contribution = UserContribution::find(Auth::user()->id);
         $userNotification = UserNotifications::filterOwner(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $userNotificationCount = $userNotification->where('onRead',false)->count();
+        $boards = BoardMembers::findOrFail(1);
+        // dd($boards);
         if(Auth::user()->userType == 1){
             return Inertia::render('Admin/AdminDashboard',[
                 'notification'=>$notification,
-                'count'=>$notificationCount
+                'count'=>$notificationCount,
+                'boards'=>$boards
             ]);
         }
         else if(Auth::user()->userType == 2){
@@ -52,5 +57,7 @@ class DashboardController extends Controller
             ]);
         }
     }
+
+
     
 }

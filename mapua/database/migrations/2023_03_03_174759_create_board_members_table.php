@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('chairman');
             $table->string('vice_chairman');
             $table->string('corporate_secretary');
-            $table->string('tresurer');
+            $table->string('treasurer');
             $table->string('internal_auditor');
             $table->string('external_auditor');
             $table->string('accountant');
