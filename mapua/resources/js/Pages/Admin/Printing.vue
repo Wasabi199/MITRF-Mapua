@@ -151,7 +151,7 @@
             </div>
 
             <div class="col-span-3">
-              <div class="border-b-2 mx-10"></div>
+              <div class="border-b-2 mx-10">{{this.board.chairman}}</div>
               <p class="text-center">Chairman, Board of Directors</p>
             </div>
             <div class="col-span-3">
@@ -374,7 +374,7 @@
               <p>By:</p>
               <br /><br />
 
-              <div class="border-b-2 mx-10"></div>
+              <div class="border-b-2 mx-10">{{this.board.treasurer}}</div>
               <p class="text-center">&lpar;Treasurer&rpar;</p>
             </div>
           </div>
@@ -389,6 +389,7 @@ export default {
   props: {
     loan: Object,
     info: Object,
+    board:Object,
   },
 };
 </script>

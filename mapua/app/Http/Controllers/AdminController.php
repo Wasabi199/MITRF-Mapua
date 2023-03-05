@@ -348,10 +348,12 @@ class AdminController extends Controller
         $loan->update([
             'approval'=>'For Processing',
         ]);
+        $board = BoardMembers::findOrFail(1);
         // dd($info);
         return Inertia::render('Admin/Printing',[
             'loan'=>$loan,
             'info'=>$info,
+            'board'=>$board
         ]);
     }
 
