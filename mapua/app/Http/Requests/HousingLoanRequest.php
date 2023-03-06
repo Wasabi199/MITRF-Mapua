@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EducationalLoanRequest extends FormRequest
+class HousingLoanRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,11 +27,15 @@ class EducationalLoanRequest extends FormRequest
             'loan_type'=>'required',
             'loan_amount'=>'required',
             'amount'=>'required',
+            // 'department'=>'required',
             'interest'=>'required',
+            // 'approval'=>'required',
             'terms'=>'required',
+            // 'loan_status'=>'required',
             'payslip'=>'required',
+            'selfie'=>'required',
+            "quotation"=>'required',
 
-            'certificate'=>'required',
         ];
     }
 }

@@ -26,7 +26,7 @@ class MedicalController extends Controller
         ->paginate(5);
         // ->appends($query::only('search'));
         // $filters = $query::all('search');
-        
+
         return Inertia::render('Medical/Medical_Reimbursment',[
             'medical'=>$medical,
             'notification'=>$notification,
@@ -39,7 +39,7 @@ class MedicalController extends Controller
 
         $medical = Medical::with('attachments')->find($id);
         $info = Admin::where('user_id',$medical->user_id)->get()->first();
-        
+
         return Inertia::render('Medical/MedicalAppliedView',[
             'userProfile'=> $info,
             'userMedical'=> $medical,
@@ -70,7 +70,7 @@ class MedicalController extends Controller
             'notification_type'=>7
         ]);
         return Redirect::back()->with('message',
-            [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
+            [NotificationService::notificationItem('success', '', 'Successfully Updated')]);
     }
 
     public function medicalReject(MedicalApprove $request){
@@ -89,7 +89,7 @@ class MedicalController extends Controller
         ]);
 
         return Redirect::back()->with('message',
-            [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]);
+            [NotificationService::notificationItem('success', '', 'Successfully Updated')]);
     }
 
     public function reimbursemetPrint($id){

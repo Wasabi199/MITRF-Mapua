@@ -76,7 +76,7 @@
                   />
                 </div>
               </div>
-              <p class="mb-1 text-lg">Upload Requirements</p>
+
               <div class="pt-5">
                 <p class="text-md font-bold">Clinic / Hospital Name:</p>
                 <input
@@ -93,7 +93,9 @@
                   v-model="this.form.appointment_date"
                 />
               </div>
-              <p class="font-bold pt-5">Official Receipt<span class="italic font-thin text-sm"> Must be image file (10MB)</span></p>
+                <p class="mb-1 text-lg mt-6 font-semibold">Upload Requirements</p>
+                <p class="italic text-sm">*Total maximum size for uploading is 20mb</p>
+              <p class="font-bold pt-5">Official Receipt<span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
               <div
                 class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
               >
@@ -105,7 +107,7 @@
                   multiple
                 />
               </div>
-              <p class="font-bold">Medical Certificate/Doctor's Prescription<span class="italic font-thin text-sm"> Must be image file (10MB)</span></p>
+              <p class="font-bold">Medical Certificate/Doctor's Prescription<span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
               <div
                 class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
               >
@@ -118,7 +120,7 @@
                 />
               </div>
               <!-- <p>Must be Image File(max 10MB)</p> -->
-              <p class="font-bold">Statement of Account<span class="italic font-thin text-sm"> Must be image file (10MB)</span></p>
+              <p class="font-bold">Statement of Account<span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
               <div
                 class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
               >
@@ -175,7 +177,7 @@
                   />
                 </div>
               </div>
-              <p class="mb-1 text-lg">Upload Requirements</p>
+
               <div class="pt-5">
                 <p class="text-md font-bold">Clinic / Hospital Name:</p>
                 <input
@@ -192,8 +194,10 @@
                   v-model="this.form.appointment_date"
                 />
               </div>
+                <p class="mb-1 text-lg mt-6 font-semibold">Upload Requirements</p>
+                <p class="italic text-sm">*Total maximum size for uploading is 20mb</p>
 
-              <p class="font-bold pt-5">Official Receipt<span class="italic font-thin text-sm"> Must be image file (10MB)</span></p>
+              <p class="font-bold pt-5">Official Receipt<span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
               <div
                 class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
               >
@@ -206,7 +210,7 @@
                 />
               </div>
               <!-- <p>Must be Image File(max 10MB)</p> -->
-              <p class="font-bold">Medical Certificate/Doctor's Prescription<span class="italic font-thin text-sm"> Must be image file (10MB)</span></p>
+              <p class="font-bold">Medical Certificate/Doctor's Prescription<span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
               <div
                 class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
               >
@@ -219,7 +223,7 @@
                 />
               </div>
               <!-- <p>Must be Image File(max 10MB)</p> -->
-              <p v-if="this.form.health == true" class="font-bold">Doctor's Endorsement<span class="italic font-thin text-sm"> Must be image file (10MB)</span></p>
+              <p v-if="this.form.health == true" class="font-bold">Doctor's Endorsement<span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
               <div v-if="this.form.health == true"
                 class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
               >
@@ -233,7 +237,7 @@
               </div>
               <!-- <p>Must be Image File(max 10MB)</p> -->
 
-              <p v-if="this.form.health == true" class="font-bold">Lab Results<span class="italic font-thin text-sm"> Must be image file (10MB)</span></p>
+              <p v-if="this.form.health == true" class="font-bold">Lab Results<span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
               <div v-if="this.form.health == true"
                 class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
               >

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 // use Illuminate\Http\Request;
+use App\Http\Requests\EducationalLoanRequest;
+use App\Http\Requests\ForRelativeRequest;
+use App\Http\Requests\HousingLoanRequest;
 use App\Http\Requests\LoanRequest as request;
 use App\Http\Requests\MedicalReimbursmentRequest as medicalRequest;
 use App\Http\Requests\EmergencyLoanRequest as emergencyReqest;
@@ -76,17 +79,18 @@ class LoansController extends Controller
     }
 
 
-    public function createLoans(request $request)
+    public function createLoans(HousingLoanRequest $request)
     {
         $validate_data = $request->validated();
+
         $user = User::find(auth()->id());
         // dd($request);
 
-        if ($request->hasFile('attachment1') || $request->hasFile('attachment2') || $request->hasFile('attachment3')) {
+        if ($request->hasFile('payslip') || $request->hasFile('selfie') || $request->hasFile('quotation')) {
 
-            $file1 = $request->file('attachment1');
-            $file2 = $request->file('attachment2');
-            $file3 = $request->file('attachment3');
+            $file1 = $request->file('payslip');
+            $file2 = $request->file('selfie');
+            $file3 = $request->file('quotation');
 
             $file_name1 = time() . '.' . $file1->getClientOriginalName();
             $file_name2 = time() . '.' . $file2->getClientOriginalName();
@@ -100,10 +104,10 @@ class LoansController extends Controller
             $user_loans = $user->loans()->create([
 
                 'loan_type' => $validate_data['loan_type'],
-                'duration' => $validate_data['duration'],
+                'duration' => $validate_data['terms'],
                 'attachment1' => '../../../uploads/loans/' . $file_name1,
                 'attachment2' => '../../../uploads/loans/' . $file_name2,
-                'attachment3' => '../../../uploads/loans/' . $file_name3,
+                "attachment3" => '../../../uploads/loans/' . $file_name3,
                 'loan_amount' => $validate_data['loan_amount'],
                 'amount' => $validate_data['amount'],
                 'interest' => $validate_data['interest'],
@@ -123,7 +127,7 @@ class LoansController extends Controller
 
             return Redirect::route('userLoanDashboard')->with(
                 'message',
-                [NotificationService::notificationItem('Sucess', '', 'Sucessfully submitted ' . $validate_data['loan_type'])]
+                [NotificationService::notificationItem('Success', '', 'Successfully submitted ' . $validate_data['loan_type'])]
             );
         }
     }
@@ -142,7 +146,7 @@ class LoansController extends Controller
             $user_loans = $user->loans()->create([
 
                 'loan_type' => $validate_data['loan_type'],
-                'duration' => $validate_data['duration'],
+                'duration' => $validate_data['terms'],
                 'attachment1' => '../../../uploads/loans/' . $file_name1,
                 'loan_amount' => $validate_data['loan_amount'],
                 'amount' => $validate_data['amount'],
@@ -162,16 +166,17 @@ class LoansController extends Controller
 
         return Redirect::route('userLoanDashboard')->with(
             'message',
-            [NotificationService::notificationItem('Sucess', '', 'Sucessfully submitted ' . $validate_data['loan_type'])]
+            [NotificationService::notificationItem('Success', '', 'Successfully submitted ' . $validate_data['loan_type'])]
         );
     }
-    public function createEducationalLoan(educationalRequest $request)
+    public function createEducationalLoan(EducationalLoanRequest $request)
     {
         $validate_data = $request->validated();
+        dd($validate_data);
         $user = User::find(auth()->id());
-        if ($request->hasFile('attachment1') && $request->hasFile('attachment3')) {
-            $file1 = $request->file('attachment1');
-            $file3 = $request->file('attachment3');
+        if ($request->hasFile('payslip') && $request->hasFile('certificate')) {
+            $file1 = $request->file('payslip');
+            $file3 = $request->file('certificate');
 
             $file_name1 = time() . '.' . $file1->getClientOriginalName();
             $file_name3 = time() . '.' . $file3->getClientOriginalName();
@@ -181,10 +186,10 @@ class LoansController extends Controller
 
             $user_loans = $user->loans()->create([
                 'loan_type' => $validate_data['loan_type'],
-                'duration' => $validate_data['duration'],
+                'duration' => $validate_data['terms'],
                 'attachment1' => '../../../uploads/loans/' . $file_name1,
                 //    'attachment2'=>'../../../uploads/loans/'.$file_name2,
-                'attachment3' => '../../../uploads/loans/' . $file_name3,
+                "attachment3" => '../../../uploads/loans/' . $file_name3,
                 'loan_amount' => $validate_data['loan_amount'],
                 'amount' => $validate_data['amount'],
                 'interest' => $validate_data['interest'],
@@ -201,10 +206,65 @@ class LoansController extends Controller
             ]);
             return Redirect::route('userLoanDashboard')->with(
                 'message',
-                [NotificationService::notificationItem('Sucess', '', 'Sucessfully submitted ' . $validate_data['loan_type'])]
+                [NotificationService::notificationItem('Success', '', 'Successfully submitted ' . $validate_data['loan_type'])]
             );
         }
     }
+
+    public function relativeEducational(ForRelativeRequest $request)
+    {
+        $validate_data = $request->validated();
+        dd($validate_data);
+
+        $user = User::find(auth()->id());
+        // dd($request);
+
+        if ($request->hasFile('payslip') || $request->hasFile('proof') || $request->hasFile('certificate')) {
+
+            $file1 = $request->file('payslip');
+            $file2 = $request->file('proof');
+            $file3 = $request->file('certificate');
+
+            $file_name1 = time() . '.' . $file1->getClientOriginalName();
+            $file_name2 = time() . '.' . $file2->getClientOriginalName();
+            $file_name3 = time() . '.' . $file3->getClientOriginalName();
+
+            $file1->move(public_path('uploads/loans'), $file_name1);
+            $file2->move(public_path('uploads/loans'), $file_name2);
+            $file3->move(public_path('uploads/loans'), $file_name3);
+
+
+            $user_loans = $user->loans()->create([
+
+                'loan_type' => $validate_data['loan_type'],
+                'duration' => $validate_data['terms'],
+                'attachment1' => '../../../uploads/loans/' . $file_name1,
+                'attachment2' => '../../../uploads/loans/' . $file_name2,
+                "attachment3" => '../../../uploads/loans/' . $file_name3,
+                'loan_amount' => $validate_data['loan_amount'],
+                'amount' => $validate_data['amount'],
+                'interest' => $validate_data['interest'],
+                'loan_status' => 'Ongoing',
+                'approval' => 'Submitted',
+
+            ]);
+
+
+            $user->userNotif()->create([
+                'universal_id' => $user_loans->id,
+                'onRead' => false,
+                'value' => $user->name . ' Applying for ' . $validate_data['loan_type'],
+                'type' => 1,
+                'notification_type' => 1
+            ]);
+
+            return Redirect::route('userLoanDashboard')->with(
+                'message',
+                [NotificationService::notificationItem('Success', '', 'Successfully submitted ' . $validate_data['loan_type'])]
+            );
+        }
+    }
+
 
     public function medicalReimbursment(query $query)
     {
@@ -349,12 +409,12 @@ class LoansController extends Controller
         $user->userNotif()->create([
             'universal_id'=>$userMedical->id,
             'onRead'=>false,
-            'value'=>$user->name.' Applying for Medical Reimburstment',
+            'value'=>$user->name.' Applying for Medical Reimbursement',
             'type'=>3,
             'notification_type'=>2
         ]);
         return Redirect::route('medicalView')->with('message',
-            [NotificationService::notificationItem('Sucess', '', 'Sucessfully submitted Medical Reimbursement '.$validate_data['reimbursment_type'])]);
+            [NotificationService::notificationItem('Success', '', 'Successfully submitted Medical Reimbursement '.$validate_data['reimbursment_type'])]);
     }
 
     public function  UserLoanView($id)

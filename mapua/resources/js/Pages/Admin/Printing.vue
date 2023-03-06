@@ -2,16 +2,16 @@
   <div id="toPrint" class="m-10 mx-auto w-1/2">
     <div class="shadow rounded-lg">
       <br />
-      <h1 class="text-center font-extrabold text-lg">
+      <h1 class="text-center font-extrabold text-sm">
         M.I.T RETIREMENT FUND, INC.
       </h1>
-      <h2 class="text-center">
+      <h2 class="text-center text-sm">
         Mapúa Institute of Technology <br />Muralla Street, Intramuros,
         <br />Manila
       </h2>
-      <br /><br />
+      <br />
 
-      <h2 class="text-center font-bold">LOAN APPLICATION</h2>
+      <h2 class="text-center font-bold text-sm">LOAN APPLICATION</h2>
 
       <form class>
         <div class="px-2 py-5 sm:p-6">
@@ -19,21 +19,21 @@
             <div class="outline-double outline-4 mx-1 my-2 col-span-6"></div>
 
             <div class="flex col-span-3">
-              <p class="font-semibold">Name of Borrower</p>
-              <p class="ml-2 underline">
+              <p class="font-semibold text-sm">Name of Borrower</p>
+              <p class="ml-2 underline text-sm">
                 {{ info.first_name }} {{ info.middle_name }}
                 {{ info.last_name }}
               </p>
             </div>
 
             <div class="flex col-span-2">
-              <p class="font-semibold">Date of Birth</p>
-              <p class="ml-2 underline">{{ info.birth_date }}</p>
+              <p class="font-semibold text-sm">Date of Birth</p>
+              <p class="ml-2 underline text-sm">{{ info.birth_date }}</p>
             </div>
 
             <div class="flex col-span-1">
-              <p class="font-semibold">Age:</p>
-              <p class="ml-2 underline">
+              <p class="font-semibold text-sm">Age:</p>
+              <p class="ml-2 underline text-sm">
                 {{
                   new Date().getUTCFullYear() -
                   new Date(info.birth_date).getUTCFullYear()
@@ -42,13 +42,13 @@
             </div>
 
             <div class="flex col-span-3">
-              <p class="font-semibold">Date of Employment:</p>
-              <p class="ml-2 underline">{{ info.employment }}</p>
+              <p class="font-semibold text-sm">Date of Employment:</p>
+              <p class="ml-2 underline text-sm">{{ info.employment }}</p>
             </div>
 
             <div class="flex col-span-3">
-              <p class="font-semibold">Years of Service:</p>
-              <p class="ml-2 underline">
+              <p class="font-semibold text-sm">Years of Service:</p>
+              <p class="ml-2 underline text-sm">
                 {{
                   new Date().getUTCFullYear() -
                   new Date(info.employment).getUTCFullYear()
@@ -58,24 +58,24 @@
             </div>
 
             <div class="flex col-span-6">
-              <p class="font-semibold">Department:</p>
-              <p class="ml-2 underline">{{ info.department }}</p>
+              <p class="font-semibold text-sm">Department:</p>
+              <p class="ml-2 underline text-sm">{{ info.department }}</p>
             </div>
 
             <div class="flex col-span-3">
-              <p class="font-semibold">Amount of Loan</p>
-              <p class="ml-2 underline">
+              <p class="font-semibold text-sm">Amount of Loan</p>
+              <p class="ml-2 underline text-sm">
                 Php {{ loan.amount.toLocaleString("en-US") }}
               </p>
             </div>
 
             <div class="flex col-span-3">
-              <p class="font-semibold">Term of Payment &lpar;Months&rpar;</p>
-              <p class="ml-2 underline">{{ loan.duration }}</p>
+              <p class="font-semibold text-sm">Term of Payment &lpar;Months&rpar;</p>
+              <p class="ml-2 underline text-sm">{{ loan.duration }}</p>
             </div>
 
-            <div class="flex col-span-4 mt-8">
-              <p class="text-justify indent-10">
+            <div class="flex col-span-4 mt-2">
+              <p class="text-justify indent-10 text-sm">
                 I hereby authorize the MITRF to collect and process the above
                 information for legitimate purposes specifically for evaluation
                 of my loan application and allow authorized personnel to process
@@ -84,9 +84,9 @@
               </p>
             </div>
 
-            <div class="col-span-2 mt-8">
-              <br /><br />
-              <div class="border-b-2 text-center font-bold">
+            <div class="col-span-2 mt-2">
+              <br />
+              <div class="border-b-2 text-center font-bold text-sm">
                 {{
                   info.first_name +
                   " " +
@@ -95,7 +95,7 @@
                   info.last_name
                 }}
               </div>
-              <p class="text-center italic">
+              <p class="text-center italic text-sm">
                 &lpar;Signature of Applicant&rpar;
               </p>
             </div>
@@ -103,19 +103,19 @@
             <div class="outline-double outline-4 mx-1 my-2 col-span-6"></div>
 
             <div class="flex col-span-6">
-              <p class="italic">
+              <p class="italic text-sm">
                 &lpar;To be filled up by credit committee&rpar;
               </p>
             </div>
 
             <div class="flex col-span-6">
-              <p class="font-bold">APPROVED,</p>
+              <p class="font-bold text-sm">APPROVED,</p>
               &nbsp;
-              <p>subject to the following terms and conditions:</p>
+              <p class=" text-sm">subject to the following terms and conditions:</p>
             </div>
-            <div class="flex col-span-6 pl-5">
+            <div class="flex col-span-6 pl-5 text-sm">
               <ol>
-                <li class="flex">
+                <li class="flex -mt-4">
                   1. Amount of Loan &lpar;₱
                   <p class="underline">{{ loan.amount }}</p>
                   &rpar;
@@ -138,7 +138,7 @@
               </ol>
             </div>
 
-            <div class="col-span-3 col-start-4">
+            <div class="col-span-3 col-start-4 text-sm -mt-2">
               <p class="font-bold">CREDIT COMMITTEE</p>
               <p>By:</p>
               <br />
@@ -150,11 +150,11 @@
               <p class="text-center">Member</p>
             </div>
 
-            <div class="col-span-3">
-              <div class="border-b-2 mx-10">{{this.board.chairman}}</div>
+            <div class="col-span-3 -mt-5">
+              <div class="border-b-2 mx-10 text-center font-bold text-sm">{{this.board.chairman}}</div>
               <p class="text-center">Chairman, Board of Directors</p>
             </div>
-            <div class="col-span-3">
+            <div class="col-span-3 text-sm">
               <div class="border-b-2 mx-10"></div>
               <p class="text-center">Member</p>
             </div>
@@ -165,62 +165,61 @@
     </div>
     <br />
     <!-- Second Page -->
-    <p style="page-break-after: always">&nbsp;</p>
-    <p style="page-break-before: always">&nbsp;</p>
+<!--    <p style="page-break-after: always">&nbsp;</p>-->
+<!--    <p style="page-break-before: always">&nbsp;</p>-->
 
     <div class="shadow rounded-lg">
-      <h1 class="text-center font-bold text-lg">M.I.T RETIREMENT FUND, INC.</h1>
-      <h2 class="text-center">
+      <h1 class="text-center font-bold text-sm">M.I.T RETIREMENT FUND, INC.</h1>
+      <h2 class="text-center text-sm">
         Mapúa Institute of Technology <br />Muralla Street, Intramuros,
         <br />Manila
       </h2>
-
       <form>
         <div class="px-2 py-5 sm:p-6">
           <div class="grid grid-cols-6 gap-6">
             <div class="col-span-2">
-              <p class="font-bold">NON-NEGOTIABLE</p>
+              <p class="font-bold text-sm">NON-NEGOTIABLE</p>
             </div>
 
             <div class="col-span-2 col-start-5 text-right">
-              <p>No. __________</p>
+              <p class=" text-sm">No. __________</p>
             </div>
 
             <div class="col-span-6">
-              <p class="font-extrabold text-center">PROMISSORY NOTE</p>
+              <p class="font-extrabold text-center text-sm">PROMISSORY NOTE</p>
             </div>
 
             <div class="col-span-2">
-              <p class="overflow-clip">₱___________</p>
+              <p class="overflow-clip text-sm">₱___________</p>
             </div>
 
             <div class="col-span-4 col-start-3 text-right">
-              <p>Date Granted: __________________</p>
+              <p class=" text-sm">Date Granted: __________________</p>
+            </div>
+
+            <div class="col-span-6 text-sm">
+              <p class=" text-sm">Maturity Date: ______________________________</p>
             </div>
 
             <div class="col-span-6">
-              <p>Maturity Date: ______________________________</p>
-            </div>
-
-            <div class="col-span-6">
-              <p class="indent-10 text-justify">
-                <span class="font-semibold"> NOB VALUE RECEIVED, </span>I hereby
+              <p class="indent-10 text-justify text-sm">
+                <span class="font-semibold text-sm"> NOB VALUE RECEIVED, </span>I hereby
                 promise to pay M.I.T. RETIREMENT FUND, INC at its office at
                 Muralla St., Intramuros, Manila, the sum of
                 _____________________________________________ PESOS &lpar;₱
-                <span class="italic">{{ loan.loan_amount }}</span> &rpar;,
+                <span class="italic text-sm">{{ loan.loan_amount }}</span> &rpar;,
                 Philippine currency, plus interest and service charge at the
-                rate of <span class="italic">{{ loan.interest * 100 }}</span
+                rate of <span class="italic text-sm">{{ loan.interest * 100 }}</span
                 >% and __________________, respectively in equal semi-monthly
                 installments of __________________ &lpar;₱
-                <span class="italic">{{ loan.amount }}</span> &rpar; commencing
+                <span class="italic text-sm">{{ loan.amount }}</span> &rpar; commencing
                 on ____________________________, ________ to
                 ____________________, ________ and subject further to the
                 following terms and conditions.
               </p>
               <br />
 
-              <p class="indent-10 text-justify italic">
+              <p class="indent-10 text-justify italic text-sm">
                 The interest charge herein shall be subject in increase or
                 reduction, depending on whatever policy M.I.T. RETIREMENT FUND,
                 INC. may, in the future, adapt conformable to law, decree, or
@@ -231,7 +230,7 @@
               </p>
               <br />
 
-              <p class="indent-10 text-justify italic">
+              <p class="indent-10 text-justify italic text-sm">
                 I hereby authorize and empower M.I.T. RETIREMENT FUND, INC. to
                 set off, with out notice, what is due irrespective of the date
                 of maturity and whether or not this obligation is due, from
@@ -239,7 +238,7 @@
               </p>
               <br />
 
-              <p class="indent-10 text-justify italic">
+              <p class="indent-10 text-justify italic text-sm">
                 M.I.T. RETIREMENT FUND, INC. may accept partial payment, grant
                 extension of time or make any other arrangement regarding
                 payment of this note which shall not affect my obligation, nor
@@ -250,7 +249,7 @@
               </p>
               <br />
 
-              <p class="indent-10 text-justify italic mb-1">
+              <p class="indent-10 text-justify italic mb-1 text-sm">
                 If this note is placed in the hands of an attorney for
                 collection, I agree to pay the further sum of twenty-five
                 percent &lpar;25%&rpar; of the amount due as attorney's fees,
@@ -262,8 +261,8 @@
               </p>
             </div>
 
-            <div class="col-span-3 col-start-4">
-              <div class="border-b-2 mx-10 text-center font-bold">
+            <div class="col-span-3 col-start-4 ">
+              <div class="border-b-2 mx-10 text-center font-bold text-sm -mt-4">
                 {{
                   info.first_name +
                   " " +
@@ -272,32 +271,26 @@
                   info.last_name
                 }}
               </div>
-              <p class="text-center">&lpar;Borrower&rpar;</p>
-              <p class="text-center">&lpar;Print Name and Sign Above&rpar;</p>
+              <p class="text-center text-sm">&lpar;Borrower&rpar;</p>
+              <p class="text-center text-sm">&lpar;Print Name and Sign Above&rpar;</p>
             </div>
 
-            <div class="col-span-6 text-center font-bold mb-2">
+            <div class="col-span-6 text-center font-bold mb-2 text-sm">
               SIGNED IN THE PRESENCE OF:
             </div>
 
-            <div class="col-span-3">
-              <div class="border-b-2 mx-10"></div>
-            </div>
-            <div class="col-span-3">
-              <div class="border-b-2 mx-10"></div>
-            </div>
+
           </div>
         </div>
       </form>
     </div>
     <br />
     <!-- Third Page -->
-    <p style="page-break-after: always">&nbsp;</p>
-    <p style="page-break-before: always">&nbsp;</p>
+
     <div class="shadow rounded-lg">
       <br />
-      <h1 class="text-center font-bold text-lg">M.I.T RETIREMENT FUND, INC.</h1>
-      <h2 class="text-center">
+      <h1 class="text-center font-bold text-sm">M.I.T RETIREMENT FUND, INC.</h1>
+      <h2 class="text-center text-sm">
         Mapúa Institute of Technology <br />Muralla Street, Intramuros,
         <br />Manila
       </h2>
@@ -306,27 +299,25 @@
         <div class="px-2 py-5 sm:p-6">
           <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6">
-              <p class="font-extrabold text-center">ASSIGNMENT</p>
+              <p class="font-extrabold text-center text-sm">ASSIGNMENT</p>
               <br />
 
-              <p class="indent-10 text-justify">
+              <p class="indent-10 text-justify text-sm">
                 I,
-                <span class="underline italic"
-                  >{{
+                <span class="underline italic" >{{
                     info.first_name +
                     " " +
                     info.middle_name +
                     " " +
                     info.last_name
-                  }} </span
-                >, ____________________________________________
+                  }} </span>, ____________________________________________
               </p>
 
-              <p class="text-center flex">
+              <p class="text-center flex text-sm">
                 <span class="mx-24">&lpar;Name&rpar; </span>
                 <span class="mx-40">&lpar;Designation&rpar;</span>
               </p>
-              <p class="text-justify">
+              <p class="text-justify text-sm">
                 of _______________________________, a member of M.I.T.
                 RETIREMENT FUND, INC. in the principal amount of PESOS
                 _______________________________________________________, covered
@@ -341,7 +332,7 @@
               </p>
               <br />
 
-              <p class="indent-10 text-justify">
+              <p class="indent-10 text-justify text-sm">
                 In the event that I fail to pay any or all the amortization due
                 under said note, I further authorize the Board of Directors of
                 the M.I.T. RETIREMENT FUND, INC. to apply the benefits that may
@@ -353,7 +344,7 @@
             </div>
 
             <div class="col-span-3 col-start-4">
-              <div class="border-b-2 mx-10 text-center font-bold">
+              <div class="border-b-2 mx-10 text-center font-bold text-sm">
                 {{
                   info.first_name +
                   " " +
@@ -362,20 +353,20 @@
                   info.last_name
                 }}
               </div>
-              <p class="text-center">&lpar;Borrower&rpar;</p>
-              <p class="text-center">&lpar;Print Name and Sign Above&rpar;</p>
+              <p class="text-center text-sm">&lpar;Borrower&rpar;</p>
+              <p class="text-center text-sm">&lpar;Print Name and Sign Above&rpar;</p>
               <br /><br />
             </div>
 
             <div class="col-span-3">
-              <p class="font-bold">CONFORME:</p>
+              <p class="font-bold text-sm">CONFORME:</p>
               <br />
-              <p class="font-bold">MAPUA INSTITUTE OF TECHNOLOGY</p>
-              <p>By:</p>
+              <p class="font-bold text-sm">MAPUA INSTITUTE OF TECHNOLOGY</p>
+              <p class=" text-sm"> </p>
               <br /><br />
 
-              <div class="border-b-2 mx-10">{{this.board.treasurer}}</div>
-              <p class="text-center">&lpar;Treasurer&rpar;</p>
+              <div class="border-b-2 mx-10 text-sm text-center font-bold">{{this.board.treasurer}}</div>
+              <p class="text-center text-sm">&lpar;Treasurer&rpar;</p>
             </div>
           </div>
         </div>

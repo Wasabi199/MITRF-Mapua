@@ -62,7 +62,7 @@
           >
             <p class="mb-1 text-lg">Terms (Months)</p>
             <select
-              v-model="form.duration"
+              v-model="form.terms"
               class="
                 mb-5
                 border-2 border-gray-400 border-opacity-50
@@ -118,7 +118,9 @@
                 ><li>Minimum of 30,000 and maximum of 100,000</li></span
               >
             </div>
-            <p class="mb-1 text-lg">Member's Payslip for Validation</p>
+              <p class="mb-1 text-lg mt-6 font-semibold">Upload requirements</p>
+              <p class="italic text-sm mb-5">*Total maximum size for uploading is 20mb</p>
+              <p class="mb-1 text-lg mt-4">Member's Payslip for Validation<span class="text-sm italic font-thin">Must be image file (jpg,jpeg)</span></p>
             <div
               class="
                 border-2 border-gray-400 border-opacity-50
@@ -149,7 +151,7 @@
               />
             </div>
             <p class="mb-1 text-lg">
-              Upload Photo of you Including the Place to be Improved/Repaired
+              Upload Photo of you Including the Place to be Improved/Repaired <span class="text-sm italic font-thin">Must be image file (jpg,jpeg)</span>
             </p>
             <div
               class="
@@ -180,7 +182,7 @@
                 "
               />
             </div>
-            <p class="mb-1 text-lg">Upload Laborer's Quotation</p>
+            <p class="mb-1 text-lg">Upload Laborer's Quotation <span class="text-sm italic font-thin">Must be image file (jpg,jpeg)</span></p>
             <div
               class="
                 border-2 border-gray-400 border-opacity-50
@@ -283,12 +285,16 @@
                 ><li>Maximum of 30,000</li></span
               >
             </div>
+              <p class="mb-1 text-lg mt-6 font-semibold">Upload Requirements</p>
+              <p class="italic text-sm mb-5">*Total maximum size for uploading is 20mb</p>
             <div class="flex">
-              <input v-model="forRelative" class="w-5 h-5" type="checkbox" />
+              <input v-model="relativeForm" class="w-5 h-5" type="checkbox" />
+
               <span class="text-center text-xl px-2">For Relative</span>
             </div>
 
-            <p class="mb-1 text-lg">Member's Payslip for Validation</p>
+            <p class="mb-1 text-lg">Member's Payslip for Validation
+                <span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
             <div
               class="
                 border-2 border-gray-400 border-opacity-50
@@ -319,11 +325,12 @@
               />
             </div>
 
-            <p v-if="this.forRelative == true" class="mb-1 text-lg">
+            <p v-if="this.relativeForm == true" class="mb-1 text-lg">
               Upload Proof of Relation (Birth Certificate in Case of Relatives)
+                <span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span>
             </p>
             <div
-              v-if="this.forRelative == true"
+              v-if="this.relativeForm == true"
               class="
                 border-2 border-gray-400 border-opacity-50
                 hover:border-indigo-500
@@ -356,6 +363,7 @@
             <p class="mb-1 text-lg">
               Upload Certificate of Enrollment and Statement of Account from
               School
+                <span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span>
             </p>
             <div
               class="
@@ -422,7 +430,7 @@
           >
             <p class="mb-1 text-lg">Terms (Months)</p>
             <select
-              v-model="emergencyForm.duration"
+              v-model="emergencyForm.terms"
               class="
                 mb-5
                 border-2 border-gray-400 border-opacity-50
@@ -477,8 +485,10 @@
                 ><li>Maximum of 30,000</li></span
               >
             </div>
+              <p class="mb-1 text-lg mt-6 font-semibold">Upload Requirements</p>
+              <p class="italic text-sm mb-5">*Total maximum size for uploading is 20mb</p>
 
-            <p class="mb-1 text-lg">Member's Payslip for Validation</p>
+            <p class="mb-1 text-lg">Member's Payslip for Validation <span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
             <div
               class="
                 border-2 border-gray-400 border-opacity-50
@@ -1060,30 +1070,41 @@ export default {
         loan_type: "",
         amount: "",
         loan_amount: "",
-        duration: "",
+        terms: "",
         interest: "",
-        attachment1: "",
-        attachment2: "",
-        attachment3: "",
+        payslip: "",
+        selfie: "",
+        quotation: "",
       }),
       educationalForm: this.$inertia.form({
         loan_type: "",
         amount: "",
         loan_amount: "",
-        duration: "",
+        terms: "",
         interest: "",
-        attachment1: "",
-        // attachment2:'',
-        attachment3: "",
+          payslip: "",
+        // proof:'',
+          certificate: "",
       }),
+
+        relativeForm: this.$inertia.form({
+            loan_type: "",
+            amount: "",
+            loan_amount: "",
+            terms: "",
+            interest: "",
+            payslip: "",
+            proof:'',
+            certificate: "",
+        }),
 
       emergencyForm: this.$inertia.form({
         loan_type: "",
         amount: "",
         loan_amount: "",
-        duration: "",
+          terms: "",
         interest: "",
-        attachment1: "",
+          attachment1: "",
       }),
     };
   },
@@ -1095,71 +1116,73 @@ export default {
     onChange(e) {
       console.log("Selected File 1", e.target.files[0]);
       if (this.form.loan_type == "Educational Loan") {
-        if (this.forRelative == true) {
-          this.form.attachment1 = e.target.files[0];
+        if (this.relativeForm == true) {
+          this.form.payslip = e.target.files[0];
         } else {
-          this.educationalForm.attachment1 = e.target.files[0];
+          this.educationalForm.payslip = e.target.files[0];
         }
       } else {
-        this.form.attachment1 = e.target.files[0];
+        this.form.payslip = e.target.files[0];
       }
     },
     onChange1(e) {
       console.log("Selected File 1", e.target.files[0]);
 
-      this.emergencyForm.attachment1 = e.target.files[0];
+      this.emergencyForm.payslip = e.target.files[0];
     },
     onChange2(e) {
       console.log("Selected File 2", e.target.files[0]);
-      this.form.attachment2 = e.target.files[0];
+      this.form.selfie = e.target.files[0];
     },
     onChange3(e) {
       console.log("Selected File 3", e.target.files[0]);
       if (this.form.loan_type == "Educational Loan") {
-        if (this.forRelative == true) {
-          this.form.attachment3 = e.target.files[0];
+        if (this.relativeForm == true) {
+          this.form.quotation = e.target.files[0];
         } else {
-          this.educationalForm.attachment3 = e.target.files[0];
+          this.educationalForm.certificate = e.target.files[0];
         }
       } else {
-        this.form.attachment3 = e.target.files[0];
+        this.form.quotation = e.target.files[0];
       }
     },
-    onChange4(e) {
-      console.log("Selected File 4", e.target.files[0]);
-      this.form.attachment4 = e.target.files[0];
-    },
 
-   
+
+    // onChange4(e) {
+    //   console.log("Selected File 4", e.target.files[0]);
+    //   this.form.attachment4 = e.target.files[0];
+    // },
+
+
     submit() {
       this.submitModal = true;
       if (this.form.loan_type == "Housing Loan") {
         let interest = 0.09;
         this.form.interest = (
           0.02 +
-          interest * (this.form.duration / 12)
+          interest * (this.form.terms / 12)
         ).toFixed(2);
         this.form.loan_amount =
           this.form.amount + this.form.amount * this.form.interest;
       }
       if (this.form.loan_type == "Educational Loan") {
-        if (this.forRelative == true) {
+        if (this.relativeForm == true) {
           let interest = 0.09;
-          this.form.duration = 12;
+          this.form.terms = 12;
           this.form.interest = (
             0.02 +
-            interest * (this.form.duration / 12)
+            interest * (this.form.terms / 12)
           ).toFixed(2);
           this.form.loan_amount =
             this.form.amount + this.form.amount * this.form.interest;
         } else {
           let interest = 0.09;
-          this.educationalForm.duration = 12;
+          this.educationalForm.terms = 12;
           this.educationalForm.amount = this.form.amount;
           this.educationalForm.loan_type = "Educational Loan";
           this.educationalForm.interest = (
             0.02 +
-            interest * (this.educationalForm.duration / 12)
+            interest * (this.educationalForm.terms / 12)
           ).toFixed(2);
           this.educationalForm.loan_amount =
             this.educationalForm.amount +
@@ -1171,7 +1194,7 @@ export default {
         let interest = 0.0225;
         this.emergencyForm.loan_type = "Emergency Loan";
         this.emergencyForm.interest =
-          interest * (this.emergencyForm.duration / 12);
+          interest * (this.emergencyForm.terms / 12);
         this.emergencyForm.loan_amount =
           this.emergencyForm.amount +
           this.emergencyForm.amount * this.emergencyForm.interest;
@@ -1190,10 +1213,10 @@ export default {
             console.log(false)
           }
         }else if(this.form.loan_type == "Educational Loan"){
-          
+
           if (this.form.amount <= 30000) {
             this.amountValidation = false;
-            
+
           }else{
             this.amountValidation = true;
             console.log(false)
@@ -1221,7 +1244,7 @@ export default {
                 this.isSubmiting == false;
               },
             });
-       
+
           } else {
             this.amountValidation = true;
             this.submitModal = false;
@@ -1230,8 +1253,8 @@ export default {
 
         if (this.form.loan_type == "Educational Loan") {
           if (this.form.amount <= 30000) {
-            if (this.forRelative == true) {
-              this.form.post(route("createLoans"), {
+            if (this.relativeForm == true) {
+              this.form.post(route("relativeEducational"), {
                 onStart: (visit) => {
                   this.isSubmiting == true;
                 },

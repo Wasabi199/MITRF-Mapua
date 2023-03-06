@@ -37,7 +37,7 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum'])->get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
 
 Route::prefix('Admin')->middleware(['auth:sanctum','Admin'])->group(function(){
-    
+
     Route::get('users',[AdminController::class, 'users'])->name('users');
     Route::get('user/register',[AdminController::class,'userRegister'])->name('registerUser');
     Route::get('user/{id}',[AdminController::class,'userProfile'])->name('userProfile');
@@ -56,17 +56,17 @@ Route::prefix('Admin')->middleware(['auth:sanctum','Admin'])->group(function(){
     Route::post('loan/reject',[AdminController::class,'loanReject'])->name('loanReject');
     Route::post('loan/release',[AdminController::class,'loanRelease'])->name('loanRelease');
     Route::post('loan/released',[AdminController::class,'loanReleased'])->name('loanReleased');
-    
+
     Route::get('Admin/ReimbursementView',[AdminController::class,'reimbursementView'])->name('ReimbursementView');
     Route::get('Admin/Reimbursement/{id}',[AdminController::class,'reimbursementProfileView'])->name('ReimbursementProfile');
     Route::post('Admin/Reimbursement/Update',[AdminController::class,'updateReimbursement'])->name('updateReimbursement');
-    
+
     // Route::get('contribution/add',[AdminController::class,'addContribution'])->name('addContri');
-    
+
     Route::post('UpdateBoard',[AdminController::class,'updateBoards'])->name('updateBoards');
-    
+
     Route::get('loan/print/{id}',[AdminController::class,'loanPrint'])->name('printingLoan');
-    
+
     Route::post('Admin/notification',[NotificationController::class,'notification'])->name('AdminNotification');
 });
 
@@ -84,21 +84,24 @@ Route::prefix('Users')->middleware(['auth:sanctum','Users'])->group(function(){
     Route::get('User/Loan/View/{id}',[LoansController::class,'UserLoanView'])->name('UserLoanView');
     Route::get('User/MedicalButton',[LoansController::class,'ReimbursView'])->name('ReimbursView');
     Route::get('User/MedicalBreakdown/{id}',[LoansController::class,'MedicalBreakdown'])->name('MedicalBreakdown');
+    Route::post('Loan/RelativeEducational',[LoansController::class,'relativeEducational'])->name('relativeEducational');
 
     Route::post('Loan/Emergency',[LoansController::class,'createEmergencyLoan'])->name('emergency');
     Route::post('Loan/Educational',[LoansController::class,'createEducationalLoan'])->name('educational');
     Route::post('User/notification',[NotificationController::class,'notification'])->name('UserNotification');
 });
+
+
 Route::prefix('Medical')->middleware(['auth:sanctum','Medical'])->group(function(){
     Route::get('Medical/List',[MedicalController::class,'index'])->name('medicalList');
     Route::get('Medical/{id}',[MedicalController::class,'medicalProfile'])->name('medicalProfile');
     Route::post('Medical/Approve',[MedicalController::class,'medicalApprove'])->name('medicalApprove');
     Route::post('Medical/Reject',[MedicalController::class,'medicalReject'])->name('medicalReject');
-    
+
     Route::post('Medical/notification',[NotificationController::class,'notification'])->name('MedicalNotification');
 
     Route::get('Medical/Printing/{id}',[MedicalController::class,'reimbursemetPrint'])->name('ReimburstmentPrintng');
-    
+
 });
 Route::prefix('Chairman')->middleware(['auth:sanctum','Chairman'])->group(function(){
     // Route::get('Chairman')

@@ -26,18 +26,19 @@ class LoanRequest extends FormRequest
         return [
             //
             // 'user_loan'=>'required|exists:users,id',
-            
+
             'loan_type'=>'required',
             'loan_amount'=>'required',
             'amount'=>'required',
             // 'department'=>'required',
             'interest'=>'required',
             // 'approval'=>'required',
-            'duration'=>'required',
+            'terms'=>'required',
             // 'loan_status'=>'required',
-            'attachment1'=>'file|mimes:jpg,png,jpeg,pdf',
+            'attachment1'=>'required',
             // 'attachment2'=>'file|mimes:jpg,png,jpeg,pdf',
-            'attachment3'=>'file|mimes:jpg,png,jpeg,pdf',
+            "attachment3"=>'required',
+
             // 'total_contribution'=>'required',
         ];
     }

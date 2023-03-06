@@ -26,13 +26,15 @@ class MedicalReimbursmentRequest extends FormRequest
         return [
             //
             'reimbursment_type' => 'required',
+
             'amount' => 'required',
             'medical_benifit' => 'required',
-            'appointment_date' => 'required',
-            'clinic_name' => 'required',
 
-            'medical_record1' => 'required',
-            'medical_record2' => 'required',
+            'clinic_name' => 'required',
+            'appointment_date' => 'required',
+
+            'Official receipt' => 'required',
+            "Medical certificate/Doctor's prescription" => 'required',
             // 'medical_record3'=>'required',
             // 'medical_record4'=>'required',
             'hospital' => 'required',
