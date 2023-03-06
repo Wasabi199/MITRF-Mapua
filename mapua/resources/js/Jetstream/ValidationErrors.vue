@@ -8,7 +8,7 @@ const hasErrors = computed(() => Object.keys(errors.value).length > 0);
 
 <template>
     <div v-if="hasErrors">
-        <div class="font-medium text-red-600 pl-16">
+        <div class="font-medium text-red-600 pl-16 mt-5">
             Whoops! Something went wrong.
         </div>
 

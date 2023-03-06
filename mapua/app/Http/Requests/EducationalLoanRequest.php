@@ -29,9 +29,9 @@ class EducationalLoanRequest extends FormRequest
             'amount'=>'required',
             'interest'=>'required',
             'terms'=>'required',
-            'payslip'=>'required',
+            'attachment1'=>'required',
 
-            'certificate'=>'required',
+            'attachment3'=>'required',
         ];
     }
 }

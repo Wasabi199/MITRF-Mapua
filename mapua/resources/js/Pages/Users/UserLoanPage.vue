@@ -288,7 +288,7 @@
               <p class="mb-1 text-lg mt-6 font-semibold">Upload Requirements</p>
               <p class="italic text-sm mb-5">*Total maximum size for uploading is 20mb</p>
             <div class="flex">
-              <input v-model="relativeForm" class="w-5 h-5" type="checkbox" />
+              <input v-model="forRelative" class="w-5 h-5" type="checkbox" />
 
               <span class="text-center text-xl px-2">For Relative</span>
             </div>
@@ -325,12 +325,12 @@
               />
             </div>
 
-            <p v-if="this.relativeForm == true" class="mb-1 text-lg">
+            <p v-if="this.forRelative == true" class="mb-1 text-lg">
               Upload Proof of Relation (Birth Certificate in Case of Relatives)
                 <span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span>
             </p>
             <div
-              v-if="this.relativeForm == true"
+              v-if="this.forRelative == true"
               class="
                 border-2 border-gray-400 border-opacity-50
                 hover:border-indigo-500
@@ -1072,9 +1072,9 @@ export default {
         loan_amount: "",
         terms: "",
         interest: "",
-        payslip: "",
-        selfie: "",
-        quotation: "",
+        attachment1: "",
+        attachment2: "",
+        attachment3: "",
       }),
       educationalForm: this.$inertia.form({
         loan_type: "",
@@ -1082,21 +1082,11 @@ export default {
         loan_amount: "",
         terms: "",
         interest: "",
-          payslip: "",
+          attachment1: "",
         // proof:'',
-          certificate: "",
+          attachment3: "",
       }),
 
-        relativeForm: this.$inertia.form({
-            loan_type: "",
-            amount: "",
-            loan_amount: "",
-            terms: "",
-            interest: "",
-            payslip: "",
-            proof:'',
-            certificate: "",
-        }),
 
       emergencyForm: this.$inertia.form({
         loan_type: "",
@@ -1116,34 +1106,34 @@ export default {
     onChange(e) {
       console.log("Selected File 1", e.target.files[0]);
       if (this.form.loan_type == "Educational Loan") {
-        if (this.relativeForm == true) {
-          this.form.payslip = e.target.files[0];
+        if (this.forRelative == true) {
+          this.form.attachment1 = e.target.files[0];
         } else {
-          this.educationalForm.payslip = e.target.files[0];
+          this.educationalForm.attachment1 = e.target.files[0];
         }
       } else {
-        this.form.payslip = e.target.files[0];
+        this.form.attachment1 = e.target.files[0];
       }
     },
     onChange1(e) {
       console.log("Selected File 1", e.target.files[0]);
 
-      this.emergencyForm.payslip = e.target.files[0];
+      this.emergencyForm.attachment1 = e.target.files[0];
     },
     onChange2(e) {
       console.log("Selected File 2", e.target.files[0]);
-      this.form.selfie = e.target.files[0];
+      this.form.attachment2 = e.target.files[0];
     },
     onChange3(e) {
       console.log("Selected File 3", e.target.files[0]);
       if (this.form.loan_type == "Educational Loan") {
-        if (this.relativeForm == true) {
-          this.form.quotation = e.target.files[0];
+        if (this.forRelative == true) {
+          this.form.attachment3 = e.target.files[0];
         } else {
-          this.educationalForm.certificate = e.target.files[0];
+          this.educationalForm.attachment3 = e.target.files[0];
         }
       } else {
-        this.form.quotation = e.target.files[0];
+        this.form.attachment3 = e.target.files[0];
       }
     },
 
@@ -1166,7 +1156,7 @@ export default {
           this.form.amount + this.form.amount * this.form.interest;
       }
       if (this.form.loan_type == "Educational Loan") {
-        if (this.relativeForm == true) {
+        if (this.forRelative == true) {
           let interest = 0.09;
           this.form.terms = 12;
           this.form.interest = (
@@ -1253,8 +1243,8 @@ export default {
 
         if (this.form.loan_type == "Educational Loan") {
           if (this.form.amount <= 30000) {
-            if (this.relativeForm == true) {
-              this.form.post(route("relativeEducational"), {
+            if (this.forRelative == true) {
+              this.form.post(route("createLoans"), {
                 onStart: (visit) => {
                   this.isSubmiting == true;
                 },

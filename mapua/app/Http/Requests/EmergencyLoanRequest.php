@@ -29,7 +29,7 @@ class EmergencyLoanRequest extends FormRequest
             'loan_amount'=>'required',
             'amount'=>'required',
             'interest'=>'required',
-            'duration'=>'required',
+            'terms'=>'required',
             'attachment1'=>'file|mimes:jpg,png,jpeg,pdf',
         ];
     }
