@@ -84,7 +84,7 @@
               </div>
               <div class="max-w-screen-2xl">
                 <div class="">
-                  <img alt="mu logo" src="/images/mitrf_logo1.png" />
+                  <img alt="mitrf logo" src="/images/mitrf_logo1.png" />
                 </div>
                 <div class="flex p-6">
                   <p class="mx-auto text-2xl font-bold">

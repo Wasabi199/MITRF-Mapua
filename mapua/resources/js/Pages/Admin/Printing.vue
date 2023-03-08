@@ -2,16 +2,23 @@
   <div id="toPrint" class="m-10 mx-auto w-1/2">
     <div class="shadow rounded-lg">
       <br />
-      <h1 class="text-center font-extrabold text-sm">
-        M.I.T RETIREMENT FUND, INC.
-      </h1>
-      <h2 class="text-center text-sm">
-        Mapúa Institute of Technology <br />Muralla Street, Intramuros,
-        <br />Manila
-      </h2>
-      <br />
+      <div class="flex grid grid-cols-3">
+          <div class="w-28 ml-10 mt-4">
+              <img src="/images/mu_white.png" alt="mitrf logo">
+          </div>
+          <div class="text-center ">
+              <h1 class="font-extrabold text-sm">
+                  M.I.T RETIREMENT FUND, INC.
+              </h1>
+              <h2 class=" text-sm">
+                  Mapúa Institute of Technology <br />Muralla Street, Intramuros,
+                  <br />Manila
+              </h2>
+              <br />
 
-      <h2 class="text-center font-bold text-sm">LOAN APPLICATION</h2>
+              <h2 class=" font-bold text-sm">LOAN APPLICATION</h2>
+          </div>
+      </div>
 
       <form class>
         <div class="px-2 py-5 sm:p-6">
@@ -108,7 +115,7 @@
               </p>
             </div>
 
-            <div class="flex col-span-6">
+            <div class="flex col-span-6 -mt-2">
               <p class="font-bold text-sm">APPROVED,</p>
               &nbsp;
               <p class=" text-sm">subject to the following terms and conditions:</p>
@@ -139,7 +146,7 @@
             </div>
 
             <div class="col-span-3 col-start-4 text-sm -mt-2">
-              <p class="font-bold">CREDIT COMMITTEE</p>
+              <p class="font-semibold">CREDIT COMMITTEE</p>
               <p>By:</p>
               <br />
 
@@ -163,17 +170,24 @@
         </div>
       </form>
     </div>
-    <br />
+
     <!-- Second Page -->
 <!--    <p style="page-break-after: always">&nbsp;</p>-->
 <!--    <p style="page-break-before: always">&nbsp;</p>-->
 
     <div class="shadow rounded-lg">
-      <h1 class="text-center font-bold text-sm">M.I.T RETIREMENT FUND, INC.</h1>
-      <h2 class="text-center text-sm">
-        Mapúa Institute of Technology <br />Muralla Street, Intramuros,
-        <br />Manila
-      </h2>
+        <div class="flex grid grid-cols-3">
+            <div class="w-28 ml-10 mt-4">
+                <img src="/images/mu_white.png" alt="mitrf logo">
+            </div>
+            <div class="text-center mt-8">
+                <h1 class=" font-bold text-sm">M.I.T RETIREMENT FUND, INC.</h1>
+                <h2 class=" text-sm">
+                    Mapúa Institute of Technology <br />Muralla Street, Intramuros,
+                    <br />Manila
+                </h2>
+            </div>
+        </div>
       <form>
         <div class="px-2 py-5 sm:p-6">
           <div class="grid grid-cols-6 gap-6">
@@ -289,11 +303,18 @@
 
     <div class="shadow rounded-lg">
       <br />
-      <h1 class="text-center font-bold text-sm">M.I.T RETIREMENT FUND, INC.</h1>
-      <h2 class="text-center text-sm">
-        Mapúa Institute of Technology <br />Muralla Street, Intramuros,
-        <br />Manila
-      </h2>
+       <div class="flex grid grid-cols-3">
+           <div class="w-28 ml-10 mt-4">
+               <img src="/images/mu_white.png" alt="mitrf logo">
+           </div>
+           <div class="text-center mt-8">
+               <h1 class=" font-bold text-sm">M.I.T RETIREMENT FUND, INC.</h1>
+               <h2 class=" text-sm">
+                   Mapúa Institute of Technology <br />Muralla Street, Intramuros,
+                   <br />Manila
+               </h2>
+           </div>
+       </div>
 
       <form>
         <div class="px-2 py-5 sm:p-6">
