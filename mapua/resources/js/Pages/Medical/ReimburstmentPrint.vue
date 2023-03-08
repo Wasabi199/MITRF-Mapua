@@ -43,10 +43,10 @@
         <table class="table-fixed border-2 w-full ">
           <thead>
             <tr>
-              <th class="border bg-gray-400">Date</th>
-              <th class="border bg-gray-400">Amount(In-Patient)</th>
-              <th class="border bg-gray-400">Date</th>
-              <th class="border bg-gray-400">Date</th>
+              <th class="border bg-gray-400">DATE</th>
+              <th class="border bg-gray-400">AMOUNT(In-Patient)</th>
+              <th class="border bg-gray-400">AMOUNT(Out-Patient)</th>
+              <th class="border bg-gray-400">BALANCE</th>
             </tr>
           </thead>
           <tbody>
@@ -76,22 +76,29 @@
             </tr>
           </tbody>
         </table>
-       
+
       </div>
       <div class="mt-5">Remarks (if any)___________________________________________________________</div>
       <div class="mt-14 flex gap-x-52">
         <p>Respectfully yours,</p>
         <p>Verified by,</p>
       </div>
-      <div class="mt-5 flex gap-x-44">
-        <p class="font-semibold">{{this.board.treasurrer}}</p>
-        <p class="font-semibold">{{this.board.chairman}}</p>
-      </div>
-      <div class="flex gap-x-44 mb-5">
-        <p>Accounting Assistant</p>
-        <p>Chairman of the Board - MITRF</p>
-      </div>
-    
+
+        <!--      <div class="mt-5 flex gap-x-44">-->
+        <!--        -->
+        <!--        -->
+        <!--      </div>-->
+       <div class="flex mt-8">
+           <div class="col-span-3">
+               <div class="font-semibold text-center border-b-2 -ml-1">{{this.board.accountant}}</div>
+               <p class="text-left">Accounting Assistant</p>
+           </div>
+           <div class="col-span-3">
+               <div class="font-semibold text-center border-b-2 mx-36">{{this.board.chairman}}</div>
+               <p class="text-center">Chairman of the Board - MITRF</p>
+           </div>
+       </div>
+
     </div>
   </div>
 </template>

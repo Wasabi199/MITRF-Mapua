@@ -27,18 +27,18 @@
               <table class="min-w-full divide-y divide-gray-200">
                 <tbody class="bg-white divide-y divide-gray-200">
                   <!-- <th class="text-left px-16 bg-gray-100">Name</th> -->
-                  <th class="text-left px-16 bg-gray-100">Medical Type</th>
-                  <th class="text-left px-16 bg-gray-100">Name</th>
-                  <th class="text-left px-16 bg-gray-100">Medical Benefit</th>
-                  <th class="text-left px-16 bg-gray-100">Status</th>
-                  <th class="text-left px-16 bg-gray-100">Amount</th>
+                  <th class="text-center px-16 bg-gray-100">Medical Type</th>
+                  <th class="text-center px-16 bg-gray-100">Name</th>
+                  <th class="text-center px-16 bg-gray-100">Medical Benefit</th>
+                  <th class="text-center px-16 bg-gray-100">Status</th>
+                  <th class="text-center px-16 bg-gray-100">Amount</th>
                   <th class="text-left px-16 bg-gray-100">Action</th>
 
                   <tr v-for="med in medical.data" v-bind:key="med.id">
                     <!-- <tr> -->
                     <td class="px-16 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
-                        <div>
+                      <div class="text-center">
+                        <div class="">
                           <Link :href="route('medicalProfile', med.id)">
                             <div class="text-sm font-medium text-gray-900">
                               {{ med.reimbursment_type }}
@@ -48,9 +48,9 @@
                       </div>
                     </td>
                     <td class="px-16 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
+                          <div class="text-sm font-medium text-gray-900 text-center">
                             {{ med.user.name }}
                           </div>
                         </div>
@@ -58,9 +58,9 @@
                     </td>
 
                     <td class="px-24 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
+                          <div class="text-sm font-medium text-gray-900 text-center">
                             {{ med.medical_benifit }}
                           </div>
                         </div>
@@ -68,9 +68,9 @@
                     </td>
 
                     <td class="px-16 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
+                          <div class="text-sm font-medium text-gray-900 text-center">
                             {{ med.status }}
                           </div>
                         </div>
@@ -78,9 +78,9 @@
                     </td>
 
                     <td class="px-16 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
+                      <div class="">
                         <div>
-                          <div class="text-sm font-medium text-gray-900">
+                          <div class="text-sm font-medium text-gray-900 text-center">
                             ₱ {{ med.amount.toLocaleString("en-US") }}
                           </div>
                         </div>
