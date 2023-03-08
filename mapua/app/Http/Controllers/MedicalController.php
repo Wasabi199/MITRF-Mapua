@@ -6,7 +6,7 @@ use App\Http\Requests\MedicalApprove;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Request as QueryRequest;
-use App\Models\{Admin, Medical, User, UserNotifications};
+use App\Models\{Admin, BoardMembers, Medical, User, UserNotifications};
 use Illuminate\Support\Facades\{Hash, DB, Redirect,Auth };
 use App\Services\NotificationService;
 class MedicalController extends Controller
@@ -95,9 +95,12 @@ class MedicalController extends Controller
     public function reimbursemetPrint($id){
         $medical = Medical::where('id',$id)->get()->first();
         $info = Admin::where('user_id',$medical->user_id)->get()->first();
+        $board = BoardMembers::findOrFail(1);
+        
         return Inertia::render('Medical/ReimburstmentPrint',[
             'medical'=>$medical,
             'info'=>$info,
+            'board'=>$board
         ]);
     }
 

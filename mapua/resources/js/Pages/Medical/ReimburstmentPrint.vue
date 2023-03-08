@@ -84,8 +84,8 @@
         <p>Verified by,</p>
       </div>
       <div class="mt-5 flex gap-x-44">
-        <p class="font-semibold">Patricia Anne Gallego</p>
-        <p class="font-semibold">Alejandro H. Ballado Jr</p>
+        <p class="font-semibold">{{this.board.treasurrer}}</p>
+        <p class="font-semibold">{{this.board.chairman}}</p>
       </div>
       <div class="flex gap-x-44 mb-5">
         <p>Accounting Assistant</p>
@@ -104,6 +104,7 @@ export default {
   props: {
     medical: Object,
     info: Object,
+    board:Object,
   },
 };
 </script>
