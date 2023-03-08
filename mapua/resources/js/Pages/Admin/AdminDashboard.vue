@@ -2,7 +2,7 @@
   <AppLayout title="MITRF ADMIN">
     <template #header>
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Dashboard
+        Homepage
       </h2>
     </template>
 
@@ -79,7 +79,7 @@
                   </tbody>
                 </table>
               </div>
-              <div class="mx-center">
+              <div class="mx-auto">
                 <div class="">
                   <img alt="mu logo" src="/images/mitrf_logo1.png" />
                 </div>
@@ -194,7 +194,7 @@ export default {
     }
   },
   methods:{
-    submit(){      
+    submit(){
         this.updateBoards.post(route("updateBoards"))
         this.updateBoardsModal =! this.updateBoardsModal;
     }
