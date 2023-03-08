@@ -79,7 +79,7 @@
                   </tbody>
                 </table>
               </div>
-              <div class="mx-auto">
+              <div class="max-w-screen-2xl">
                 <div class="">
                   <img alt="mu logo" src="/images/mitrf_logo1.png" />
                 </div>
