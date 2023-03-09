@@ -29,8 +29,8 @@
         <p>Verified by,</p>
       </div>
       <div class="mt-5 flex gap-x-48">
-        <p>{{(info.first_name+" "+info.middle_name+" "+info.last_name)}}</p>
-        <p>_________________________</p>
+        <p class="border-b-2">{{(info.first_name+" "+info.middle_name+" "+info.last_name)}}</p>
+        <p class="-ml-10">__________________________________</p>
       </div>
       <div class="flex gap-x-16 mb-5">
         <p>Member Signature-Over Printed Name</p>
