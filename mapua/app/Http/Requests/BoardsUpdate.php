@@ -26,7 +26,7 @@ class BoardsUpdate extends FormRequest
         return [
             //
             'chairman' => 'required',
-            'committee_chairmain' => 'required',
+            'committee_chairman' => 'required',
             'vice_chairman' => 'required',
             'corporate_secretary' => 'required',
             'treasurer' => 'required',

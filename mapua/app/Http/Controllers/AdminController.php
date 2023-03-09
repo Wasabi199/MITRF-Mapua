@@ -450,7 +450,7 @@ class AdminController extends Controller
     public function updateBoards(BoardsUpdate $request)
     {
         $validated_data = $request->validated();
-        dd($validated_data);
+        // dd($validated_data);
         $board = BoardMembers::findOrFail(1);
         $board->update([
             'chairman' => $validated_data['chairman'],
@@ -465,7 +465,7 @@ class AdminController extends Controller
 
         return Redirect::route('dashboard')->with(
             'message',
-            [NotificationService::notificationItem('success', '', '98bgyht n67vt t vt vtv ft t t t ct t t t rt t t t t t t dt t t hy9Sucessfully Updated')]
+            [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]
         );
     }
 }

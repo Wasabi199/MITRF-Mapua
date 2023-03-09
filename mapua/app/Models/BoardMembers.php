@@ -10,6 +10,7 @@ class BoardMembers extends Model
     use HasFactory;
     protected $fillable =[
         'chairman',
+        'committee_chairman',
         'vice_chairman',
         'corporate_secretary',
         'treasurer',
