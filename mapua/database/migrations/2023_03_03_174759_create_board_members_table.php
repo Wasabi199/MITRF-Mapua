@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('board_members', function (Blueprint $table) {
             $table->id();
             $table->string('chairman');
+            $table->string('committee_chairman');
             $table->string('vice_chairman');
             $table->string('corporate_secretary');
             $table->string('treasurer');

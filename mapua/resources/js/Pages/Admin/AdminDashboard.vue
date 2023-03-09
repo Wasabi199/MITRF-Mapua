@@ -44,8 +44,12 @@
                   </thead>
                   <tbody class="text-sm">
                     <tr>
-                      <td class="font-bold whitespace-nowrap">Chairman</td>
+                      <td class="font-bold whitespace-nowrap">MITRF Chairman</td>
                       <td class="">{{this.boards.chairman}}</td>
+                    </tr>
+                    <tr>
+                      <td class="font-bold whitespace-nowrap">Committee Chairman</td>
+                      <td class="">{{this.boards.committee_chairman}}</td>
                     </tr>
                     <tr>
                       <td class="font-bold whitespace-nowrap">Vice Chairman</td>
@@ -123,8 +127,12 @@
         </div>
         <div class="p-5 space-y-5">
             <div>
-                <JetLabel>Chairman</JetLabel>
+                <JetLabel>MITRF Chairman</JetLabel>
                 <JetInput class="w-full border-2 border-black py-1" v-model="this.updateBoards.chairman" :placeholder="this.boards.chairman" required/>
+            </div>
+            <div>
+                <JetLabel>Committee Chairman</JetLabel>
+                <JetInput class="w-full border-2 border-black py-1" v-model="this.updateBoards.committee_chairman" :placeholder="this.boards.committee_chairman" required/>
             </div>
             <div>
                 <JetLabel>Vice Chairman</JetLabel>
@@ -135,7 +143,7 @@
                 <JetInput class="w-full border-2 border-black py-1" v-model="this.updateBoards.corporate_secretary" :placeholder="this.boards.corporate_secretary" required/>
             </div>
             <div>
-                <JetLabel>Tressurer</JetLabel>
+                <JetLabel>Treasurer</JetLabel>
                 <JetInput class="w-full border-2 border-black py-1" v-model="this.updateBoards.treasurer" :placeholder="this.boards.treasurer" required/>
             </div>
             <div>
@@ -187,6 +195,7 @@ export default {
 
         updateBoards:this.$inertia.form({
             chairman:'',
+            committee_chairman:'',
             vice_chairman:'',
             corporate_secretary:'',
             treasurer:'',

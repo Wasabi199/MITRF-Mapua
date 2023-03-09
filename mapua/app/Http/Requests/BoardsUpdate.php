@@ -25,13 +25,14 @@ class BoardsUpdate extends FormRequest
     {
         return [
             //
-            'chairman'=>'required',
-            'vice_chairman'=>'required',
-            'corporate_secretary'=>'required',
-            'treasurer'=>'required',
-            'internal_auditor'=>'required',
-            'external_auditor'=>'required',
-            'accountant'=>'required',
+            'chairman' => 'required',
+            'committee_chairmain' => 'required',
+            'vice_chairman' => 'required',
+            'corporate_secretary' => 'required',
+            'treasurer' => 'required',
+            'internal_auditor' => 'required',
+            'external_auditor' => 'required',
+            'accountant' => 'required',
         ];
     }
 }
