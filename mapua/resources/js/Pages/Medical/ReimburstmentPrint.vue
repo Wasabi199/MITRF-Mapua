@@ -1,15 +1,25 @@
 <template>
   <div class="p-10">
     <div class="border-b-4 border-solid border-black">
-      <p>Date:__________________</p>
-      <p class="font-bold mt-5">TO : MIT RETIREMENT FUND, INC.</p>
-      <p>
-        I underwent medical examination/treatment and spent a total of PHP
-        <span class="underline">{{medical.amount}}</span> at the
-      </p>
-      <p><span class="underline">{{medical.clinic_name}}</span> (hospital/clinic) on <span class="underline ">{{medical.appointment_date}}</span></p>
-      <p>
-        Diagnosis:______________________________________________________________
+      <div class="flex justify-between grid grid-cols-2">
+        <div class="">
+            <p>Date:__________________</p>
+                <p class="font-bold mt-5 text-base">TO : MIT RETIREMENT FUND, INC. </p>
+                    <p>
+                        I underwent medical examination/treatment and spent a total of PHP
+                        <span class="underline">{{medical.amount}}</span> at the
+                    </p>
+                <p>
+                    <span class="underline">{{medical.clinic_name}}</span> (hospital/clinic) on
+                    <span class="underline ">{{medical.appointment_date}}</span>
+                </p>
+        </div>
+        <div class="w-28 mx-auto">
+            <img src="/images/mu_white.png" alt="mitrf logo">
+        </div>
+      </div>
+      <p class="mt-2">
+        Diagnosis:_________________________________________
       </p>
       <p>Attached herewith are the following:</p>
       <div class="flex gap-x-14">
