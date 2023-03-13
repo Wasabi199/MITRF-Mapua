@@ -150,8 +150,8 @@
               <p>By:</p>
               <br />
 
-              <div class="border-b-2 mx-10"></div>
-              <p class="text-center">Chairman</p>
+              <div class="border-b-2 mx-10 text-center font-bold text-sm">{{this.board.committee_chairman}}</div>
+              <p class="text-center">Committee Chairman</p>
               <br />
               <div class="border-b-2 mx-10"></div>
               <p class="text-center">Member</p>
