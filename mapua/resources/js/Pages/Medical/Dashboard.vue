@@ -12,7 +12,7 @@
                  <div>
                      <div class="flex p-6 sm:px-20 bg-white border-b border-gray-200">
                          <div class="mx-auto">
-                             <img alt="mitrf logo" src="/images/mitrf_logo1.png">
+                             <img alt="mitrf logo" src="/images/mu_white.png">
                              <div class="flex p-6">
                                  <p class="mx-auto text-2xl font-bold">
                                      Hi, {{ $page.props.user.name }}!

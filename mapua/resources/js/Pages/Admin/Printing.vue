@@ -16,11 +16,11 @@
               </h2>
               <br />
 
-              <h2 class=" font-bold text-sm">LOAN APPLICATION</h2>
+              <h2 class=" font-bold text-sm -mt-1">LOAN APPLICATION</h2>
           </div>
       </div>
 
-      <form class>
+      <form class="-mt-2">
         <div class="px-2 py-5 sm:p-6">
           <div class="grid grid-cols-6 gap-6">
             <div class="outline-double outline-4 mx-1 my-2 col-span-6"></div>
@@ -81,7 +81,7 @@
               <p class="ml-2 underline text-sm">{{ loan.duration }}</p>
             </div>
 
-            <div class="flex col-span-4 mt-2">
+            <div class="flex col-span-4 mt-1">
               <p class="text-justify indent-10 text-sm">
                 I hereby authorize the MITRF to collect and process the above
                 information for legitimate purposes specifically for evaluation
@@ -91,7 +91,7 @@
               </p>
             </div>
 
-            <div class="col-span-2 mt-2">
+            <div class="col-span-2 mt-1">
               <br />
               <div class="border-b-2 text-center font-bold text-sm">
                 {{
@@ -199,7 +199,7 @@
               <p class=" text-sm">No. __________</p>
             </div>
 
-            <div class="col-span-6">
+            <div class="col-span-6 -mt-2">
               <p class="font-extrabold text-center text-sm">PROMISSORY NOTE</p>
             </div>
 

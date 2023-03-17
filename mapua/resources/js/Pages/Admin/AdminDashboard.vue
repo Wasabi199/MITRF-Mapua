@@ -15,7 +15,8 @@
             >
               <div class="">
                 <table
-                  class="border-separate border-spacing-2 border border-slate-500 mt-16 bg-gray-100"
+                  class="border-separate rounded-md shadow-xl border-spacing-2 border border-slate-500 mt-12 bg-red-800
+                  text-yellow-500 border-spacing-y-4 bg-opacity-90 drop-shadow-lg"
                 >
                   <thead class="text-lg">
                     <tr>
@@ -89,7 +90,7 @@
               </div>
               <div class="max-w-screen-2xl">
                 <div class="">
-                  <img alt="mitrf logo" src="/images/mitrf_logo1.png" />
+                  <img alt="mitrf logo" src="/images/mu_white.png" />
                 </div>
                 <div class="flex p-6">
                   <p class="mx-auto text-2xl font-bold">
@@ -129,35 +130,35 @@
         <div class="p-5 space-y-5">
             <div>
                 <JetLabel>MITRF Chairman</JetLabel>
-                <JetInput class="w-full border-2 border-black py-1" v-model="this.updateBoards.chairman" :placeholder="this.boards.chairman" required/>
+                <JetInput class="w-full border-2 border-black py-1 pl-1" v-model="this.updateBoards.chairman" :placeholder="this.boards.chairman" required/>
             </div>
             <div>
                 <JetLabel>Committee Chairman</JetLabel>
-                <JetInput class="w-full border-2 border-black py-1" v-model="this.updateBoards.committee_chairman" :placeholder="this.boards.committee_chairman" required/>
+                <JetInput class="w-full border-2 border-black py-1 pl-1" v-model="this.updateBoards.committee_chairman" :placeholder="this.boards.committee_chairman" required/>
             </div>
             <div>
                 <JetLabel>Vice Chairman</JetLabel>
-                <JetInput class="w-full border-2 border-black py-1" v-model="this.updateBoards.vice_chairman" :placeholder="this.boards.vice_chairman" required/>
+                <JetInput class="w-full border-2 border-black py-1 pl-1" v-model="this.updateBoards.vice_chairman" :placeholder="this.boards.vice_chairman" required/>
             </div>
             <div>
                 <JetLabel>Corporate Secretary</JetLabel>
-                <JetInput class="w-full border-2 border-black py-1" v-model="this.updateBoards.corporate_secretary" :placeholder="this.boards.corporate_secretary" required/>
+                <JetInput class="w-full border-2 border-black py-1 pl-1" v-model="this.updateBoards.corporate_secretary" :placeholder="this.boards.corporate_secretary" required/>
             </div>
             <div>
                 <JetLabel>Treasurer</JetLabel>
-                <JetInput class="w-full border-2 border-black py-1" v-model="this.updateBoards.treasurer" :placeholder="this.boards.treasurer" required/>
+                <JetInput class="w-full border-2 border-black py-1 pl-1" v-model="this.updateBoards.treasurer" :placeholder="this.boards.treasurer" required/>
             </div>
             <div>
                 <JetLabel>Internal Auditor</JetLabel>
-                <JetInput class="w-full border-2 border-black py-1" v-model="this.updateBoards.internal_auditor" :placeholder="this.boards.internal_auditor" required/>
+                <JetInput class="w-full border-2 border-black py-1 pl-1" v-model="this.updateBoards.internal_auditor" :placeholder="this.boards.internal_auditor" required/>
             </div>
             <div>
                 <JetLabel>External Auditor</JetLabel>
-                <JetInput class="w-full border-2 border-black py-1" v-model="this.updateBoards.external_auditor" :placeholder="this.boards.external_auditor" required/>
+                <JetInput class="w-full border-2 border-black py-1 pl-1" v-model="this.updateBoards.external_auditor" :placeholder="this.boards.external_auditor" required/>
             </div>
             <div>
                 <JetLabel>MITRF Accountant</JetLabel>
-                <JetInput class="w-full border-2 border-black py-1" v-model="this.updateBoards.accountant" :placeholder="this.boards.accountant" required/>
+                <JetInput class="w-full border-2 border-black py-1 pl-1" v-model="this.updateBoards.accountant" :placeholder="this.boards.accountant" required/>
             </div>
         </div>
         <div class="w-full flex justify-center">
