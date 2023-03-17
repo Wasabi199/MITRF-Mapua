@@ -29476,7 +29476,7 @@ var _hoisted_6 = {
   "class": ""
 };
 var _hoisted_7 = {
-  "class": "border-separate border-spacing-2 border border-slate-500 mt-16 bg-gray-100"
+  "class": "border-separate rounded-md shadow-xl border-spacing-2 border border-slate-500 mt-12 bg-red-800 text-yellow-500 border-spacing-y-4 bg-opacity-90 drop-shadow-lg"
 };
 var _hoisted_8 = {
   "class": "text-lg"
@@ -29491,8 +29491,13 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_10 = {
   "class": "flex block justify-between"
 };
+var _hoisted_11 = {
+  "class": "text-sm mt-1 underline"
+};
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Updated last: ");
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   "stroke-linecap": "round",
   "stroke-linejoin": "round",
   d: "M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
@@ -29500,13 +29505,7 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_12 = [_hoisted_11];
-var _hoisted_13 = {
-  "class": "text-sm mt-1 underline"
-};
-
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Updated last: ");
-
+var _hoisted_14 = [_hoisted_13];
 var _hoisted_15 = {
   "class": "text-sm"
 };
@@ -29598,7 +29597,7 @@ var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": ""
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   alt: "mitrf logo",
-  src: "/images/mitrf_logo1.png"
+  src: "/images/mu_white.png"
 })], -1
 /* HOISTED */
 );
@@ -29671,7 +29670,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_1];
     }),
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", _hoisted_10, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(new Date(_this.boards.updated_at).toLocaleDateString()), 1
+      /* TEXT */
+      )])]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         fill: "none",
         viewBox: "0 0 24 24",
@@ -29681,9 +29682,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: _cache[0] || (_cache[0] = function ($event) {
           return $data.updateBoardsModal = !$data.updateBoardsModal;
         })
-      }, _hoisted_12)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(new Date(_this.boards.updated_at).toLocaleDateString()), 1
-      /* TEXT */
-      )])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_this.boards.chairman), 1
+      }, _hoisted_14))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_this.boards.chairman), 1
       /* TEXT */
       )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_this.boards.committee_chairman), 1
       /* TEXT */
@@ -29726,7 +29725,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             /* STABLE */
 
           }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_JetInput, {
-            "class": "w-full border-2 border-black py-1",
+            "class": "w-full border-2 border-black py-1 pl-1",
             modelValue: _this.updateBoards.chairman,
             "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
               return _this.updateBoards.chairman = $event;
@@ -29743,7 +29742,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             /* STABLE */
 
           }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_JetInput, {
-            "class": "w-full border-2 border-black py-1",
+            "class": "w-full border-2 border-black py-1 pl-1",
             modelValue: _this.updateBoards.committee_chairman,
             "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
               return _this.updateBoards.committee_chairman = $event;
@@ -29760,7 +29759,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             /* STABLE */
 
           }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_JetInput, {
-            "class": "w-full border-2 border-black py-1",
+            "class": "w-full border-2 border-black py-1 pl-1",
             modelValue: _this.updateBoards.vice_chairman,
             "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
               return _this.updateBoards.vice_chairman = $event;
@@ -29777,7 +29776,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             /* STABLE */
 
           }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_JetInput, {
-            "class": "w-full border-2 border-black py-1",
+            "class": "w-full border-2 border-black py-1 pl-1",
             modelValue: _this.updateBoards.corporate_secretary,
             "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
               return _this.updateBoards.corporate_secretary = $event;
@@ -29794,7 +29793,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             /* STABLE */
 
           }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_JetInput, {
-            "class": "w-full border-2 border-black py-1",
+            "class": "w-full border-2 border-black py-1 pl-1",
             modelValue: _this.updateBoards.treasurer,
             "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
               return _this.updateBoards.treasurer = $event;
@@ -29811,7 +29810,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             /* STABLE */
 
           }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_JetInput, {
-            "class": "w-full border-2 border-black py-1",
+            "class": "w-full border-2 border-black py-1 pl-1",
             modelValue: _this.updateBoards.internal_auditor,
             "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
               return _this.updateBoards.internal_auditor = $event;
@@ -29828,7 +29827,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             /* STABLE */
 
           }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_JetInput, {
-            "class": "w-full border-2 border-black py-1",
+            "class": "w-full border-2 border-black py-1 pl-1",
             modelValue: _this.updateBoards.external_auditor,
             "onUpdate:modelValue": _cache[8] || (_cache[8] = function ($event) {
               return _this.updateBoards.external_auditor = $event;
@@ -29845,7 +29844,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             /* STABLE */
 
           }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_JetInput, {
-            "class": "w-full border-2 border-black py-1",
+            "class": "w-full border-2 border-black py-1 pl-1",
             modelValue: _this.updateBoards.accountant,
             "onUpdate:modelValue": _cache[9] || (_cache[9] = function ($event) {
               return _this.updateBoards.accountant = $event;
@@ -32422,10 +32421,10 @@ var _hoisted_2 = {
   "class": "shadow rounded-lg"
 };
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<br data-v-d60aef44><div class=\"flex grid grid-cols-3\" data-v-d60aef44><div class=\"w-28 ml-10 mt-4\" data-v-d60aef44><img src=\"/images/mu_white.png\" alt=\"mitrf logo\" data-v-d60aef44></div><div class=\"text-center\" data-v-d60aef44><h1 class=\"font-extrabold text-sm\" data-v-d60aef44> M.I.T RETIREMENT FUND, INC. </h1><h2 class=\"text-sm\" data-v-d60aef44> Mapúa Institute of Technology <br data-v-d60aef44>Muralla Street, Intramuros, <br data-v-d60aef44>Manila </h2><br data-v-d60aef44><h2 class=\"font-bold text-sm\" data-v-d60aef44>LOAN APPLICATION</h2></div></div>", 2);
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<br data-v-d60aef44><div class=\"flex grid grid-cols-3\" data-v-d60aef44><div class=\"w-28 ml-10 mt-4\" data-v-d60aef44><img src=\"/images/mu_white.png\" alt=\"mitrf logo\" data-v-d60aef44></div><div class=\"text-center\" data-v-d60aef44><h1 class=\"font-extrabold text-sm\" data-v-d60aef44> M.I.T RETIREMENT FUND, INC. </h1><h2 class=\"text-sm\" data-v-d60aef44> Mapúa Institute of Technology <br data-v-d60aef44>Muralla Street, Intramuros, <br data-v-d60aef44>Manila </h2><br data-v-d60aef44><h2 class=\"font-bold text-sm -mt-1\" data-v-d60aef44>LOAN APPLICATION</h2></div></div>", 2);
 
 var _hoisted_5 = {
-  "class": ""
+  "class": "-mt-2"
 };
 var _hoisted_6 = {
   "class": "px-2 py-5 sm:p-6"
@@ -32565,7 +32564,7 @@ var _hoisted_32 = {
 
 var _hoisted_33 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "flex col-span-4 mt-2"
+    "class": "flex col-span-4 mt-1"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "text-justify indent-10 text-sm"
   }, " I hereby authorize the MITRF to collect and process the above information for legitimate purposes specifically for evaluation of my loan application and allow authorized personnel to process such information in accordance with the Data Privacy Act of 2012. ")], -1
@@ -32574,7 +32573,7 @@ var _hoisted_33 = /*#__PURE__*/_withScopeId(function () {
 });
 
 var _hoisted_34 = {
-  "class": "col-span-2 mt-2"
+  "class": "col-span-2 mt-1"
 };
 
 var _hoisted_35 = /*#__PURE__*/_withScopeId(function () {
@@ -32648,16 +32647,72 @@ var _hoisted_55 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_56 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-span-3 col-start-4 text-sm -mt-2\" data-v-d60aef44><p class=\"font-semibold\" data-v-d60aef44>CREDIT COMMITTEE</p><p data-v-d60aef44>By:</p><br data-v-d60aef44><div class=\"border-b-2 mx-10\" data-v-d60aef44></div><p class=\"text-center\" data-v-d60aef44>Chairman</p><br data-v-d60aef44><div class=\"border-b-2 mx-10\" data-v-d60aef44></div><p class=\"text-center\" data-v-d60aef44>Member</p></div>", 1);
-
-var _hoisted_57 = {
-  "class": "col-span-3 -mt-5"
+var _hoisted_56 = {
+  "class": "col-span-3 col-start-4 text-sm -mt-2"
 };
-var _hoisted_58 = {
+
+var _hoisted_57 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "font-semibold"
+  }, "CREDIT COMMITTEE", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_58 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "By:", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_59 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_60 = {
   "class": "border-b-2 mx-10 text-center font-bold text-sm"
 };
 
-var _hoisted_59 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_61 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "text-center"
+  }, "Committee Chairman", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_62 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_63 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "border-b-2 mx-10"
+  }, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_64 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "text-center"
+  }, "Member", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_65 = {
+  "class": "col-span-3 -mt-5"
+};
+var _hoisted_66 = {
+  "class": "border-b-2 mx-10 text-center font-bold text-sm"
+};
+
+var _hoisted_67 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "text-center"
   }, "Chairman, Board of Directors", -1
@@ -32665,7 +32720,7 @@ var _hoisted_59 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_60 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_68 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "col-span-3 text-sm"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -32677,35 +32732,35 @@ var _hoisted_60 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_61 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_69 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
   /* HOISTED */
   );
 });
 
-var _hoisted_62 = {
+var _hoisted_70 = {
   "class": "shadow rounded-lg"
 };
 
-var _hoisted_63 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex grid grid-cols-3\" data-v-d60aef44><div class=\"w-28 ml-10 mt-4\" data-v-d60aef44><img src=\"/images/mu_white.png\" alt=\"mitrf logo\" data-v-d60aef44></div><div class=\"text-center mt-8\" data-v-d60aef44><h1 class=\"font-bold text-sm\" data-v-d60aef44>M.I.T RETIREMENT FUND, INC.</h1><h2 class=\"text-sm\" data-v-d60aef44> Mapúa Institute of Technology <br data-v-d60aef44>Muralla Street, Intramuros, <br data-v-d60aef44>Manila </h2></div></div>", 1);
+var _hoisted_71 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex grid grid-cols-3\" data-v-d60aef44><div class=\"w-28 ml-10 mt-4\" data-v-d60aef44><img src=\"/images/mu_white.png\" alt=\"mitrf logo\" data-v-d60aef44></div><div class=\"text-center mt-8\" data-v-d60aef44><h1 class=\"font-bold text-sm\" data-v-d60aef44>M.I.T RETIREMENT FUND, INC.</h1><h2 class=\"text-sm\" data-v-d60aef44> Mapúa Institute of Technology <br data-v-d60aef44>Muralla Street, Intramuros, <br data-v-d60aef44>Manila </h2></div></div>", 1);
 
-var _hoisted_64 = {
+var _hoisted_72 = {
   "class": "px-2 py-5 sm:p-6"
 };
-var _hoisted_65 = {
+var _hoisted_73 = {
   "class": "grid grid-cols-6 gap-6"
 };
 
-var _hoisted_66 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-span-2\" data-v-d60aef44><p class=\"font-bold text-sm\" data-v-d60aef44>NON-NEGOTIABLE</p></div><div class=\"col-span-2 col-start-5 text-right\" data-v-d60aef44><p class=\"text-sm\" data-v-d60aef44>No. __________</p></div><div class=\"col-span-6\" data-v-d60aef44><p class=\"font-extrabold text-center text-sm\" data-v-d60aef44>PROMISSORY NOTE</p></div><div class=\"col-span-2\" data-v-d60aef44><p class=\"overflow-clip text-sm\" data-v-d60aef44>₱___________</p></div><div class=\"col-span-4 col-start-3 text-right\" data-v-d60aef44><p class=\"text-sm\" data-v-d60aef44>Date Granted: __________________</p></div><div class=\"col-span-6 text-sm\" data-v-d60aef44><p class=\"text-sm\" data-v-d60aef44>Maturity Date: ______________________________</p></div>", 6);
+var _hoisted_74 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-span-2\" data-v-d60aef44><p class=\"font-bold text-sm\" data-v-d60aef44>NON-NEGOTIABLE</p></div><div class=\"col-span-2 col-start-5 text-right\" data-v-d60aef44><p class=\"text-sm\" data-v-d60aef44>No. __________</p></div><div class=\"col-span-6 -mt-2\" data-v-d60aef44><p class=\"font-extrabold text-center text-sm\" data-v-d60aef44>PROMISSORY NOTE</p></div><div class=\"col-span-2\" data-v-d60aef44><p class=\"overflow-clip text-sm\" data-v-d60aef44>₱___________</p></div><div class=\"col-span-4 col-start-3 text-right\" data-v-d60aef44><p class=\"text-sm\" data-v-d60aef44>Date Granted: __________________</p></div><div class=\"col-span-6 text-sm\" data-v-d60aef44><p class=\"text-sm\" data-v-d60aef44>Maturity Date: ______________________________</p></div>", 6);
 
-var _hoisted_72 = {
+var _hoisted_80 = {
   "class": "col-span-6"
 };
-var _hoisted_73 = {
+var _hoisted_81 = {
   "class": "indent-10 text-justify text-sm"
 };
 
-var _hoisted_74 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_82 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "font-semibold text-sm"
   }, " NOB VALUE RECEIVED, ", -1
@@ -32713,33 +32768,33 @@ var _hoisted_74 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_75 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("I hereby promise to pay M.I.T. RETIREMENT FUND, INC at its office at Muralla St., Intramuros, Manila, the sum of _____________________________________________ PESOS (₱ ");
+var _hoisted_83 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("I hereby promise to pay M.I.T. RETIREMENT FUND, INC at its office at Muralla St., Intramuros, Manila, the sum of _____________________________________________ PESOS (₱ ");
 
-var _hoisted_76 = {
+var _hoisted_84 = {
   "class": "italic text-sm"
 };
 
-var _hoisted_77 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ), Philippine currency, plus interest and service charge at the rate of ");
+var _hoisted_85 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ), Philippine currency, plus interest and service charge at the rate of ");
 
-var _hoisted_78 = {
+var _hoisted_86 = {
   "class": "italic text-sm"
 };
 
-var _hoisted_79 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("% and __________________, respectively in equal semi-monthly installments of __________________ (₱ ");
+var _hoisted_87 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("% and __________________, respectively in equal semi-monthly installments of __________________ (₱ ");
 
-var _hoisted_80 = {
+var _hoisted_88 = {
   "class": "italic text-sm"
 };
 
-var _hoisted_81 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ) commencing on ____________________________, ________ to ____________________, ________ and subject further to the following terms and conditions. ");
+var _hoisted_89 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ) commencing on ____________________________, ________ to ____________________, ________ and subject further to the following terms and conditions. ");
 
-var _hoisted_82 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_90 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
   /* HOISTED */
   );
 });
 
-var _hoisted_83 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_91 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "indent-10 text-justify italic text-sm"
   }, " The interest charge herein shall be subject in increase or reduction, depending on whatever policy M.I.T. RETIREMENT FUND, INC. may, in the future, adapt conformable to law, decree, or government regulation with regard to any increase or decrease in Central Bank interest or rediscounting rates. Interest not paid when due shall be added to, and become part of the principal and shall likewise bear interest at the same rate stipulated herein. ", -1
@@ -32747,13 +32802,13 @@ var _hoisted_83 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_84 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_92 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
   /* HOISTED */
   );
 });
 
-var _hoisted_85 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_93 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "indent-10 text-justify italic text-sm"
   }, " I hereby authorize and empower M.I.T. RETIREMENT FUND, INC. to set off, with out notice, what is due irrespective of the date of maturity and whether or not this obligation is due, from whatever funds I may have with it. ", -1
@@ -32761,13 +32816,13 @@ var _hoisted_85 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_86 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_94 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
   /* HOISTED */
   );
 });
 
-var _hoisted_87 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_95 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "indent-10 text-justify italic text-sm"
   }, " M.I.T. RETIREMENT FUND, INC. may accept partial payment, grant extension of time or make any other arrangement regarding payment of this note which shall not affect my obligation, nor be deemed a waiver or loss of any of its rights herein granted and M.I.T. RETIREMENT FUND, INC. further reserves the right to recourse against each and endorses hereof, who hereby waived demand, presentment, protest and shows notice of dishonor. ", -1
@@ -32775,13 +32830,13 @@ var _hoisted_87 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_88 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_96 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
   /* HOISTED */
   );
 });
 
-var _hoisted_89 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_97 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "indent-10 text-justify italic mb-1 text-sm"
   }, " If this note is placed in the hands of an attorney for collection, I agree to pay the further sum of twenty-five percent (25%) of the amount due as attorney's fees, which shall not be less than ₱500.00, and in case of litigation, I agree to pay the costs of suit. Any action arising out of this note may be instituted in the proper court of Metro Manila, and in case of execution, I expressly waive the benefits of Section 12, Rule 39 of the Rules of Court. ", -1
@@ -32789,14 +32844,14 @@ var _hoisted_89 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_90 = {
+var _hoisted_98 = {
   "class": "col-span-3 col-start-4"
 };
-var _hoisted_91 = {
+var _hoisted_99 = {
   "class": "border-b-2 mx-10 text-center font-bold text-sm -mt-4"
 };
 
-var _hoisted_92 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_100 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "text-center text-sm"
   }, "(Borrower)", -1
@@ -32804,7 +32859,7 @@ var _hoisted_92 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_93 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_101 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "text-center text-sm"
   }, "(Print Name and Sign Above)", -1
@@ -32812,40 +32867,10 @@ var _hoisted_93 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_94 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_102 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "col-span-6 text-center font-bold mb-2 text-sm"
   }, " SIGNED IN THE PRESENCE OF: ", -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_95 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_96 = {
-  "class": "shadow rounded-lg"
-};
-
-var _hoisted_97 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<br data-v-d60aef44><div class=\"flex grid grid-cols-3\" data-v-d60aef44><div class=\"w-28 ml-10 mt-4\" data-v-d60aef44><img src=\"/images/mu_white.png\" alt=\"mitrf logo\" data-v-d60aef44></div><div class=\"text-center mt-8\" data-v-d60aef44><h1 class=\"font-bold text-sm\" data-v-d60aef44>M.I.T RETIREMENT FUND, INC.</h1><h2 class=\"text-sm\" data-v-d60aef44> Mapúa Institute of Technology <br data-v-d60aef44>Muralla Street, Intramuros, <br data-v-d60aef44>Manila </h2></div></div>", 2);
-
-var _hoisted_99 = {
-  "class": "px-2 py-5 sm:p-6"
-};
-var _hoisted_100 = {
-  "class": "grid grid-cols-6 gap-6"
-};
-var _hoisted_101 = {
-  "class": "col-span-6"
-};
-
-var _hoisted_102 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-    "class": "font-extrabold text-center text-sm"
-  }, "ASSIGNMENT", -1
   /* HOISTED */
   );
 });
@@ -32857,27 +32882,57 @@ var _hoisted_103 = /*#__PURE__*/_withScopeId(function () {
 });
 
 var _hoisted_104 = {
+  "class": "shadow rounded-lg"
+};
+
+var _hoisted_105 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<br data-v-d60aef44><div class=\"flex grid grid-cols-3\" data-v-d60aef44><div class=\"w-28 ml-10 mt-4\" data-v-d60aef44><img src=\"/images/mu_white.png\" alt=\"mitrf logo\" data-v-d60aef44></div><div class=\"text-center mt-8\" data-v-d60aef44><h1 class=\"font-bold text-sm\" data-v-d60aef44>M.I.T RETIREMENT FUND, INC.</h1><h2 class=\"text-sm\" data-v-d60aef44> Mapúa Institute of Technology <br data-v-d60aef44>Muralla Street, Intramuros, <br data-v-d60aef44>Manila </h2></div></div>", 2);
+
+var _hoisted_107 = {
+  "class": "px-2 py-5 sm:p-6"
+};
+var _hoisted_108 = {
+  "class": "grid grid-cols-6 gap-6"
+};
+var _hoisted_109 = {
+  "class": "col-span-6"
+};
+
+var _hoisted_110 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "font-extrabold text-center text-sm"
+  }, "ASSIGNMENT", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_111 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_112 = {
   "class": "indent-10 text-justify text-sm"
 };
 
-var _hoisted_105 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" I, ");
+var _hoisted_113 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" I, ");
 
-var _hoisted_106 = {
+var _hoisted_114 = {
   "class": "underline italic"
 };
 
-var _hoisted_107 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(", ____________________________________________ ");
+var _hoisted_115 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(", ____________________________________________ ");
 
-var _hoisted_108 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<p class=\"text-center flex text-sm\" data-v-d60aef44><span class=\"mx-24\" data-v-d60aef44>(Name) </span><span class=\"mx-40\" data-v-d60aef44>(Designation)</span></p><p class=\"text-justify text-sm\" data-v-d60aef44> of _______________________________, a member of M.I.T. RETIREMENT FUND, INC. in the principal amount of PESOS _______________________________________________________, covered by Promissory Note No. ________________________________ granted on ________________________, ____________, hereby authorized MAPUA INSTITUTE OF TECHNOLOGY (MIT) to deduct from the monthly compensation or bonuses due me, the periodic amortization due under said promissory note until fully paid. It is understood that said deductions shall be remitted by MIT or M.I.T. RETIREMENT FUND, INC. in my payment of my above-mentioned loan. </p><br data-v-d60aef44><p class=\"indent-10 text-justify text-sm\" data-v-d60aef44> In the event that I fail to pay any or all the amortization due under said note, I further authorize the Board of Directors of the M.I.T. RETIREMENT FUND, INC. to apply the benefits that may due me or my beneficiary/ies under said RETIREMENT FUND in such amount as may be necessary to liquidate my outstanding obligation under said promissory note. </p><br data-v-d60aef44><br data-v-d60aef44>", 6);
+var _hoisted_116 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<p class=\"text-center flex text-sm\" data-v-d60aef44><span class=\"mx-24\" data-v-d60aef44>(Name) </span><span class=\"mx-40\" data-v-d60aef44>(Designation)</span></p><p class=\"text-justify text-sm\" data-v-d60aef44> of _______________________________, a member of M.I.T. RETIREMENT FUND, INC. in the principal amount of PESOS _______________________________________________________, covered by Promissory Note No. ________________________________ granted on ________________________, ____________, hereby authorized MAPUA INSTITUTE OF TECHNOLOGY (MIT) to deduct from the monthly compensation or bonuses due me, the periodic amortization due under said promissory note until fully paid. It is understood that said deductions shall be remitted by MIT or M.I.T. RETIREMENT FUND, INC. in my payment of my above-mentioned loan. </p><br data-v-d60aef44><p class=\"indent-10 text-justify text-sm\" data-v-d60aef44> In the event that I fail to pay any or all the amortization due under said note, I further authorize the Board of Directors of the M.I.T. RETIREMENT FUND, INC. to apply the benefits that may due me or my beneficiary/ies under said RETIREMENT FUND in such amount as may be necessary to liquidate my outstanding obligation under said promissory note. </p><br data-v-d60aef44><br data-v-d60aef44>", 6);
 
-var _hoisted_114 = {
+var _hoisted_122 = {
   "class": "col-span-3 col-start-4"
 };
-var _hoisted_115 = {
+var _hoisted_123 = {
   "class": "border-b-2 mx-10 text-center font-bold text-sm"
 };
 
-var _hoisted_116 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_124 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "text-center text-sm"
   }, "(Borrower)", -1
@@ -32885,62 +32940,10 @@ var _hoisted_116 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_117 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_125 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "text-center text-sm"
   }, "(Print Name and Sign Above)", -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_118 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_119 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_120 = {
-  "class": "col-span-3"
-};
-
-var _hoisted_121 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-    "class": "font-bold text-sm"
-  }, "CONFORME:", -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_122 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_123 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-    "class": "font-bold text-sm"
-  }, "MAPUA INSTITUTE OF TECHNOLOGY", -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_124 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-    "class": "text-sm"
-  }, null, -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_125 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
   /* HOISTED */
   );
 });
@@ -32951,11 +32954,63 @@ var _hoisted_126 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_127 = {
+var _hoisted_127 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_128 = {
+  "class": "col-span-3"
+};
+
+var _hoisted_129 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "font-bold text-sm"
+  }, "CONFORME:", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_130 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_131 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "font-bold text-sm"
+  }, "MAPUA INSTITUTE OF TECHNOLOGY", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_132 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "text-sm"
+  }, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_133 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_134 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_135 = {
   "class": "border-b-2 mx-10 text-sm text-center font-bold"
 };
 
-var _hoisted_128 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_136 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "text-center text-sm"
   }, "(Treasurer)", -1
@@ -32988,23 +33043,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), _hoisted_50]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_51, [_hoisted_52, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_53, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.loan.duration), 1
   /* TEXT */
-  ), _hoisted_54]), _hoisted_55])]), _hoisted_56, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_57, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_58, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.board.chairman), 1
+  ), _hoisted_54]), _hoisted_55])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_56, [_hoisted_57, _hoisted_58, _hoisted_59, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_60, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.board.committee_chairman), 1
   /* TEXT */
-  ), _hoisted_59]), _hoisted_60, _hoisted_61])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Second Page "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("    <p style=\"page-break-after: always\">&nbsp;</p>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("    <p style=\"page-break-before: always\">&nbsp;</p>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_62, [_hoisted_63, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_64, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_65, [_hoisted_66, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_72, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_73, [_hoisted_74, _hoisted_75, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_76, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.loan.loan_amount), 1
+  ), _hoisted_61, _hoisted_62, _hoisted_63, _hoisted_64]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_65, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_66, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.board.chairman), 1
   /* TEXT */
-  ), _hoisted_77, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_78, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.loan.interest * 100), 1
+  ), _hoisted_67]), _hoisted_68, _hoisted_69])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Second Page "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("    <p style=\"page-break-after: always\">&nbsp;</p>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("    <p style=\"page-break-before: always\">&nbsp;</p>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_70, [_hoisted_71, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_72, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_73, [_hoisted_74, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_80, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_81, [_hoisted_82, _hoisted_83, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_84, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.loan.loan_amount), 1
   /* TEXT */
-  ), _hoisted_79, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_80, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.loan.amount), 1
+  ), _hoisted_85, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_86, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.loan.interest * 100), 1
   /* TEXT */
-  ), _hoisted_81]), _hoisted_82, _hoisted_83, _hoisted_84, _hoisted_85, _hoisted_86, _hoisted_87, _hoisted_88, _hoisted_89]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_90, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_91, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.info.first_name + " " + $props.info.middle_name + " " + $props.info.last_name), 1
+  ), _hoisted_87, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_88, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.loan.amount), 1
   /* TEXT */
-  ), _hoisted_92, _hoisted_93]), _hoisted_94])])])]), _hoisted_95, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Third Page "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_96, [_hoisted_97, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_99, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_100, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_101, [_hoisted_102, _hoisted_103, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_104, [_hoisted_105, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_106, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.info.first_name + " " + $props.info.middle_name + " " + $props.info.last_name), 1
+  ), _hoisted_89]), _hoisted_90, _hoisted_91, _hoisted_92, _hoisted_93, _hoisted_94, _hoisted_95, _hoisted_96, _hoisted_97]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_98, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_99, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.info.first_name + " " + $props.info.middle_name + " " + $props.info.last_name), 1
   /* TEXT */
-  ), _hoisted_107]), _hoisted_108]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_114, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_115, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.info.first_name + " " + $props.info.middle_name + " " + $props.info.last_name), 1
+  ), _hoisted_100, _hoisted_101]), _hoisted_102])])])]), _hoisted_103, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Third Page "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_104, [_hoisted_105, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_107, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_108, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_109, [_hoisted_110, _hoisted_111, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_112, [_hoisted_113, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_114, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.info.first_name + " " + $props.info.middle_name + " " + $props.info.last_name), 1
   /* TEXT */
-  ), _hoisted_116, _hoisted_117, _hoisted_118, _hoisted_119]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_120, [_hoisted_121, _hoisted_122, _hoisted_123, _hoisted_124, _hoisted_125, _hoisted_126, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_127, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.board.treasurer), 1
+  ), _hoisted_115]), _hoisted_116]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_122, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_123, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.info.first_name + " " + $props.info.middle_name + " " + $props.info.last_name), 1
   /* TEXT */
-  ), _hoisted_128])])])])])]);
+  ), _hoisted_124, _hoisted_125, _hoisted_126, _hoisted_127]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_128, [_hoisted_129, _hoisted_130, _hoisted_131, _hoisted_132, _hoisted_133, _hoisted_134, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_135, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.board.treasurer), 1
+  /* TEXT */
+  ), _hoisted_136])])])])])]);
 }
 
 /***/ }),
@@ -33564,7 +33621,7 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "text-center py-3 bg-gray-100"
-}, "Medical Benifit", -1
+}, "Medical Benefit", -1
 /* HOISTED */
 );
 
@@ -36662,7 +36719,7 @@ var _hoisted_6 = {
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   alt: "mitrf logo",
-  src: "/images/mitrf_logo1.png"
+  src: "/images/mu_white.png"
 }, null, -1
 /* HOISTED */
 );

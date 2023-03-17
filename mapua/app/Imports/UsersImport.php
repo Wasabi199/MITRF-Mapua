@@ -35,6 +35,7 @@ class UsersImport implements   WithHeadingRow, ToCollection, WithValidation, Ski
                 
                         $pass = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
                         $userNew = null;
+                        dd($pass[(int)\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('m')-1].\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('d').\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthdate'])->format('Y'));
                         DB::transaction(function () use ($userNew,$row, $pass) {
                             $userNew = User::create([
                                 'name'      =>$row['first_name'].' '.$row['middle_name'].' '.$row['last_name'],
