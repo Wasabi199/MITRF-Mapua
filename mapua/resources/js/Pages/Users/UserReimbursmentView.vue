@@ -94,7 +94,7 @@
                 />
               </div>
                 <p class="mb-1 text-lg mt-6 font-semibold">Upload Requirements</p>
-                <p class="italic text-sm">*Total maximum size for uploading is 20mb</p>
+                <p class="italic text-sm">*Total maximum size for uploading is 30mb</p>
               <p class="font-bold pt-5">Official Receipt<span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
               <div
                 class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
@@ -195,7 +195,7 @@
                 />
               </div>
                 <p class="mb-1 text-lg mt-6 font-semibold">Upload Requirements</p>
-                <p class="italic text-sm">*Total maximum size for uploading is 20mb</p>
+                <p class="italic text-sm">*Total maximum size for uploading is 30mb</p>
 
               <p class="font-bold pt-5">Official Receipt<span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
               <div

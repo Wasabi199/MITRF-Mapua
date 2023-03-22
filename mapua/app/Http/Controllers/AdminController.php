@@ -455,11 +455,11 @@ class AdminController extends Controller
         $board->update([
             'chairman' => $validated_data['chairman'],
             'committee_chairman' => $validated_data['committee_chairman'],
+            // 'benefits_chairman' => $validated_data['benefits_chairman'],
             'vice_chairman' => $validated_data['vice_chairman'],
             'corporate_secretary' => $validated_data['corporate_secretary'],
             'treasurer' => $validated_data['treasurer'],
             'internal_auditor' => $validated_data['internal_auditor'],
-            'external_auditor' => $validated_data['external_auditor'],
             'accountant' => $validated_data['accountant'],
         ]);
 

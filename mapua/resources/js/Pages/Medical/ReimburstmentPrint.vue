@@ -91,7 +91,7 @@
       <div class="mt-5">Remarks (if any)___________________________________________________________</div>
       <div class="mt-14 flex gap-x-52">
         <p>Respectfully yours,</p>
-        <p>Verified by,</p>
+        <p class="-ml-36">Verified by,</p>
       </div>
 
         <!--      <div class="mt-5 flex gap-x-44">-->

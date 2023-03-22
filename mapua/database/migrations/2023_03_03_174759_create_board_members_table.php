@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('chairman');
             $table->string('committee_chairman');
+            // $table->string('benefits_chairman');
             $table->string('vice_chairman');
             $table->string('corporate_secretary');
             $table->string('treasurer');
             $table->string('internal_auditor');
-            $table->string('external_auditor');
             $table->string('accountant');
             $table->timestamps();
         });

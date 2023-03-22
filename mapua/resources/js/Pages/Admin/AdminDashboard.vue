@@ -50,9 +50,15 @@
                       <td class="">{{this.boards.chairman}}</td>
                     </tr>
                     <tr>
-                      <td class="font-bold whitespace-nowrap">Committee Chairman</td>
+                      <td class="font-bold whitespace-nowrap">Credit Committee Chairman</td>
                       <td class="">{{this.boards.committee_chairman}}</td>
                     </tr>
+                    <!-- <tr>
+                      <td class="font-bold whitespace-nowrap">
+                        Benefits Committee Chairman
+                      </td>
+                      <td class=" ">{{this.boards.benefits_chairman}}</td>
+                    </tr> -->
                     <tr>
                       <td class="font-bold whitespace-nowrap">Vice Chairman</td>
                       <td class="">{{this.boards.vice_chairman}}</td>
@@ -72,12 +78,6 @@
                         Internal Auditor
                       </td>
                       <td class=" ">{{this.boards.internal_auditor}}</td>
-                    </tr>
-                    <tr>
-                      <td class="font-bold whitespace-nowrap">
-                        External Auditor
-                      </td>
-                      <td class=" ">{{this.boards.external_auditor}}</td>
                     </tr>
                     <tr>
                       <td class="font-bold whitespace-nowrap">
@@ -133,9 +133,13 @@
                 <JetInput class="w-full border-2 border-black py-1 pl-1" v-model="this.updateBoards.chairman" :placeholder="this.boards.chairman" required/>
             </div>
             <div>
-                <JetLabel>Committee Chairman</JetLabel>
+                <JetLabel>Credit Committee Chairman</JetLabel>
                 <JetInput class="w-full border-2 border-black py-1 pl-1" v-model="this.updateBoards.committee_chairman" :placeholder="this.boards.committee_chairman" required/>
             </div>
+            <!-- <div>
+                <JetLabel>Benefits Committee Chairman</JetLabel>
+                <JetInput class="w-full border-2 border-black py-1 pl-1" v-model="this.updateBoards.benefits_chairman" :placeholder="this.boards.benefits_chairman" required/>
+            </div> -->
             <div>
                 <JetLabel>Vice Chairman</JetLabel>
                 <JetInput class="w-full border-2 border-black py-1 pl-1" v-model="this.updateBoards.vice_chairman" :placeholder="this.boards.vice_chairman" required/>
@@ -151,10 +155,6 @@
             <div>
                 <JetLabel>Internal Auditor</JetLabel>
                 <JetInput class="w-full border-2 border-black py-1 pl-1" v-model="this.updateBoards.internal_auditor" :placeholder="this.boards.internal_auditor" required/>
-            </div>
-            <div>
-                <JetLabel>External Auditor</JetLabel>
-                <JetInput class="w-full border-2 border-black py-1 pl-1" v-model="this.updateBoards.external_auditor" :placeholder="this.boards.external_auditor" required/>
             </div>
             <div>
                 <JetLabel>MITRF Accountant</JetLabel>
@@ -198,11 +198,11 @@ export default {
         updateBoards:this.$inertia.form({
             chairman:'',
             committee_chairman:'',
+            // benefits_chairman:'',
             vice_chairman:'',
             corporate_secretary:'',
             treasurer:'',
             internal_auditor:'',
-            external_auditor:'',
             accountant:'',
         })
     }

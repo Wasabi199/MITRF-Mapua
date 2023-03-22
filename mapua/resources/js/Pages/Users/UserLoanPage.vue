@@ -119,7 +119,7 @@
               >
             </div>
               <p class="mb-1 text-lg mt-6 font-semibold">Upload requirements</p>
-              <p class="italic text-sm mb-5">*Total maximum size for uploading is 20mb</p>
+              <p class="italic text-sm mb-5">*Total maximum size for uploading is 30mb</p>
               <p class="mb-1 text-lg mt-4">Member's Payslip for Validation<span class="text-sm italic font-thin">Must be image file (jpg,jpeg)</span></p>
             <div
               class="
@@ -286,7 +286,7 @@
               >
             </div>
               <p class="mb-1 text-lg mt-6 font-semibold">Upload Requirements</p>
-              <p class="italic text-sm mb-5">*Total maximum size for uploading is 20mb</p>
+              <p class="italic text-sm mb-5">*Total maximum size for uploading is 30mb</p>
             <div class="flex">
               <input v-model="forRelative" class="w-5 h-5" type="checkbox" />
 
@@ -486,7 +486,7 @@
               >
             </div>
               <p class="mb-1 text-lg mt-6 font-semibold">Upload Requirements</p>
-              <p class="italic text-sm mb-5">*Total maximum size for uploading is 20mb</p>
+              <p class="italic text-sm mb-5">*Total maximum size for uploading is 30mb</p>
 
             <p class="mb-1 text-lg">Member's Payslip for Validation <span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
             <div
