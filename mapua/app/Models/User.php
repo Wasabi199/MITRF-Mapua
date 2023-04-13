@@ -74,7 +74,6 @@ class User extends Authenticatable
             $user->loans()->delete();
             $user->medicals()->delete();
             $user->userNotif()->delete();
-
         });
         static::restored(function($user){
             $user->adminReg()->restore();
