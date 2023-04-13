@@ -173,17 +173,7 @@
               <jet-label for="department" value="Department" />
               <select
                 v-model="form.department"
-                class="
-                  mt-1
-                  block
-                  w-full
-                  dark
-                  text-gray-900
-                  border-gray-300
-                  focus:ring-opacity-50
-                  rounded-md
-                  shadow-sm
-                "
+                class="mt-1 block w-full dark text-gray-900 border-gray-300 focus:ring-opacity-50 rounded-md shadow-sm"
                 required
               >
                 <option disabled value="placeholder">Select Department</option>
@@ -197,7 +187,7 @@
               </select>
             </div>
           </div>
-          <div class="mt-4">
+          <!-- <div class="mt-4">
             <JetLabel for="salary" value="Salary" />
             <JetInput
               id="salary"
@@ -206,27 +196,20 @@
               class="mt-1 block w-full"
               required
             />
-          </div>
+          </div> -->
 
           <div class="flex justify-between">
             <div class="mt-4">
               <jet-label for="role" value="Role" />
               <select
                 v-model="form.account_information.role"
-                class="
-                  mt-1
-                  block
-                  w-full
-                  dark
-                  text-gray-900
-                  border-gray-300
-                  focus:ring-opacity-50
-                  rounded-md
-                  shadow-sm
-                "
+                class="mt-1 block w-full dark text-gray-900 border-gray-300 focus:ring-opacity-50 rounded-md shadow-sm"
                 required
               >
-                <option disabled value="placeholder">Select Role</option>
+              <option selected disabled>Select Role</option>
+                <!-- <option value="User" selected>User</option>
+                <option value="Admin">Admin</option>
+                <option value="Medical">Medical</option> -->
                 <option v-for="role in roles" v-bind:key="role" :value="role">
                   {{ role }}
                 </option>
@@ -237,17 +220,7 @@
               <JetLabel for="civil status" value="Civil Status" />
               <select
                 v-model="form.civil_status"
-                class="
-                  mt-1
-                  block
-                  w-full
-                  dark
-                  text-gray-900
-                  border-gray-300
-                  focus:ring-opacity-50
-                  rounded-md
-                  shadow-sm
-                "
+                class="mt-1 block w-full dark text-gray-900 border-gray-300 focus:ring-opacity-50 rounded-md shadow-sm"
                 required
               >
                 <option disabled value="placeholder">Select Status</option>
@@ -385,8 +358,7 @@ export default {
         membership: "",
         mobile_number: "",
         department: "",
-        salary: "",
-
+        // salary: "",
 
         account_information: {
           email: "",
@@ -429,17 +401,32 @@ export default {
 
         "Maintenance",
       ],
-      roles: ["Admin", "User"],
+      roles: ["Admin", "User", "Medical"],
       civil_status: ["Single", "Maried", "Widowed", "Divorced"],
     };
   },
   methods: {
     submit() {
-      const pass = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-      this.form.account_information.password = pass[new Date(this.form.birth_date).getMonth()]+new Date(this.form.birth_date).getUTCDate
-      ()+new Date(this.form.birth_date).getUTCFullYear()
+      const pass = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+      this.form.account_information.password =
+        pass[new Date(this.form.birth_date).getMonth()] +
+        new Date(this.form.birth_date).getUTCDate() +
+        new Date(this.form.birth_date).getUTCFullYear();
       console.log(this.form.account_information.password);
-      
+
       this.form.post(route("registerUserSubmit"), {
         onStart: (visit) => {
           this.isSubmiting == true;

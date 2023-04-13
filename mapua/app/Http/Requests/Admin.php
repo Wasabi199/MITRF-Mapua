@@ -35,7 +35,7 @@ class Admin extends FormRequest
             'civil_status'=>'required',
            
             'department' => 'required',
-            'salary' => 'required',
+            // 'salary' => 'required',
 
             'membership' => 'required',
             'employment' => 'required',

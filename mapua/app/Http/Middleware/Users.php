@@ -16,7 +16,7 @@ class Users
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->user()->userType != 2 && $request->user()->status !=1){
+        if($request->user()->userType != 2 && $request->user()->status !=2){
             return redirect('login');
         }
 

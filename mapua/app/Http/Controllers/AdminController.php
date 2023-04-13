@@ -80,11 +80,11 @@ class AdminController extends Controller
     }
     public function userDelete(deleteRequest $request)
     {
-        
+
         $user_to_delete = User::findOrFail($request->validated()['id']);
         // dd($request->validated());
         $user_to_delete->update([
-            'status'=>$request->validated()['status']
+            'status' => $request->validated()['status']
         ]);
         // dd($user_to_delete);
         return Redirect::back()->with(
@@ -101,6 +101,8 @@ class AdminController extends Controller
                 break;
             case 'User':
                 return 2;
+            case 'Medical':
+                return 3;
                 break;
         }
     }
@@ -477,7 +479,7 @@ class AdminController extends Controller
 
     public function userArchive()
     {
-        $deletedUsers = User::with('adminReg')->where('status',2)->limit(5)->paginate(5);
+        $deletedUsers = User::with('adminReg')->where('status', 2)->limit(5)->paginate(5);
         // $deletedUsers = DB::table('users')->join('admins',function(JoinClause $join){
         //     $join->on('users.id','=','admins.user_id');
         // })->where('users.deleted_at','!=','null')->limit(5)->paginate(5);
@@ -491,7 +493,8 @@ class AdminController extends Controller
         ]);
     }
 
-    public function permanentDeleteUser(UserSoftDelete $deleteUser){
+    public function permanentDeleteUser(UserSoftDelete $deleteUser)
+    {
         // dd($deleteUser->validated());
         $user = User::findOrFail($deleteUser->validated()['id']);
         $user->delete();
