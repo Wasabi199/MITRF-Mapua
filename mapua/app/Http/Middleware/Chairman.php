@@ -16,7 +16,7 @@ class Chairman
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->user()->userType != 4 && $request->user()->status !=2){
+        if($request->user()->userType != 4){
             return redirect('login');
         }
         return $next($request);

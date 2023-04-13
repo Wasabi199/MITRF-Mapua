@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoansController;
+use App\Http\Controllers\LogoutControllers;
 use App\Http\Controllers\MedicalController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\UpdateUser;
@@ -34,7 +35,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum'])->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
+// Route::middleware(['auth:sanctum'])->get('/notAuthenticated',[LogoutControllers::class,'perform'])->name('notAuthenticated');
 Route::prefix('Admin')->middleware(['auth:sanctum', 'Admin'])->group(function () {
 
     Route::get('users', [AdminController::class, 'users'])->name('users');
@@ -109,3 +110,5 @@ Route::prefix('Medical')->middleware(['auth:sanctum', 'Medical'])->group(functio
 Route::prefix('Chairman')->middleware(['auth:sanctum', 'Chairman'])->group(function () {
     // Route::get('Chairman')
 });
+
+

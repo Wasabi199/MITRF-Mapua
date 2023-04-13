@@ -17,7 +17,7 @@ class Medical
     public function handle(Request $request, Closure $next)
     {
 
-        if($request->user()->userType != 3 && $request->user()->status !=2){
+        if($request->user()->userType != 3){
             return redirect('login');
         }
         return $next($request);

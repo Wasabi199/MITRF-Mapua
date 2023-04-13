@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Middleware;
+// namespace App\Http\Middleware\Sess;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class Users
 {
@@ -16,9 +19,14 @@ class Users
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->user()->userType != 2 && $request->user()->status !=2){
+        
+
+        if ($request->user()->userType != 2){
+
             return redirect('login');
         }
+        
+        
 
         return $next($request);
     }

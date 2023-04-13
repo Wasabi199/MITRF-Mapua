@@ -16,7 +16,8 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->user()->userType != 1 && $request->user()->status !=2){
+        // dd($request->user());
+        if($request->user()->userType != 1){
             return redirect('login');
         }
         
