@@ -215,7 +215,7 @@
                                                     viewBox="0 0 24 24"
                                                     stroke-width="1.5"
                                                     stroke="green"
-                                                    class="w-6 h-6"
+                                                    class="w-6 h-6 cursor-pointer hover:text-green-400 bg-gray-100"
                                                     @click="deleteUser(user)"
                                                 >
                                                     <path
@@ -296,7 +296,7 @@
                                             <g></g>
                                         </svg>
                                         <span class="text-center"
-                                            >You are about to delete
+                                            >You are about to archive
                                             {{ userToDelete.name }}'s account
                                             are you sure you want to
                                             proceed?</span
@@ -601,7 +601,7 @@ export default {
 
             deleteForm: this.$inertia.form({
                 id: Number,
-                status:2,
+                status: 2,
             }),
         };
     },

@@ -89,7 +89,7 @@ class AdminController extends Controller
         // dd($user_to_delete);
         return Redirect::back()->with(
             'message',
-            [NotificationService::notificationItem('success', '', 'Sucessfully Deleted')]
+            [NotificationService::notificationItem('success', '', 'Sucessfully Archived')]
         );
     }
 
