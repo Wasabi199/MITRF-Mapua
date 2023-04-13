@@ -163,9 +163,9 @@ export default {
                                     Reimbursement
                                 </JetNavLink>
                                 <JetNavLink
-                                    :href="route('ReimbursementView')"
+                                    :href="route('archive')"
                                     :active="
-                                        route().current('ReimbursementView')
+                                        route().current('archive')
                                     "
                                 >
                                     User Archives

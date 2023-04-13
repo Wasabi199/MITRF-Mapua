@@ -468,4 +468,10 @@ class AdminController extends Controller
             [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]
         );
     }
+
+    public function userArchive(){
+        return Inertia::render('Admin/MemberArchive',[
+            
+        ]);
+    }
 }

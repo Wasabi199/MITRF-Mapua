@@ -67,6 +67,8 @@ Route::prefix('Admin')->middleware(['auth:sanctum', 'Admin'])->group(function ()
     Route::get('loan/print/{id}', [AdminController::class, 'loanPrint'])->name('printingLoan');
 
     Route::post('Admin/notification', [NotificationController::class, 'notification'])->name('AdminNotification');
+
+    Route::get('Admin/Archive',[AdminController::class,'userArchive'])->name('archive');
 });
 
 

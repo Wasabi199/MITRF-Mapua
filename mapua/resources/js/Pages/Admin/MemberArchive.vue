@@ -69,7 +69,7 @@ import AppLayout from '../../Layouts/AppLayout.vue';
                                 <div
                                     class="text-sm text-center font-medium text-gray-900"
                                 >
-                                    {{ user.admin_reg.department }}
+                                    {{ user.admin_reg.z }}
                                 </div>
                             </div>
                         </div>
@@ -185,8 +185,8 @@ export default {
         JetApplicationLogo,
         Link,
         JetValidationErrors,
-        JetInput,
-        JetLabel,
+        // JetInput,
+        // JetLabel,
     },
 };
 </script>
