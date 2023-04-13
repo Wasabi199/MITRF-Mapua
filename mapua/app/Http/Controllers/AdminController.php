@@ -14,6 +14,7 @@ use App\Http\Requests\LoanRejectRequest as rejectLoanRequest;
 use App\Http\Requests\AdminReimbursementUpdateRequest as reimbursementRequest;
 use App\Http\Requests\Admin as RegiterUserRequest;
 use App\Http\Requests\BoardsUpdate;
+use App\Http\Requests\UserSoftDelete;
 use App\Imports\UserAdmin;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\{Auth};
@@ -25,7 +26,7 @@ use App\Services\Approval;
 use Illuminate\Support\Facades\{Hash, DB, Redirect};
 use Maatwebsite\Excel\Facades\Excel;
 use App\Services\NotificationService;
-
+use Illuminate\Database\Query\JoinClause;
 
 class AdminController extends Controller
 {
@@ -79,8 +80,13 @@ class AdminController extends Controller
     }
     public function userDelete(deleteRequest $request)
     {
+        
         $user_to_delete = User::findOrFail($request->validated()['id']);
-        $user_to_delete->delete();
+        // dd($request->validated());
+        $user_to_delete->update([
+            'status'=>$request->validated()['status']
+        ]);
+        // dd($user_to_delete);
         return Redirect::back()->with(
             'message',
             [NotificationService::notificationItem('success', '', 'Sucessfully Deleted')]
@@ -469,9 +475,30 @@ class AdminController extends Controller
         );
     }
 
-    public function userArchive(){
-        return Inertia::render('Admin/MemberArchive',[
-            
+    public function userArchive()
+    {
+        $deletedUsers = User::with('adminReg')->where('status',2)->limit(5)->paginate(5);
+        // $deletedUsers = DB::table('users')->join('admins',function(JoinClause $join){
+        //     $join->on('users.id','=','admins.user_id');
+        // })->where('users.deleted_at','!=','null')->limit(5)->paginate(5);
+        // // dd($deletedUsers);
+        $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
+        $notificationCount = $notification->where('onRead', false)->count();
+        return Inertia::render('Admin/MemberArchive', [
+            'deletedUsers' => $deletedUsers,
+            'notification' => $notification,
+            'count' => $notificationCount,
         ]);
+    }
+
+    public function permanentDeleteUser(UserSoftDelete $deleteUser){
+        // dd($deleteUser->validated());
+        $user = User::findOrFail($deleteUser->validated()['id']);
+        $user->delete();
+
+        return Redirect::back()->with(
+            'message',
+            [NotificationService::notificationItem('success', '', 'Sucessfully Deleted')]
+        );
     }
 }

@@ -63,12 +63,12 @@ class DatabaseSeeder extends Seeder
             
 
 
-            // User::factory(50)
-            // ->has(Loans::factory(),'loans')
-            // ->has(Medical::factory(),'medicals')
-            // // ->has(UserContribution::factory())
-            // // ->has(UserNotifications::factory(5),'userNotif')
-            // ->create();
+            User::factory(50)
+            ->has(Loans::factory(),'loans')
+            ->has(Medical::factory(),'medicals')
+            // ->has(UserContribution::factory())
+            // ->has(UserNotifications::factory(5),'userNotif')
+            ->create();
             
             
 

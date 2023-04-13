@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
 
-class UserDeleteRequest extends FormRequest
+class UserSoftDelete extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +13,7 @@ class UserDeleteRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->userType=1;
+        return true;
     }
 
     /**
@@ -26,8 +25,9 @@ class UserDeleteRequest extends FormRequest
     {
         return [
             //
+
             'id' => 'required|exists:users,id',
-            'status'=>'required',
+
         ];
     }
 }

@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Admin extends Model
 {
     use HasFactory;
-    protected $fillable =[
-        
+    use SoftDeletes;
+    protected $fillable = [
+
         'first_name',
         'middle_name',
         'last_name',
@@ -17,7 +19,7 @@ class Admin extends Model
         'birth_date',
         'birth_place',
         'civil_status',
-        
+
 
         // 'region',
         // 'province',
@@ -32,7 +34,8 @@ class Admin extends Model
         // 'total_contribution'
     ];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 }

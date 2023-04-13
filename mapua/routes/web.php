@@ -69,6 +69,9 @@ Route::prefix('Admin')->middleware(['auth:sanctum', 'Admin'])->group(function ()
     Route::post('Admin/notification', [NotificationController::class, 'notification'])->name('AdminNotification');
 
     Route::get('Admin/Archive',[AdminController::class,'userArchive'])->name('archive');
+
+    Route::delete('user/permanent/delete', [AdminController::class, 'permanentDeleteUser'])->name('permanentDelete');
+
 });
 
 

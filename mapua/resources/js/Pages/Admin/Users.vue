@@ -216,6 +216,7 @@
                                                     stroke-width="1.5"
                                                     stroke="green"
                                                     class="w-6 h-6"
+                                                    @click="deleteUser(user)"
                                                 >
                                                     <path
                                                         stroke-linecap="round"
@@ -600,6 +601,7 @@ export default {
 
             deleteForm: this.$inertia.form({
                 id: Number,
+                status:2,
             }),
         };
     },
