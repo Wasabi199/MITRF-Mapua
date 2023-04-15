@@ -137,7 +137,7 @@ class AdminController extends Controller
                 'membership' => $validated_data['membership'],
                 'mobile_number' => $validated_data['mobile_number'],
                 'department' => $validated_data['department'],
-                'salary' => $validated_data['salary'],
+                // 'salary' => $validated_data['salary'],
 
 
             ]);
