@@ -107,6 +107,8 @@ class AdminController extends Controller
         }
     }
 
+    //user registration
+
     public function userRegisterSubmit(RegiterUserRequest $request)
     {
         $validated_data = $request->validated();
@@ -144,9 +146,13 @@ class AdminController extends Controller
         });
         return Redirect::route('users')->with(
             'message',
-            [NotificationService::notificationItem('success', '', 'Sucessfully Registered')]
+            [NotificationService::notificationItem('success', '', 'Sucessfully Registered Member')]
         );;
     }
+
+
+    //member profile update
+
     public function userUpdate(updateRequest $request)
     {
         // dd($request);
@@ -163,6 +169,8 @@ class AdminController extends Controller
             [NotificationService::notificationItem('success', '', 'Sucessfully Updated')]
         );
     }
+
+    // User profile csv upload
 
     public function userUpload(Request $request)
     {
@@ -209,6 +217,9 @@ class AdminController extends Controller
         }
     }
 
+    //member's contribution update
+
+
     public function userContriImport(Request $request)
     {
         // dd($request);
@@ -221,7 +232,7 @@ class AdminController extends Controller
 
             return Redirect::route('dashboard')->with(
                 'message',
-                [NotificationService::notificationItem('success', '', 'Sucessfully Uploaded')]
+                [NotificationService::notificationItem('success', '', "Sucessfully Uploaded Members' Contributions")]
             );
         } else {
             return Redirect::back()->with(

@@ -182,15 +182,17 @@
                 <table class="min-w-full divide-y divide-gray-200 table-auto">
                     <thead>
                         <tr class="bg-red-800 text-yellow-400">
-                            <th class="text-left px-16">Past Loan</th>
-                            <th class="text-left px-16">Amount</th>
-                            <th class="text-left px-16">Terms</th>
-                            <th class="text-left px-16">Date of Completion</th>
+                            <th class="text-center px-18">Past Loan</th>
+                            <th class="text-center px-14">Amount</th>
+                            <th class="text-center px-12">Terms</th>
+                            <th class="text-center px-20">
+                                Date of Completion
+                            </th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                         <tr v-for="loan in loans" v-bind:key="loan.id">
-                            <td class="px-6 py-6 whitespace-nowrap">
+                            <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     <div>
                                         <div
@@ -205,9 +207,9 @@
                                 <div class="flex items-center">
                                     <div>
                                         <div
-                                            class="px-5 text-sm font-medium text-gray-900"
+                                            class="px-14 text-sm font-medium text-gray-900"
                                         >
-                                            {{ loan.amount }}
+                                        &#8369 {{ loan.amount }}
                                         </div>
                                     </div>
                                 </div>
@@ -216,9 +218,9 @@
                                 <div class="flex items-center">
                                     <div>
                                         <div
-                                            class="px-5 text-sm font-medium text-gray-900"
+                                            class="px-16 text-sm font-medium text-gray-900"
                                         >
-                                            {{ loan.duration }}
+                                            {{ loan.duration }} months
                                         </div>
                                     </div>
                                 </div>
@@ -227,9 +229,13 @@
                                 <div class="flex items-center">
                                     <div>
                                         <div
-                                            class="px-5 text-sm font-medium text-gray-900"
+                                            class="px-16 text-sm font-medium text-gray-900"
                                         >
-                                            {{ new Date(loan.updated_at).toLocaleDateString() }}
+                                            {{
+                                                new Date(
+                                                    loan.updated_at
+                                                ).toLocaleDateString()
+                                            }}
                                         </div>
                                     </div>
                                 </div>
