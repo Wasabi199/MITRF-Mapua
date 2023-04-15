@@ -239,8 +239,9 @@ class AdminController extends Controller
 
         $filters = $query::only('approval');
         isset($filters['approval']) ? $filters['approval'] = Approval::approval($filters['approval']) : $filters['approval'] = Approval::approval($filters['approval'] = 'All');
-        $loans = Loans::with('user')->with('contributions')
-            ->filter($filters)
+        // $loans2 = Loans::with('user')->whereRelation('user','status',1)->get();
+        // dd($loans2);
+        $loans = Loans::with('user')->with('contributions')->whereRelation('user','status',1)
             ->limit(5)
             ->orderByRaw('updated_at DESC')
             ->paginate(5)
