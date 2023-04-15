@@ -241,7 +241,8 @@ class AdminController extends Controller
         isset($filters['approval']) ? $filters['approval'] = Approval::approval($filters['approval']) : $filters['approval'] = Approval::approval($filters['approval'] = 'All');
         // $loans2 = Loans::with('user')->whereRelation('user','status',1)->get();
         // dd($loans2);
-        $loans = Loans::with('user')->with('contributions')->whereRelation('user','status',1)
+        $loans = Loans::with('user')->with('contributions')->whereRelation('user', 'status', 1)
+            ->filter($filters)
             ->limit(5)
             ->orderByRaw('updated_at DESC')
             ->paginate(5)
@@ -412,7 +413,7 @@ class AdminController extends Controller
         $filters = $query::only('status');
         isset($filters['status']) ? $filters['status'] = Approval::status($filters['status']) : $filters['status'] = Approval::status($filters['status'] = 'All');
 
-        $medical = Medical::with('user')->where('status', '!=', 'Pending')->whereRelation('user','status',1)->filterAdmin($filters)->limit(5)->orderByRaw('created_at DESC')->paginate(5);
+        $medical = Medical::with('user')->where('status', '!=', 'Pending')->whereRelation('user', 'status', 1)->filterAdmin($filters)->limit(5)->orderByRaw('created_at DESC')->paginate(5);
 
         return Inertia::render('Admin/Reimbursement', [
             'notification' => $notification,
