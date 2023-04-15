@@ -207,7 +207,7 @@
                                         <div
                                             class="px-5 text-sm font-medium text-gray-900"
                                         >
-                                            {{ loan.loan_amount }}
+                                            {{ loan.amount }}
                                         </div>
                                     </div>
                                 </div>
