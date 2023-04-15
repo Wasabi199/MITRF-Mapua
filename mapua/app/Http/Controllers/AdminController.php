@@ -412,7 +412,7 @@ class AdminController extends Controller
         $filters = $query::only('status');
         isset($filters['status']) ? $filters['status'] = Approval::status($filters['status']) : $filters['status'] = Approval::status($filters['status'] = 'All');
 
-        $medical = Medical::with('user')->where('status', '!=', 'Pending')->filterAdmin($filters)->limit(5)->orderByRaw('created_at DESC')->paginate(5);
+        $medical = Medical::with('user')->where('status', '!=', 'Pending')->whereRelation('user','status',1)->filterAdmin($filters)->limit(5)->orderByRaw('created_at DESC')->paginate(5);
 
         return Inertia::render('Admin/Reimbursement', [
             'notification' => $notification,

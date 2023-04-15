@@ -17,7 +17,7 @@ class MedicalController extends Controller
         $notificationCount = $notification->where('onRead',false)->count();
 
         // $user = User::with('medicals')
-        $medical = Medical::with('user')
+        $medical = Medical::with('user')->whereRelation('user','status',1)
         // ->orderBy('name')
         // ->filter($query::only('search'))
         // ->get()
