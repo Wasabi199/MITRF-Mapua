@@ -196,7 +196,7 @@
                                         <div
                                             class="px-5 text-sm font-medium text-gray-900"
                                         >
-                                            {{ loan.id }}
+                                            {{ loan.loan_type }}
                                         </div>
                                     </div>
                                 </div>
@@ -229,7 +229,7 @@
                                         <div
                                             class="px-5 text-sm font-medium text-gray-900"
                                         >
-                                            {{ loan.loan_status }}
+                                            {{ new Date(loan.updated_at).toLocaleDateString() }}
                                         </div>
                                     </div>
                                 </div>
