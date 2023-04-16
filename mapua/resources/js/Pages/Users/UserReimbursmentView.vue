@@ -703,43 +703,43 @@ export default {
           new Date().getFullYear() -
           new Date(this.$props.info.membership).getUTCFullYear();
         console.log(date);
-        if (date >= 1 && date <= 2) {
+        if (date > 1 && date < 2) {
           this.form.medical_benifit = "10%";
           this.computationAmount =
             this.form.reimbursment_type == "IN-PATIENT" ? 5000 * 0.1 : 7000 * 0.1;
-        } else if (date >= 2 && date <= 3) {
+        } else if (date > 2 && date < 3) {
           this.form.medical_benifit = "20%";
           this.computationAmount =
             this.form.reimbursment_type == "IN-PATIENT" ? 5000 * 0.2 : 7000 * 0.2;
-        } else if (date >= 3 && date <= 4) {
+        } else if (date > 3 && date < 4) {
           this.form.medical_benifit = "30%";
           this.computationAmount =
             this.form.reimbursment_type == "IN-PATIENT" ? 5000 * 0.3 : 7000 * 0.3;
-        } else if (date >= 4 && date <= 5) {
+        } else if (date > 4 && date < 5) {
           this.form.medical_benifit = "40%";
           this.computationAmount =
             this.form.reimbursment_type == "IN-PATIENT" ? 5000 * 0.4 : 7000 * 0.4;
-        } else if (date >= 5 && date <= 6) {
+        } else if (date > 5 && date < 6) {
           this.form.medical_benifit = "50%";
           this.computationAmount =
             this.form.reimbursment_type == "IN-PATIENT" ? 5000 * 0.5 : 7000 * 0.5;
-        } else if (date >= 6 && date <= 7) {
+        } else if (date > 6 && date < 7) {
           this.form.medical_benifit = "60%";
           this.computationAmount =
             this.form.reimbursment_type == "IN-PATIENT" ? 5000 * 0.6 : 7000 * 0.6;
-        } else if (date >= 7 && date <= 8) {
+        } else if (date > 7 && date < 8) {
           this.form.medical_benifit = "70%";
           this.computationAmount =
             this.form.reimbursment_type == "IN-PATIENT" ? 5000 * 0.7 : 7000 * 0.7;
-        } else if (date >= 8 && date <= 9) {
+        } else if (date > 8 && date < 9) {
           this.form.medical_benifit = "80%";
           this.computationAmount =
             this.form.reimbursment_type == "IN-PATIENT" ? 5000 * 0.8 : 7000 * 0.8;
-        } else if (date >= 9 && date <= 10) {
+        } else if (date > 9 && date < 10) {
           this.form.medical_benifit = "90%";
           this.computationAmount =
             this.form.reimbursment_type == "IN-PATIENT" ? 5000 * 0.9 : 7000 * 0.9;
-        } else if (date >= 10) {
+        } else if (date > 10) {
           this.form.medical_benifit = "100%";
           this.computationAmount =
             this.form.reimbursment_type == "IN-PATIENT" ? 5000 : 7000;
