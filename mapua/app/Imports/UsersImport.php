@@ -54,7 +54,7 @@ class UsersImport implements   WithHeadingRow, ToCollection, WithValidation, Ski
                                 'civil_status'  =>$row['civil_status'],
             
                                 'department'    =>$row['department'],
-                                'salary'        =>$row['salary'],
+                                // 'salary'        =>$row['salary'],
                                 'membership'    =>\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['membership'])->format('Y-m-d'),
                                 'employment'    =>\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['employment'])->format('Y-m-d'),
                             ]);

@@ -41,7 +41,7 @@ class UserAdmin implements ToModel, WithHeadingRow,SkipsEmptyRows
             'civil_status'  =>$row['Civil Status'],
 
             'department'    =>$row['Department'],
-            'salary'        =>$row['Salary'],
+            // 'salary'        =>$row['Salary'],
             'membership'    =>$row['Membership'],
             'employment'    =>\Carbon\Carbon::parse($row['Employment']),
         ]);
