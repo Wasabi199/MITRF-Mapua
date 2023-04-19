@@ -137,7 +137,7 @@
                       <div class="">
                         <div>
                           <div class="text-sm text-center font-medium text-gray-900">
-                            {{ medical.amount }} PHP
+                            &#8369 {{ medical.amount }}
                           </div>
                         </div>
                       </div>
@@ -202,7 +202,7 @@
             >
               <div class="bg-white p-4 rounded-lg shadow">
                 <div><b>Loan Type:</b> {{ medical.reimbursment_type }}</div>
-                <div><b>Loan Amount:</b> {{ medical.amount }} PHP</div>
+                <div><b>Loan Amount:</b>&#8369 {{ medical.amount }}</div>
                 <div><b>Medical Benefit:</b> {{ medical.medical_benifit }}</div>
                 <div><b>Approval:</b> {{ medical.status }}</div>
                 <div

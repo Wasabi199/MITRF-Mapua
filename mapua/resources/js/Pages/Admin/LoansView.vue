@@ -154,9 +154,7 @@
                       <div class="">
                         <div>
                           <div class="text-sm text-center font-medium text-gray-900">
-                           {{
-                              loan.loan_amount.toLocaleString("en-US")
-                            }}
+                            &#8369 {{loan.loan_amount.toLocaleString("en-US")}}
                           </div>
                         </div>
                       </div>
@@ -179,7 +177,7 @@
                           <div class="text-sm text-center font-medium text-gray-900">
                             {{
                               loan.duration
-                            }} month/s
+                            }} months
                           </div>
                         </div>
                       </div>

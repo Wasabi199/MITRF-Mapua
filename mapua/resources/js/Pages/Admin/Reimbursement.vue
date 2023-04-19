@@ -75,7 +75,7 @@
               {{ medical.status }}
             </td>
             <td class="text-center py-5">
-              {{ medical.amount.toLocaleString("en-US") }}
+                &#8369 {{ medical.amount.toLocaleString("en-US") }}
             </td>
             <td class="flex justify-center py-5">
               <Link :href="route('ReimbursementProfile', medical.id)">

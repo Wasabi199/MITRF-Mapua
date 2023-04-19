@@ -39,7 +39,7 @@
           </div>
           <div class="flex gap-x-2">
             <p>Reimburstment Amount:</p>
-            <p class="font-semibold">{{ medical.amount }}</p>
+            <p class="font-semibold">&#8369 {{ medical.amount }}</p>
           </div>
           <div class="flex gap-x-2">
             <p>Reimbursement Benifit:</p>
@@ -211,7 +211,7 @@
               this.info.middle_name +
               " " +
               this.info.last_name
-            }}'s Reimbursement is For Release?</span
+            }}'s Reimbursement is for Release.</span
           >
         </div>
 
@@ -282,7 +282,7 @@
               this.info.middle_name +
               " " +
               this.info.last_name
-            }}'s Reimbursement has been Released?</span
+            }}'s Reimbursement has been Released.</span
           >
         </div>
 
