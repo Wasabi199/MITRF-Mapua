@@ -42,7 +42,7 @@
             <p class="font-semibold">&#8369 {{ medical.amount }}</p>
           </div>
           <div class="flex gap-x-2">
-            <p>Reimbursement Benifit:</p>
+            <p>Reimbursement Benefit:</p>
             <p class="font-semibold">{{ medical.medical_benifit }}</p>
           </div>
         </div>
