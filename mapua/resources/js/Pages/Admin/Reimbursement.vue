@@ -136,7 +136,7 @@ export default {
   data() {
     return {
       form: {
-        limit:this.filter.limit == null ? 10:this.filters.limit,
+        limit:this.filter.limit == null ? 10:this.filter.limit,
         status:this.filter.status
       },
       statuses: [
