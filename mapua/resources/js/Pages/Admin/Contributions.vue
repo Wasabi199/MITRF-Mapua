@@ -510,11 +510,11 @@
           <!-- membership date -->
           <div class="flex text-lg">
             <p class="font-semibold">Principal Amount:</p>
-            <p class="ml-2 underline">&#8369 {{ loan.amount }}</p>
+            <p class="ml-2 underline">&#8369 {{ loan.amount.toLocaleString("en-US") }}</p>
           </div>
           <div class="flex text-lg">
             <p class="font-semibold">Net Amount due to Borrower:</p>
-            <p class="ml-2 underline">&#8369 {{ loan.loan_amount }}</p>
+            <p class="ml-2 underline">&#8369 {{ loan.loan_amount.toLocaleString("en-US") }}</p>
           </div>
           <div class="flex text-lg">
             <p class="font-semibold">Loan Duration:</p>
@@ -824,14 +824,14 @@
 
           <div class="flex text-lg">
             <p class="font-semibold">Loan Amount:</p>
-            <p class="ml-2 underline">&#8369 {{ loan.amount }}</p>
+            <p class="ml-2 underline">&#8369 {{ loan.amount.toLocaleString("en-US") }}</p>
           </div>
 
            <!-- LOAN AMOUNT-->
 
            <div class="flex text-lg">
             <p class="font-semibold">Net Amount Due to Borrower:</p>
-            <p class="ml-2 underline">&#8369 {{ loan.loan_amount }}</p>
+            <p class="ml-2 underline">&#8369 {{ loan.loan_amount.toLocaleString("en-US") }}</p>
           </div>
 
           <div class="flex text-lg">
@@ -907,14 +907,14 @@
 
           <div class="flex text-lg">
             <p class="font-semibold">Loan Amount:</p>
-            <p class="ml-2 underline">&#8369 {{ loan.amount }}</p>
+            <p class="ml-2 underline">&#8369 {{ loan.amount.toLocaleString("en-US") }}</p>
           </div>
 
           <!-- LOAN AMOUNT-->
 
           <div class="flex text-lg">
             <p class="font-semibold">Net Amount Due to Borrower:</p>
-            <p class="ml-2 underline">&#8369 {{ loan.loan_amount }}</p>
+            <p class="ml-2 underline">&#8369 {{ loan.loan_amount.toLocaleString("en-US") }}</p>
           </div>
 
 

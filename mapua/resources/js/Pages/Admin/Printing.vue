@@ -124,13 +124,13 @@
               <ol>
                 <li class="flex -mt-4">
                   1. Amount of Loan &lpar;₱
-                  <p class="underline">{{ loan.amount }}</p>
+                  <p class="underline">{{ loan.amount.toLocaleString("en-US") }}</p>
                   &rpar;
                 </li>
                 <li>2. Balance of Previous Loan &lpar;₱___________&rpar;</li>
                 <li class="flex">
                   3. Net Amount due to Borrower &lpar;₱
-                  <p class="underline">{{ loan.loan_amount }}</p>
+                  <p class="underline">{{ loan.loan_amount.toLocaleString("en-US") }}</p>
                   &rpar;
                 </li>
                 <li class="flex">
@@ -221,12 +221,12 @@
                 promise to pay M.I.T. RETIREMENT FUND, INC at its office at
                 Muralla St., Intramuros, Manila, the sum of
                 _____________________________________________ PESOS &lpar;₱
-                <span class="italic text-sm">{{ loan.loan_amount }}</span> &rpar;,
+                <span class="italic text-sm">{{ loan.loan_amount.toLocaleString("en-US") }}</span> &rpar;,
                 Philippine currency, plus interest and service charge at the
                 rate of <span class="italic text-sm">{{ loan.interest * 100 }}</span
                 >% and __________________, respectively in equal semi-monthly
                 installments of __________________ &lpar;₱
-                <span class="italic text-sm">{{ loan.amount }}</span> &rpar; commencing
+                <span class="italic text-sm">{{ loan.amount.toLocaleString("en-US") }}</span> &rpar; commencing
                 on ____________________________, ________ to
                 ____________________, ________ and subject further to the
                 following terms and conditions.
