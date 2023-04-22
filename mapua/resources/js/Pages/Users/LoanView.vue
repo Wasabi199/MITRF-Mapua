@@ -145,9 +145,10 @@
                 v-for="loan in loans.data"
                 v-bind:key="loan.id"
             >
+
                 <div class="bg-white p-4 rounded-lg shadow">
                     <div><b>Loan Type:</b> {{ loan.loan_type }}</div>
-                    <div><b>Loan Amount:</b> {{ loan.loan_amount }} PHP</div>
+                    <div><b>Loan Amount:</b> &#8369 {{ loan.loan_amount.toLocaleString("en-US") }}</div>
                     <div><b>Duration:</b> {{ loan.duration }} months</div>
                     <div>
                         <b>Date of Loan Application:</b>

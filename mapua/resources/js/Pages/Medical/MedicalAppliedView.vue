@@ -166,8 +166,10 @@
 
               <div class="col-span-6 sm:col-span-3">
                 <label class="block text-sm font-medium text-gray-700"
-                  >Amount of Reimbursment</label
+                  >Amount of Reimbursement</label
                 >
+                <div>
+                    <span class="absolute mt-1.5 pl-2 font-bold">&#8369</span>
                 <input
                   type="number"
                   class="
@@ -178,10 +180,12 @@
                     sm:text-sm
                     border-gray-300
                     rounded-md
+                    pl-6
                   "
                   v-model="amount"
                   disabled
                 />
+                </div>
               </div>
             </div>
           </div>
