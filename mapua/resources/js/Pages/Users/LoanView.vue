@@ -75,7 +75,7 @@
                                                     >
                                                     &#8369 {{
                                                             loan.loan_amount.toLocaleString("en-US")
-                                                        }}
+                                                        }}.00
 
                                                     </div>
                                                 </div>
