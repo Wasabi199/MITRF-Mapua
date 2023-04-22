@@ -755,22 +755,22 @@ export default {
           this.form.medical_benifit = "10%";
           this.computationAmount =
             this.form.reimbursment_type == "IN-PATIENT"
-              ? this.form.amount < 5000
+              ? (this.form.amount < 5000
                 ? this.form.amount * 0.1
-                : 5000 * 0.1
-              : this.form.amount < 5000
+                : 5000 * 0.1)
+              : (this.form.amount < 5000
               ? this.form.amount * 0.1
-              : 7000 * 0.1;
+              : 7000 * 0.1);
         } else if (date >= 2 && date < 3) {
           this.form.medical_benifit = "20%";
           this.computationAmount =
             this.form.reimbursment_type == "IN-PATIENT"
-            ? this.form.amount < 5000
+            ? (this.form.amount < 5000
                 ? this.form.amount * 0.2
-                : 5000 * 0.2
-              : this.form.amount < 5000
+                : 5000 * 0.2)
+              : (this.form.amount < 5000
               ? this.form.amount * 0.2
-              : 7000 * 0.2;
+              : 7000 * 0.2);
         } else if (date >= 3 && date < 4) {
           this.form.medical_benifit = "30%";
           this.computationAmount =
