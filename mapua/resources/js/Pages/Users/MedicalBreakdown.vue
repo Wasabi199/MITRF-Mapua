@@ -78,13 +78,16 @@
                 <label class="block text-sm font-medium text-gray-700"
                   >Amount</label
                 >
+                <div>
+                    <span class="absolute mt-1.5 pl-2 font-bold">&#8369</span>
                 <input
                   type="number"
-                  class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md pl-6"
                   :value="medical.amount"
                   disabled
                 />
               </div>
+                </div>
               <div class="col-span-6 sm:col-span-2">
                 <label class="block text-sm font-medium text-gray-700"
                   >Reimbursement Type</label
@@ -191,7 +194,7 @@
         <div class="w-full bg-white shadow-xl rounded-lg p-5">
           <div class="flex gap-x-2 m-auto w-fit">
             <p class="font-semibold">Amount:</p>
-            <p>{{ medical.amount.toLocaleString("en-US") }}</p>
+            <p>{{ medical.amount.toLocaleString("en-US") }}.00</p>
           </div>
           <div class="flex gap-x-2 m-auto w-fit">
             <p class="font-semibold">Date Released:</p>
