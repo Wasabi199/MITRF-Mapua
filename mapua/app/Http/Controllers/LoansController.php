@@ -223,6 +223,7 @@ class LoansController extends Controller
 
         $medical = Medical::with('user')
             ->filter($filters)
+            ->orderByRaw('updated_at DESC')
             ->limit(5)
             ->paginate(5)
             ->appends($query::only(['status']));
