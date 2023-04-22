@@ -10,7 +10,11 @@
       <div class="max-w-screen-2xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
           <div>
-            <button @click="viewOfficer = !viewOfficer" class="m-5 p-2 rounded-lg border-2">View MITRF Inc. Officers</button>
+            <button @click="viewOfficer = !viewOfficer"
+            class="m-5 p-2 shadow-md rounded-lg border-2
+            hover:border-red-700 hover:text-yellow-800 focus:border-red-700 focus:text-yellow-800">
+                View MITRF Inc. Officers
+            </button>
             <div
               class="flex justify-items-center p-6 sm:px-20 bg-white border-b border-gray-200"
             >
