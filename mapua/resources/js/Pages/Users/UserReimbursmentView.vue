@@ -731,18 +731,26 @@ export default {
           this.form.medical_benifit = "50%";
           this.computationAmount =
             this.form.reimbursment_type == "IN-PATIENT"
-              ? 5000 * 0.5
+            ? this.form.amount < 5000
+                ? this.form.amount * 0.5
+                : 5000 * 0.5
+              : this.form.amount < 5000
+              ? this.form.amount * 0.5
               : 7000 * 0.5;
         } else if (date >= 3 && date <= 5) {
           this.form.medical_benifit = "70%";
           this.computationAmount =
             this.form.reimbursment_type == "IN-PATIENT"
-              ? 5000 * 0.7
+            ? this.form.amount < 5000
+                ? this.form.amount * 0.7
+                : 5000 * 0.7
+              : this.form.amount < 5000
+              ? this.form.amount * 0.7
               : 7000 * 0.7;
         } else if (date >= 5) {
           this.form.medical_benifit = "100%";
           this.computationAmount =
-            this.form.reimbursment_type == "IN-PATIENT" ? 5000 : 7000;
+            this.form.reimbursment_type == "IN-PATIENT" ? (this.form.amount<5000?this.form.amount:5000) : (this.form.amount<7000?this.form.amount:7000);
         }
       } else {
         let date =
