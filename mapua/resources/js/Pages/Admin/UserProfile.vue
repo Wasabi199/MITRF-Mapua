@@ -209,7 +209,7 @@
                                         <div
                                             class="px-14 text-sm font-medium text-gray-900"
                                         >
-                                        &#8369 {{ loan.amount }}
+                                        &#8369 {{ loan.amount.toLocaleString("en-US") }}
                                         </div>
                                     </div>
                                 </div>

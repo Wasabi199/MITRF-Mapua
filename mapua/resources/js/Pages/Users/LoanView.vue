@@ -74,7 +74,7 @@
                                                         class="text-sm text-center font-medium text-gray-900"
                                                     >
                                                     &#8369 {{
-                                                            loan.loan_amount
+                                                            loan.loan_amount.toLocaleString("en-US")
                                                         }}
 
                                                     </div>

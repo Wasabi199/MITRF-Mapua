@@ -294,7 +294,7 @@
                                         >
                                         &#8369
                                             {{
-                                                contribution.contribution_amount
+                                                contribution.contribution_amount.toLocaleString("en-US")
                                             }}
                                         </div>
                                     </div>

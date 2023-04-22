@@ -137,7 +137,7 @@
                       <div class="">
                         <div>
                           <div class="text-sm text-center font-medium text-gray-900">
-                            &#8369 {{ medical.amount }}
+                            &#8369 {{ medical.amount.toLocaleString("en-US") }}
                           </div>
                         </div>
                       </div>
