@@ -100,7 +100,7 @@
         </tbody>
       </table>
       <!-- <pagination class="" :links="medicals.links" /> -->
-      <pagination :links="medicals.links"/>
+      <pagination :links="medicals.links"  @limit-event="limitEvent"/>
     </div>
   </AppLayout>
 </template>
@@ -136,6 +136,7 @@ export default {
   data() {
     return {
       form: {
+        limit:this.filter.limit == null ? 10:this.filters.limit,
         status:this.filter.status
       },
       statuses: [
@@ -159,6 +160,13 @@ export default {
       }, 600),
     },
   },
+
+  methods:{
+    limitEvent(event){
+            console.log(event)
+            this.form.limit = event
+        }
+  }
 
 };
 </script>

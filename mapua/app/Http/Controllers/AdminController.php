@@ -36,12 +36,15 @@ class AdminController extends Controller
     {
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $notification->where('onRead', false)->count();
+
+        $filters = $query::only('limit');
+        isset($filters['limit']);
         $users = User::with('adminReg', 'userContribution')
             ->orderBy('name')
             ->filter($query::only('search'))
-            ->limit(5)
-            ->paginate(5)
-            ->appends($query::only('search'))
+            ->limit($filters['limit']??5)
+            ->paginate($filters['limit']??5)
+            ->appends($query::only('search','limit'))
             // ->get()
         ;
         $filters = $query::all('search');
@@ -245,19 +248,23 @@ class AdminController extends Controller
 
     public function adminLoansView(QueryRequest $query)
     {
+        // dd($query::only('approval','limit'));
         $notification = UserNotifications::filter(Auth::user()->userType)->orderByRaw('created_at DESC')->get();
         $notificationCount = $notification->where('onRead', false)->count();
 
-        $filters = $query::only('approval');
+        $filters = $query::only('approval','limit');
+        
         isset($filters['approval']) ? $filters['approval'] = Approval::approval($filters['approval']) : $filters['approval'] = Approval::approval($filters['approval'] = 'All');
+        isset($filters['limit']);
+        // dd($filters['limit']);
         // $loans2 = Loans::with('user')->whereRelation('user','status',1)->get();
         // dd($loans2);
         $loans = Loans::with('user')->with('contributions')->whereRelation('user', 'status', 1)
             ->filter($filters)
-            ->limit(5)
+            ->limit($filters['limit']??5)
             ->orderByRaw('updated_at DESC')
-            ->paginate(5)
-            ->appends($query::only(['approval']));
+            ->paginate($filters['limit']??5)
+            ->appends($query::only(['approval','limit']));
 
         return Inertia::render('Admin/LoansView', [
             'notification' => $notification,
@@ -421,10 +428,10 @@ class AdminController extends Controller
         $notificationCount = $notification->where('onRead', false)->count();
 
 
-        $filters = $query::only('status');
+        $filters = $query::only('status','limit');
         isset($filters['status']) ? $filters['status'] = Approval::status($filters['status']) : $filters['status'] = Approval::status($filters['status'] = 'All');
-
-        $medical = Medical::with('user')->where('status', '!=', 'Pending')->whereRelation('user', 'status', 1)->filterAdmin($filters)->limit(5)->orderByRaw('created_at DESC')->paginate(5)->appends($filters);
+        isset($filters['limit']);
+        $medical = Medical::with('user')->where('status', '!=', 'Pending')->whereRelation('user', 'status', 1)->filterAdmin($filters)->limit($filters['limit']??5)->orderByRaw('created_at DESC')->paginate($filters['limit']??5)->appends($filters);
 
         return Inertia::render('Admin/Reimbursement', [
             'notification' => $notification,
@@ -490,9 +497,12 @@ class AdminController extends Controller
         );
     }
 
-    public function userArchive()
+    public function userArchive(QueryRequest $query)
     {
-        $deletedUsers = User::with('adminReg')->where('status', 2)->limit(5)->paginate(5);
+
+        $filters = $query::only('limit');
+        isset($filters['limit']);
+        $deletedUsers = User::with('adminReg')->where('status', 2)->limit($filters['limit']??5)->paginate($filters['limit']??5);
         // $deletedUsers = DB::table('users')->join('admins',function(JoinClause $join){
         //     $join->on('users.id','=','admins.user_id');
         // })->where('users.deleted_at','!=','null')->limit(5)->paginate(5);
@@ -503,6 +513,7 @@ class AdminController extends Controller
             'deletedUsers' => $deletedUsers,
             'notification' => $notification,
             'count' => $notificationCount,
+            'filters'=>$filters
         ]);
     }
 

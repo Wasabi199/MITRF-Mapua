@@ -125,7 +125,7 @@
 </template>
 <script>
 import AppLayout from "@/Layouts/AppLayout.vue";
-import Pagination from "@/Components/Pagination.vue";
+import Pagination from "@/Components/NormalPagination.vue";
 import JetApplicationLogo from "@/Jetstream/ApplicationLogo.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import Modal from "@/Jetstream/Modal";

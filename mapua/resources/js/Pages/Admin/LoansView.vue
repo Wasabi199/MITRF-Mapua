@@ -225,7 +225,7 @@
                 </tbody>
               </table>
 
-              <pagination :links="loans.links" />
+              <pagination :links="loans.links " @limit-event="limitEvent" />
 
               <Modal
                 :closeable="true"
@@ -547,7 +547,7 @@ export default {
       showPasswordModal:false,
 
       form: {
-
+        limit:this.filters.limit == null ? 10:this.filters.limit,
         approval: this.filters.approval == null ? "All" : this.filters.approval,
       },
 
@@ -596,7 +596,11 @@ export default {
     },
     verify(){
       this.showPasswordModal = !this.showPasswordModal
-    }
+    },
+    limitEvent(event){
+            console.log(event)
+            this.form.limit = event
+        }
   },
 };
 </script>
