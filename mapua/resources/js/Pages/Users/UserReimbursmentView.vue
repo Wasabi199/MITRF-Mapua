@@ -93,9 +93,15 @@
                   v-model="this.form.appointment_date"
                 />
               </div>
-                <p class="mb-1 text-lg mt-6 font-semibold">Upload Requirements</p>
-                <p class="italic text-sm">*Total maximum size for uploading is 30mb</p>
-              <p class="font-bold pt-5">Official Receipt<span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
+              <p class="mb-1 text-lg mt-6 font-semibold">Upload Requirements</p>
+              <p class="italic text-sm">
+                *Total maximum size for uploading is 30mb
+              </p>
+              <p class="font-bold pt-5">
+                Official Receipt<span class="italic font-thin text-sm">
+                  Must be image file (jpg,jpeg)</span
+                >
+              </p>
               <div
                 class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
               >
@@ -107,7 +113,13 @@
                   multiple
                 />
               </div>
-              <p class="font-bold">Medical Certificate/Doctor's Prescription<span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
+              <p class="font-bold">
+                Medical Certificate/Doctor's Prescription<span
+                  class="italic font-thin text-sm"
+                >
+                  Must be image file (jpg,jpeg)</span
+                >
+              </p>
               <div
                 class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
               >
@@ -120,7 +132,11 @@
                 />
               </div>
               <!-- <p>Must be Image File(max 10MB)</p> -->
-              <p class="font-bold">Statement of Account<span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
+              <p class="font-bold">
+                Statement of Account<span class="italic font-thin text-sm">
+                  Must be image file (jpg,jpeg)</span
+                >
+              </p>
               <div
                 class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
               >
@@ -137,25 +153,25 @@
             <div v-if="this.form.reimbursment_type == 'OUT-PATIENT'">
               <p>Reimbursement Type</p>
               <div>
-                <div class=" space-x-2">
-                  <input v-model="this.form.health"
-                    type="checkbox"
-                  /><label>Health Checkup</label>
+                <div class="space-x-2">
+                  <input v-model="this.form.health" type="checkbox" /><label
+                    >Health Checkup</label
+                  >
                 </div>
-                <div class=" space-x-2">
-                  <input v-model="this.form.mental"
-                    type="checkbox"
-                  /><label>Mental Checkup</label>
+                <div class="space-x-2">
+                  <input v-model="this.form.mental" type="checkbox" /><label
+                    >Mental Checkup</label
+                  >
                 </div>
-                <div class=" space-x-2">
-                  <input v-model="this.form.dental"
-                    type="checkbox"
-                  /><label>Dental Checkup</label>
+                <div class="space-x-2">
+                  <input v-model="this.form.dental" type="checkbox" /><label
+                    >Dental Checkup</label
+                  >
                 </div>
-                <div class=" space-x-2">
-                  <input v-model="this.form.eye"
-                    type="checkbox"
-                  /><label>Eye Checkup</label>
+                <div class="space-x-2">
+                  <input v-model="this.form.eye" type="checkbox" /><label
+                    >Eye Checkup</label
+                  >
                 </div>
               </div>
               <div>
@@ -194,10 +210,16 @@
                   v-model="this.form.appointment_date"
                 />
               </div>
-                <p class="mb-1 text-lg mt-6 font-semibold">Upload Requirements</p>
-                <p class="italic text-sm">*Total maximum size for uploading is 30mb</p>
+              <p class="mb-1 text-lg mt-6 font-semibold">Upload Requirements</p>
+              <p class="italic text-sm">
+                *Total maximum size for uploading is 30mb
+              </p>
 
-              <p class="font-bold pt-5">Official Receipt<span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
+              <p class="font-bold pt-5">
+                Official Receipt<span class="italic font-thin text-sm">
+                  Must be image file (jpg,jpeg)</span
+                >
+              </p>
               <div
                 class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
               >
@@ -210,7 +232,13 @@
                 />
               </div>
               <!-- <p>Must be Image File(max 10MB)</p> -->
-              <p class="font-bold">Medical Certificate/Doctor's Prescription<span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
+              <p class="font-bold">
+                Medical Certificate/Doctor's Prescription<span
+                  class="italic font-thin text-sm"
+                >
+                  Must be image file (jpg,jpeg)</span
+                >
+              </p>
               <div
                 class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
               >
@@ -223,8 +251,13 @@
                 />
               </div>
               <!-- <p>Must be Image File(max 10MB)</p> -->
-              <p v-if="this.form.health == true" class="font-bold">Doctor's Endorsement<span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
-              <div v-if="this.form.health == true"
+              <p v-if="this.form.health == true" class="font-bold">
+                Doctor's Endorsement<span class="italic font-thin text-sm">
+                  Must be image file (jpg,jpeg)</span
+                >
+              </p>
+              <div
+                v-if="this.form.health == true"
                 class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
               >
                 <input
@@ -237,8 +270,13 @@
               </div>
               <!-- <p>Must be Image File(max 10MB)</p> -->
 
-              <p v-if="this.form.health == true" class="font-bold">Lab Results<span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
-              <div v-if="this.form.health == true"
+              <p v-if="this.form.health == true" class="font-bold">
+                Lab Results<span class="italic font-thin text-sm">
+                  Must be image file (jpg,jpeg)</span
+                >
+              </p>
+              <div
+                v-if="this.form.health == true"
                 class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
               >
                 <input
@@ -252,7 +290,11 @@
               <!-- <p>Must be Image File(max 10MB)</p> -->
             </div>
             <center>
-              <button class="py-2 px-4 mb-5 bg-red-800 hover:bg-red-700 focus:ring focus:ring-indigo-300 text-yellow-500 w-64 transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg">Submit</button>
+              <button
+                class="py-2 px-4 mb-5 bg-red-800 hover:bg-red-700 focus:ring focus:ring-indigo-300 text-yellow-500 w-64 transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"
+              >
+                Submit
+              </button>
             </center>
           </form>
           <Modal :show="showModal" :closeable="true">
@@ -633,11 +675,11 @@ export default {
         medical_record3: File,
         medical_record4: File,
 
-        hospital:false,
-        health:false,
-        eye:false,
-        dental:false,
-        mental:false,
+        hospital: false,
+        health: false,
+        eye: false,
+        dental: false,
+        mental: false,
       }),
       reimbursment: [
         "IN-PATIENT",
@@ -688,11 +730,15 @@ export default {
         if (date >= 1 && date <= 3) {
           this.form.medical_benifit = "50%";
           this.computationAmount =
-            this.form.reimbursment_type == "IN-PATIENT" ? 5000 * 0.5 : 7000 * 0.5;
+            this.form.reimbursment_type == "IN-PATIENT"
+              ? 5000 * 0.5
+              : 7000 * 0.5;
         } else if (date >= 3 && date <= 5) {
           this.form.medical_benifit = "70%";
           this.computationAmount =
-            this.form.reimbursment_type == "IN-PATIENT" ? 5000 * 0.7 : 7000 * 0.7;
+            this.form.reimbursment_type == "IN-PATIENT"
+              ? 5000 * 0.7
+              : 7000 * 0.7;
         } else if (date >= 5) {
           this.form.medical_benifit = "100%";
           this.computationAmount =
@@ -708,43 +754,97 @@ export default {
         if (date >= 0 && date < 2) {
           this.form.medical_benifit = "10%";
           this.computationAmount =
-            this.form.reimbursment_type == "IN-PATIENT" ? (5000 * 0.1) : (7000 * 0.1);
+            this.form.reimbursment_type == "IN-PATIENT"
+              ? this.form.amount < 5000
+                ? this.form.amount * 0.1
+                : 5000 * 0.1
+              : this.form.amount < 5000
+              ? this.form.amount * 0.1
+              : 7000 * 0.1;
         } else if (date >= 2 && date < 3) {
           this.form.medical_benifit = "20%";
           this.computationAmount =
-            this.form.reimbursment_type == "IN-PATIENT" ? (5000 * 0.2) : (7000 * 0.2);
+            this.form.reimbursment_type == "IN-PATIENT"
+            ? this.form.amount < 5000
+                ? this.form.amount * 0.2
+                : 5000 * 0.2
+              : this.form.amount < 5000
+              ? this.form.amount * 0.2
+              : 7000 * 0.2;
         } else if (date >= 3 && date < 4) {
           this.form.medical_benifit = "30%";
           this.computationAmount =
-            this.form.reimbursment_type == "IN-PATIENT" ? (5000 * 0.3) : (7000 * 0.3);
+            this.form.reimbursment_type == "IN-PATIENT"
+            ? this.form.amount < 5000
+                ? this.form.amount * 0.3
+                : 5000 * 0.3
+              : this.form.amount < 5000
+              ? this.form.amount * 0.3
+              : 7000 * 0.3;
         } else if (date >= 4 && date < 5) {
           this.form.medical_benifit = "40%";
           this.computationAmount =
-            this.form.reimbursment_type == "IN-PATIENT" ? (5000 * 0.4) : (7000 * 0.4);
+            this.form.reimbursment_type == "IN-PATIENT"
+            ? this.form.amount < 5000
+                ? this.form.amount * 0.4
+                : 5000 * 0.4
+              : this.form.amount < 5000
+              ? this.form.amount * 0.4
+              : 7000 * 0.4;
         } else if (date >= 5 && date < 6) {
           this.form.medical_benifit = "50%";
           this.computationAmount =
-            this.form.reimbursment_type == "IN-PATIENT" ? (5000 * 0.5) : (7000 * 0.5);
+            this.form.reimbursment_type == "IN-PATIENT"
+            ? this.form.amount < 5000
+                ? this.form.amount * 0.5
+                : 5000 * 0.5
+              : this.form.amount < 5000
+              ? this.form.amount * 0.5
+              : 7000 * 0.5;
         } else if (date >= 6 && date < 7) {
           this.form.medical_benifit = "60%";
           this.computationAmount =
-            this.form.reimbursment_type == "IN-PATIENT" ? (5000 * 0.6): (7000 * 0.6);
+            this.form.reimbursment_type == "IN-PATIENT"
+            ? this.form.amount < 5000
+                ? this.form.amount * 0.6
+                : 5000 * 0.6
+              : this.form.amount < 5000
+              ? this.form.amount * 0.6
+              : 7000 * 0.6;
         } else if (date >= 7 && date < 8) {
           this.form.medical_benifit = "70%";
           this.computationAmount =
-            this.form.reimbursment_type == "IN-PATIENT" ? (5000 * 0.7) : (7000 * 0.7);
+            this.form.reimbursment_type == "IN-PATIENT"
+            ? this.form.amount < 5000
+                ? this.form.amount * 0.7
+                : 5000 * 0.7
+              : this.form.amount < 5000
+              ? this.form.amount * 0.7
+              : 7000 * 0.7;
         } else if (date >= 8 && date < 9) {
           this.form.medical_benifit = "80%";
           this.computationAmount =
-            this.form.reimbursment_type == "IN-PATIENT" ? (5000 * 0.8) : (7000 * 0.8);
+            this.form.reimbursment_type == "IN-PATIENT"
+            ? this.form.amount < 5000
+                ? this.form.amount * 0.8
+                : 5000 * 0.8
+              : this.form.amount < 5000
+              ? this.form.amount * 0.8
+              : 7000 * 0.8;
         } else if (date > 9 && date < 10) {
           this.form.medical_benifit = "90%";
           this.computationAmount =
-            this.form.reimbursment_type == "IN-PATIENT" ? (5000 * 0.9) : (7000 * 0.9);
+            this.form.reimbursment_type == "IN-PATIENT"
+            ? this.form.amount < 5000
+                ? this.form.amount * 0.9
+                : 5000 * 0.9
+              : this.form.amount < 5000
+              ? this.form.amount * 0.9
+              : 7000 * 0.9;
         } else if (date > 10) {
           this.form.medical_benifit = "100%";
           this.computationAmount =
-            this.form.reimbursment_type == "IN-PATIENT" ? 5000 : 7000;
+            this.form.reimbursment_type == "IN-PATIENT" ? (this.form.amount<5000?this.form.amount:5000) : (this.form.amount<7000?this.form.amount:7000);
         }
       }
 
@@ -774,8 +874,8 @@ export default {
             this.form.amount = this.$props.reimbursement_balance_out;
           }
         } else {
-           // this.form.amount = this.$props.reimbursement_balance_in;
-           this.form.amount = this.computationAmount;
+          // this.form.amount = this.$props.reimbursement_balance_in;
+          this.form.amount = this.computationAmount;
         }
       }
 
