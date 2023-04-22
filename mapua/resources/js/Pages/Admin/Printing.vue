@@ -20,7 +20,7 @@
           </div>
       </div>
 
-      <form class="-mt-2">
+      <form class="-mt-4">
         <div class="px-2 py-5 sm:p-6">
           <div class="grid grid-cols-6 gap-6">
             <div class="outline-double outline-4 mx-1 my-2 col-span-6"></div>
@@ -110,12 +110,12 @@
             <div class="outline-double outline-4 mx-1 my-2 col-span-6"></div>
 
             <div class="flex col-span-6">
-              <p class="italic text-sm">
+              <p class="italic text-sm -mt-2">
                 &lpar;To be filled up by credit committee&rpar;
               </p>
             </div>
 
-            <div class="flex col-span-6 -mt-2">
+            <div class="flex col-span-6 -mt-4">
               <p class="font-bold text-sm">APPROVED,</p>
               &nbsp;
               <p class=" text-sm">subject to the following terms and conditions:</p>

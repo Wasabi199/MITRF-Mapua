@@ -81,7 +81,7 @@
                       <div class="">
                         <div>
                           <div class="text-sm font-medium text-gray-900 text-center">
-                            ₱ {{ med.amount.toLocaleString("en-US") }}
+                            ₱ {{ med.amount.toLocaleString("en-US") }}.00
                           </div>
                         </div>
                       </div>

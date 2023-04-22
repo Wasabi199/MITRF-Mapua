@@ -85,26 +85,32 @@
                                     class="block text-sm font-medium text-gray-700"
                                     >Principal Amount</label
                                 >
+                                <div>
+                    <span class="absolute mt-1.5 pl-2 font-bold">&#8369</span>
 
                                 <input
                                     type="number"
-                                    class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                    class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md pl-6"
                                     :value="$props.loans.amount"
                                     disabled
                                 />
+                                </div>
                             </div>
                             <div class="col-span-6 sm:col-span-3">
                                 <label
                                     class="block text-sm font-medium text-gray-700"
                                     >Net Amount Due to Borrower</label
                                 >
+                                <div>
+                    <span class="absolute mt-1.5 pl-2 font-bold">&#8369</span>
 
                                 <input
                                     type="number"
-                                    class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                    class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md pl-6"
                                     :value="$props.loans.loan_amount"
                                     disabled
                                 />
+                                </div>
                             </div>
                             <div class="col-span-6 sm:col-span-2">
                                 <label

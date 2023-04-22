@@ -75,7 +75,7 @@
               {{ medical.status }}
             </td>
             <td class="text-center py-5">
-                &#8369 {{ medical.amount.toLocaleString("en-US") }}
+                &#8369 {{ medical.amount.toLocaleString("en-US") }}.00
             </td>
             <td class="flex justify-center py-5">
               <Link :href="route('ReimbursementProfile', medical.id)">
@@ -127,7 +127,7 @@ export default {
     ListboxOptions,
     ListboxOption,
     Pagination
-    
+
   },
   props: {
     medicals: Object,

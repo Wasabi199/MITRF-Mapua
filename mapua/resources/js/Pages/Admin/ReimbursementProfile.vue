@@ -38,8 +38,8 @@
             <p class="font-semibold">{{ medical.status }}</p>
           </div>
           <div class="flex gap-x-2">
-            <p>Reimburstment Amount:</p>
-            <p class="font-semibold">&#8369 {{ medical.amount }}</p>
+            <p>Reimbursement Amount:</p>
+            <p class="font-semibold">&#8369 {{ medical.amount.toLocaleString("en-US") }}.00</p>
           </div>
           <div class="flex gap-x-2">
             <p>Reimbursement Benefit:</p>
@@ -162,7 +162,7 @@
       >
         <div class="flex gap-x-2 m-auto w-fit">
           <p class="font-semibold">Amount:</p>
-          <p>{{this.medical.amount}}</p>
+          <p>{{this.medical.amount.toLocaleString("en-US")}}.00</p>
         </div>
         <div class="flex gap-x-2 m-auto w-fit">
           <p class="font-semibold">Date Released:</p>
