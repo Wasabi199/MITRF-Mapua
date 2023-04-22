@@ -135,7 +135,7 @@
           >
             <img
               class="w-64 h-64"
-              v-if="attachment.type == 1"
+              v-if="attachment.type == 2"
               :src="
                 attachment.image == null ? '' : '../../../' + attachment.image
               "
