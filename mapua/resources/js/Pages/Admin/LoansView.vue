@@ -547,7 +547,7 @@ export default {
       showPasswordModal:false,
 
       form: {
-        limit:this.filters.limit == null ? 10:this.filters.limit,
+        limit:this.filters.limit == null ? 5:this.filters.limit,
         approval: this.filters.approval == null ? "All" : this.filters.approval,
       },
 

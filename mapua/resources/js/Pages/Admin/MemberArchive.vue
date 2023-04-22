@@ -527,7 +527,7 @@ export default {
             }),
 
             form: {
-                limit:this.filters.limit == null ? 10:this.filters.limit,
+                limit:this.filters.limit == null ? 5:this.filters.limit,
                 // search: this.filters.search,
             },
         };
