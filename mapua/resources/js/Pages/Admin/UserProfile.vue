@@ -455,7 +455,7 @@ import { Link } from "@inertiajs/inertia-vue3";
 import Modal from "@/Jetstream/Modal";
 import JetInput from "@/Jetstream/Input";
 import route from "../../../../vendor/tightenco/ziggy/src/js";
-import Pagination from "@/Components/Pagination.vue";
+import Pagination from "@/Components/NormalPagination.vue";
 
 export default {
     components: {
