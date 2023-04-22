@@ -99,7 +99,8 @@
           </tr>
         </tbody>
       </table>
-      <Pagination class="" :links="medicals.links" />
+      <!-- <pagination class="" :links="medicals.links" /> -->
+      <pagination :links="medicals.links"/>
     </div>
   </AppLayout>
 </template>
@@ -115,16 +116,18 @@ import {
   ListboxOptions,
   ListboxOption,
 } from "@headlessui/vue";
+
 export default {
   setup() {},
   components: {
     AppLayout,
-    Pagination,
     Link,
     Listbox,
     ListboxButton,
     ListboxOptions,
     ListboxOption,
+    Pagination
+    
   },
   props: {
     medicals: Object,
