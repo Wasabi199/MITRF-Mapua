@@ -85,29 +85,29 @@ class LoansController extends Controller
 
         $user = User::find(auth()->id());
         // dd(Loans::where('user_id',$user->id)->where('loan_type','Housing Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists());
-        if(Loans::where('user_id',$user->id)->where('loan_type','Housing Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists()){
+        if (Loans::where('user_id', $user->id)->where('loan_type', 'Housing Loan')->where('loan_status', 'Ongoing')->where('approval', '!=', 'Denied')->exists()) {
             return Redirect::route('userLoanDashboard')->with(
                 'message',
-                [NotificationService::notificationItem('Success', '', 'You already has similar Loan ' . $validate_data['loan_type'])]
+                [NotificationService::notificationItem('Success', '', 'You already have ongoing ' . $validate_data['loan_type'])]
             );
-        }else{
+        } else {
             if ($request->hasFile('attachment1') || $request->hasFile('attachment2') || $request->hasFile('attachment3')) {
 
                 $file1 = $request->file('attachment1');
                 $file2 = $request->file('attachment2');
                 $file3 = $request->file('attachment3');
-    
+
                 $file_name1 = time() . '.' . $file1->getClientOriginalName();
                 $file_name2 = time() . '.' . $file2->getClientOriginalName();
                 $file_name3 = time() . '.' . $file3->getClientOriginalName();
-    
+
                 $file1->move(public_path('uploads/loans'), $file_name1);
                 $file2->move(public_path('uploads/loans'), $file_name2);
                 $file3->move(public_path('uploads/loans'), $file_name3);
-    
-    
+
+
                 $user_loans = $user->loans()->create([
-    
+
                     'loan_type' => $validate_data['loan_type'],
                     'duration' => $validate_data['terms'],
                     'attachment1' => '../../../uploads/loans/' . $file_name1,
@@ -118,10 +118,10 @@ class LoansController extends Controller
                     'interest' => $validate_data['interest'],
                     'loan_status' => 'Ongoing',
                     'approval' => 'Submitted',
-    
+
                 ]);
-    
-    
+
+
                 $user->userNotif()->create([
                     'universal_id' => $user_loans->id,
                     'onRead' => false,
@@ -129,15 +129,13 @@ class LoansController extends Controller
                     'type' => 1,
                     'notification_type' => 1
                 ]);
-    
+
                 return Redirect::route('userLoanDashboard')->with(
                     'message',
                     [NotificationService::notificationItem('Success', '', 'Successfully submitted ' . $validate_data['loan_type'])]
                 );
             }
         }
-
-      
     }
 
     public function createEmergencyLoan(emergencyReqest $request)
@@ -145,19 +143,19 @@ class LoansController extends Controller
         $validate_data = $request->validated();
         //    dd($validate_data);
         $user = User::find(auth()->id());
-        if(Loans::where('user_id',$user->id)->where('loan_type','Emergency Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists()){
+        if (Loans::where('user_id', $user->id)->where('loan_type', 'Emergency Loan')->where('loan_status', 'Ongoing')->where('approval', '!=', 'Denied')->exists()) {
             return Redirect::route('userLoanDashboard')->with(
                 'message',
-                [NotificationService::notificationItem('Success', '', 'You already has similar Loan ' . $validate_data['loan_type'])]
+                [NotificationService::notificationItem('Success', '', 'You already have ongoing ' . $validate_data['loan_type'])]
             );
-        }else{
+        } else {
             if ($request->hasFile('attachment1')) {
 
                 $file1 = $request->file('attachment1');
                 $file_name1 = time() . '.' . $file1->getClientOriginalName();
                 $file1->move(public_path('uploads/loans'), $file_name1);
                 $user_loans = $user->loans()->create([
-    
+
                     'loan_type' => $validate_data['loan_type'],
                     'duration' => $validate_data['terms'],
                     'attachment1' => '../../../uploads/loans/' . $file_name1,
@@ -175,16 +173,13 @@ class LoansController extends Controller
                     'notification_type' => 1
                 ]);
             }
-    
-    
+
+
             return Redirect::route('userLoanDashboard')->with(
                 'message',
                 [NotificationService::notificationItem('Success', '', 'Successfully submitted ' . $validate_data['loan_type'])]
             );
         }
-       
-
-       
     }
     public function createEducationalLoan(educationalRequest $request)
     {
@@ -192,22 +187,22 @@ class LoansController extends Controller
 
         $user = User::find(auth()->id());
 
-        if(Loans::where('user_id',$user->id)->where('loan_type','Educational Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists()){
+        if (Loans::where('user_id', $user->id)->where('loan_type', 'Educational Loan')->where('loan_status', 'Ongoing')->where('approval', '!=', 'Denied')->exists()) {
             return Redirect::route('userLoanDashboard')->with(
                 'message',
-                [NotificationService::notificationItem('Success', '', 'You already has similar Loan ' . $validate_data['loan_type'])]
+                [NotificationService::notificationItem('Success', '', 'You already have ongoing ' . $validate_data['loan_type'])]
             );
-        }else{
+        } else {
             if ($request->hasFile('attachment1') && $request->hasFile('attachment3')) {
                 $file1 = $request->file('attachment1');
                 $file3 = $request->file('attachment3');
-    
+
                 $file_name1 = time() . '.' . $file1->getClientOriginalName();
                 $file_name3 = time() . '.' . $file3->getClientOriginalName();
-    
+
                 $file1->move(public_path('uploads/loans'), $file_name1);
                 $file3->move(public_path('uploads/loans'), $file_name3);
-    
+
                 $user_loans = $user->loans()->create([
                     'loan_type' => $validate_data['loan_type'],
                     'duration' => $validate_data['terms'],
@@ -219,7 +214,7 @@ class LoansController extends Controller
                     'interest' => $validate_data['interest'],
                     'loan_status' => 'Ongoing',
                     'approval' => 'Submitted',
-    
+
                 ]);
                 $user->userNotif()->create([
                     'universal_id' => $user_loans->id,
@@ -234,7 +229,6 @@ class LoansController extends Controller
                 );
             }
         }
-       
     }
 
 
@@ -293,103 +287,105 @@ class LoansController extends Controller
         // dd($request);
         $user = User::find(auth()->id());
         // if ($validate_data['reimbursment_type'] == 'Hospital') {
-            $userMedical = $user->medicals()->create([
-                'reimbursment_type' => $validate_data['reimbursment_type'],
-                'amount' => $validate_data['amount'],
-                'medical_benifit' => $validate_data['medical_benifit'],
-                'clinic_name' => $validate_data['clinic_name'],
-                'appointment_date' => $validate_data['appointment_date'],
-                'hospital'=>$validate_data['hospital'],
-                'health'=>$validate_data['health'],
-                'eye'=>$validate_data['eye'],
-                'dental'=>$validate_data['dental'],
-                'mental'=>$validate_data['mental'],
-            ]);
-            if(isset($request->medical_record1)){
-                if(is_array($request->medical_record1)){
-                    foreach($request->medical_record1 as $image){
-                        $image_path = 'storage/' .$image->storePublicly('ReimbursementImages',  ['disk' => 'public']);
-                        $userMedical->attachments()->create([
-                            'image'=>$image_path,
-                            'type'=>1
-                        ]);
-                    }
-                }else{
-                    $image_path = 'storage/' .$request->medical_record1->storePublicly('ReimbursementImages',  ['disk' => 'public']);
+        $userMedical = $user->medicals()->create([
+            'reimbursment_type' => $validate_data['reimbursment_type'],
+            'amount' => $validate_data['amount'],
+            'medical_benifit' => $validate_data['medical_benifit'],
+            'clinic_name' => $validate_data['clinic_name'],
+            'appointment_date' => $validate_data['appointment_date'],
+            'hospital' => $validate_data['hospital'],
+            'health' => $validate_data['health'],
+            'eye' => $validate_data['eye'],
+            'dental' => $validate_data['dental'],
+            'mental' => $validate_data['mental'],
+        ]);
+        if (isset($request->medical_record1)) {
+            if (is_array($request->medical_record1)) {
+                foreach ($request->medical_record1 as $image) {
+                    $image_path = 'storage/' . $image->storePublicly('ReimbursementImages',  ['disk' => 'public']);
                     $userMedical->attachments()->create([
-                        'image'=>$image_path,
-                        'type'=>1
+                        'image' => $image_path,
+                        'type' => 1
                     ]);
                 }
+            } else {
+                $image_path = 'storage/' . $request->medical_record1->storePublicly('ReimbursementImages',  ['disk' => 'public']);
+                $userMedical->attachments()->create([
+                    'image' => $image_path,
+                    'type' => 1
+                ]);
             }
+        }
 
 
-            if(isset($request->medical_record2)){
-                if(is_array($request->medical_record2)){
-                    foreach($request->medical_record2 as $image){
-                        $image_path = 'storage/' .$image->storePublicly('ReimbursementImages',  ['disk' => 'public']);
-                        $userMedical->attachments()->create([
-                            'image'=>$image_path,
-                            'type'=>2
-                        ]);
-                    }
-                }else{
-                    $image_path = 'storage/' .$request->medical_record2->storePublicly('ReimbursementImages',  ['disk' => 'public']);
+        if (isset($request->medical_record2)) {
+            if (is_array($request->medical_record2)) {
+                foreach ($request->medical_record2 as $image) {
+                    $image_path = 'storage/' . $image->storePublicly('ReimbursementImages',  ['disk' => 'public']);
                     $userMedical->attachments()->create([
-                        'image'=>$image_path,
-                        'type'=>2
+                        'image' => $image_path,
+                        'type' => 2
                     ]);
                 }
+            } else {
+                $image_path = 'storage/' . $request->medical_record2->storePublicly('ReimbursementImages',  ['disk' => 'public']);
+                $userMedical->attachments()->create([
+                    'image' => $image_path,
+                    'type' => 2
+                ]);
             }
+        }
 
 
-            if(isset($request->medical_record3)){
-                if(is_array($request->medical_record3)){
-                    foreach($request->medical_record3 as $image){
-                        $image_path = 'storage/' .$image->storePublicly('ReimbursementImages',  ['disk' => 'public']);
-                        $userMedical->attachments()->create([
-                            'image'=>$image_path,
-                            'type'=>3
-                        ]);
-                    }
-                }else{
-                    $image_path = 'storage/' .$request->medical_record3->storePublicly('ReimbursementImages',  ['disk' => 'public']);
+        if (isset($request->medical_record3)) {
+            if (is_array($request->medical_record3)) {
+                foreach ($request->medical_record3 as $image) {
+                    $image_path = 'storage/' . $image->storePublicly('ReimbursementImages',  ['disk' => 'public']);
                     $userMedical->attachments()->create([
-                        'image'=>$image_path,
-                        'type'=>3
+                        'image' => $image_path,
+                        'type' => 3
                     ]);
                 }
+            } else {
+                $image_path = 'storage/' . $request->medical_record3->storePublicly('ReimbursementImages',  ['disk' => 'public']);
+                $userMedical->attachments()->create([
+                    'image' => $image_path,
+                    'type' => 3
+                ]);
             }
+        }
 
-            if(isset($request->medical_record4)){
-                if(is_array($request->medical_record4)){
-                    foreach($request->medical_record4 as $image){
-                        $image_path = 'storage/' .$image->storePublicly('ReimbursementImages',  ['disk' => 'public']);
-                        $userMedical->attachments()->create([
-                            'image'=>$image_path,
-                            'type'=>4
-                        ]);
-                    }
-                }else{
-                    $image_path = 'storage/' .$request->medical_record4->storePublicly('ReimbursementImages',  ['disk' => 'public']);
+        if (isset($request->medical_record4)) {
+            if (is_array($request->medical_record4)) {
+                foreach ($request->medical_record4 as $image) {
+                    $image_path = 'storage/' . $image->storePublicly('ReimbursementImages',  ['disk' => 'public']);
                     $userMedical->attachments()->create([
-                        'image'=>$image_path,
-                        'type'=>4
+                        'image' => $image_path,
+                        'type' => 4
                     ]);
                 }
+            } else {
+                $image_path = 'storage/' . $request->medical_record4->storePublicly('ReimbursementImages',  ['disk' => 'public']);
+                $userMedical->attachments()->create([
+                    'image' => $image_path,
+                    'type' => 4
+                ]);
             }
+        }
         // }else{
 
         // }
         $user->userNotif()->create([
-            'universal_id'=>$userMedical->id,
-            'onRead'=>false,
-            'value'=>$user->name.' Applying for Medical Reimbursement',
-            'type'=>3,
-            'notification_type'=>2
+            'universal_id' => $userMedical->id,
+            'onRead' => false,
+            'value' => $user->name . ' Applying for Medical Reimbursement',
+            'type' => 3,
+            'notification_type' => 2
         ]);
-        return Redirect::route('medicalView')->with('message',
-            [NotificationService::notificationItem('Success', '', 'Successfully submitted Medical Reimbursement '.$validate_data['reimbursment_type'])]);
+        return Redirect::route('medicalView')->with(
+            'message',
+            [NotificationService::notificationItem('Success', '', 'Successfully submitted Medical Reimbursement ' . $validate_data['reimbursment_type'])]
+        );
     }
 
     public function  UserLoanView($id)
