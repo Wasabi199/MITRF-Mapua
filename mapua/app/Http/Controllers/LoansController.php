@@ -85,7 +85,7 @@ class LoansController extends Controller
 
         $user = User::with('loans')->whereHas('loans')->find(auth()->id());
         // dd(Loans::where('user_id',$user->id)->where('loan_type','Housing Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists());
-        if(Loans::where('user_id',$user->id)->where('loan_type','Housing Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exist()){
+        if(Loans::where('user_id',$user->id)->where('loan_type','Housing Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists()){
             return Redirect::route('userLoanDashboard')->with(
                 'message',
                 [NotificationService::notificationItem('Success', '', 'You already has similar Loan ' . $validate_data['loan_type'])]
@@ -145,7 +145,7 @@ class LoansController extends Controller
         $validate_data = $request->validated();
         //    dd($validate_data);
         $user = User::find(auth()->id());
-        if(Loans::where('user_id',$user->id)->where('loan_type','Emergency Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exist()){
+        if(Loans::where('user_id',$user->id)->where('loan_type','Emergency Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists()){
             return Redirect::route('userLoanDashboard')->with(
                 'message',
                 [NotificationService::notificationItem('Success', '', 'You already has similar Loan ' . $validate_data['loan_type'])]
@@ -192,7 +192,7 @@ class LoansController extends Controller
 
         $user = User::find(auth()->id());
 
-        if(Loans::where('user_id',$user->id)->where('loan_type','Educational Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exist()){
+        if(Loans::where('user_id',$user->id)->where('loan_type','Educational Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists()){
             return Redirect::route('userLoanDashboard')->with(
                 'message',
                 [NotificationService::notificationItem('Success', '', 'You already has similar Loan ' . $validate_data['loan_type'])]
