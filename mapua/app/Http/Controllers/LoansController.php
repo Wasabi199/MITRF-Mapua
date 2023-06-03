@@ -83,7 +83,7 @@ class LoansController extends Controller
     {
         $validate_data = $request->validated();
 
-        $user = User::with('loans')->whereHas('loans')->find(auth()->id());
+        $user = User::find(auth()->id());
         // dd(Loans::where('user_id',$user->id)->where('loan_type','Housing Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists());
         if(Loans::where('user_id',$user->id)->where('loan_type','Housing Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists()){
             return Redirect::route('userLoanDashboard')->with(
