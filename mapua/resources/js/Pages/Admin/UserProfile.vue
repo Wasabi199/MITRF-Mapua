@@ -169,7 +169,7 @@
                                     info.user_contribution.contribution_amount.toLocaleString(
                                         "en-US"
                                     )
-                                }}
+                                }}.00
                             </p>
                         </div>
                     </div>
@@ -209,7 +209,7 @@
                                         <div
                                             class="px-14 text-sm font-medium text-gray-900"
                                         >
-                                        &#8369 {{ loan.amount }}
+                                        &#8369 {{ loan.amount.toLocaleString("en-US") }}.00
                                         </div>
                                     </div>
                                 </div>
@@ -455,7 +455,7 @@ import { Link } from "@inertiajs/inertia-vue3";
 import Modal from "@/Jetstream/Modal";
 import JetInput from "@/Jetstream/Input";
 import route from "../../../../vendor/tightenco/ziggy/src/js";
-import Pagination from "@/Components/Pagination.vue";
+import Pagination from "@/Components/NormalPagination.vue";
 
 export default {
     components: {

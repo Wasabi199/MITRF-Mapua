@@ -20,7 +20,7 @@
           </div>
       </div>
 
-      <form class="-mt-2">
+      <form class="-mt-4">
         <div class="px-2 py-5 sm:p-6">
           <div class="grid grid-cols-6 gap-6">
             <div class="outline-double outline-4 mx-1 my-2 col-span-6"></div>
@@ -72,7 +72,7 @@
             <div class="flex col-span-3">
               <p class="font-semibold text-sm">Amount of Loan</p>
               <p class="ml-2 underline text-sm">
-                Php {{ loan.amount.toLocaleString("en-US") }}
+                ₱ {{ loan.amount.toLocaleString("en-US") }}.00
               </p>
             </div>
 
@@ -110,12 +110,12 @@
             <div class="outline-double outline-4 mx-1 my-2 col-span-6"></div>
 
             <div class="flex col-span-6">
-              <p class="italic text-sm">
+              <p class="italic text-sm -mt-2">
                 &lpar;To be filled up by credit committee&rpar;
               </p>
             </div>
 
-            <div class="flex col-span-6 -mt-2">
+            <div class="flex col-span-6 -mt-4">
               <p class="font-bold text-sm">APPROVED,</p>
               &nbsp;
               <p class=" text-sm">subject to the following terms and conditions:</p>
@@ -124,13 +124,13 @@
               <ol>
                 <li class="flex -mt-4">
                   1. Amount of Loan &lpar;₱
-                  <p class="underline">{{ loan.amount }}</p>
+                  <p class="underline">{{ loan.amount.toLocaleString("en-US") }}.00</p>
                   &rpar;
                 </li>
                 <li>2. Balance of Previous Loan &lpar;₱___________&rpar;</li>
                 <li class="flex">
                   3. Net Amount due to Borrower &lpar;₱
-                  <p class="underline">{{ loan.loan_amount }}</p>
+                  <p class="underline">{{ loan.loan_amount.toLocaleString("en-US") }}.00</p>
                   &rpar;
                 </li>
                 <li class="flex">
@@ -221,12 +221,12 @@
                 promise to pay M.I.T. RETIREMENT FUND, INC at its office at
                 Muralla St., Intramuros, Manila, the sum of
                 _____________________________________________ PESOS &lpar;₱
-                <span class="italic text-sm">{{ loan.loan_amount }}</span> &rpar;,
+                <span class="italic text-sm">{{ loan.loan_amount.toLocaleString("en-US") }}.00</span> &rpar;,
                 Philippine currency, plus interest and service charge at the
                 rate of <span class="italic text-sm">{{ loan.interest * 100 }}</span
                 >% and __________________, respectively in equal semi-monthly
                 installments of __________________ &lpar;₱
-                <span class="italic text-sm">{{ loan.amount }}</span> &rpar; commencing
+                <span class="italic text-sm">{{ loan.amount.toLocaleString("en-US") }}.00</span> &rpar; commencing
                 on ____________________________, ________ to
                 ____________________, ________ and subject further to the
                 following terms and conditions.

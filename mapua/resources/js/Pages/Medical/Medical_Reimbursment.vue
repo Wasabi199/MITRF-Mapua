@@ -81,7 +81,7 @@
                       <div class="">
                         <div>
                           <div class="text-sm font-medium text-gray-900 text-center">
-                            ₱ {{ med.amount.toLocaleString("en-US") }}
+                            ₱ {{ med.amount.toLocaleString("en-US") }}.00
                           </div>
                         </div>
                       </div>
@@ -125,7 +125,7 @@
 </template>
 <script>
 import AppLayout from "@/Layouts/AppLayout.vue";
-import Pagination from "@/Components/Pagination.vue";
+import Pagination from "@/Components/NormalPagination.vue";
 import JetApplicationLogo from "@/Jetstream/ApplicationLogo.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import Modal from "@/Jetstream/Modal";

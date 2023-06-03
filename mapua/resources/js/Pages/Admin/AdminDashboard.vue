@@ -10,11 +10,16 @@
       <div class="max-w-screen-2xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
           <div>
+            <button @click="viewOfficer = !viewOfficer"
+            class="m-5 p-2 shadow-md rounded-lg border-2
+            hover:border-red-700 hover:text-yellow-800 focus:border-red-700 focus:text-yellow-800">
+                View MITRF Inc. Officers
+            </button>
             <div
               class="flex justify-items-center p-6 sm:px-20 bg-white border-b border-gray-200"
             >
-              <div class="">
-                <table
+              <div  class="">
+                <table v-if="viewOfficer"
                   class="border-separate rounded-md shadow-xl border-spacing-2 border border-slate-500 mt-12 bg-red-800
                   text-yellow-500 border-spacing-y-4 bg-opacity-90 drop-shadow-lg"
                 >
@@ -88,7 +93,7 @@
                   </tbody>
                 </table>
               </div>
-              <div class="max-w-screen-2xl">
+              <div class="" :class="[viewOfficer==false?'mx-auto':'max-w-screen-2xl']">
                 <div class="">
                   <img alt="mitrf logo" src="/images/mu_white.png" />
                 </div>
@@ -194,7 +199,7 @@ export default {
   data(){
     return{
         updateBoardsModal:false,
-
+        viewOfficer:false,
         updateBoards:this.$inertia.form({
             chairman:'',
             committee_chairman:'',

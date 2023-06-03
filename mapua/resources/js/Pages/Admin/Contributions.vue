@@ -162,6 +162,9 @@
                   <label class="block text-sm font-medium text-gray-700"
                     >Amount of Loan</label
                   >
+                  <div>
+                    <span class="absolute mt-1.5 pl-2 font-bold">&#8369</span>
+
                   <input
                     type="number"
                     class="
@@ -172,10 +175,12 @@
                       sm:text-sm
                       border-gray-300
                       rounded-md
+                      pl-6
                     "
                     :value="amount"
                     disabled
                   />
+                  </div>
                 </div>
 
 
@@ -201,7 +206,7 @@
               </div>
             </div>
           </form>
-      
+
         </div>
         <div v-if="loan.approval === 'Submitted'">
           <form>
@@ -329,9 +334,11 @@
 
                 <div class="col-span-6 sm:col-span-3">
                   <label class="block text-sm font-medium text-gray-700"
-                    >Principal Amount</label
+                    >  Principal Amount</label
                   >
-                  <input
+                  <div class="relative">
+                    <span class="absolute mt-1.5 pl-2 font-bold">&#8369</span>
+                        <input
                     type="number"
                     class="
                       mt-1
@@ -341,15 +348,21 @@
                       sm:text-sm
                       border-gray-300
                       rounded-md
+                      pl-6
                     "
                     :value="loan.amount"
                     disabled
                   />
+
+                  </div>
                 </div>
                 <div class="col-span-6 sm:col-span-3">
                   <label class="block text-sm font-medium text-gray-700"
                     >Net Amount due to Borrower</label
                   >
+                  <div class="relative">
+                    <span class="absolute mt-1.5 pl-2 font-bold">&#8369</span>
+
                   <input
                     type="number"
                     class="
@@ -360,10 +373,12 @@
                       sm:text-sm
                       border-gray-300
                       rounded-md
+                      pl-6
                     "
                     :value="amount"
                     disabled
                   />
+                  </div>
                 </div>
 
                 <div class="col-span-6 sm:col-span-2">
@@ -438,7 +453,7 @@
         >
           <!-- Contact -->
           <div class="mb-8">
-          
+
 
             <div class="flex text-lg">
               <svg
@@ -470,7 +485,7 @@
             </div>
           </div>
 
-        
+
 
           <!-- birth date -->
 
@@ -495,11 +510,11 @@
           <!-- membership date -->
           <div class="flex text-lg">
             <p class="font-semibold">Principal Amount:</p>
-            <p class="ml-2 underline">{{ loan.amount }}</p>
+            <p class="ml-2 underline">&#8369 {{ loan.amount.toLocaleString("en-US") }}</p>
           </div>
           <div class="flex text-lg">
             <p class="font-semibold">Net Amount due to Borrower:</p>
-            <p class="ml-2 underline">{{ loan.loan_amount }}</p>
+            <p class="ml-2 underline">&#8369 {{ loan.loan_amount.toLocaleString("en-US") }}</p>
           </div>
           <div class="flex text-lg">
             <p class="font-semibold">Loan Duration:</p>
@@ -634,7 +649,10 @@
                   <label class="block text-sm font-medium text-gray-700"
                     >Principal Amount</label
                   >
-                  <input
+
+                  <div class="relative">
+                    <span class="absolute mt-1.5 pl-2 font-bold">&#8369</span>
+                    <input
                     type="number"
                     class="
                       mt-1
@@ -644,16 +662,21 @@
                       sm:text-sm
                       border-gray-300
                       rounded-md
+                      pl-6
                     "
                     :value="loan.amount"
                     disabled
                   />
+
+                  </div>
                 </div>
                 <div class="col-span-6 sm:col-span-3">
                   <label class="block text-sm font-medium text-gray-700"
                     >Net Amount due to Borrower</label
                   >
-                  <input
+                  <div>
+                    <span class="absolute mt-1.5 pl-2 font-bold">&#8369</span>
+                    <input
                     type="number"
                     class="
                       mt-1
@@ -663,13 +686,16 @@
                       sm:text-sm
                       border-gray-300
                       rounded-md
+                      pl-6
                     "
                     :value="amount"
                     disabled
                   />
+                  </div>
+
                 </div>
 
-               
+
 
                 <div class="col-span-6 sm:col-span-2">
                   <label class="block text-sm font-medium text-gray-700"
@@ -771,13 +797,13 @@
             </div>
           </div>
 
-          
+
 
           <!-- birth date -->
           <div class="flex text-lg">
             <p class="font-semibold">Loan Type:</p>
             <p class="ml-2 underline">{{ loan.loan_type }}</p>
-          </div>  
+          </div>
 
           <!-- place of birth -->
           <div class="flex text-lg">
@@ -786,7 +812,7 @@
           </div>
           <!-- address -->
 
-        
+
 
           <!-- department -->
 
@@ -798,21 +824,21 @@
 
           <div class="flex text-lg">
             <p class="font-semibold">Loan Amount:</p>
-            <p class="ml-2 underline">{{ loan.amount }}</p>
+            <p class="ml-2 underline">&#8369 {{ loan.amount.toLocaleString("en-US") }}</p>
           </div>
 
            <!-- LOAN AMOUNT-->
 
            <div class="flex text-lg">
             <p class="font-semibold">Net Amount Due to Borrower:</p>
-            <p class="ml-2 underline">{{ loan.loan_amount }}</p>
+            <p class="ml-2 underline">&#8369 {{ loan.loan_amount.toLocaleString("en-US") }}</p>
           </div>
 
           <div class="flex text-lg">
             <p class="font-semibold">Loan Duration:</p>
             <p class="ml-2 underline">{{ loan.duration }} months</p>
           </div>
-        
+
         </div>
 
         <div
@@ -856,20 +882,20 @@
             </div>
           </div>
 
-         
+
 
           <!-- birth date -->
           <div class="flex text-lg">
             <p class="font-semibold">Loan Type:</p>
             <p class="ml-2 underline">{{ loan.loan_type }}</p>
-          </div>  
+          </div>
 
           <!-- place of birth -->
           <div class="flex text-lg">
             <p class="font-semibold">Loan Status:</p>
             <p class="ml-2 underline">{{ loan.approval }}</p>
           </div>
-         
+
 
           <!-- department -->
 
@@ -881,14 +907,14 @@
 
           <div class="flex text-lg">
             <p class="font-semibold">Loan Amount:</p>
-            <p class="ml-2 underline">{{ loan.amount }}</p>
+            <p class="ml-2 underline">&#8369 {{ loan.amount.toLocaleString("en-US") }}</p>
           </div>
 
           <!-- LOAN AMOUNT-->
 
           <div class="flex text-lg">
             <p class="font-semibold">Net Amount Due to Borrower:</p>
-            <p class="ml-2 underline">{{ loan.loan_amount }}</p>
+            <p class="ml-2 underline">&#8369 {{ loan.loan_amount.toLocaleString("en-US") }}</p>
           </div>
 
 
@@ -896,7 +922,7 @@
             <p class="font-semibold">Loan Duration:</p>
             <p class="ml-2 underline">{{ loan.duration -contributions.total }} months</p>
           </div>
-     
+
         </div>
       </div>
 
@@ -956,7 +982,7 @@
                 <div class="flex items-center">
                   <div>
                     <div class="px-10 text-sm font-medium text-gray-900">
-                      PHP {{ contribution.contribution_amount }}
+                        &#8369 {{ contribution.contribution_amount }}
                     </div>
                   </div>
                 </div>
@@ -1194,7 +1220,7 @@
         shadow-xl
         rounded-lg
         h-fit
-        m-auto  
+        m-auto
         w-full
         text-center
       "
@@ -1318,7 +1344,7 @@
         For Release
       </button>
     </div>
-    
+
     <Modal
       :closeable="true"
       :show="showApproveModal"
@@ -1548,7 +1574,7 @@
     >
       <div class="p-5">
         <div class="flex justify-between text-xl font-bold text-gray-900 my-3">
-          
+
           <svg
             class="h-6 w-6 cursor-pointer"
             fill="none"
@@ -1584,7 +1610,7 @@
             <option disabled>Select Reason</option>
             <option v-for="reason in rejectReason" v-bind:key="reason.id">{{reason}}</option>
           </select>
-          
+
         </div>
         <div class="w-full mt-2" v-if="this.selectedReason == 'Other'" >
           <textarea class="w-full" v-model="this.rejectForm.reason"></textarea>
@@ -1620,7 +1646,7 @@
 <script>
 import AppLayout from "@/Layouts/AppLayout.vue";
 import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
-import Pagination from "@/Components/Pagination.vue";
+import Pagination from "@/Components/NormalPagination.vue";
 import { pickBy, throttle } from "lodash";
 import Modal from "@/Jetstream/Modal";
 export default {
@@ -1733,7 +1759,7 @@ export default {
           this.showRejectModal = false;
         },
       });
-     
+
     },
     submitApproveLoan() {
       this.approveForm.id = this.loanToApprove.id;

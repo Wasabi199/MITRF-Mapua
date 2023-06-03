@@ -75,7 +75,7 @@
               {{ medical.status }}
             </td>
             <td class="text-center py-5">
-              {{ medical.amount.toLocaleString("en-US") }}
+                &#8369 {{ medical.amount.toLocaleString("en-US") }}.00
             </td>
             <td class="flex justify-center py-5">
               <Link :href="route('ReimbursementProfile', medical.id)">
@@ -99,7 +99,8 @@
           </tr>
         </tbody>
       </table>
-      <Pagination class="" :links="medicals.links" />
+      <!-- <pagination class="" :links="medicals.links" /> -->
+      <pagination :links="medicals.links"  @limit-event="limitEvent"/>
     </div>
   </AppLayout>
 </template>
@@ -115,16 +116,18 @@ import {
   ListboxOptions,
   ListboxOption,
 } from "@headlessui/vue";
+
 export default {
   setup() {},
   components: {
     AppLayout,
-    Pagination,
     Link,
     Listbox,
     ListboxButton,
     ListboxOptions,
     ListboxOption,
+    Pagination
+
   },
   props: {
     medicals: Object,
@@ -133,6 +136,7 @@ export default {
   data() {
     return {
       form: {
+        limit:this.filter.limit == null ? 5:this.filter.limit,
         status:this.filter.status
       },
       statuses: [
@@ -156,6 +160,13 @@ export default {
       }, 600),
     },
   },
+
+  methods:{
+    limitEvent(event){
+            console.log(event)
+            this.form.limit = event
+        }
+  }
 
 };
 </script>

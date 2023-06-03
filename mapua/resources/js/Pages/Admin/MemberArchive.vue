@@ -219,7 +219,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <pagination :links="deletedUsers.links" />
+                            <pagination :links="deletedUsers.links"  @limit-event="limitEvent"/>
                         </div>
                     </div>
                 </div>
@@ -507,6 +507,7 @@ export default {
     },
     props: {
         deletedUsers: Object,
+        filters:Object,
     },
 
     data() {
@@ -524,8 +525,25 @@ export default {
                 id: Number,
                 status: 1,
             }),
+
+            form: {
+                limit:this.filters.limit == null ? 5:this.filters.limit,
+                // search: this.filters.search,
+            },
         };
     },
+
+    watch: {
+    form: {
+      deep: true,
+      handler: throttle(function () {
+        this.$inertia.get(route("archive"), pickBy(this.form), {
+          preserveState: true,
+          preserveScroll: true,
+        });
+      }, 600),
+    },
+  },
 
     methods: {
         selectedUser(user) {
@@ -556,6 +574,11 @@ export default {
                 },
             });
         },
+
+        limitEvent(event){
+            console.log(event)
+            this.form.limit = event
+        }
     },
 };
 </script>

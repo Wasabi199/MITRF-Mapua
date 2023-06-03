@@ -154,9 +154,7 @@
                       <div class="">
                         <div>
                           <div class="text-sm text-center font-medium text-gray-900">
-                           {{
-                              loan.loan_amount.toLocaleString("en-US")
-                            }}
+                            &#8369 {{loan.loan_amount.toLocaleString("en-US")}}.00
                           </div>
                         </div>
                       </div>
@@ -179,7 +177,7 @@
                           <div class="text-sm text-center font-medium text-gray-900">
                             {{
                               loan.duration
-                            }} month/s
+                            }} months
                           </div>
                         </div>
                       </div>
@@ -227,7 +225,7 @@
                 </tbody>
               </table>
 
-              <pagination :links="loans.links" />
+              <pagination :links="loans.links " @limit-event="limitEvent" />
 
               <Modal
                 :closeable="true"
@@ -549,7 +547,7 @@ export default {
       showPasswordModal:false,
 
       form: {
-
+        limit:this.filters.limit == null ? 5:this.filters.limit,
         approval: this.filters.approval == null ? "All" : this.filters.approval,
       },
 
@@ -598,7 +596,11 @@ export default {
     },
     verify(){
       this.showPasswordModal = !this.showPasswordModal
-    }
+    },
+    limitEvent(event){
+            console.log(event)
+            this.form.limit = event
+        }
   },
 };
 </script>
