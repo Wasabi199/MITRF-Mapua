@@ -26,7 +26,7 @@
         </h1>
       </div>
     </template>
-<!-- <form @submit.prevent="submit"> -->
+    <!-- <form @submit.prevent="submit"> -->
     <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -36,15 +36,7 @@
             <select
               v-model="form.loan_type"
               @change="showModal = !showModal"
-              class="
-                border-2 border-gray-400 border-opacity-50
-                hover:border-indigo-500
-                transition
-                ease-in
-                duration-150
-                rounded-md
-                mb-10
-              "
+              class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 transition ease-in duration-150 rounded-md mb-10"
             >
               <option value="placeholder" disabled>Select Loan Type</option>
               <option v-for="type in loanTypes" v-bind:key="type" :value="type">
@@ -63,15 +55,7 @@
             <p class="mb-1 text-lg">Terms (Months)</p>
             <select
               v-model="form.terms"
-              class="
-                mb-5
-                border-2 border-gray-400 border-opacity-50
-                hover:border-indigo-500
-                transition
-                ease-in
-                duration-150
-                rounded-md
-              "
+              class="mb-5 border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 transition ease-in duration-150 rounded-md"
             >
               <option value="12">12</option>
               <option value="24">24</option>
@@ -83,15 +67,7 @@
 
               <div class="mt-1 relative w-64 rounded-md">
                 <div
-                  class="
-                    absolute
-                    inset-y-0
-                    left-0
-                    pl-3
-                    flex
-                    items-center
-                    pointer-events-none
-                  "
+                  class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                 >
                   <span class="text-gray-500 text-lg"> ₱ </span>
                 </div>
@@ -100,139 +76,70 @@
                   @change="onChangeAmount"
                   type="number"
                   placeholder="0.00"
-                  class="
-                    focus:ring-indigo-500
-                    border-2 border-opacity-50 border-gray-400
-                    hover:border-indigo-500
-                    text-black
-                    block
-                    pl-7
-                    pr-12
-                    w-64
-                    font-lg
-                    rounded-md
-                  "
+                  class="focus:ring-indigo-500 border-2 border-opacity-50 border-gray-400 hover:border-indigo-500 text-black block pl-7 pr-12 w-64 font-lg rounded-md"
                 />
               </div>
               <span v-show="amountValidation" class="text-red-500"
                 ><li>Minimum of 30,000 and maximum of 100,000</li></span
               >
             </div>
-              <p class="mb-1 text-lg mt-6 font-semibold">Upload requirements</p>
-              <p class="italic text-sm mb-5">*Total maximum size for uploading is 30mb</p>
-              <p class="mb-1 text-lg mt-4">Member's Payslip for Validation<span class="text-sm italic font-thin">Must be image file (jpg,jpeg)</span></p>
+            <p class="mb-1 text-lg mt-6 font-semibold">Upload requirements</p>
+            <p class="italic text-sm mb-5">
+              *Total maximum size for uploading is 30mb
+            </p>
+            <p class="mb-1 text-lg mt-4">
+              Member's Payslip for Validation<span
+                class="text-sm italic font-thin"
+                >Must be image file (jpg,jpeg)</span
+              >
+            </p>
             <div
-              class="
-                border-2 border-gray-400 border-opacity-50
-                hover:border-indigo-500
-                w-6/12
-                rounded-md
-                mb-5
-              "
+              class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
             >
               <input
                 @change="onChange"
                 type="file"
                 accept=".png, .jpg, .jpeg, .pdf, .docx"
-                class="
-                  block
-                  w-full
-                  text-[0.8rem] text-slate-500
-                  file:mr-2
-                  file:py-2
-                  file:px-1
-                  file:border-0
-                  file:text-md
-                  file:font-semibold
-                  file:bg-gray-200
-                  file:text-gray-500
-                  hover:file:bg-gray-300
-                "
+                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1 file:border-0 file:text-md file:font-semibold file:bg-gray-200 file:text-gray-500 hover:file:bg-gray-300"
               />
             </div>
             <p class="mb-1 text-lg">
-              Upload Photo of you Including the Place to be Improved/Repaired <span class="text-sm italic font-thin">Must be image file (jpg,jpeg)</span>
+              Upload Photo of you Including the Place to be Improved/Repaired
+              <span class="text-sm italic font-thin"
+                >Must be image file (jpg,jpeg)</span
+              >
             </p>
             <div
-              class="
-                border-2 border-gray-400 border-opacity-50
-                hover:border-indigo-500
-                w-6/12
-                rounded-md
-                mb-5
-              "
+              class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
             >
               <input
                 @change="onChange2"
                 type="file"
                 accept=".png, .jpg, .jpeg, .pdf, .docx"
-                class="
-                  block
-                  w-full
-                  text-[0.8rem] text-slate-500
-                  file:mr-2
-                  file:py-2
-                  file:px-1
-                  file:border-0
-                  file:text-md
-                  file:font-semibold
-                  file:bg-gray-200
-                  file:text-gray-500
-                  hover:file:bg-gray-300
-                "
+                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1 file:border-0 file:text-md file:font-semibold file:bg-gray-200 file:text-gray-500 hover:file:bg-gray-300"
               />
             </div>
-            <p class="mb-1 text-lg">Upload Laborer's Quotation <span class="text-sm italic font-thin">Must be image file (jpg,jpeg)</span></p>
+            <p class="mb-1 text-lg">
+              Upload Laborer's Quotation
+              <span class="text-sm italic font-thin"
+                >Must be image file (jpg,jpeg)</span
+              >
+            </p>
             <div
-              class="
-                border-2 border-gray-400 border-opacity-50
-                hover:border-indigo-500
-                w-6/12
-                rounded-md
-                mb-5
-              "
+              class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
             >
               <input
                 @change="onChange3"
                 type="file"
                 accept=".png, .jpg, .jpeg, .pdf, .docx"
-                class="
-                  block
-                  w-full
-                  text-[0.8rem] text-slate-500
-                  file:mr-2
-                  file:py-2
-                  file:px-1
-                  file:border-0
-                  file:text-md
-                  file:font-semibold
-                  file:bg-gray-200
-                  file:text-gray-500
-                  hover:file:bg-gray-300
-                "
+                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1 file:border-0 file:text-md file:font-semibold file:bg-gray-200 file:text-gray-500 hover:file:bg-gray-300"
               />
             </div>
             <div class="flex justify-center">
               <button
                 type="button"
                 @click="submit"
-                class="
-                  py-2
-                  px-4
-                  mb-5
-                  bg-red-800
-                  hover:bg-red-700
-                  focus:ring focus:ring-indigo-300
-                  text-yellow-500
-                  w-64
-                  transition
-                  ease-in
-                  duration-150
-                  text-lg text-center
-                  font-semibold
-                  shadow-md
-                  rounded-lg
-                "
+                class="py-2 px-4 mb-5 bg-red-800 hover:bg-red-700 focus:ring focus:ring-indigo-300 text-yellow-500 w-64 transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"
               >
                 Submit
               </button>
@@ -240,7 +147,8 @@
           </form>
 
           <!-- Loan For Educational -->
-          <form @submit.prevent="submit"
+          <form
+            @submit.prevent="submit"
             v-if="form.loan_type == 'Educational Loan'"
             class="p-6 sm:px-20 bg-white border-b border-gray-200 mt-[-40px]"
           >
@@ -250,153 +158,86 @@
               ><br />
               <div class="mt-1 relative w-64 rounded-md">
                 <div
-                  class="
-                    absolute
-                    inset-y-0
-                    left-0
-                    pl-3
-                    flex
-                    items-center
-                    pointer-events-none
-                  "
+                  class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                 >
                   <span class="text-gray-500 text-lg"> ₱ </span>
                 </div>
                 <input
-                required
+                  required
                   v-model="form.amount"
                   @change="onChangeAmount"
                   type="number"
                   placeholder="0.00"
-                  class="
-                    focus:ring-indigo-500
-                    border-2 border-opacity-50 border-gray-400
-                    hover:border-indigo-500
-                    text-black
-                    block
-                    pl-7
-                    pr-12
-                    w-64
-                    font-lg
-                    rounded-md
-                  "
+                  class="focus:ring-indigo-500 border-2 border-opacity-50 border-gray-400 hover:border-indigo-500 text-black block pl-7 pr-12 w-64 font-lg rounded-md"
                 />
               </div>
               <span v-show="amountValidation" class="text-red-500"
                 ><li>Maximum of 30,000</li></span
               >
             </div>
-              <p class="mb-1 text-lg mt-6 font-semibold">Upload Requirements</p>
-              <p class="italic text-sm mb-5">*Total maximum size for uploading is 30mb</p>
+            <p class="mb-1 text-lg mt-6 font-semibold">Upload Requirements</p>
+            <p class="italic text-sm mb-5">
+              *Total maximum size for uploading is 30mb
+            </p>
             <div class="flex">
               <input v-model="forRelative" class="w-5 h-5" type="checkbox" />
 
               <span class="text-center text-xl px-2">For Relative</span>
             </div>
 
-            <p class="mb-1 text-lg">Member's Payslip for Validation
-                <span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
+            <p class="mb-1 text-lg">
+              Member's Payslip for Validation
+              <span class="italic font-thin text-sm">
+                Must be image file (jpg,jpeg)</span
+              >
+            </p>
             <div
-              class="
-                border-2 border-gray-400 border-opacity-50
-                hover:border-indigo-500
-                w-6/12
-                rounded-md
-                mb-5
-              "
+              class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
             >
               <input
                 @change="onChange"
                 type="file"
                 accept=".png, .jpg, .jpeg, .pdf, .docx"
-                class="
-                  block
-                  w-full
-                  text-[0.8rem] text-slate-500
-                  file:mr-2
-                  file:py-2
-                  file:px-1
-                  file:border-0
-                  file:text-md
-                  file:font-semibold
-                  file:bg-gray-200
-                  file:text-gray-500
-                  hover:file:bg-gray-300
-                "
+                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1 file:border-0 file:text-md file:font-semibold file:bg-gray-200 file:text-gray-500 hover:file:bg-gray-300"
               />
             </div>
 
             <p v-if="this.forRelative == true" class="mb-1 text-lg">
               Upload Proof of Relation (Birth Certificate in Case of Relatives)
-                <span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span>
+              <span class="italic font-thin text-sm">
+                Must be image file (jpg,jpeg)</span
+              >
             </p>
             <div
               v-if="this.forRelative == true"
-              class="
-                border-2 border-gray-400 border-opacity-50
-                hover:border-indigo-500
-                w-6/12
-                rounded-md
-                mb-5
-              "
+              class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
             >
-            <!-- <form @submit.prevent="sendMessage"> -->
+              <!-- <form @submit.prevent="sendMessage"> -->
               <input
-              @change="onChange2"
-              type="file"
-              required
+                @change="onChange2"
+                type="file"
+                required
                 accept=".png, .jpg, .jpeg, .pdf, .docx"
-                class="
-                  block
-                  w-full
-                  text-[0.8rem] text-slate-500
-                  file:mr-2
-                  file:py-2
-                  file:px-1
-                  file:border-0
-                  file:text-md
-                  file:font-semibold
-                  file:bg-gray-200
-                  file:text-gray-500
-                  hover:file:bg-gray-300
-                "
+                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1 file:border-0 file:text-md file:font-semibold file:bg-gray-200 file:text-gray-500 hover:file:bg-gray-300"
                 multiple
-                
               />
-            <!-- </form> -->
+              <!-- </form> -->
             </div>
             <p class="mb-1 text-lg">
               Upload Certificate of Enrollment and Statement of Account from
               School
-                <span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span>
+              <span class="italic font-thin text-sm">
+                Must be image file (jpg,jpeg)</span
+              >
             </p>
             <div
-              class="
-                border-2 border-gray-400 border-opacity-50
-                hover:border-indigo-500
-                w-6/12
-                rounded-md
-                mb-5
-              "
+              class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
             >
               <input
                 @change="onChange3"
                 type="file"
                 accept=".png, .jpg, .jpeg, .pdf, .docx"
-                class="
-                  block
-                  w-full
-                  text-[0.8rem] text-slate-500
-                  file:mr-2
-                  file:py-2
-                  file:px-1
-                  file:border-0
-                  file:text-md
-                  file:font-semibold
-                  file:bg-gray-200
-                  file:text-gray-500
-                  hover:file:bg-gray-300
-                "
+                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1 file:border-0 file:text-md file:font-semibold file:bg-gray-200 file:text-gray-500 hover:file:bg-gray-300"
                 multiple
               />
             </div>
@@ -404,24 +245,7 @@
             <div class="flex justify-center">
               <button
                 type="submit"
-               
-                class="
-                  py-2
-                  px-4
-                  mb-5
-                  bg-red-800
-                  hover:bg-red-700
-                  focus:ring focus:ring-indigo-300
-                  text-yellow-500
-                  w-64
-                  transition
-                  ease-in
-                  duration-150
-                  text-lg text-center
-                  font-semibold
-                  shadow-md
-                  rounded-lg
-                "
+                class="py-2 px-4 mb-5 bg-red-800 hover:bg-red-700 focus:ring focus:ring-indigo-300 text-yellow-500 w-64 transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"
               >
                 Submit
               </button>
@@ -430,21 +254,14 @@
 
           <!-- Loan For Emergencies -->
           <form
+          @submit.prevent="submit"
             v-if="form.loan_type == 'Emergency Loan'"
             class="p-6 sm:px-20 bg-white borsder-b border-gray-200 mt-[-40px]"
           >
             <p class="mb-1 text-lg">Terms (Months)</p>
             <select
               v-model="emergencyForm.terms"
-              class="
-                mb-5
-                border-2 border-gray-400 border-opacity-50
-                hover:border-indigo-500
-                transition
-                ease-in
-                duration-150
-                rounded-md
-              "
+              class="mb-5 border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 transition ease-in duration-150 rounded-md"
             >
               <option value="12">12</option>
               <option value="24">24</option>
@@ -455,15 +272,7 @@
               ><br />
               <div class="mt-1 relative w-64 rounded-md">
                 <div
-                  class="
-                    absolute
-                    inset-y-0
-                    left-0
-                    pl-3
-                    flex
-                    items-center
-                    pointer-events-none
-                  "
+                  class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                 >
                   <span class="text-gray-500 text-lg"> ₱ </span>
                 </div>
@@ -472,79 +281,39 @@
                   @change="onChangeAmount"
                   type="number"
                   placeholder="0.00"
-                  class="
-                    focus:ring-indigo-500
-                    border-2 border-opacity-50 border-gray-400
-                    hover:border-indigo-500
-                    text-black
-                    block
-                    pl-7
-                    pr-12
-                    w-64
-                    font-lg
-                    rounded-md
-                  "
+                  class="focus:ring-indigo-500 border-2 border-opacity-50 border-gray-400 hover:border-indigo-500 text-black block pl-7 pr-12 w-64 font-lg rounded-md"
                 />
               </div>
               <span v-show="amountValidation" class="text-red-500"
                 ><li>Maximum of 30,000</li></span
               >
             </div>
-              <p class="mb-1 text-lg mt-6 font-semibold">Upload Requirements</p>
-              <p class="italic text-sm mb-5">*Total maximum size for uploading is 30mb</p>
+            <p class="mb-1 text-lg mt-6 font-semibold">Upload Requirements</p>
+            <p class="italic text-sm mb-5">
+              *Total maximum size for uploading is 30mb
+            </p>
 
-            <p class="mb-1 text-lg">Member's Payslip for Validation <span class="italic font-thin text-sm"> Must be image file (jpg,jpeg)</span></p>
+            <p class="mb-1 text-lg">
+              Member's Payslip for Validation
+              <span class="italic font-thin text-sm">
+                Must be image file (jpg,jpeg)</span
+              >
+            </p>
             <div
-              class="
-                border-2 border-gray-400 border-opacity-50
-                hover:border-indigo-500
-                w-6/12
-                rounded-md
-                mb-5
-              "
+              class="border-2 border-gray-400 border-opacity-50 hover:border-indigo-500 w-6/12 rounded-md mb-5"
             >
               <input
                 @change="onChange1"
                 type="file"
                 accept=".png, .jpg, .jpeg, .pdf, .docx"
-                class="
-                  block
-                  w-full
-                  text-[0.8rem] text-slate-500
-                  file:mr-2
-                  file:py-2
-                  file:px-1
-                  file:border-0
-                  file:text-md
-                  file:font-semibold
-                  file:bg-gray-200
-                  file:text-gray-500
-                  hover:file:bg-gray-300
-                "
+                class="block w-full text-[0.8rem] text-slate-500 file:mr-2 file:py-2 file:px-1 file:border-0 file:text-md file:font-semibold file:bg-gray-200 file:text-gray-500 hover:file:bg-gray-300"
               />
             </div>
 
             <div class="flex justify-center">
               <button
                 type="submit"
-                @click="submit"
-                class="
-                  py-2
-                  px-4
-                  mb-5
-                  bg-red-800
-                  hover:bg-red-700
-                  focus:ring focus:ring-indigo-300
-                  text-yellow-500
-                  w-64
-                  transition
-                  ease-in
-                  duration-150
-                  text-lg text-center
-                  font-semibold
-                  shadow-md
-                  rounded-lg
-                "
+                class="py-2 px-4 mb-5 bg-red-800 hover:bg-red-700 focus:ring focus:ring-indigo-300 text-yellow-500 w-64 transition ease-in duration-150 text-lg text-center font-semibold shadow-md rounded-lg"
               >
                 Submit
               </button>
@@ -554,22 +323,7 @@
       </div>
       <div class="flex justify-center px-6 py-4 whitespace-nowrap">
         <div
-          class="
-            flex
-            space-x-2
-            mr-5
-            px-4
-            py-1
-            border
-            text-md text-red-600
-            dark:text-red-600 dark:border-red-600
-            border-red-600
-            uppercase
-            rounded-full
-            dark:hover:text-gray-200
-            hover:text-white hover:border-none hover:bg-red-500
-            cursor-pointer
-          "
+          class="flex space-x-2 mr-5 px-4 py-1 border text-md text-red-600 dark:text-red-600 dark:border-red-600 border-red-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-red-500 cursor-pointer"
         >
           <Link :href="route('userDashboard')">
             <button>BACK TO HOME</button>
@@ -577,7 +331,7 @@
         </div>
       </div>
     </div>
-<!-- </form> -->
+    <!-- </form> -->
     <!-- Guidelines -->
     <Modal :show="showModal" :closeable="true">
       <!-- Housing Loan Guidelines -->
@@ -658,37 +412,12 @@
 
         <div></div>
         <div
-          class="
-            flex
-            justify-center
-            text-xl
-            font-bold
-            dark:text-gray-200
-            my-3
-            space-x-40
-          "
+          class="flex justify-center text-xl font-bold dark:text-gray-200 my-3 space-x-40"
         >
           <!-- Accept Button -->
           <div
             @click="accept"
-            class="
-              flex
-              space-x-2
-              px-4
-              py-1
-              border
-              text-sm
-              leading-snug
-              font-semibold
-              text-green-600
-              dark:text-green-600 dark:border-green-600
-              border-green-600
-              uppercase
-              rounded-full
-              dark:hover:text-gray-200
-              hover:bg-green-500
-              cursor-pointer
-            "
+            class="flex space-x-2 px-4 py-1 border text-sm leading-snug font-semibold text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:bg-green-500 cursor-pointer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -795,24 +524,7 @@
         >
           <div
             @click="accept"
-            class="
-              flex
-              space-x-2
-              px-4
-              py-1
-              border
-              text-sm
-              leading-snug
-              font-semibold
-              text-green-600
-              dark:text-green-600 dark:border-green-600
-              border-green-600
-              uppercase
-              rounded-full
-              dark:hover:text-gray-200
-              hover:bg-green-500
-              cursor-pointer
-            "
+            class="flex space-x-2 px-4 py-1 border text-sm leading-snug font-semibold text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:bg-green-500 cursor-pointer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -901,37 +613,12 @@
         </div>
 
         <div
-          class="
-            flex
-            justify-center
-            text-xl
-            font-bold
-            dark:text-gray-200
-            my-3
-            space-x-40
-          "
+          class="flex justify-center text-xl font-bold dark:text-gray-200 my-3 space-x-40"
         >
           <!-- Accept Button -->
           <div
             @click="accept"
-            class="
-              flex
-              space-x-2
-              px-4
-              py-1
-              border
-              text-sm
-              leading-snug
-              font-semibold
-              text-green-600
-              dark:text-green-600 dark:border-green-600
-              border-green-600
-              uppercase
-              rounded-full
-              dark:hover:text-gray-200
-              hover:bg-green-500
-              cursor-pointer
-            "
+            class="flex space-x-2 px-4 py-1 border text-sm leading-snug font-semibold text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:bg-green-500 cursor-pointer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -980,7 +667,7 @@
             />
           </svg>
         </div>
-        <div class=" text-justify">
+        <div class="text-justify">
           <span
             >I hereby agree to submit my documents and to allow MITRFI and its
             authorized personnel to process my documents and personal
@@ -993,27 +680,12 @@
             policies.</span
           >
         </div>
-        <div class="flex justify-center text-xl font-bold dark:text-gray-200 my-3">
+        <div
+          class="flex justify-center text-xl font-bold dark:text-gray-200 my-3"
+        >
           <div
             @click="proceed"
-            class="
-              flex
-              space-x-2
-              px-4
-              py-1
-              border
-              text-sm
-              leading-snug
-              font-semibold
-              text-green-600
-              dark:text-green-600 dark:border-green-600
-              border-green-600
-              uppercase
-              rounded-full
-              dark:hover:text-gray-200
-              hover:bg-green-500
-              cursor-pointer
-            "
+            class="flex space-x-2 px-4 py-1 border text-sm leading-snug font-semibold text-green-600 dark:text-green-600 dark:border-green-600 border-green-600 uppercase rounded-full dark:hover:text-gray-200 hover:bg-green-500 cursor-pointer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -1087,19 +759,18 @@ export default {
         loan_amount: "",
         terms: "",
         interest: "",
-          attachment1: "",
+        attachment1: "",
         // proof:'',
-          attachment3: "",
+        attachment3: "",
       }),
-
 
       emergencyForm: this.$inertia.form({
         loan_type: "",
         amount: "",
         loan_amount: "",
-          terms: "",
+        terms: "",
         interest: "",
-          attachment1: "",
+        attachment1: "",
       }),
     };
   },
@@ -1142,25 +813,21 @@ export default {
       }
     },
 
-
     // onChange4(e) {
     //   console.log("Selected File 4", e.target.files[0]);
     //   this.form.attachment4 = e.target.files[0];
     // },
 
-
     submit() {
       this.submitModal = true;
       if (this.form.loan_type == "Housing Loan") {
         let interest = 0.09;
-        this.form.interest = (
-          0.02 +
-          interest * (this.form.terms / 12)
-        ).toFixed(2);
+        this.form.interest = (0.02 + interest * (this.form.terms / 12)).toFixed(
+          2
+        );
         this.form.loan_amount =
           this.form.amount + this.form.amount * this.form.interest;
-      }
-      if (this.form.loan_type == "Educational Loan") {
+      } else if (this.form.loan_type == "Educational Loan") {
         if (this.forRelative == true) {
           let interest = 0.09;
           this.form.terms = 12;
@@ -1183,9 +850,7 @@ export default {
             this.educationalForm.amount +
             this.educationalForm.amount * this.educationalForm.interest;
         }
-      }
-
-      if (this.form.loan_type == "Emergency Loan") {
+      } else {
         let interest = 0.0225;
         this.emergencyForm.loan_type = "Emergency Loan";
         this.emergencyForm.interest =
@@ -1195,37 +860,37 @@ export default {
           this.emergencyForm.amount * this.emergencyForm.interest;
       }
     },
-    onChangeAmount(){
-      console.log(this.emergencyForm.amount)
-      console.log(this.form.loan_type)
-      if(this.form.loan_type != "Emergency Loan"){
+
+    onChangeAmount() {
+      console.log(this.emergencyForm.amount);
+      console.log(this.form.loan_type);
+      if (this.form.loan_type != "Emergency Loan") {
         if (this.form.loan_type == "Housing Loan") {
           if (this.form.amount >= 30000 && this.form.amount <= 100000) {
             this.amountValidation = false;
-            console.log(true)
-          }else{
+            console.log(true);
+          } else {
             this.amountValidation = true;
-            console.log(false)
+            console.log(false);
           }
-        }else if(this.form.loan_type == "Educational Loan"){
-
+        } else if (this.form.loan_type == "Educational Loan") {
           if (this.form.amount <= 30000) {
             this.amountValidation = false;
-
-          }else{
+          } else {
             this.amountValidation = true;
-            console.log(false)
+            console.log(false);
           }
         }
-    }else{
+      } else {
         if (this.emergencyForm.amount <= 30000) {
-              this.amountValidation = false;
-            }else{
-              this.amountValidation = true;
-              console.log(false)
-          }
+          this.amountValidation = false;
+        } else {
+          this.amountValidation = true;
+          console.log(false);
+        }
       }
     },
+
     proceed() {
       if (this.form.loan_type != "Emergency Loan") {
         if (this.form.loan_type == "Housing Loan") {
@@ -1239,7 +904,6 @@ export default {
                 this.isSubmiting == false;
               },
             });
-
           } else {
             this.amountValidation = true;
             this.submitModal = false;
@@ -1273,21 +937,21 @@ export default {
           }
         }
       } else {
-        if (this.form.loan_type == "Emergency Loan") {
-          if (this.emergencyForm.amount <= 30000) {
-            this.emergencyForm.post(route("emergency"), {
-              onStart: (visit) => {
-                this.isSubmiting == true;
-              },
-              onFinish: (visit) => {
-                this.isSubmiting == false;
-              },
-            });
-          } else {
-            this.amountValidation = true;
-            this.submitModal = false;
-          }
+        // if (this.form.loan_type == "Emergency Loan") {
+        if (this.emergencyForm.amount <= 30000) {
+          this.emergencyForm.post(route("emergency"), {
+            onStart: (visit) => {
+              this.isSubmiting == true;
+            },
+            onFinish: (visit) => {
+              this.isSubmiting == false;
+            },
+          });
+        } else {
+          this.amountValidation = true;
+          this.submitModal = false;
         }
+        // }
       }
 
       console.log("clicked");
