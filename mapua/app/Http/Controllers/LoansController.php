@@ -84,65 +84,62 @@ class LoansController extends Controller
         $validate_data = $request->validated();
 
         $user = User::find(auth()->id());
-        // dd(Loans::where('user_id',$user->id)->where('loan_type','Housing Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists());
-        if(Loans::where('user_id',$user->id)->where('loan_type','Housing Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists()){
-            if(Loans::where('user_id',$user->id)->where('loan_type','Educational Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists()){
+        if (Loans::where('user_id', $user->id)->where('loan_type', 'Educational Loan')->where('loan_status', 'Ongoing')->where('approval', '!=', 'Denied')->exists()) {
+            return Redirect::route('userLoanDashboard')->with(
+                'message',
+                [NotificationService::notificationItem('Success', '', 'Housing Loan connot be loaned at the same time with Educational Loan. Loan application not created.')]
+            );
+        } else {
+            if (Loans::where('user_id', $user->id)->where('loan_type', 'Housing Loan')->where('loan_status', 'Ongoing')->where('approval', '!=', 'Denied')->exists()) {
                 return Redirect::route('userLoanDashboard')->with(
                     'message',
-                    [NotificationService::notificationItem('Success', '', 'You already has a Educational Loan')]
+                    [NotificationService::notificationItem('Success', '', 'You already have an existing ' . $validate_data['loan_type'] . 'Loan application not created.')]
                 );
-            }else{
+            } else {
+                if ($request->hasFile('attachment1') || $request->hasFile('attachment2') || $request->hasFile('attachment3')) {
 
-                return Redirect::route('userLoanDashboard')->with(
-                    'message',
-                    [NotificationService::notificationItem('Success', '', 'You already has similar Loan ' . $validate_data['loan_type'])]
-                );
-            }
-            
-        }else{
-            if ($request->hasFile('attachment1') || $request->hasFile('attachment2') || $request->hasFile('attachment3')) {
+                    $file1 = $request->file('attachment1');
+                    $file2 = $request->file('attachment2');
+                    $file3 = $request->file('attachment3');
 
-                $file1 = $request->file('attachment1');
-                $file2 = $request->file('attachment2');
-                $file3 = $request->file('attachment3');
+                    $file_name1 = time() . '.' . $file1->getClientOriginalName();
+                    $file_name2 = time() . '.' . $file2->getClientOriginalName();
+                    $file_name3 = time() . '.' . $file3->getClientOriginalName();
 
-                $file_name1 = time() . '.' . $file1->getClientOriginalName();
-                $file_name2 = time() . '.' . $file2->getClientOriginalName();
-                $file_name3 = time() . '.' . $file3->getClientOriginalName();
-
-                $file1->move(public_path('uploads/loans'), $file_name1);
-                $file2->move(public_path('uploads/loans'), $file_name2);
-                $file3->move(public_path('uploads/loans'), $file_name3);
+                    $file1->move(public_path('uploads/loans'), $file_name1);
+                    $file2->move(public_path('uploads/loans'), $file_name2);
+                    $file3->move(public_path('uploads/loans'), $file_name3);
 
 
-                $user_loans = $user->loans()->create([
+                    $user_loans = $user->loans()->create([
 
-                    'loan_type' => $validate_data['loan_type'],
-                    'duration' => $validate_data['terms'],
-                    'attachment1' => '../../../uploads/loans/' . $file_name1,
-                    'attachment2' => '../../../uploads/loans/' . $file_name2,
-                    "attachment3" => '../../../uploads/loans/' . $file_name3,
-                    'loan_amount' => $validate_data['loan_amount'],
-                    'amount' => $validate_data['amount'],
-                    'interest' => $validate_data['interest'],
-                    'loan_status' => 'Ongoing',
-                    'approval' => 'Submitted',
+                        'loan_type' => $validate_data['loan_type'],
+                        'duration' => $validate_data['terms'],
+                        'attachment1' => '../../../uploads/loans/' . $file_name1,
+                        'attachment2' => '../../../uploads/loans/' . $file_name2,
+                        "attachment3" => '../../../uploads/loans/' . $file_name3,
+                        'loan_amount' => $validate_data['loan_amount'],
+                        'amount' => $validate_data['amount'],
+                        'interest' => $validate_data['interest'],
+                        'loan_status' => 'Ongoing',
+                        'approval' => 'Submitted',
 
-                ]);
+                    ]);
 
 
-                $user->userNotif()->create([
-                    'universal_id' => $user_loans->id,
-                    'onRead' => false,
-                    'value' => $user->name . ' Applying for ' . $validate_data['loan_type'],
-                    'type' => 1,
-                    'notification_type' => 1
-                ]);
+                    $user->userNotif()->create([
+                        'universal_id' => $user_loans->id,
+                        'onRead' => false,
+                        'value' => $user->name . ' Applying for ' . $validate_data['loan_type'],
+                        'type' => 1,
+                        'notification_type' => 1
+                    ]);
 
-                return Redirect::route('userLoanDashboard')->with(
-                    'message',
-                    [NotificationService::notificationItem('Success', '', 'Successfully submitted ' . $validate_data['loan_type'])]
-                );
+                    return Redirect::route('userLoanDashboard')->with(
+                        'message',
+                        [NotificationService::notificationItem('Success', '', 'Successfully submitted ' . $validate_data['loan_type'])]
+                    );
+                }
             }
         }
     }
@@ -155,7 +152,7 @@ class LoansController extends Controller
         if (Loans::where('user_id', $user->id)->where('loan_type', 'Emergency Loan')->where('loan_status', 'Ongoing')->where('approval', '!=', 'Denied')->exists()) {
             return Redirect::route('userLoanDashboard')->with(
                 'message',
-                [NotificationService::notificationItem('Success', '', 'You already have ongoing ' . $validate_data['loan_type'])]
+                [NotificationService::notificationItem('Success', '', 'You already have an existing ' . $validate_data['loan_type'] . 'Loan application not created.')]
             );
         } else {
             if ($request->hasFile('attachment1')) {
@@ -195,55 +192,54 @@ class LoansController extends Controller
         $validate_data = $request->validated();
 
         $user = User::find(auth()->id());
+        if (Loans::where('user_id', $user->id)->where('loan_type', 'Housing Loan')->where('loan_status', 'Ongoing')->where('approval', '!=', 'Denied')->exists()) {
+            return Redirect::route('userLoanDashboard')->with(
+                'message',
+                [NotificationService::notificationItem('Success', '', 'Educational Loan connot be loaned at the same time with Housing Loan. Loan application not created.')]
+            );
+        } else {
+            if (Loans::where('user_id', $user->id)->where('loan_type', 'Educational Loan')->where('loan_status', 'Ongoing')->where('approval', '!=', 'Denied')->exists()) {
 
-        if(Loans::where('user_id',$user->id)->where('loan_type','Educational Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists()){
-            if(Loans::where('user_id',$user->id)->where('loan_type','Housing Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists()){
                 return Redirect::route('userLoanDashboard')->with(
                     'message',
-                    [NotificationService::notificationItem('Success', '', 'You already has Housing Loan ')]
+                    [NotificationService::notificationItem('Success', '', 'You already have an existing ' . $validate_data['loan_type'] . 'Loan application not created.')]
                 );
-            }else{
+            } else {
+                if ($request->hasFile('attachment1') && $request->hasFile('attachment3')) {
+                    $file1 = $request->file('attachment1');
+                    $file3 = $request->file('attachment3');
 
-                return Redirect::route('userLoanDashboard')->with(
-                    'message',
-                    [NotificationService::notificationItem('Success', '', 'You already has similar Loan ' . $validate_data['loan_type'])]
-                );
-            }
-        }else{
-            if ($request->hasFile('attachment1') && $request->hasFile('attachment3')) {
-                $file1 = $request->file('attachment1');
-                $file3 = $request->file('attachment3');
+                    $file_name1 = time() . '.' . $file1->getClientOriginalName();
+                    $file_name3 = time() . '.' . $file3->getClientOriginalName();
 
-                $file_name1 = time() . '.' . $file1->getClientOriginalName();
-                $file_name3 = time() . '.' . $file3->getClientOriginalName();
+                    $file1->move(public_path('uploads/loans'), $file_name1);
+                    $file3->move(public_path('uploads/loans'), $file_name3);
 
-                $file1->move(public_path('uploads/loans'), $file_name1);
-                $file3->move(public_path('uploads/loans'), $file_name3);
+                    $user_loans = $user->loans()->create([
+                        'loan_type' => $validate_data['loan_type'],
+                        'duration' => $validate_data['terms'],
+                        'attachment1' => '../../../uploads/loans/' . $file_name1,
+                        //    'attachment2'=>'../../../uploads/loans/'.$file_name2,
+                        "attachment3" => '../../../uploads/loans/' . $file_name3,
+                        'loan_amount' => $validate_data['loan_amount'],
+                        'amount' => $validate_data['amount'],
+                        'interest' => $validate_data['interest'],
+                        'loan_status' => 'Ongoing',
+                        'approval' => 'Submitted',
 
-                $user_loans = $user->loans()->create([
-                    'loan_type' => $validate_data['loan_type'],
-                    'duration' => $validate_data['terms'],
-                    'attachment1' => '../../../uploads/loans/' . $file_name1,
-                    //    'attachment2'=>'../../../uploads/loans/'.$file_name2,
-                    "attachment3" => '../../../uploads/loans/' . $file_name3,
-                    'loan_amount' => $validate_data['loan_amount'],
-                    'amount' => $validate_data['amount'],
-                    'interest' => $validate_data['interest'],
-                    'loan_status' => 'Ongoing',
-                    'approval' => 'Submitted',
-
-                ]);
-                $user->userNotif()->create([
-                    'universal_id' => $user_loans->id,
-                    'onRead' => false,
-                    'value' => $user->name . ' Applying for ' . $validate_data['loan_type'],
-                    'type' => 1,
-                    'notification_type' => 1
-                ]);
-                return Redirect::route('userLoanDashboard')->with(
-                    'message',
-                    [NotificationService::notificationItem('Success', '', 'Successfully submitted ' . $validate_data['loan_type'])]
-                );
+                    ]);
+                    $user->userNotif()->create([
+                        'universal_id' => $user_loans->id,
+                        'onRead' => false,
+                        'value' => $user->name . ' Applying for ' . $validate_data['loan_type'],
+                        'type' => 1,
+                        'notification_type' => 1
+                    ]);
+                    return Redirect::route('userLoanDashboard')->with(
+                        'message',
+                        [NotificationService::notificationItem('Success', '', 'Successfully submitted ' . $validate_data['loan_type'])]
+                    );
+                }
             }
         }
     }
