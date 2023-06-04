@@ -86,10 +86,19 @@ class LoansController extends Controller
         $user = User::find(auth()->id());
         // dd(Loans::where('user_id',$user->id)->where('loan_type','Housing Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists());
         if(Loans::where('user_id',$user->id)->where('loan_type','Housing Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists()){
-            return Redirect::route('userLoanDashboard')->with(
-                'message',
-                [NotificationService::notificationItem('Success', '', 'You already has similar Loan ' . $validate_data['loan_type'])]
-            );
+            if(Loans::where('user_id',$user->id)->where('loan_type','Educational Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists()){
+                return Redirect::route('userLoanDashboard')->with(
+                    'message',
+                    [NotificationService::notificationItem('Success', '', 'You already has a Educational Loan')]
+                );
+            }else{
+
+                return Redirect::route('userLoanDashboard')->with(
+                    'message',
+                    [NotificationService::notificationItem('Success', '', 'You already has similar Loan ' . $validate_data['loan_type'])]
+                );
+            }
+            
         }else{
             if ($request->hasFile('attachment1') || $request->hasFile('attachment2') || $request->hasFile('attachment3')) {
 
@@ -193,10 +202,18 @@ class LoansController extends Controller
         $user = User::find(auth()->id());
 
         if(Loans::where('user_id',$user->id)->where('loan_type','Educational Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists()){
-            return Redirect::route('userLoanDashboard')->with(
-                'message',
-                [NotificationService::notificationItem('Success', '', 'You already has similar Loan ' . $validate_data['loan_type'])]
-            );
+            if(Loans::where('user_id',$user->id)->where('loan_type','Housing Loan')->where('loan_status','Ongoing')->where('approval','!=','Denied')->exists()){
+                return Redirect::route('userLoanDashboard')->with(
+                    'message',
+                    [NotificationService::notificationItem('Success', '', 'You already has Housing Loan ')]
+                );
+            }else{
+                return Redirect::route('userLoanDashboard')->with(
+                    'message',
+                    [NotificationService::notificationItem('Success', '', 'You already has similar Loan ' . $validate_data['loan_type'])]
+                );
+            }
+            
         }else{
             if ($request->hasFile('attachment1') && $request->hasFile('attachment3')) {
                 $file1 = $request->file('attachment1');
