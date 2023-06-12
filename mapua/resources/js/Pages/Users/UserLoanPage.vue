@@ -913,7 +913,7 @@ export default {
         if (this.form.loan_type == "Educational Loan") {
           if (this.form.amount <= 30000) {
             if (this.forRelative == true) {
-              this.form.post(route("createLoans"), {
+              this.form.post(route("createLoansWithRelative"), {
                 onStart: (visit) => {
                   this.isSubmiting == true;
                 },

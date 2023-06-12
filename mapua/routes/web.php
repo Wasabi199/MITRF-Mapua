@@ -80,6 +80,8 @@ Route::prefix('Users')->middleware(['auth:sanctum', 'Users'])->group(function ()
     Route::get('User/Loan', [LoansController::class, 'index'])->name('userLoan');
     Route::get('User/LoanDashboard', [LoansController::class, 'loanDashboard'])->name('userLoanDashboard');
     Route::post('Loan/createLoans', [LoansController::class, 'createLoans'])->name('createLoans');
+
+    Route::post('Loan/createLoansWithRelative', [LoansController::class, 'createLoansWithRelative'])->name('createLoansWithRelative');
     Route::get('Loan/View', [LoansController::class, 'loansView'])->name('loansView');
     Route::get('Loan/TotalContribution', [LoansController::class, 'totalContribution'])->name('totalContribution');
     Route::get('Loan/MedicalView', [LoansController::class, 'medicalReimbursment'])->name('medicalView');
