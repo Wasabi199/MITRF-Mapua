@@ -93,7 +93,7 @@ class LoansController extends Controller
             if (Loans::where('user_id', $user->id)->where('loan_type', 'Housing Loan')->where('loan_status', 'Ongoing')->where('approval', '!=', 'Denied')->exists()) {
                 return Redirect::route('userLoanDashboard')->with(
                     'message',
-                    [NotificationService::notificationItem('Success', '', 'You already have an existing ' . $validate_data['loan_type'] . 'Loan application not created.')]
+                    [NotificationService::notificationItem('Success', '', 'You already have an existing ' . $validate_data['loan_type'] . '. Loan application not created.')]
                 );
             } else {
                 if ($request->hasFile('attachment1') || $request->hasFile('attachment2') || $request->hasFile('attachment3')) {
@@ -152,13 +152,13 @@ class LoansController extends Controller
         if (Loans::where('user_id', $user->id)->where('loan_type', 'Housing Loan')->where('loan_status', 'Ongoing')->where('approval', '!=', 'Denied')->exists()) {
             return Redirect::route('userLoanDashboard')->with(
                 'message',
-                [NotificationService::notificationItem('Success', '', 'Educational Loan connot be loaned at the same time with Housing Loan. Loan application not created.')]
+                [NotificationService::notificationItem('Success', '', 'Educational Loan cannot be loaned at the same time with Housing Loan. Loan application not created.')]
             );
         } else {
             if (Loans::where('user_id', $user->id)->where('loan_type', 'Educational Loan')->where('loan_status', 'Ongoing')->where('approval', '!=', 'Denied')->exists()) {
                 return Redirect::route('userLoanDashboard')->with(
                     'message',
-                    [NotificationService::notificationItem('Success', '', 'You already have an existing ' . $validate_data['loan_type'] . 'Loan application not created.')]
+                    [NotificationService::notificationItem('Success', '', 'You already have an existing ' . $validate_data['loan_type'] . '. Loan application not created.')]
                 );
             } else {
                 if ($request->hasFile('attachment1') || $request->hasFile('attachment2') || $request->hasFile('attachment3')) {
@@ -217,7 +217,7 @@ class LoansController extends Controller
         if (Loans::where('user_id', $user->id)->where('loan_type', 'Emergency Loan')->where('loan_status', 'Ongoing')->where('approval', '!=', 'Denied')->exists()) {
             return Redirect::route('userLoanDashboard')->with(
                 'message',
-                [NotificationService::notificationItem('Success', '', 'You already have an existing ' . $validate_data['loan_type'] . 'Loan application not created.')]
+                [NotificationService::notificationItem('Success', '', 'You already have an existing ' . $validate_data['loan_type'] . '. Loan application not created.')]
             );
         } else {
             if ($request->hasFile('attachment1')) {
@@ -260,14 +260,14 @@ class LoansController extends Controller
         if (Loans::where('user_id', $user->id)->where('loan_type', 'Housing Loan')->where('loan_status', 'Ongoing')->where('approval', '!=', 'Denied')->exists()) {
             return Redirect::route('userLoanDashboard')->with(
                 'message',
-                [NotificationService::notificationItem('Success', '', 'Educational Loan connot be loaned at the same time with Housing Loan. Loan application not created.')]
+                [NotificationService::notificationItem('Success', '', 'Educational Loan cannot be loaned at the same time with Housing Loan. Loan application not created.')]
             );
         } else {
             if (Loans::where('user_id', $user->id)->where('loan_type', 'Educational Loan')->where('loan_status', 'Ongoing')->where('approval', '!=', 'Denied')->exists()) {
 
                 return Redirect::route('userLoanDashboard')->with(
                     'message',
-                    [NotificationService::notificationItem('Success', '', 'You already have an existing ' . $validate_data['loan_type'] . 'Loan application not created.')]
+                    [NotificationService::notificationItem('Success', '', 'You already have an existing ' . $validate_data['loan_type'] . '. Loan application not created.')]
                 );
             } else {
                 if ($request->hasFile('attachment1') && $request->hasFile('attachment3')) {
