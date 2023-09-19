@@ -2,15 +2,16 @@
     <AppLayout>
         <div class="flex justify-between bg-white shadow">
             <div
-                class="flex items-center max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8"
+                class="flex items-center px-4 py-2 mx-auto max-w-7xl sm:px-6 lg:px-8"
             >
-                <h2 class="font-extrabold text-xl text-gray-800 leading-tight">
+            <Link :href="route('userLoanDashboard')">
+                <h2 class="text-xl font-extrabold leading-tight text-gray-800">
                     Loans
                 </h2>
-
+            </Link>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6"
+                    class="w-6 h-6"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -23,15 +24,15 @@
                     />
                 </svg>
 
-                <h1 class="ont-extrabold text-xl text-gray-800 leading-tight">
+                <h1 class="text-xl leading-tight text-gray-800 ont-extrabold">
                     {{ users.name }}
                 </h1>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 m-8 gap-8 lg:m-10 lg:grid-cols-2">
+        <div class="grid grid-cols-1 gap-8 m-8 lg:m-10 lg:grid-cols-2">
             <div
-                class="bg-white p-4 overflow-hidden border-gray-300 shadow-xl rounded-lg"
+                class="p-4 overflow-hidden bg-white border-gray-300 rounded-lg shadow-xl"
             >
                 <form>
                     <div class="px-2 py-5 bg-white sm:p-6">
@@ -43,7 +44,7 @@
                                 >
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm sm:text-sm"
                                     :value="$props.users.name"
                                     disabled
                                 />
@@ -56,7 +57,7 @@
                                 >
                                 <input
                                     type="date"
-                                    class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm sm:text-sm"
                                     :value="$props.users.admin_reg.membership"
                                     disabled
                                 />
@@ -69,7 +70,7 @@
                                 >
                                 <input
                                     type="number"
-                                    class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm sm:text-sm"
                                     :value="
                                         new Date().getUTCFullYear() -
                                         new Date(
@@ -90,7 +91,7 @@
 
                                 <input
                                     type="number"
-                                    class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md pl-6"
+                                    class="block w-full pl-6 mt-1 border-gray-300 rounded-md shadow-sm sm:text-sm"
                                     :value="$props.loans.amount"
                                     disabled
                                 />
@@ -106,7 +107,7 @@
 
                                 <input
                                     type="number"
-                                    class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md pl-6"
+                                    class="block w-full pl-6 mt-1 border-gray-300 rounded-md shadow-sm sm:text-sm"
                                     :value="$props.loans.loan_amount"
                                     disabled
                                 />
@@ -120,7 +121,7 @@
                                 >
                                 <input
                                     type="number"
-                                    class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm sm:text-sm"
                                     :value="loan_duration"
                                     disabled
                                 />
@@ -133,20 +134,20 @@
                                 >
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm sm:text-sm"
                                     :value="$props.loans.approval"
                                     disabled
                                 />
                             </div>
                         </div>
-                        <div class="col-span-6 sm:col-span-2 mt-2">
+                        <div class="col-span-6 mt-2 sm:col-span-2">
                             <label
                                 class="block text-sm font-medium text-gray-700"
                                 >Date of Loan Application</label
                             >
                             <input
                                 type="text"
-                                class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                class="block w-full mt-1 border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 :value="new Date($props.loans.created_at)"
                                 disabled
                             />
@@ -179,7 +180,7 @@
                     </p>
                 </div>
                 <div
-                    class="bg-white shadow-xl rounded-lg content-center lg:mr-50"
+                    class="content-center bg-white rounded-lg shadow-xl lg:mr-50"
                 >
                     <img
                         :src="
@@ -208,7 +209,7 @@
                     </p>
                 </div>
                 <div
-                    class="bg-white shadow-xl rounded-lg content-center lg:mr-50"
+                    class="content-center bg-white rounded-lg shadow-xl lg:mr-50"
                 >
                     <img
                         :src="
@@ -229,7 +230,7 @@
                     </p>
                 </div>
                 <div
-                    class="bg-white shadow-xl rounded-lg content-center lg:mr-50"
+                    class="content-center bg-white rounded-lg shadow-xl lg:mr-50"
                 >
                     <img
                         :src="
@@ -244,11 +245,11 @@
 
             <div
                 v-if="loans.approval == 'For Release'"
-                class="bg-white shadow-xl rounded-lg content-center lg:mr-50"
+                class="content-center bg-white rounded-lg shadow-xl lg:mr-50"
             >
-                <div class="justify-between flex m-4">
+                <div class="flex justify-between m-4">
                     <div class="text-lg">
-                        <p class="font-bold content-center">Good news!</p>
+                        <p class="content-center font-bold">Good news!</p>
                         <p>
                             Your Personal Loan application has been processed.
                         </p>
@@ -264,16 +265,16 @@
 
             <div
                 v-if="loans.approval == 'Released'"
-                class="w-full bg-white shadow-xl rounded-lg content-center lg:mr-50 hidden md:block"
+                class="content-center hidden w-full bg-white rounded-lg shadow-xl lg:mr-50 md:block"
             >
-                <table class="min-w-full divide-y divide-gray-200 mx-auto">
+                <table class="min-w-full mx-auto divide-y divide-gray-200">
                     <thead class="inline-auto">
                         <tr
-                            class="box-content h-10 w-20 p-4 border-10 bg-red-800 text-yellow-400"
+                            class="box-content w-20 h-10 p-4 text-yellow-400 bg-red-800 border-10"
                         >
-                            <th class="text-center px-8">Loan </th>
-                            <th class="text-center px-10">Amount</th>
-                            <th class="text-center px-16">Date of Payment</th>
+                            <th class="px-8 text-center">Loan </th>
+                            <th class="px-10 text-center">Amount</th>
+                            <th class="px-16 text-center">Date of Payment</th>
                     </tr>
                </thead>
                    <tbody class="bg-white divide-y divide-gray-200">
@@ -285,7 +286,7 @@
                                 <div class="">
                                     <div>
                                         <div
-                                            class="px-8 text-center text-sm font-medium text-gray-900"
+                                            class="px-8 text-sm font-medium text-center text-gray-900"
                                         >
                                             {{ contribution.id }}
                                         </div>
@@ -296,7 +297,7 @@
                                 <div class="">
                                     <div>
                                         <div
-                                            class="px-12 text-center text-sm font-medium text-gray-900"
+                                            class="px-12 text-sm font-medium text-center text-gray-900"
                                         >
                                         &#8369
                                             {{
@@ -345,7 +346,7 @@
                 v-for="contribution in contributions.data"
                 v-bind:key="contribution.id"
             >
-                <div class="bg-white p-4 rounded-lg shadow">
+                <div class="p-4 bg-white rounded-lg shadow">
                     <div><b>Loan:</b> {{ contribution.id }}</div>
                     <div>
                         <b>Loan Amount:</b>
@@ -364,7 +365,7 @@
             />
             <div
                 v-if="loans.approval == 'Denied'"
-                class="bg-white p-4 border-gray-300 shadow-xl rounded-lg h-fit m-auto w-full text-center"
+                class="w-full p-4 m-auto text-center bg-white border-gray-300 rounded-lg shadow-xl h-fit"
             >
                 <h1>Rejected Loan Application</h1>
                 <div class="font-semibold">{{ loans.reason }}</div>
@@ -373,7 +374,7 @@
         <div class="flex justify-center">
             <div class="flex justify-between my-3">
                 <div
-                    class="flex space-x-2 mr-5 px-4 py-1 border text-md text-red-600 dark:text-red-600 dark:border-red-600 border-red-600 uppercase rounded-full dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-red-500 cursor-pointer"
+                    class="flex px-4 py-1 mr-5 space-x-2 text-red-600 uppercase border border-red-600 rounded-full cursor-pointer text-md dark:text-red-600 dark:border-red-600 dark:hover:text-gray-200 hover:text-white hover:border-none hover:bg-red-500"
                 >
                     <Link :href="route('userDashboard')">
                         <button>BACK TO HOME</button>
